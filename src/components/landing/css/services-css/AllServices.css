@@ -1,0 +1,19 @@
+.service_set_odd {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  );
+  padding: 1% 0% 1% 0%;
+}
+
+.service_set_even {
+  background-image: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  );
+  padding: 1% 0% 0% 0%;
+}

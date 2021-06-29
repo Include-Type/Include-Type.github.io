@@ -1,0 +1,25 @@
+.registration_buttons {
+  float: right;
+  width: 9%;
+  border: 3px solid #ffb750;
+  background-color: #f2ea02;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  margin-right: 3%;
+  font-family: "Times New Roman";
+  font-weight: 800;
+  font-size: 1.5vw;
+  color: #0b4870;
+  transition: 0.4s;
+}
+
+.registration_buttons:hover {
+  background-color: transparent;
+  border: 3px solid #0b4870;
+  cursor: pointer;
+  text-decoration: inherit !important;
+  color: #0b4870;
+}

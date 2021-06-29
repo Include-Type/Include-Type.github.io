@@ -1,0 +1,170 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika&display=swap");
+
+.signUp_page {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.4) 20%,
+    rgba(8, 174, 234, 0.4),
+    rgba(42, 245, 152, 0.2)
+  );
+}
+
+.signUp_container {
+  overflow: hidden;
+  height: 85%;
+}
+
+.signUp_form {
+  padding: 2% 2%;
+  border-radius: 20px;
+  background-color: #fff;
+  filter: blur(30%);
+  background-image: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.7),
+    rgba(8, 174, 234, 0.7),
+    rgba(42, 245, 152, 0.2)
+  );
+  font-family: "Balsamiq Sans", cursive;
+  width: 50%;
+}
+
+/* #form_body:hover{
+  scale: ;
+} */
+
+/* #head {
+  margin: 20px 0 25px 0;
+  padding: 6px;
+  color: Black;
+  text-align: center;
+  font-family: "Signika", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+} */
+.signUp_header {
+  font-size: 2.2vw;
+  text-align: center;
+  font-weight: bolder;
+  font-family: "Signika", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+/* .input-area,
+select {
+  width: 100%;
+  height: 2.4vw;
+  font-size: 1.2vw;
+  margin: 0.1em 0;
+  border: 1px solid rgb(182, 182, 182);
+  border-radius: 5px;
+  padding-left: 10px;
+} */
+
+.form-control {
+  width: 100%;
+  height: 2.4vw;
+  font-size: 1.2vw;
+  border-radius: 5px;
+}
+
+.form-control:focus {
+  border: 1px solid blue !important;
+}
+
+label,
+h6,
+p,
+h2 {
+  font-family: "Signika", sans-serif;
+  color: rgb(26, 26, 26);
+}
+
+.signUp_form_labels {
+  font-size: 1.2vw;
+  line-height: 2.4vw;
+  margin: 1% 0%;
+}
+
+#agree_checkbox {
+  width: 1.1vw;
+  height: 1.1vw;
+}
+
+#terms {
+  float: right;
+  margin-top: 10px;
+  color: darkblue;
+  text-decoration: underline;
+}
+
+#terms:hover {
+  cursor: pointer;
+}
+
+.login_option {
+  cursor: pointer;
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.login_option:hover {
+  color: darkblue;
+}
+
+.logged_in {
+  font-family: "Signika", sans-serif;
+}
+
+.submit_button {
+  background-image: linear-gradient(
+    -145deg,
+    rgba(183, 33, 255, 0.7),
+    rgba(8, 174, 234, 0.7),
+    rgba(42, 245, 152, 0.2)
+  );
+  width: 40%;
+  margin: 5% 0% 0% 0%;
+  padding: 1% 5%;
+  text-align: center;
+  color: black;
+  font-size: 1.3vw;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  transition-property: all;
+  border: none;
+  /* border: 2px solid darkmagenta; */
+  outline: none !important;
+  box-shadow: none !important;
+  font-family: "Signika", sans-serif;
+}
+
+.submit_button:hover {
+  background-image: linear-gradient(
+    -145deg,
+    rgba(183, 33, 255, 0.7),
+    rgba(8, 174, 234, 0.7),
+    rgba(42, 245, 152, 0.2)
+  );
+  background-size: 200% 200%;
+  animation: slidebg 3s ease infinite !important;
+  width: 80%;
+}
+
+@keyframes slidebg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

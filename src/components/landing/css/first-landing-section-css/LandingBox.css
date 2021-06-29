@@ -1,0 +1,62 @@
+.landing_box_container {
+  /* background: lightgreen; */
+  height: auto;
+}
+
+.landing_text_container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 10% 10% 10% 7%;
+}
+
+.landing_text_container::before {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  content: " ";
+  background-image: url("../../../../Resources/Landing_Box.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 40%;
+  filter: blur(30%);
+  z-index: 0;
+}
+
+.landing_text_container p{
+  position: relative;
+  z-index: 1;
+}
+
+.Line_1 {
+  font-family: "Segoe UI";
+  font-size: 1.2vw;
+  font-weight: bold;
+  color: black;
+  padding-bottom: 3%;
+}
+
+.Line_2 {
+  font-family: "Segoe UI";
+  font-size: 1.4vw;
+  font-weight: bolder;
+  color: #1a03f7;
+  padding-bottom: 3%;
+}
+
+.Line_3 {
+  font-family: "Segoe UI";
+  font-size: 1.2vw;
+  font-weight: bold;
+  color: black;
+  padding-bottom: 3.5%;
+}
+
+.Line_4 {
+  font-family: "Franklin Gothic Medium";
+  font-size: 1.5vw;
+  color: #0b4870;
+}

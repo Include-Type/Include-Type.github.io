@@ -1,0 +1,13 @@
+.navbar_link {
+  font-size: larger;
+  font-weight: bolder;
+  color: #0b4870;
+  transition: transform 0.2s;
+}
+
+.navbar_link:hover {
+  text-decoration: none !important;
+  color: #0b4870;
+  transform: scale(1.2);
+  cursor: pointer;
+}

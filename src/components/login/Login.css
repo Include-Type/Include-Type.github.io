@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika&display=swap");
+
+.login_page {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background-image: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.4) 20%,
+    rgba(8, 174, 234, 0.4),
+    rgba(42, 245, 152, 0.2)
+  );
+}
+
+.login_container {
+  overflow: hidden;
+  height: 90%;
+  /* background-color: blue; */
+}
+
+.login_form {
+  padding: 3% 2%;
+  border-radius: 20px;
+  background-color: #fff;
+  filter: blur(30%);
+  background-image: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.7),
+    rgba(8, 174, 234, 0.7),
+    rgba(42, 245, 152, 0.2)
+  );
+}
+
+.login_header {
+  font-size: 2.2vw;
+  text-align: center;
+  font-weight: bolder;
+  font-family: "Signika", sans-serif;
+  letter-spacing: 0.1em;
+}
+
+.form-label {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.form-control:focus {
+  border: 1px solid blue !important;
+}
+
+.create_account {
+  cursor: pointer;
+  color: darkblue;
+  text-decoration: underline;
+}
+
+.create_account:hover {
+  color: darkblue;
+}
+
+.submit_button {
+  background-image: linear-gradient(
+    -145deg,
+    rgba(183, 33, 255, 0.7),
+    rgba(8, 174, 234, 0.7),
+    rgba(42, 245, 152, 0.2)
+  );
+  width: 40%;
+  padding: 2% 5%;
+  text-align: center;
+  color: black;
+  font-size: 1.3vw;
+  font-weight: bold;
+  letter-spacing: 1px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.5s;
+  transition-property: all;
+  border: none;
+  /* border: 2px solid darkmagenta; */
+  outline: none !important;
+  box-shadow: none !important;
+  font-family: "Signika", sans-serif;
+}
+
+.submit_button:hover {
+  background-image: linear-gradient(
+    -145deg,
+    rgba(183, 33, 255, 0.7),
+    rgba(8, 174, 234, 0.7),
+    rgba(42, 245, 152, 0.2)
+  );
+  background-size: 200% 200%;
+  animation: slidebg 3s ease infinite !important;
+  width: 80%;
+}
+
+@keyframes slidebg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -1,0 +1,29 @@
+.banner {
+    overflow: hidden;
+    height: 10%;
+    /* background-color: green; */
+  }
+  
+  .home_button{
+    float: right;
+    width: 7%;
+    border: 3px solid #ffb750;
+    background-color: #f2ea02;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 20px;
+    margin-right: 3%;
+    font-family: "Times New Roman";
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: #0b4870;
+    transition: 0.4s;
+  }
+  
+  .home_button:hover{
+    background-color: transparent;
+    border: 3px solid #0b4870;
+    cursor: pointer;
+  }

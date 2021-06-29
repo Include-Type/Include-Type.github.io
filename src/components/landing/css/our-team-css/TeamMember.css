@@ -1,0 +1,30 @@
+.member_container {
+  width: 28%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 30px;
+  text-align: center;
+  padding: 2%;
+  margin: 2% 0%;
+  opacity: 90%;
+  transition: 1s;
+}
+
+.member_container:hover{
+  opacity: 100%;
+  transform: scale(1.1);
+}
+
+.member_picture img {
+  width: 80%;
+}
+
+.member_details {
+  /* background: palegreen; */
+  font-family: georgia;
+  font-weight: bold;
+  font-size: 1.2vw;
+}
+
+.member_name {
+  font-size: 1.8vw;
+}

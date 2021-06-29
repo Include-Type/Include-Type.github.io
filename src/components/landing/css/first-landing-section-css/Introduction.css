@@ -1,0 +1,153 @@
+#landing_page_sections {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  /* -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5); */
+  background-color: #ffb750;
+}
+
+/* First Landing Section */
+
+#first_landing_section {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+
+  background-image: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  );
+}
+
+.header {
+  overflow: hidden;
+  height: 10%;
+  /* background-color: green; */
+}
+
+.landing_body_introduction {
+  overflow: hidden;
+  height: 80%;
+  /* background-color: aqua; */
+  margin: 0% 2%;
+}
+
+.landing_body_introduction {
+  overflow: hidden;
+  height: 80%;
+  /* background-color: aqua; */
+  margin: 0% 2%;
+}
+
+.navigation_bar {
+  overflow: hidden;
+  height: 8%;
+  background: rgba(255, 255, 255, 0.4);
+  margin: 0% 4%;
+  border-radius: 30px;
+}
+
+/* xx-- First Landing Section --xx */
+
+@font-face {
+  font-family: "Salsa_reg";
+  src: local("Salsa-Regular"),
+    url(../../../../Resources/Fonts/Salsa-Regular.ttf) format("truetype");
+}
+
+#Features {
+  position: relative;
+  /* overflow: visible; */
+  height: auto;
+  width: 100%;
+  /* background-image: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  ); */
+}
+
+.section_headers {
+  font-family: "Salsa_reg";
+  font-size: 3em;
+  text-shadow: 2px 2px black;
+  margin: 0%;
+}
+
+.features_header,
+.statistics_header {
+  color: #f2ea02;
+  padding: 4% 2% 2% 6%;
+  background-image: linear-gradient(
+    to right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5)
+  );
+}
+
+.services_header {
+  color: #f2ce02;
+  padding: 4% 6% 2% 2%;
+  background-image: linear-gradient(
+    to right,
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  );
+  text-align: end;
+}
+
+.team_header {
+  color: #f2ce02;
+  padding: 4% 0% 2% 0%;
+  background-image: linear-gradient(
+    to right,
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  );
+  text-align: center;
+}
+
+#Demo_app{
+  background-image: linear-gradient(
+    to right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5)
+  );
+}
+
+.demo_app_button {
+  width: 30%;
+  border: 5px solid #ffb750;
+  background-color: #f2ea02;
+  text-align: center;
+  border-radius: 30px;
+  font-family: "Times New Roman";
+  font-weight: 800;
+  font-size: 2vw;
+  color: #0b4870;
+  transition: 0.4s;
+}
+
+.demo_app_button:hover {
+  background-color: transparent;
+  border: 5px solid #0b4870;
+  cursor: pointer;
+}

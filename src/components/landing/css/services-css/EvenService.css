@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Salsa_reg";
+  src: local("Salsa-Regular"),
+    url(../../../../Resources/Fonts/Salsa-Regular.ttf) format(truetype);
+}
+
+@font-face {
+  font-family: "Book_antiqua";
+  src: local("book-antiqua"),
+    url(../../../../Resources/Fonts/book-antiqua.ttf) format(truetype);
+}
+
+.even_service {
+  /* background: salmon; */
+  margin: 0% 2%;
+  padding: 2% 3%;
+  position: relative;
+}
+
+.even_service_left_side {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 45%;
+  height: 38vw;
+  text-align: justify;
+  padding: 10% 8% 0% 2%;
+  transform: rotate(-5deg);
+}
+
+.service_title {
+  position: relative;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  color: #0e538c;
+  font-size: 1.8vw;
+  padding: 0% 0% 8% 0%;
+}
+
+.even_service_text {
+  position: relative;
+  font-family: "Book_antiqua";
+  font-size: 1.4vw;
+  color: #360151;
+  font-weight: bold;
+  text-align: justify;
+}
+
+.even_service_right_side {
+  /* background: skyblue; */
+  width: 50%;
+}
+
+.even_service_right_side img {
+  position: relative;
+  width: 100%;
+}
