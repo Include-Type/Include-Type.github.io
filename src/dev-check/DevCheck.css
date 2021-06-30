@@ -21,7 +21,7 @@
 }
 
 .Dev-header .Input-info-red {
-    font-size: calc(3px + 2vmin);
+    font-size: calc(5px + 2vmin);
     color: rgb(163, 24, 24);
     padding-top: 15px;
 }
