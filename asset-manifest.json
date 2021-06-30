@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/static/css/main.b6694bfd.chunk.css",
-    "main.js": "/static/js/main.39c63e84.chunk.js",
-    "main.js.map": "/static/js/main.39c63e84.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.317b8e92.js",
-    "runtime-main.js.map": "/static/js/runtime-main.317b8e92.js.map",
+    "main.css": "/static/css/main.764deadf.chunk.css",
+    "main.js": "/static/js/main.0e85e912.chunk.js",
+    "main.js.map": "/static/js/main.0e85e912.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.6295f363.js",
+    "runtime-main.js.map": "/static/js/runtime-main.6295f363.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.7198b6ed.chunk.js": "/static/js/2.7198b6ed.chunk.js",
-    "static/js/2.7198b6ed.chunk.js.map": "/static/js/2.7198b6ed.chunk.js.map",
-    "static/js/3.74f09306.chunk.js": "/static/js/3.74f09306.chunk.js",
-    "static/js/3.74f09306.chunk.js.map": "/static/js/3.74f09306.chunk.js.map",
+    "static/js/2.8cc772e3.chunk.js": "/static/js/2.8cc772e3.chunk.js",
+    "static/js/2.8cc772e3.chunk.js.map": "/static/js/2.8cc772e3.chunk.js.map",
+    "static/js/3.cd5ef7d3.chunk.js": "/static/js/3.cd5ef7d3.chunk.js",
+    "static/js/3.cd5ef7d3.chunk.js.map": "/static/js/3.cd5ef7d3.chunk.js.map",
     "index.html": "/index.html",
     "service-worker.js": "/service-worker.js",
     "service-worker.js.map": "/service-worker.js.map",
     "static/css/2.4c97ca4f.chunk.css.map": "/static/css/2.4c97ca4f.chunk.css.map",
-    "static/css/main.b6694bfd.chunk.css.map": "/static/css/main.b6694bfd.chunk.css.map",
-    "static/js/2.7198b6ed.chunk.js.LICENSE.txt": "/static/js/2.7198b6ed.chunk.js.LICENSE.txt",
+    "static/css/main.764deadf.chunk.css.map": "/static/css/main.764deadf.chunk.css.map",
+    "static/js/2.8cc772e3.chunk.js.LICENSE.txt": "/static/js/2.8cc772e3.chunk.js.LICENSE.txt",
     "static/media/Blue_pinned_note.b467ddbb.svg": "/static/media/Blue_pinned_note.b467ddbb.svg",
     "static/media/Bullet_Point.40d0857d.svg": "/static/media/Bullet_Point.40d0857d.svg",
     "static/media/Facebook_icon.d7be4aaa.svg": "/static/media/Facebook_icon.d7be4aaa.svg",
@@ -44,10 +44,10 @@
     "static/media/support-team.7032e0c5.svg": "/static/media/support-team.7032e0c5.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.317b8e92.js",
+    "static/js/runtime-main.6295f363.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.7198b6ed.chunk.js",
-    "static/css/main.b6694bfd.chunk.css",
-    "static/js/main.39c63e84.chunk.js"
+    "static/js/2.8cc772e3.chunk.js",
+    "static/css/main.764deadf.chunk.css",
+    "static/js/main.0e85e912.chunk.js"
   ]
 }
