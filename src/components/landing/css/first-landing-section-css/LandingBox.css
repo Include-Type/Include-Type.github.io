@@ -17,7 +17,7 @@
   bottom: 0px;
   left: 0px;
   content: " ";
-  background-image: url("../../../../Resources/Landing_Box.svg");
+  background: url("../../../../Resources/Landing_Box.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
