@@ -1,0 +1,42 @@
+/* Variables */
+:root {
+  --bg_gradient_top_light: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  );
+  --bg_gradient_bottom_light: linear-gradient(
+    to bottom right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  );
+  --header_gradient_purple_light: linear-gradient(
+    to right,
+    rgba(183, 33, 255, 0.5),
+    rgba(8, 174, 234, 0.5)
+  );
+  --header_gradient_blue_light: linear-gradient(
+    to right,
+    rgba(8, 174, 234, 0.5),
+    rgba(42, 245, 152, 0.3)
+  );
+  --glass_light: rgba(255, 255, 255, 0.4);
+
+  --deep_sea_green_theme_color: #0b4870;
+  --turbo_theme_color: #f2ea02;
+  --texas_rose_theme_color: #ffb750;
+
+  /* --bg_gradient_top_dark:
+--bg_gradient_bottom_dark:
+--header_gradient_purple_dark:
+--header_gradient_blue_dark:
+--glass_dark: */
+}
+
+/* * {
+  overflow: hidden;
+  margin: 0%;
+  padding: 0%;
+} */
