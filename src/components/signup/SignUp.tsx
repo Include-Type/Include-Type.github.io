@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import "./SignUp.css";
 import Banner from "../login/banner/Banner";
-import { LoadingSpinnerSmall } from "../spinners/Spinners";
+import { LoadingSpinnerSmall, LoadingSpinnerMedium } from "../spinners/Spinners";
 import { User } from "../../models/User";
 import { UserDto } from "../../dtos/UserDto";
 
@@ -308,7 +308,7 @@ export default function SignUp(props: SignUpProps) {
                 value={newUser.password}
                 onInput={e => setNewUser({ ...newUser, password: e.currentTarget.value })}
               ></input>
-               <div className="signUp_message"></div>
+              <div className="signUp_message"></div>
             </div>
           </div>
 
@@ -363,7 +363,7 @@ export default function SignUp(props: SignUpProps) {
           </div>
           <div className="signUp_message">
             {signupState === "initiated" ? (
-              <LoadingSpinnerSmall />
+              <LoadingSpinnerMedium />
             ) : (
               signupState === "failed" ? (
                 <p>Invalid Credentials! ❌</p>

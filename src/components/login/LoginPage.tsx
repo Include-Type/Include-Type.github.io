@@ -3,7 +3,7 @@ import { Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { UserDto } from "../../dtos/UserDto";
 import { User } from "../../models/User";
-import { LoadingSpinnerSmall } from "../spinners/Spinners";
+import { LoadingSpinnerMedium } from "../spinners/Spinners";
 import Banner from "./banner/Banner";
 import "./Login.css";
 
@@ -98,7 +98,7 @@ export default function LoginPage(props: LoginPageProps) {
           </div>
           <div className="login_message">
             {loginState === "initiated" ? (
-              <LoadingSpinnerSmall />
+              <LoadingSpinnerMedium />
             ) : (
               loginState === "failed" ? (
                 <p>Invalid Credentials! ❌</p>

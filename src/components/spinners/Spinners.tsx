@@ -10,6 +10,15 @@ function LoadingSpinnerLarge(): ReactElement {
     );
 }
 
+function LoadingSpinnerMedium(): ReactElement {
+    return (
+        <div className="spinner-div-medium">
+            <div className="spinner-border spinner-medium" role="status">
+            </div>
+        </div>
+    );
+}
+
 function LoadingSpinnerSmall(): ReactElement {
     return (
         <div className="spinner-div-small">
@@ -21,5 +30,6 @@ function LoadingSpinnerSmall(): ReactElement {
 
 export {
     LoadingSpinnerLarge,
+    LoadingSpinnerMedium,
     LoadingSpinnerSmall
 }
