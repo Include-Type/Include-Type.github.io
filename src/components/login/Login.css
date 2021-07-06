@@ -106,3 +106,10 @@
     background-position: 0% 50%;
   }
 }
+
+.login_message p {
+  font-size: medium;
+  font-weight: bold;
+  text-align: center;
+  color: darkred;
+}
