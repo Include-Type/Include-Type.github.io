@@ -168,3 +168,21 @@ h2 {
     background-position: 0% 50%;
   }
 }
+
+.signUp_message {
+  text-align: center;
+  padding-top: 0.7rem;
+}
+
+.signUp_message p {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.valid_message {
+  color: darkgreen;
+}
+
+.invalid_message {
+  color: darkred;
+}
