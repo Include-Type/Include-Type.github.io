@@ -10,20 +10,20 @@ function App(): ReactElement {
   const [userInput, setUserInput] = useState<string>("");
 
   return (
-    <Router>
-      <div className="App">
-        {(userInput === "" || userInput !== password) ? (
-          <DevCheck
-            password={password}
-            userInput={userInput}
-            setUserInput={setUserInput}
-          />
-        ) : (
-          <LandingPage />
-        )}
-      </div>
-    </Router>
-    // <Application/>
+    // <Router>
+    <div className="App">
+      {userInput === "" || userInput !== password ? (
+        <DevCheck
+          password={password}
+          userInput={userInput}
+          setUserInput={setUserInput}
+        />
+      ) : (
+        <LandingPage />
+        // <Application />
+      )}
+    </div>
+    // </Router>
   );
 }
 
