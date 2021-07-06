@@ -19,8 +19,8 @@ function App(): ReactElement {
           setUserInput={setUserInput}
         />
       ) : (
-        // <LandingPage />
-        <Application />
+        <LandingPage />
+        // <Application />
       )}
     </div>
     // </Router>
