@@ -11,19 +11,19 @@ function App(): ReactElement {
 
   return (
     // <Router>
-    //   <div className="App">
-    //     {userInput === "" || userInput !== password ? (
-    //       <DevCheck
-    //         password={password}
-    //         userInput={userInput}
-    //         setUserInput={setUserInput}
-    //       />
-    //     ) : (
-    //       <LandingPage />
-    //     )}
-    //   </div>
+    <div className="App">
+      {userInput === "" || userInput !== password ? (
+        <DevCheck
+          password={password}
+          userInput={userInput}
+          setUserInput={setUserInput}
+        />
+      ) : (
+        // <LandingPage />
+        <Application />
+      )}
+    </div>
     // </Router>
-    <Application/>
   );
 }
 
