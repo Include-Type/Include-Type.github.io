@@ -70,7 +70,12 @@ export default function LandingPage(): ReactElement {
             <Route
               path="/SignUpPage"
               exact
-              component={SignUp}
+              component={
+                () => <SignUp
+                  setUser={setUser}
+                  setLoginComplete={setLoginComplete}
+                />
+              }
             />
           </Switch>
         </Router>
