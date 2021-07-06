@@ -1,0 +1,27 @@
+.spinner-div-large {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.spinner-large {
+    min-height: 4rem;
+    min-width: 4rem;
+    color: darkblue;
+}
+
+.spinner-div-small {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.spinner-small {
+    margin: 12px;
+    color: darkblue;
+}
