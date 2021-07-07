@@ -1,9 +1,9 @@
 .all_members{
   flex-wrap: wrap;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to top right,
     rgba(183, 33, 255, 0.5),
     rgba(8, 174, 234, 0.5),
     rgba(42, 245, 152, 0.3)
-  );
+  ); */
 }
