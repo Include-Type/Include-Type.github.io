@@ -177,9 +177,9 @@ export default function SignUp(props: SignUpProps) {
           <div className="signUp_header">Create your account</div>
           <hr className="mb-4" />
           {/* <!-- name --> */}
-          <div className="row align-items-center mb-1">
+          <div className="row align-items-center mb-3">
             <div className="col">
-              <label className="signUp_form_labels mb-3">People call me:</label>
+              <label className="signUp_form_labels">People call me:</label>
             </div>
             <div className="col">
               <input
@@ -355,9 +355,9 @@ export default function SignUp(props: SignUpProps) {
 
           <hr className="my-4" />
 
-          <div>
+          <div className="mb-3">
             <input type="checkbox" name="" id="agree_checkbox" required></input>
-            <label htmlFor="agree_checkbox" className="signUp_form_labels ml-2">
+            <label htmlFor="agree_checkbox" className="signUp_form_labels ms-2">
               I agree to the terms and conditions
             </label>
             <div id="terms" className="signUp_form_labels">
