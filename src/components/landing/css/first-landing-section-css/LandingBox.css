@@ -7,28 +7,12 @@
   position: relative;
   width: 100%;
   height: auto;
-  padding: 10% 10% 10% 7%;
-}
-
-.landing_text_container::before {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
+  padding: 4% 0% 2% 0%;
   content: " ";
-  background: url("../../../../Resources/Landing_Box.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  opacity: 40%;
+  background-color: var(--glass_light);
+  border-radius: 50px;
   filter: blur(30%);
-  z-index: 0;
-}
-
-.landing_text_container p{
-  position: relative;
-  z-index: 1;
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
 }
 
 .Line_1 {

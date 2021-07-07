@@ -1,6 +1,8 @@
 .member_container {
+  position: relative;
   width: 28%;
   background: rgba(255, 255, 255, 0.4);
+  box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.2);
   border-radius: 30px;
   text-align: center;
   padding: 2%;
@@ -9,7 +11,7 @@
   transition: 1s;
 }
 
-.member_container:hover{
+.member_container:hover {
   opacity: 100%;
   transform: scale(1.1);
 }
