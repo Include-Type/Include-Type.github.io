@@ -13,13 +13,14 @@
 }
 
 .signUp_container {
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 85%;
 }
 
 .signUp_form {
+  margin: 0% 0%;
   padding: 2% 2%;
-  border-radius: 20px;
+  border-radius: 30px;
   background-color: #fff;
   filter: blur(30%);
   background-image: linear-gradient(
@@ -86,7 +87,7 @@ h2 {
 .signUp_form_labels {
   font-size: 1.2vw;
   line-height: 2.4vw;
-  margin: 1% 0%;
+  margin: 0% 0%;
 }
 
 #agree_checkbox {
@@ -127,7 +128,7 @@ h2 {
     rgba(42, 245, 152, 0.2)
   );
   width: 40%;
-  margin: 5% 0% 0% 0%;
+  margin: 2% 0% 0% 0%;
   padding: 1% 5%;
   text-align: center;
   color: black;
