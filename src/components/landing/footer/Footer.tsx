@@ -43,13 +43,13 @@ export default function Footer() {
           </div>
         </div>
         <div className="right_footer">
-          <div className="mail_us mr-4">
+          <div className="mail_us me-4">
             <div className="footer_text1 underline_yellow mt-4 mb-2">
               Mail Us:
             </div>
             <div className="footer_mail_contacts">{mail}</div>
           </div>
-          <div className="contact_us mr-4">
+          <div className="contact_us me-4">
             <div className="footer_text1 underline_yellow mt-4 mb-2">
               Contact Us:
             </div>

@@ -30,13 +30,11 @@ export default function LandingPage(): ReactElement {
           // console.log(jsonUser);
           setUser(jsonUser);
           setLoginComplete(true);
-        }
-        else {
+        } else {
           throw new Error();
         }
-      }
-      catch (error) {
-        setUser(prevUser => ({
+      } catch (error) {
+        setUser((prevUser) => ({
           ...prevUser,
           userId: "-1"
         }));

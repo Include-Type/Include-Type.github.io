@@ -28,7 +28,7 @@
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
-  opacity: 40%;
+  opacity: 0.4;
   filter: blur(30%);
   z-index: 0;
 }

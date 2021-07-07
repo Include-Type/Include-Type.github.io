@@ -36,18 +36,16 @@ export default function LoginPage(props: LoginPageProps) {
       });
       if (response.ok) {
         // console.log("User Login Successfull");
-        props.setUser(prevUser => ({
+        props.setUser((prevUser) => ({
           ...prevUser,
           userId: ""
         }));
         props.setLoginComplete(true);
         history.push("/");
-      }
-      else {
+      } else {
         throw new Error();
       }
-    }
-    catch (error) {
+    } catch (error) {
       setLoginState("failed");
       // console.log("Invalid Credentials!");
     }
@@ -71,7 +69,7 @@ export default function LoginPage(props: LoginPageProps) {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               value={userDto.key}
-              onInput={e => setUserDto({ ...userDto, key: e.currentTarget.value })}
+              onInput={(e) => setUserDto({ ...userDto, key: e.currentTarget.value })}
             />
             <div id="emailHelp" className="form-text text-muted">
               {/* We'll never share your email with anyone else. */}
@@ -87,7 +85,7 @@ export default function LoginPage(props: LoginPageProps) {
               className="form-control"
               id="exampleInputPassword1"
               value={userDto.password}
-              onInput={e => setUserDto({ ...userDto, password: e.currentTarget.value })}
+              onInput={(e) => setUserDto({ ...userDto, password: e.currentTarget.value })}
             />
           </div>
           <div className="mb-2 pb-4 d-flex align-items-center justify-content-between font-weight-bold">
