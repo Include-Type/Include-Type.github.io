@@ -368,7 +368,7 @@ export default function SignUp(props: SignUpProps) {
             <span className="signUp_form_labels">Already have an account?</span>
             <Link
               to="/LoginPage"
-              className="login_option signUp_form_labels ml-4"
+              className="login_option signUp_form_labels ms-4"
             >
               Go to your account
             </Link>
