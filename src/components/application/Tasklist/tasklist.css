@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;
+}
+
+.tasklist_outer_container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.tasklist_container{
+    height: 90%;
+    width: 90%;
+    border-radius: 15px;
+    background-color: rgba(199, 247, 255, 0.651);
+    overflow: auto;
+    box-shadow: 3px 3px 5px rgb(133, 185, 194   );
+    
+}
+
