@@ -49,11 +49,13 @@ export default function Tasklist() {
 
     return (
         <div className="tasklist_outer_container">
-            <div className="tasklist_container">
-                {tasks.map((task: Task) => (
-                    <EachTask key={task.title} data={task}/>
-                ))}
-            </div>
+            {/* <div className="for_scroll"> */}
+                <div className="tasklist_container">
+                    {tasks.map((task: Task) => (
+                        <EachTask key={task.title} data={task}/>
+                    ))}
+                </div>
+            {/* </div> */}
         </div>
     )
 }

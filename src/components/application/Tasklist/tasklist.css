@@ -4,9 +4,32 @@
 }
 
 ::-webkit-scrollbar {
-    width: 0;  /* Remove scrollbar space */
+    width: 0;  
     background: transparent;
 }
+
+
+/* .for_scroll{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.for_scroll::-webkit-scrollbar{
+    width: 10px;
+    overflow: hidden;
+}
+
+.for_scroll::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+
+.for_scroll::-webkit-scrollbar-thumb {
+    background: rgb(114, 114, 255);
+    border-radius: 30px;
+  } */
 
 .tasklist_outer_container{
     height: 100%;

@@ -1,6 +1,6 @@
 
 .task{
-    width: 98%;
+    width: 95%;
     margin: 1% auto;
     background-color: rgb(255, 245, 255);
     border-radius: 10px;
@@ -25,6 +25,9 @@
     justify-content: space-between;
     padding: 1% 2%;
     align-items: center;
+    margin-top: 2%;
+    box-shadow: inset 0 -10px 30px rgba(255, 136, 255, 0.678),
+                0 5px 10px rgba(44, 0, 44, 0.493);
 }
 
 
@@ -32,6 +35,7 @@
     margin-right: 1%;
     color: red;
     font-weight: 500;
+    width: 16%;
 }
 
 .bar{
@@ -50,12 +54,14 @@
 
 .task_proj_name{
     margin-right: 1%;
-    flex : 1vw;
+    /* flex : 1vw; */
+    width: 11%;
 }
 .task_title{
     color: #0e538c;
     margin-right: 1%;
-    flex : 32vw;
+    flex : 50%;
+    /* width: 80%; */
     width: 100px;
     white-space: nowrap;  
     overflow: hidden;
@@ -64,11 +70,10 @@
 .show_full_task_title{
     color: #0e538c;
     margin-right: 1%;
-    flex : 32vw;
+    flex : 50%;
     width: 100px;
 }
 .task_date{
-    margin-right: -1%;
     flex : 1vw;
 }
 
@@ -78,7 +83,8 @@
     background-color: rgba(255, 245, 255, 0.3);
     justify-content: space-around;
     align-items: center;
-    padding: 0.5% 2%;
+    padding: 1% 2%;
+    text-decoration: none;
 }
 
 .striked{
@@ -109,3 +115,5 @@
     padding: 1%;
     cursor: pointer;
 }
+
+/* @media(max-width940px) */

@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { ReactElement } from 'react';
 import "./task.css";
 import { Task } from './TaskInterface';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 interface TaskProps {
     key: string,
@@ -28,11 +28,11 @@ export default function EachTask(props: TaskProps): ReactElement {
     
 
     function strike(): void{
-        if(striked === "task_data")
+        if(striked === "")
         {
-            setStriked("task_data striked");
+            setStriked("striked");
         }else{
-            setStriked("task_data");
+            setStriked("");
         }
     }
     return (
@@ -59,9 +59,6 @@ export default function EachTask(props: TaskProps): ReactElement {
             ) : (
                 <p></p>
             )}
-                    {/* <FontAwesomeIcon icon={['far','bell']}/> */}
-                    {/* <FontAwesomeIcon icon="fa-regular fa-user"/> */}
-            
         </div>
     )
 }
