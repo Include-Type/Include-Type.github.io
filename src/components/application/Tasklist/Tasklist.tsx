@@ -49,13 +49,13 @@ export default function Tasklist() {
 
     return (
         <div className="tasklist_outer_container">
-            {/* <div className="for_scroll"> */}
-                <div className="tasklist_container">
+            <div className="tasklist_container">
+                <div className="for_scroll">
                     {tasks.map((task: Task) => (
                         <EachTask key={task.title} data={task}/>
                     ))}
                 </div>
-            {/* </div> */}
+            </div>
         </div>
     )
 }

@@ -4,7 +4,6 @@
     margin: 1% auto;
     background-color: rgb(255, 245, 255);
     border-radius: 10px;
-    /* filter: blur(10px); */
     cursor: pointer;
 }
 
@@ -45,16 +44,9 @@
     margin-right: 1%;
 }
 
-/* rgba(183, 33, 255, 0.5),
-    rgba(8, 174, 234, 0.5),
-    rgba(42, 245, 152, 0.3)
-    #0e538c
-    #360151
-*/
 
 .task_proj_name{
     margin-right: 1%;
-    /* flex : 1vw; */
     width: 11%;
 }
 .task_title{
@@ -95,25 +87,11 @@
     font-weight: 500;
 }
 
-/* .extra_details{
-    display: inline-flex;
-    width: min-content;
-} */
+
 .functions{
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-start;
-}
-
-.functions .far{
-    color: black;
-    /* font-size: 2em; */
-    background-color: aqua;
-    /* height: 25px;
-    width: 25px; */
-    margin: 5px;
-    padding: 1%;
-    cursor: pointer;
 }
 
 /* @media(max-width940px) */

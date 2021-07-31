@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { ReactElement } from 'react';
 import "./task.css";
 import { Task } from './TaskInterface';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
+//Meterial UI
+import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import IconButton from '@material-ui/core/IconButton';
+
+//Meterial UI icons
+import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
+import NotificationsNoneSharpIcon from '@material-ui/icons/NotificationsNoneSharp';
+import DoneIcon from '@material-ui/icons/Done';
+
 
 interface TaskProps {
     key: string,
@@ -28,11 +36,11 @@ export default function EachTask(props: TaskProps): ReactElement {
     
 
     function strike(): void{
-        if(striked === "")
+        if(striked === "task_content")
         {
-            setStriked("striked");
+            setStriked("task_content striked");
         }else{
-            setStriked("");
+            setStriked("task_content");
         }
     }
     return (
@@ -51,14 +59,21 @@ export default function EachTask(props: TaskProps): ReactElement {
                         <div className={striked}>{props.data.details}</div>
                     </div>
                     <div className="functions">
-                        <div className="far fa-trash-alt">Delete</div>
-                        <div onClick={strike} className="far fa-check-square">Read</div>
-                        <div className="far fa-bell">Important!</div>
+                        <IconButton color="secondary">
+                            <DeleteOutlineOutlinedIcon/>
+                        </IconButton>
+                        <IconButton color="secondary" onClick={strike}>
+                            <DoneIcon/>
+                        </IconButton>
+                        <IconButton color="secondary">
+                            <NotificationsNoneSharpIcon/>
+                        </IconButton>
                     </div>
                 </div>
             ) : (
                 <p></p>
             )}
+
         </div>
     )
 }
