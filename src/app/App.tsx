@@ -2,7 +2,7 @@ import React, { ReactElement, useState } from "react";
 // import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import LandingPage from "../components/landing/LandingPage";
-// import Application from "../components/application/Application";
+import Application from "../components/application/Application";
 import DevCheck from "../dev-check/DevCheck";
 
 function App(): ReactElement {
@@ -11,18 +11,19 @@ function App(): ReactElement {
 
   return (
     // <Router>
-    <div className="App">
-      {userInput === "" || userInput !== password ? (
-        <DevCheck
-          password={password}
-          userInput={userInput}
-          setUserInput={setUserInput}
-        />
-      ) : (
-        <LandingPage />
-        // <Application />
-      )}
-    </div>
+    // <div className="App">
+    //   {userInput === "" || userInput !== password ? (
+    //     <DevCheck
+    //       password={password}
+    //       userInput={userInput}
+    //       setUserInput={setUserInput}
+    //     />
+    //   ) : (
+    //     // <LandingPage />
+
+    //   )}
+    // </div>
+    <Application />
     // </Router>
   );
 }

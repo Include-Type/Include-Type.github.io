@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap");
+
+#Personal_Profile {
+  width: 100%;
+  height: 100%;
+}
+
+.profile_form {
+  width: 95%;
+  height: 100%;
+  /* background-color: blue; */
+}
+
+.row > * {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.personal_profile_scroll_container {
+  margin-top: 1%;
+  padding: 2%;
+  width: 100%;
+  height: 85%;
+  background-color: var(--glass_light);
+  border-radius: 30px;
+}
+
+.personal_profile_container {
+  padding: 0px !important;
+  margin: 0px !important;
+  width: 100%;
+  height: 85%;
+  /* background-color: var(--glass_light); */
+  /* border-radius: 30px; */
+  overflow-y: auto;
+  /* overflow-x: hidden; */
+}
+
+.personal_profile_container::-webkit-scrollbar {
+  width: 10px;
+  overflow: hidden;
+}
+
+.personal_profile_container::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 2px grey; */
+  border-radius: 10px;
+}
+
+.personal_profile_container::-webkit-scrollbar-thumb {
+  background: rgb(114, 114, 255);
+  border-radius: 30px;
+}
+
+.profile_title {
+  font-family: "Nunito";
+  font-size: 2.2vw;
+  font-weight: 800;
+  color: var(--deep_sea_green_theme_color);
+  letter-spacing: 1px;
+  margin: 0% 0% 0% 1%;
+}
+
+.personal_profile_container .row {
+  margin-bottom: 1%;
+}
+
+.profile_form label {
+  font-weight: bold;
+}
+
+.img_col {
+  background-color: red;
+  height: fit-content;
+}
+
+.profile_image_container {
+  width: 100%;
+  height: fit-content;
+  background-color: pink;
+  display: flex;
+  /* padding: 0% 4%; */
+}
+
+.profile_image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  float: center;
+}
+
+.react-tel-input .form-control {
+  position: relative;
+  font-size: 14px;
+  letter-spacing: 0.01rem;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 0;
+  background: #ffffff;
+  border: 1px solid #cacaca;
+  border-radius: 5px;
+  line-height: auto;
+  height: auto;
+  width: 100%;
+  outline: none;
+  z-index: 0;
+}
+
+.react-tel-input .phone_dropdown_button {
+  background-color: rgba(105, 105, 255, 0.1);
+  border-radius: 5px;
+}
+
+.react-tel-input .phone_dropdown_container {
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.react-tel-input .phone_dropdown_container::-webkit-scrollbar {
+  width: 7px;
+}
+
+.react-tel-input .phone_dropdown_container::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 2px grey; */
+  border-radius: 10px;
+}
+
+.react-tel-input .phone_dropdown_container::-webkit-scrollbar-thumb {
+  background: rgb(63, 63, 255);
+  border-radius: 10px;
+}
+
+/* .password_settings_container {
+  width: 65%;
+  height: 100%;
+  background-color: var(--glass_light);
+  border-radius: 30px;
+  padding: 1% 2% 2% 2%;
+} */
+
+.profile_buttons_container {
+  width: 100%;
+  height: 10%;
+  /* background-color: var(--glass_light); */
+}
+
+.profile_buttons {
+  padding: 0.2% 5%;
+  /* border: 3px solid #ffb750;
+  background-color: #f2ea02; */
+  color: white;
+  background-color: var(--deep_sea_green_theme_color);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 3px solid var(--deep_sea_green_theme_color);
+  border-radius: 20px;
+  font-family: "Arial";
+  font-size: 1.3vw;
+  transition: 0.4s all;
+  text-decoration: none !important;
+  letter-spacing: 1px;
+}
+
+.profile_buttons:hover {
+  background-color: transparent;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: inherit !important;
+  color: var(--deep_sea_green_theme_color);
+  letter-spacing: 0px;
+}
