@@ -32,7 +32,7 @@ export default function AllMembers() {
     },
     {
       name: "Subham Karmakar",
-      role: "Back-end Developer",
+      role: "Front-end & Back-end Developer",
       email: "subhamkarmakar090@gmail.com",
       picture: my_image,
     },
