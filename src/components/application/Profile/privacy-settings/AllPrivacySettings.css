@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap");
+
+#Privacy_Settings_Container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background-color: blue; */
+}
+
+#All_Privacy_Settings {
+  position: relative;
+  width: 100%;
+  height: 88%;
+  /* background-color: greenyellow; */
+}
+
+.privacy_scroll_container {
+  position: relative;
+  width: 98%;
+  height: 98%;
+  background-color: var(--glass_light);
+  border-radius: 30px;
+  overflow: hidden;
+  padding: 1%;
+}
+
+.privacy_title {
+  position: relative;
+  height: fit-content;
+  font-family: "Nunito";
+  font-size: 2.2vw;
+  font-weight: 800;
+  color: var(--deep_sea_green_theme_color);
+  letter-spacing: 1px;
+  padding: 1%;
+  /* background-color: brown; */
+}
+
+.privacy_title hr {
+  margin: 0.5% 0%;
+}
+
+.privacy_form_container {
+  position: relative;
+  margin-bottom: 2%;
+  height: 85%;
+  /* margin: 1%; */
+  /* background-color: salmon; */
+  overflow: auto;
+}
+
+.privacy_form_container::-webkit-scrollbar {
+  width: 10px;
+  overflow: hidden;
+}
+
+.privacy_form_container::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 2px grey; */
+  border-radius: 10px;
+}
+
+.privacy_form_container::-webkit-scrollbar-thumb {
+  background: rgb(114, 114, 255);
+  border-radius: 30px;
+}
+
+.update_button_container {
+  /* background-color: blueviolet; */
+  position: relative;
+  height: 12%;
+  margin: 0% 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

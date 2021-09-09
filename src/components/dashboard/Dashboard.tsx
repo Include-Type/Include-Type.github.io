@@ -1,5 +1,6 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import { User } from "../../models/User";
+import Application from "../application/Application";
 import "./Dashboard.css";
 interface DashboardProps {
     user: User,
@@ -8,6 +9,7 @@ interface DashboardProps {
 };
 
 function Dashboard(props: DashboardProps): ReactElement {
+    const [flag, setFlag] = useState<boolean>(false);
     async function logout(): Promise<void> {
         await fetch("https://include-type.herokuapp.com/api/user/logout", {
             method: "POST",
@@ -26,11 +28,18 @@ function Dashboard(props: DashboardProps): ReactElement {
     }
 
     return (
-        <div className="login_page dashboard">
-            <h1>Welcome {props.user.firstName} {props.user.lastName}! 😃</h1>
-            <p>Username : {props.user.username}</p>
-            <p>Email    : {props.user.email}</p>
-            <button className="registration_buttons" onClick={logout}>Log Out</button>
+        <div>
+            {flag === false ? (
+                <div className="login_page dashboard">
+                    <h1>Welcome {props.user.firstName} {props.user.lastName}! 😃</h1>
+                    <p>Username : {props.user.username}</p>
+                    <p>Email    : {props.user.email}</p>
+                    <button className="registration_buttons" onClick={logout}>Log Out</button>
+                    <button className="registration_buttons" onClick={() => setFlag(true)}>Go To Application &lt;Temporary&gt;</button>
+                </div>
+            ) : (
+                <Application />
+            )}
         </div>
     );
 }

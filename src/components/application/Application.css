@@ -1,13 +1,13 @@
 #Application_page {
   height: 100vh;
   width: 100vw;
-  background-image: var(--bg_gradient_top_light);
+  /* background-image: var(--bg_gradient_top_light); */
 }
 
 #Status {
   width: 100%;
   height: 10%;
-  background-color: dodgerblue;
+  background-color: darkblue;
 }
 
 #Main_area {
@@ -21,11 +21,11 @@
   width: 20%;
   height: 100%;
   display: inline;
-  background-color: greenyellow;
+  background-color: green;
 }
 
 #Application_content_area {
-  width: 100%; /*changed it from 80% to 100% */
+  width: 80%;
   height: 100%;
   /* background-color: darkorange; */
 }

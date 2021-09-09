@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from "react";
-// import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import "./App.css";
 import LandingPage from "../components/landing/LandingPage";
 // import Application from "../components/application/Application";
@@ -10,20 +10,19 @@ function App(): ReactElement {
   const [userInput, setUserInput] = useState<string>("");
 
   return (
-    // <Router>
-    <div className="App">
-      {userInput === "" || userInput !== password ? (
-        <DevCheck
-          password={password}
-          userInput={userInput}
-          setUserInput={setUserInput}
-        />
-      ) : (
+    <Router>
+      <div className="App">
+        {userInput === "" || userInput !== password ? (
+          <DevCheck
+            password={password}
+            userInput={userInput}
+            setUserInput={setUserInput}
+          />
+        ) : (
         <LandingPage />
-        // <Application />
       )}
-    </div>
-    // </Router>
+      </div>
+    </Router>
   );
 }
 
