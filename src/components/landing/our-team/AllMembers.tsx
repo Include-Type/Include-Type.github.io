@@ -1,5 +1,5 @@
 import React from "react";
-import my_image from "../../../Resources/Images/our team images/dummy.png";
+import my_image from "../../../Resources/Images/our_team_images/dummy.png";
 import "../css/our-team-css/AllMembers.css";
 import TeamMember from "./TeamMember";
 import { Member } from "./Member";
@@ -32,7 +32,7 @@ export default function AllMembers() {
     },
     {
       name: "Subham Karmakar",
-      role: "Back-end Developer",
+      role: "Front-end & Back-end Developer",
       email: "subhamkarmakar090@gmail.com",
       picture: my_image,
     },

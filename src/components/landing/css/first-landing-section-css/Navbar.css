@@ -3,6 +3,7 @@
   font-weight: bolder;
   color: #0b4870;
   transition: transform 0.2s;
+  text-decoration: none !important;
 }
 
 .navbar_link:hover {
@@ -10,4 +11,5 @@
   color: #0b4870;
   transform: scale(1.2);
   cursor: pointer;
+  text-decoration: inherit !important;
 }

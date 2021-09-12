@@ -20,10 +20,12 @@
     font-size: 1.5vw;
     color: #0b4870;
     transition: 0.4s;
+    text-decoration: none !important;
   }
   
   .home_button:hover{
     background-color: transparent;
     border: 3px solid #0b4870;
     cursor: pointer;
+    text-decoration: inherit !important;
   }
