@@ -9,7 +9,7 @@ export default function Application() {
       <section id="Main_area">
         <section id="Application_menu_area"></section>
         <section id="Application_content_area">
-          <Tasklist />
+          {/* <Tasklist /> */}
         </section>
       </section>
     </section>
