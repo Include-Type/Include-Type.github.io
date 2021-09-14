@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./AllPrivacySettings.css";
@@ -7,18 +7,23 @@ import Privacy from "./privacy/Privacy";
 import Button from "@material-ui/core/Button";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+import SaveIcon from "@material-ui/icons/Save";
 
 import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
+import { PrivacyProfile } from "../../../../models/PrivacyProfile";
+import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
 export interface Privacies {
+  id: number,
   label: string;
   name: string;
+  value: string;
 }
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -53,57 +58,88 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function AllPrivacySettings() {
-  const privacies: Privacies[] = [
+interface AllPrivacySettingsProps {
+  privacy: PrivacyProfile,
+  setPrivacy: React.Dispatch<React.SetStateAction<PrivacyProfile>>
+}
+
+export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySettingsProps) {
+  const [privacies, setPrivacies] = useState<Privacies[]>([
     {
+      id: 0,
       label: "Name",
       name: "Name",
+      value: privacy.name,
     },
     {
+      id: 1,
       label: "Bio",
       name: "Bio",
+      value: privacy.bio,
     },
     {
+      id: 2,
       label: "Profile Picture",
       name: "Picture",
+      value: privacy.picture,
     },
     {
+      id: 3,
       label: "Email",
       name: "Email",
+      value: privacy.email,
     },
     {
+      id: 4,
       label: "Contact Number",
       name: "Contact",
+      value: privacy.contact,
     },
     {
+      id: 5,
       label: "Address",
       name: "Address",
+      value: privacy.address,
     },
     {
+      id: 6,
       label: "Educational Qualifications & Certifications",
       name: "Education",
+      value: privacy.education,
     },
     {
+      id: 7,
       label: "Professional Roles & Companies (if any)",
       name: "Profession_Company",
+      value: privacy.companies,
     },
     {
+      id: 8,
       label: "Skills",
       name: "Skills",
+      value: privacy.skills,
     },
     {
+      id: 9,
       label: "Experience",
       name: "Experience",
+      value: privacy.experience,
     },
     {
+      id: 10,
       label: "Projects & Other Works",
       name: "Projects_Works",
-    },
-  ];
+      value: privacy.projects,
+    }
+  ]);
 
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [updateInfo, setUpdateInfo] = useState<string>("");
+  const [updateResult, setUpdateResult] = useState<Color | undefined>(undefined);
+
+  const [status, setStatus] = useState<string>("stopped");
 
   const handleClick = () => {
     setOpen(true);
@@ -116,6 +152,50 @@ export default function AllPrivacySettings() {
 
     setOpen(false);
   };
+
+  async function updatePrivacies(e: React.FormEvent): Promise<void> {
+    setStatus("started");
+    e.preventDefault();
+    const updatedPrivacies: PrivacyProfile = {
+      userId: privacy.userId,
+      name: privacies[0].value,
+      bio: privacies[1].value,
+      picture: privacies[2].value,
+      email: privacies[3].value,
+      contact: privacies[4].value,
+      address: privacies[5].value,
+      education: privacies[6].value,
+      companies: privacies[7].value,
+      skills: privacies[8].value,
+      experience: privacies[9].value,
+      projects: privacies[10].value
+    };
+
+    setPrivacy(updatedPrivacies);
+    try {
+      const response = await fetch(`https://include-type.herokuapp.com/api/user/updateuserprivacyprofile/${privacy.userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(updatedPrivacies),
+      });
+      if (response.ok) {
+        setStatus("stopped");
+        setUpdateInfo("Privacy Settings Updated!");
+        setUpdateResult("success");
+        handleClick();
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      setStatus("stopped");
+      setUpdateInfo("Update Failed!");
+      setUpdateResult("error");
+      handleClick();
+    }
+  }
 
   return (
     <div id="Privacy_Settings_Container" className="">
@@ -130,8 +210,20 @@ export default function AllPrivacySettings() {
           </div>
           <Form id="PrivacyForm" className="privacy_form_container">
             {privacies.map((privacy: Privacies) => (
-              <Privacy key={privacy.name} privacy={privacy} />
+              <Privacy
+                key={privacy.name}
+                privacy={privacy}
+                privacies={privacies}
+                setPrivacies={setPrivacies}
+              />
             ))}
+            <div style={{ marginTop: 36 }}>
+              {status === "started" ? (
+                <LoadingSpinnerMedium />
+              ) : (
+                <p></p>
+              )}
+            </div>
           </Form>
         </div>
       </div>
@@ -150,23 +242,26 @@ export default function AllPrivacySettings() {
           </Button>
         </Link>
         <Button
-          onClick={handleClick}
+          onClick={(e) => updatePrivacies(e)}
           form="PrivacyForm"
           type="submit"
           variant="contained"
           className={classes.updateButton}
-          startIcon={<CloudUploadIcon />}
+          startIcon={<SaveIcon />}
         >
-          Update
+          Save
         </Button>
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
           open={open}
-          autoHideDuration={6000}
+          autoHideDuration={5000}
           onClose={handleClose}
         >
-          <Alert onClose={handleClose} severity="success">
-            Privacy Settings Updated!
+          <Alert
+            onClose={handleClose}
+            severity={updateResult}
+          >
+            {updateInfo}
           </Alert>
         </Snackbar>
       </div>

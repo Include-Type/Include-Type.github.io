@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import CloudUploadIcon from "@material-ui/icons/CloudUpload";
+// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import SaveIcon from "@material-ui/icons/Save";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
 
 import "./ProProfilePassword.css";
 
 import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
+import { ProfessionalProfile } from "../../../../models/ProfessionalProfile";
+import { User } from "../../../../models/User";
+import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -61,10 +64,23 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function ProProfilePassword() {
+interface ProProfilePasswordProps {
+  personalProfile: User,
+  setPersonalProfile: React.Dispatch<React.SetStateAction<User>>,
+  professionalProfile: ProfessionalProfile,
+  setProfessionalProfile: React.Dispatch<React.SetStateAction<ProfessionalProfile>>
+};
+
+export default function ProProfilePassword({ personalProfile, setPersonalProfile, professionalProfile, setProfessionalProfile }: ProProfilePasswordProps) {
   const classes = useStyles();
 
-  const [password_open, setPasswordOpen] = React.useState(false);
+  const [oldPassword, setOldPassword] = useState<string>("");
+  const [newPassword, setNewPassword] = useState<string>("");
+  const [password_open, setPasswordOpen] = useState<boolean>(false);
+  const [updatePasswordInfo, setUpdatePasswordInfo] = useState<string>("");
+  const [updatePasswordResult, setUpdatePasswordResult] = useState<Color | undefined>(undefined);
+
+  const [statusPasswordUpdate, setStatusPasswordUpdate] = useState<string>("stopped");
 
   const handleClickPassword = () => {
     setPasswordOpen(true);
@@ -81,22 +97,108 @@ export default function ProProfilePassword() {
     setPasswordOpen(false);
   };
 
-  const [pro_profile_open, setProProfileOpen] = React.useState(false);
+  const [pro_profile_open, setProProfileOpen] = useState<boolean>(false);
+  const [updateProProfileInfo, setUpdateProProfileInfo] = useState<string>("");
+  const [updateProProfileResult, setUpdateProProfileResult] = useState<Color | undefined>(undefined);
+
+  const [statusProUpdate, setStatusProUpdate] = useState<string>("stopped");
 
   const handleClickProProfile = () => {
     setProProfileOpen(true);
   };
 
-  const handleCloseProProfile = (
-    event?: React.SyntheticEvent,
-    reason?: string
-  ) => {
+  const handleCloseProProfile = (event?: React.SyntheticEvent, reason?: string) => {
     if (reason === "clickaway") {
       return;
     }
 
     setProProfileOpen(false);
   };
+
+  async function updateProProfile(e: React.FormEvent): Promise<void> {
+    setStatusProUpdate("started");
+    e.preventDefault();
+    try {
+      const response = await fetch(`https://include-type.herokuapp.com/api/user/updateuserprofessionalprofile/${professionalProfile.userId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(professionalProfile),
+      });
+      if (response.ok) {
+        setStatusProUpdate("stopped");
+        setUpdateProProfileInfo("Professional Profile Updated!");
+        setUpdateProProfileResult("success");
+        handleClickProProfile();
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      setStatusProUpdate("stopped");
+      setUpdateProProfileInfo("Update Failed!");
+      setUpdateProProfileResult("error");
+      handleClickProProfile();
+    }
+  }
+
+  async function updatePassword(e: React.FormEvent): Promise<void> {
+    setStatusPasswordUpdate("started");
+    e.preventDefault();
+    try {
+      const verifier = await fetch(`https://include-type.herokuapp.com/api/user/checkpassword/${personalProfile.username}-${oldPassword}`);
+      if (verifier.ok) {
+        const isValid: string = await verifier.text();
+        if (isValid.toLowerCase() === "false") {
+          setStatusPasswordUpdate("stopped");
+          setOldPassword("");
+          setNewPassword("");
+          setUpdatePasswordInfo("Old Password Doesn't Match!");
+          setUpdatePasswordResult("error");
+          handleClickPassword();
+          return;
+        }
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      setStatusPasswordUpdate("stopped");
+      setOldPassword("");
+      setNewPassword("");
+      setUpdatePasswordInfo("Update Failed!");
+      setUpdatePasswordResult("error");
+      handleClickPassword();
+      return;
+    }
+
+    personalProfile.password = newPassword;
+    setPersonalProfile(personalProfile);
+    try {
+      const response = await fetch(`https://include-type.herokuapp.com/api/user/updateuser/${personalProfile.username}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(personalProfile),
+      });
+      if (response.ok) {
+        setStatusPasswordUpdate("stopped");
+        setUpdatePasswordInfo("Password Updated!");
+        setUpdatePasswordResult("success");
+        handleClickPassword();
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      setStatusPasswordUpdate("stopped");
+      setUpdatePasswordInfo("Update Failed!");
+      setUpdatePasswordResult("error");
+      handleClickPassword();
+    }
+  }
+
   return (
     <div
       id="Professional_Profile_Password"
@@ -112,7 +214,12 @@ export default function ProProfilePassword() {
             <label htmlFor="Education" className="form-label">
               Educational Qualifications & Certifications:
             </label>
-            <textarea className="form-control" id="Education" />
+            <textarea
+              className="form-control"
+              id="Education"
+              value={professionalProfile.education}
+              onInput={(e) => setProfessionalProfile({ ...professionalProfile, education: e.currentTarget.value })}
+            />
           </div>
           <div className="col-6">
             <label
@@ -124,6 +231,8 @@ export default function ProProfilePassword() {
             <textarea
               className="form-control"
               id="Professional_Roles_Companies"
+              value={professionalProfile.companies}
+              onInput={(e) => setProfessionalProfile({ ...professionalProfile, companies: e.currentTarget.value })}
             />
           </div>
         </div>
@@ -132,7 +241,12 @@ export default function ProProfilePassword() {
             <label htmlFor="Skills" className="form-label">
               Skills:
             </label>
-            <textarea className="form-control" id="Skills" />
+            <textarea
+              className="form-control"
+              id="Skills"
+              value={professionalProfile.skills}
+              onInput={(e) => setProfessionalProfile({ ...professionalProfile, skills: e.currentTarget.value })}
+            />
           </div>
           <div className="col-6">
             <label htmlFor="Experience" className="form-label">
@@ -140,7 +254,12 @@ export default function ProProfilePassword() {
             </label>
             <div className="row g-0">
               <div className="col">
-                <select defaultValue="0" className="form-select" aria-label="Years">
+                <select
+                  defaultValue={professionalProfile.experienceYears}
+                  onChange={(e) => setProfessionalProfile({ ...professionalProfile, experienceYears: parseInt(e.target.value) })}
+                  className="form-select"
+                  aria-label="Years"
+                >
                   <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -157,7 +276,12 @@ export default function ProProfilePassword() {
               </div>
               <div className="col years_months">&ensp;Years</div>
               <div className="col">
-                <select defaultValue="0" className="form-select" aria-label="Months">
+                <select
+                  defaultValue={professionalProfile.experienceMonths}
+                  onChange={(e) => setProfessionalProfile({ ...professionalProfile, experienceMonths: parseInt(e.target.value) })}
+                  className="form-select"
+                  aria-label="Months"
+                >
                   <option value="0">0</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -181,7 +305,12 @@ export default function ProProfilePassword() {
             <label htmlFor="Projects" className="form-label">
               Projects & Other Works:
             </label>
-            <textarea className="form-control" id="Projects" />
+            <textarea
+              className="form-control"
+              id="Projects"
+              value={professionalProfile.projects}
+              onInput={(e) => setProfessionalProfile({ ...professionalProfile, projects: e.currentTarget.value })}
+            />
           </div>
           <div className="col-6 d-flex justify-content-end align-items-end">
             <Link to="/" style={{ textDecoration: "none" }}>
@@ -196,23 +325,28 @@ export default function ProProfilePassword() {
               </Button>
             </Link>
             <Button
-              onClick={handleClickProProfile}
+              onClick={(e) => updateProProfile(e)}
+              type="submit"
               variant="contained"
               color="primary"
               size="medium"
-              className={classes.saveButton}
+              className={classes.updateButton}
               startIcon={<SaveIcon />}
+              style={{ marginLeft: 20, marginRight: 20 }}
             >
               Save
             </Button>
             <Snackbar
               anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
               open={pro_profile_open}
-              autoHideDuration={6000}
+              autoHideDuration={5000}
               onClose={handleCloseProProfile}
             >
-              <Alert onClose={handleCloseProProfile} severity="success">
-                Professional Profile Data is Saved!
+              <Alert
+                onClose={handleCloseProProfile}
+                severity={updateProProfileResult}
+              >
+                {updateProProfileInfo}
               </Alert>
             </Snackbar>
             <Link to="/AllPrivacySettings" style={{ textDecoration: "none" }}>
@@ -226,6 +360,13 @@ export default function ProProfilePassword() {
                 Next
               </Button>
             </Link>
+          </div>
+          <div style={{ marginTop: 70 }}>
+            {(statusProUpdate === "started") || (statusPasswordUpdate === "started") ? (
+              <LoadingSpinnerMedium />
+            ) : (
+              <p></p>
+            )}
           </div>
         </div>
       </Form>
@@ -244,6 +385,8 @@ export default function ProProfilePassword() {
               className="form-control"
               id="oldPassword"
               required
+              value={oldPassword}
+              onInput={(e) => setOldPassword(e.currentTarget.value)}
             />
           </div>
           <div className="col-5">
@@ -255,26 +398,31 @@ export default function ProProfilePassword() {
               className="form-control"
               id="newPassword"
               required
+              value={newPassword}
+              onInput={(e) => setNewPassword(e.currentTarget.value)}
             />
           </div>
           <div className="col-2 d-flex justify-content-center align-items-end">
             <Button
-              onClick={handleClickPassword}
+              onClick={(e) => updatePassword(e)}
               type="submit"
               variant="contained"
               className={classes.updateButton}
-              startIcon={<CloudUploadIcon />}
+              startIcon={<SaveIcon />}
             >
-              Update
+              Save
             </Button>
             <Snackbar
               anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
               open={password_open}
-              autoHideDuration={6000}
+              autoHideDuration={5000}
               onClose={handleClosePassword}
             >
-              <Alert onClose={handleClosePassword} severity="success">
-                Password change initiated!
+              <Alert
+                onClose={handleClosePassword}
+                severity={updatePasswordResult}
+              >
+                {updatePasswordInfo}
               </Alert>
             </Snackbar>
           </div>

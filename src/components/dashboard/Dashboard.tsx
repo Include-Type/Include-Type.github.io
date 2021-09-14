@@ -1,10 +1,16 @@
 import React, { ReactElement, useState } from "react";
+import { PrivacyProfile } from "../../models/PrivacyProfile";
+import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
 import Application from "../application/Application";
 import "./Dashboard.css";
 interface DashboardProps {
-    user: User,
-    setUser: React.Dispatch<React.SetStateAction<User>>,
+    personalProfile: User,
+    setPersonalProfile: React.Dispatch<React.SetStateAction<User>>,
+    professionalProfile: ProfessionalProfile,
+    setProfessionalProfile: React.Dispatch<React.SetStateAction<ProfessionalProfile>>,
+    privacy: PrivacyProfile,
+    setPrivacy: React.Dispatch<React.SetStateAction<PrivacyProfile>>
     setLoginComplete: React.Dispatch<React.SetStateAction<boolean>>
 };
 
@@ -16,13 +22,21 @@ function Dashboard(props: DashboardProps): ReactElement {
             credentials: "include"
         });
         // console.log(`${props.user.firstName} logged out successfully.`);
-        props.setUser({
-            userId: "",
+        props.setPersonalProfile({
+            id: "",
             firstName: "",
             lastName: "",
+            bio: "",
             username: "",
             email: "",
-            password: ""
+            password: "",
+            address: "",
+            country: "",
+            city: "",
+            state: "",
+            pincode: "",
+            contact: "",
+            picture: ""
         });
         props.setLoginComplete(false);
     }
@@ -31,14 +45,21 @@ function Dashboard(props: DashboardProps): ReactElement {
         <div>
             {flag === false ? (
                 <div className="login_page dashboard">
-                    <h1>Welcome {props.user.firstName} {props.user.lastName}! 😃</h1>
-                    <p>Username : {props.user.username}</p>
-                    <p>Email    : {props.user.email}</p>
+                    <h1>Welcome {props.personalProfile!.firstName} {props.personalProfile!.lastName}! 😃</h1>
+                    <p>Username : {props.personalProfile!.username}</p>
+                    <p>Email    : {props.personalProfile!.email}</p>
                     <button className="registration_buttons" onClick={logout}>Log Out</button>
-                    <button className="registration_buttons" onClick={() => setFlag(true)}>Go To Application &lt;Temporary&gt;</button>
+                    <button className="registration_buttons" onClick={() => setFlag(true)}>Go To Application</button>
                 </div>
             ) : (
-                <Application />
+                <Application
+                    personalProfile={props.personalProfile}
+                    setPersonalProfile={props.setPersonalProfile}
+                    professionalProfile={props.professionalProfile}
+                    setProfessionalProfile={props.setProfessionalProfile}
+                    privacy={props.privacy}
+                    setPrivacy={props.setPrivacy}
+                />
             )}
         </div>
     );
