@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/static/css/main.55b6878a.chunk.css",
-    "main.js": "/static/js/main.a910394d.chunk.js",
-    "main.js.map": "/static/js/main.a910394d.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.ec3db192.js",
-    "runtime-main.js.map": "/static/js/runtime-main.ec3db192.js.map",
+    "main.js": "/static/js/main.390f41e2.chunk.js",
+    "main.js.map": "/static/js/main.390f41e2.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.70d82c6d.js",
+    "runtime-main.js.map": "/static/js/runtime-main.70d82c6d.js.map",
     "static/css/2.2e8c5a77.chunk.css": "/static/css/2.2e8c5a77.chunk.css",
-    "static/js/2.15196361.chunk.js": "/static/js/2.15196361.chunk.js",
-    "static/js/2.15196361.chunk.js.map": "/static/js/2.15196361.chunk.js.map",
-    "static/js/3.43408f02.chunk.js": "/static/js/3.43408f02.chunk.js",
-    "static/js/3.43408f02.chunk.js.map": "/static/js/3.43408f02.chunk.js.map",
+    "static/js/2.775fb24e.chunk.js": "/static/js/2.775fb24e.chunk.js",
+    "static/js/2.775fb24e.chunk.js.map": "/static/js/2.775fb24e.chunk.js.map",
+    "static/js/3.d9e60e6d.chunk.js": "/static/js/3.d9e60e6d.chunk.js",
+    "static/js/3.d9e60e6d.chunk.js.map": "/static/js/3.d9e60e6d.chunk.js.map",
     "index.html": "/index.html",
     "service-worker.js": "/service-worker.js",
     "service-worker.js.map": "/service-worker.js.map",
     "static/css/2.2e8c5a77.chunk.css.map": "/static/css/2.2e8c5a77.chunk.css.map",
     "static/css/main.55b6878a.chunk.css.map": "/static/css/main.55b6878a.chunk.css.map",
-    "static/js/2.15196361.chunk.js.LICENSE.txt": "/static/js/2.15196361.chunk.js.LICENSE.txt",
+    "static/js/2.775fb24e.chunk.js.LICENSE.txt": "/static/js/2.775fb24e.chunk.js.LICENSE.txt",
     "static/media/Blue_pinned_note.b467ddbb.svg": "/static/media/Blue_pinned_note.b467ddbb.svg",
     "static/media/Bullet_Point.40d0857d.svg": "/static/media/Bullet_Point.40d0857d.svg",
     "static/media/Facebook_icon.d7be4aaa.svg": "/static/media/Facebook_icon.d7be4aaa.svg",
@@ -43,10 +43,10 @@
     "static/media/support-team.7032e0c5.svg": "/static/media/support-team.7032e0c5.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ec3db192.js",
+    "static/js/runtime-main.70d82c6d.js",
     "static/css/2.2e8c5a77.chunk.css",
-    "static/js/2.15196361.chunk.js",
+    "static/js/2.775fb24e.chunk.js",
     "static/css/main.55b6878a.chunk.css",
-    "static/js/main.a910394d.chunk.js"
+    "static/js/main.390f41e2.chunk.js"
   ]
 }
