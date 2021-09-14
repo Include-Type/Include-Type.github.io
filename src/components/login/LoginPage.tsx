@@ -38,7 +38,7 @@ export default function LoginPage(props: LoginPageProps) {
         // console.log("User Login Successfull");
         props.setUser((prevUser) => ({
           ...prevUser,
-          userId: ""
+          id: ""
         }));
         props.setLoginComplete(true);
         history.push("/");

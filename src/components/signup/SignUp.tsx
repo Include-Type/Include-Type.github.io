@@ -17,12 +17,20 @@ interface SignUpProps {
 
 export default function SignUp(props: SignUpProps) {
   const [newUser, setNewUser] = useState<User>({
-    userId: "",
+    id: "",
     firstName: "",
     lastName: "",
+    bio: "",
     username: "",
     email: "",
-    password: ""
+    password: "",
+    address: "",
+    country: "",
+    city: "",
+    state: "",
+    pincode: "",
+    contact: "",
+    picture: ""
   });
   const [signupState, setSignupState] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");
@@ -74,7 +82,7 @@ export default function SignUp(props: SignUpProps) {
         // console.log("User Login Successfull");
         props.setUser((prevUser) => ({
           ...prevUser,
-          userId: ""
+          id: ""
         }));
         props.setLoginComplete(true);
         history.push("/");
@@ -299,7 +307,7 @@ export default function SignUp(props: SignUpProps) {
                 className="form-control"
                 name="PASS"
                 placeholder="enter your password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 required
                 value={newUser.password}
@@ -322,7 +330,7 @@ export default function SignUp(props: SignUpProps) {
                 className="form-control"
                 name="CONFIRM PASS"
                 placeholder="confirm your password"
-                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                // pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                 required
                 value={confirmedPassword}
