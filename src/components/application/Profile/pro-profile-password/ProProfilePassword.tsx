@@ -185,6 +185,8 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
       });
       if (response.ok) {
         setStatusPasswordUpdate("stopped");
+        setOldPassword("");
+        setNewPassword("");
         setUpdatePasswordInfo("Password Updated!");
         setUpdatePasswordResult("success");
         handleClickPassword();
@@ -193,6 +195,8 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
       }
     } catch (error) {
       setStatusPasswordUpdate("stopped");
+      setOldPassword("");
+      setNewPassword("");
       setUpdatePasswordInfo("Update Failed!");
       setUpdatePasswordResult("error");
       handleClickPassword();

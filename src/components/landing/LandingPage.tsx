@@ -64,6 +64,7 @@ export default function LandingPage(): ReactElement {
         if (response.ok) {
           // console.log("Authenticated User Received");
           const jsonUser: CompleteUserDto = await response.json();
+          jsonUser.user.password = "";
           // console.log(jsonUser);
           setUser(jsonUser.user);
           setProfessionalProfile(jsonUser.professionalProfile);
