@@ -61,8 +61,8 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: "white",
       },
     },
-  })
-);
+  }),
+  { index: 1 });
 
 interface ProProfilePasswordProps {
   personalProfile: User,
