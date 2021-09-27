@@ -217,13 +217,6 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
                 setPrivacies={setPrivacies}
               />
             ))}
-            <div style={{ marginTop: 36 }}>
-              {status === "started" ? (
-                <LoadingSpinnerMedium />
-              ) : (
-                <p></p>
-              )}
-            </div>
           </Form>
         </div>
       </div>
@@ -241,16 +234,22 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
             Back
           </Button>
         </Link>
-        <Button
-          onClick={(e) => updatePrivacies(e)}
-          form="PrivacyForm"
-          type="submit"
-          variant="contained"
-          className={classes.updateButton}
-          startIcon={<SaveIcon />}
-        >
-          Save
-        </Button>
+        {status === "started" ? (
+          <div style={{ height: 54, width: 104 }}>
+            <LoadingSpinnerMedium />
+          </div>
+        ) : (
+          <Button
+            onClick={(e) => updatePrivacies(e)}
+            form="PrivacyForm"
+            type="submit"
+            variant="contained"
+            className={classes.updateButton}
+            startIcon={<SaveIcon />}
+          >
+            Save
+          </Button>
+        )}
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
           open={open}
