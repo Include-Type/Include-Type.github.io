@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 // import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import SaveIcon from "@material-ui/icons/Save";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
@@ -19,50 +19,48 @@ function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    updateButton: {
-      margin: theme.spacing(0),
-      color: "white",
-      backgroundColor: "green",
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      "&:hover": {
-        color: "green",
-        backgroundColor: "white",
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  updateButton: {
+    margin: theme.spacing(0),
+    color: "white",
+    backgroundColor: "green",
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    "&:hover": {
+      color: "green",
+      backgroundColor: "white",
     },
-    saveButton: {
-      margin: "0% 5%",
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      backgroundColor: "darkblue",
-      "&:hover": {
-        color: "darkblue",
-        backgroundColor: "white",
-      },
+  },
+  saveButton: {
+    margin: "0% 5%",
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "darkblue",
+    "&:hover": {
+      color: "darkblue",
+      backgroundColor: "white",
     },
-    privacyButton: {
-      margin: theme.spacing(0),
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      backgroundColor: "blue",
-      "&:hover": {
-        color: "blue",
-        backgroundColor: "white",
-      },
+  },
+  privacyButton: {
+    margin: theme.spacing(0),
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "blue",
+    "&:hover": {
+      color: "blue",
+      backgroundColor: "white",
     },
-  }),
-  { index: 1 });
+  },
+}), { index: 1 });
 
 interface ProProfilePasswordProps {
   personalProfile: User,
