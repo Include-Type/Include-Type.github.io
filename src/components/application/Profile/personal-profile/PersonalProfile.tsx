@@ -57,8 +57,8 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: "white",
       },
     },
-  })
-);
+  }),
+  { index: 1 });
 
 interface PersonalProfileProps {
   personalProfile: User,
@@ -293,26 +293,25 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
               </div>
             </div>
           </div>
-          <div style={{ marginTop: -22 }}>
-            {status === "started" ? (
-              <LoadingSpinnerMedium />
-            ) : (
-              <p></p>
-            )}
-          </div>
         </div>
         <div className="profile_buttons_container d-flex align-items-center justify-content-around">
-          <Button
-            onClick={(e) => updateProfile(e)}
-            type="submit"
-            variant="contained"
-            color="primary"
-            size="medium"
-            className={classes.saveButton}
-            startIcon={<SaveIcon />}
-          >
-            Save
-          </Button>
+          {status === "started" ? (
+            <div style={{ width: 181, paddingRight: 58 }}>
+              <LoadingSpinnerMedium />
+            </div>
+          ) : (
+            <Button
+              onClick={(e) => updateProfile(e)}
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="medium"
+              className={classes.saveButton}
+              startIcon={<SaveIcon />}
+            >
+              Save
+            </Button>
+          )}
           <Snackbar
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             open={open}

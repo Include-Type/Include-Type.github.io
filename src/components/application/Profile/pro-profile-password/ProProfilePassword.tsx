@@ -61,8 +61,8 @@ const useStyles = makeStyles((theme: Theme) =>
         backgroundColor: "white",
       },
     },
-  })
-);
+  }),
+  { index: 1 });
 
 interface ProProfilePasswordProps {
   personalProfile: User,
@@ -328,18 +328,24 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
                 Back
               </Button>
             </Link>
-            <Button
-              onClick={(e) => updateProProfile(e)}
-              type="submit"
-              variant="contained"
-              color="primary"
-              size="medium"
-              className={classes.updateButton}
-              startIcon={<SaveIcon />}
-              style={{ marginLeft: 20, marginRight: 20 }}
-            >
-              Save
-            </Button>
+            {statusProUpdate === "started" ? (
+              <div style={{ height: 52, width: 154.8 }}>
+                <LoadingSpinnerMedium />
+              </div>
+            ) : (
+              <Button
+                onClick={(e) => updateProProfile(e)}
+                type="submit"
+                variant="contained"
+                color="primary"
+                size="medium"
+                className={classes.updateButton}
+                startIcon={<SaveIcon />}
+                style={{ marginLeft: 20, marginRight: 20 }}
+              >
+                Save
+              </Button>
+            )}
             <Snackbar
               anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
               open={pro_profile_open}
@@ -364,13 +370,6 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
                 Next
               </Button>
             </Link>
-          </div>
-          <div style={{ marginTop: 70 }}>
-            {(statusProUpdate === "started") || (statusPasswordUpdate === "started") ? (
-              <LoadingSpinnerMedium />
-            ) : (
-              <p></p>
-            )}
           </div>
         </div>
       </Form>
@@ -407,15 +406,21 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
             />
           </div>
           <div className="col-2 d-flex justify-content-center align-items-end">
-            <Button
-              onClick={(e) => updatePassword(e)}
-              type="submit"
-              variant="contained"
-              className={classes.updateButton}
-              startIcon={<SaveIcon />}
-            >
-              Save
-            </Button>
+            {statusPasswordUpdate === "started" ? (
+              <div style={{ height: 51 }}>
+                <LoadingSpinnerMedium />
+              </div>
+            ) : (
+              <Button
+                onClick={(e) => updatePassword(e)}
+                type="submit"
+                variant="contained"
+                className={classes.updateButton}
+                startIcon={<SaveIcon />}
+              >
+                Save
+              </Button>
+            )}
             <Snackbar
               anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
               open={password_open}
