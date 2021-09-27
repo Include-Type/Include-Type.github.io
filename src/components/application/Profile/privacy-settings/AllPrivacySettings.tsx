@@ -6,7 +6,7 @@ import Privacy from "./privacy/Privacy";
 
 import Button from "@material-ui/core/Button";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 // import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import SaveIcon from "@material-ui/icons/Save";
 
@@ -26,37 +26,35 @@ export interface Privacies {
   value: string;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    updateButton: {
-      margin: theme.spacing(0),
-      color: "white",
-      backgroundColor: "green",
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      "&:hover": {
-        color: "green",
-        backgroundColor: "white",
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  updateButton: {
+    margin: theme.spacing(0),
+    color: "white",
+    backgroundColor: "green",
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    "&:hover": {
+      color: "green",
+      backgroundColor: "white",
     },
-    privacyButton: {
-      margin: theme.spacing(0),
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      backgroundColor: "blue",
-      "&:hover": {
-        color: "blue",
-        backgroundColor: "white",
-      },
+  },
+  privacyButton: {
+    margin: theme.spacing(0),
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "blue",
+    "&:hover": {
+      color: "blue",
+      backgroundColor: "white",
     },
-  }),
-  { index: 1 });
+  },
+}), { index: 1 });
 
 interface AllPrivacySettingsProps {
   privacy: PrivacyProfile,

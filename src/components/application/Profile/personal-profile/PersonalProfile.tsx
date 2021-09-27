@@ -10,7 +10,7 @@ import {
 import "react-phone-input-2/lib/style.css";
 
 import Button from "@material-ui/core/Button";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 // import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import SaveIcon from "@material-ui/icons/Save";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
@@ -28,37 +28,35 @@ function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    saveButton: {
-      margin: theme.spacing(0),
-      marginRight: "5%",
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      backgroundColor: "green",
-      "&:hover": {
-        color: "green",
-        backgroundColor: "white",
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  saveButton: {
+    margin: theme.spacing(0),
+    marginRight: "5%",
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "green",
+    "&:hover": {
+      color: "green",
+      backgroundColor: "white",
     },
-    proPasswordButton: {
-      margin: theme.spacing(0),
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      backgroundColor: "darkblue",
-      "&:hover": {
-        color: "darkblue",
-        backgroundColor: "white",
-      },
+  },
+  proPasswordButton: {
+    margin: theme.spacing(0),
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "darkblue",
+    "&:hover": {
+      color: "darkblue",
+      backgroundColor: "white",
     },
-  }),
-  { index: 1 });
+  },
+}), { index: 1 });
 
 interface PersonalProfileProps {
   personalProfile: User,
