@@ -369,21 +369,23 @@ export default function SignUp(props: SignUpProps) {
               Go to your account
             </Link>
           </div>
-          <div className="signUp_message">
+          <div className="d-flex align-items-center justify-content-center">
             {signupState === "initiated" ? (
-              <LoadingSpinnerMedium />
+              <div style={{marginTop: 15, marginBottom: -1}}>
+                <LoadingSpinnerMedium />
+              </div>
             ) : (
-              signupState === "failed" ? (
-                <p>Invalid Credentials! ❌</p>
-              ) : (
-                <p></p>
-              )
+              <button className="submit_button" type="submit">
+                Create Account
+              </button>
             )}
           </div>
-          <div className="d-flex align-items-center justify-content-center">
-            <button className="submit_button" type="submit">
-              Create Account
-            </button>
+          <div className="signUp_message">
+            {signupState === "failed" ? (
+              <p style={{ marginTop: 5, marginBottom: -15 }}>Invalid Credentials! ❌</p>
+            ) : (
+              <p></p>
+            )}
           </div>
         </Form>
       </div>
