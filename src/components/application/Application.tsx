@@ -4,7 +4,6 @@ import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
 import "./Application.css";
 import ProfilePage from "./Profile/ProfilePage";
-// import DisplayPicture from "./Profile/personal-profile/display-picture/DisplayPicture";
 
 interface ApplicationProps {
   personalProfile: User,

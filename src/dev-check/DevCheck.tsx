@@ -18,6 +18,7 @@ function DevCheck(props: DevCheckProps): ReactElement {
                 </p>
                 <br />
                 <input
+                    autoFocus
                     type="password"
                     className="Dev-input"
                     placeholder="Password"
