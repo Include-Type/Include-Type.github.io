@@ -38,7 +38,7 @@ export default function LoginPage(props: LoginPageProps) {
         // console.log("User Login Successfull");
         props.setUser((prevUser) => ({
           ...prevUser,
-          userId: ""
+          id: ""
         }));
         props.setLoginComplete(true);
         history.push("/");
@@ -94,21 +94,23 @@ export default function LoginPage(props: LoginPageProps) {
               Create an Account
             </Link>
           </div>
-          <div className="login_message">
+          <div className="d-flex align-items-center justify-content-center">
             {loginState === "initiated" ? (
-              <LoadingSpinnerMedium />
+              <div style={{ height: 47.9 }}>
+                <LoadingSpinnerMedium />
+              </div>
             ) : (
-              loginState === "failed" ? (
-                <p>Invalid Credentials! ❌</p>
-              ) : (
-                <p></p>
-              )
+              <button type="submit" className="submit_button">
+                Login
+              </button>
             )}
           </div>
-          <div className="d-flex align-items-center justify-content-center">
-            <button type="submit" className="submit_button">
-              Login
-            </button>
+          <div className="login_message">
+            {loginState === "failed" ? (
+              <p style={{ marginTop: 18, marginBottom: -26 }}>Invalid Credentials! ❌</p>
+            ) : (
+              <p></p>
+            )}
           </div>
         </Form>
       </div>

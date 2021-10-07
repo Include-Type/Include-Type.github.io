@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme: Theme) => ({
       marginTop: theme.spacing(2),
     },
   },
-}));
+}), { index: 1 });
 
 export interface SnackbarState {
   open: boolean;

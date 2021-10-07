@@ -19,18 +19,18 @@
 }
 
 .for_scroll::-webkit-scrollbar {
-    width: 7px;
+    width: 8px;
     /* overflow: hidden; */
 }
 
 .for_scroll::-webkit-scrollbar-track {
-    border-radius: 10px;
-  }
+    border-radius: 30px;
+}
 
 .for_scroll::-webkit-scrollbar-thumb {
     background: rgb(114, 114, 255);
     border-radius: 30px;
-  }
+}
 
 .tasklist_outer_container {
     height: 100%;

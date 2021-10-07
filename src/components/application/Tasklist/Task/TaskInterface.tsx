@@ -1,5 +1,5 @@
 interface Task {
-    proj_name: string,
+    projName: string,
     title: string,
     date: string,
     details: any,

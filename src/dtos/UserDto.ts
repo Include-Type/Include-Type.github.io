@@ -1,5 +1,5 @@
 interface UserDto {
-    key: string,
+    key: string
     password: string
 };
 

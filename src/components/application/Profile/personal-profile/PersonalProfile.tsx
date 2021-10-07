@@ -10,7 +10,7 @@ import {
 import "react-phone-input-2/lib/style.css";
 
 import Button from "@material-ui/core/Button";
-import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
+import { makeStyles, Theme } from "@material-ui/core/styles";
 // import CloudUploadIcon from "@material-ui/icons/CloudUpload";
 import SaveIcon from "@material-ui/icons/Save";
 import SendRoundedIcon from "@material-ui/icons/SendRounded";
@@ -20,59 +20,57 @@ import "./PersonalProfile.css";
 import DisplayPicture from "./display-picture/DisplayPicture";
 
 import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert, { AlertProps } from "@material-ui/lab/Alert";
+import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
+import { User } from "../../../../models/User";
+import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    saveButton: {
-      margin: theme.spacing(0),
-      marginRight: "5%",
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      backgroundColor: "green",
-      "&:hover": {
-        color: "green",
-        backgroundColor: "white",
-      },
+const useStyles = makeStyles((theme: Theme) => ({
+  saveButton: {
+    margin: theme.spacing(0),
+    marginRight: "5%",
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "green",
+    "&:hover": {
+      color: "green",
+      backgroundColor: "white",
     },
-    proPasswordButton: {
-      margin: theme.spacing(0),
-      fontSize: "1vw",
-      fontWeight: "bold",
-      letterSpacing: "1px",
-      fontFamily: "Nunito",
-      transitionDuration: ".5s",
-      backgroundColor: "darkblue",
-      "&:hover": {
-        color: "darkblue",
-        backgroundColor: "white",
-      },
+  },
+  proPasswordButton: {
+    margin: theme.spacing(0),
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "darkblue",
+    "&:hover": {
+      color: "darkblue",
+      backgroundColor: "white",
     },
-  })
-);
+  },
+}), { index: 1 });
 
-export default function PersonalProfile() {
-  const [country, setCountry] = useState<string>("India");
-  const [region, setRegion] = useState<string>("West Bengal");
+interface PersonalProfileProps {
+  personalProfile: User,
+  setPersonalProfile: React.Dispatch<React.SetStateAction<User>>
+};
 
-  function selectCountry(val: string) {
-    setCountry(val);
-  }
-
-  function selectRegion(val: string) {
-    setRegion(val);
-  }
-
+export default function PersonalProfile({ personalProfile, setPersonalProfile }: PersonalProfileProps) {
   const classes = useStyles();
 
-  const [open, setOpen] = React.useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
+  const [updateInfo, setUpdateInfo] = useState<string>("");
+  const [updateResult, setUpdateResult] = useState<Color | undefined>(undefined);
+
+  const [status, setStatus] = useState<string>("stopped");
 
   const handleClick = () => {
     setOpen(true);
@@ -85,6 +83,34 @@ export default function PersonalProfile() {
 
     setOpen(false);
   };
+
+  async function updateProfile(e: React.FormEvent): Promise<void> {
+    setStatus("started");
+    e.preventDefault();
+    try {
+      const response = await fetch(`https://include-type.herokuapp.com/api/user/updateuser/${personalProfile.username}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(personalProfile),
+      });
+      if (response.ok) {
+        setStatus("stopped");
+        setUpdateInfo("Profile Updated!");
+        setUpdateResult("success");
+        handleClick();
+      } else {
+        throw new Error();
+      }
+    } catch (error) {
+      setStatus("stopped");
+      setUpdateInfo("Update Failed!");
+      setUpdateResult("error");
+      handleClick();
+    }
+  }
 
   return (
     <div
@@ -109,13 +135,22 @@ export default function PersonalProfile() {
                     className="form-control"
                     id="FirstName"
                     required
+                    value={personalProfile.firstName}
+                    onInput={(e) => setPersonalProfile({ ...personalProfile, firstName: e.currentTarget.value })}
                   />
                 </div>
                 <div className="col-6">
                   <label htmlFor="LastName" className="form-label">
                     Last Name
                   </label>
-                  <input type="text" className="form-control" id="LastName" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="LastName"
+                    required
+                    value={personalProfile.lastName}
+                    onInput={(e) => setPersonalProfile({ ...personalProfile, lastName: e.currentTarget.value })}
+                  />
                 </div>
               </div>
               <div className="row">
@@ -123,7 +158,13 @@ export default function PersonalProfile() {
                   <label htmlFor="Bio" className="form-label">
                     Bio
                   </label>
-                  <textarea className="form-control" id="Bio" rows={3} />
+                  <textarea
+                    className="form-control"
+                    id="Bio"
+                    rows={3}
+                    value={personalProfile.bio}
+                    onInput={(e) => setPersonalProfile({ ...personalProfile, bio: e.currentTarget.value })}
+                  />
                 </div>
               </div>
             </div>
@@ -143,6 +184,9 @@ export default function PersonalProfile() {
                   className="form-control"
                   id="Username"
                   required
+                  value={personalProfile.username}
+                  onInput={(e) => setPersonalProfile({ ...personalProfile, username: e.currentTarget.value })}
+                  disabled
                 />
               </div>
               <div className="col-7">
@@ -154,6 +198,9 @@ export default function PersonalProfile() {
                   className="form-control"
                   id="Email"
                   required
+                  value={personalProfile.email}
+                  onInput={(e) => setPersonalProfile({ ...personalProfile, email: e.currentTarget.value })}
+                  disabled
                 />
               </div>
             </div>
@@ -166,8 +213,10 @@ export default function PersonalProfile() {
                   type="text"
                   className="form-control"
                   id="Address"
-                  placeholder="1234 Main St"
+                  // placeholder="1234 Main St"
                   required
+                  value={personalProfile.address}
+                  onInput={(e) => setPersonalProfile({ ...personalProfile, address: e.currentTarget.value })}
                 />
               </div>
               <div className="col-4">
@@ -176,8 +225,8 @@ export default function PersonalProfile() {
                 </label>
                 <CountryDropdown
                   id="Country"
-                  value={country}
-                  onChange={(val) => selectCountry(val)}
+                  value={personalProfile.country}
+                  onChange={(val) => setPersonalProfile({ ...personalProfile, country: val })}
                   classes="form-control"
                 />
               </div>
@@ -189,12 +238,14 @@ export default function PersonalProfile() {
                   inputClass="form-control"
                   buttonClass="phone_dropdown_button"
                   dropdownClass="phone_dropdown_container"
-                  country={"in"}
+                  country={personalProfile.country}
+                  value={personalProfile.contact}
+                  onChange={(val) => setPersonalProfile({ ...personalProfile, contact: val })}
                   inputProps={{
                     id: "Contact",
                     name: "phone",
                     required: true,
-                    autoFocus: true,
+                    // autoFocus: true,
                   }}
                 />
               </div>
@@ -206,9 +257,9 @@ export default function PersonalProfile() {
                 </label>
                 <RegionDropdown
                   id="State"
-                  country={country}
-                  value={region}
-                  onChange={(val) => selectRegion(val)}
+                  country={personalProfile.country}
+                  value={personalProfile.state}
+                  onChange={(val) => setPersonalProfile({ ...personalProfile, state: val })}
                   classes="form-control"
                 />
               </div>
@@ -221,6 +272,8 @@ export default function PersonalProfile() {
                   type="text"
                   className="form-control"
                   required
+                  value={personalProfile.city}
+                  onInput={(e) => setPersonalProfile({ ...personalProfile, city: e.currentTarget.value })}
                 />
               </div>
               <div className="col-3">
@@ -232,31 +285,42 @@ export default function PersonalProfile() {
                   className="form-control"
                   id="Pincode"
                   required
+                  value={personalProfile.pincode}
+                  onInput={(e) => setPersonalProfile({ ...personalProfile, pincode: e.currentTarget.value })}
                 />
               </div>
             </div>
           </div>
         </div>
         <div className="profile_buttons_container d-flex align-items-center justify-content-around">
-          <Button
-            onClick={handleClick}
-            type="submit"
-            variant="contained"
-            color="primary"
-            size="medium"
-            className={classes.saveButton}
-            startIcon={<SaveIcon />}
-          >
-            Save
-          </Button>
+          {status === "started" ? (
+            <div style={{ width: 181, paddingRight: 58 }}>
+              <LoadingSpinnerMedium />
+            </div>
+          ) : (
+            <Button
+              onClick={(e) => updateProfile(e)}
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="medium"
+              className={classes.saveButton}
+              startIcon={<SaveIcon />}
+            >
+              Save
+            </Button>
+          )}
           <Snackbar
             anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
             open={open}
-            autoHideDuration={6000}
+            autoHideDuration={5000}
             onClose={handleClose}
           >
-            <Alert onClose={handleClose} severity="success">
-              Personal Profile Data is Saved!
+            <Alert
+              onClose={handleClose}
+              severity={updateResult}
+            >
+              {updateInfo}
             </Alert>
           </Snackbar>
           <Link to="/ProProfilePassword" style={{ textDecoration: "none" }}>
