@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.3a2c1173.chunk.css",
-    "main.js": "/static/js/main.b523814a.chunk.js",
-    "main.js.map": "/static/js/main.b523814a.chunk.js.map",
+    "main.css": "/static/css/main.33e1bdbf.chunk.css",
+    "main.js": "/static/js/main.d6f5b277.chunk.js",
+    "main.js.map": "/static/js/main.d6f5b277.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.0429e783.js",
     "runtime-main.js.map": "/static/js/runtime-main.0429e783.js.map",
     "static/css/2.e46bf91e.chunk.css": "/static/css/2.e46bf91e.chunk.css",
@@ -14,7 +14,7 @@
     "service-worker.js": "/service-worker.js",
     "service-worker.js.map": "/service-worker.js.map",
     "static/css/2.e46bf91e.chunk.css.map": "/static/css/2.e46bf91e.chunk.css.map",
-    "static/css/main.3a2c1173.chunk.css.map": "/static/css/main.3a2c1173.chunk.css.map",
+    "static/css/main.33e1bdbf.chunk.css.map": "/static/css/main.33e1bdbf.chunk.css.map",
     "static/js/2.56c2be7c.chunk.js.LICENSE.txt": "/static/js/2.56c2be7c.chunk.js.LICENSE.txt",
     "static/media/Blue_pinned_note.b467ddbb.svg": "/static/media/Blue_pinned_note.b467ddbb.svg",
     "static/media/Bullet_Point.40d0857d.svg": "/static/media/Bullet_Point.40d0857d.svg",
@@ -46,7 +46,7 @@
     "static/js/runtime-main.0429e783.js",
     "static/css/2.e46bf91e.chunk.css",
     "static/js/2.56c2be7c.chunk.js",
-    "static/css/main.3a2c1173.chunk.css",
-    "static/js/main.b523814a.chunk.js"
+    "static/css/main.33e1bdbf.chunk.css",
+    "static/js/main.d6f5b277.chunk.js"
   ]
 }
