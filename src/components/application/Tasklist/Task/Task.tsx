@@ -15,35 +15,48 @@ import DoneIcon from '@material-ui/icons/Done';
 
 interface TaskProps {
     key: string,
-    data: Task
-}
+    data: Task,
+    tasks: Task[],
+    setTasks: React.Dispatch<React.SetStateAction<Task[]>>
+};
 
 export default function EachTask(props: TaskProps): ReactElement {
 
     const [taskListShow, setTaskLiskShow] = useState<boolean>(false);
-    const [fullHeading, showFullHeading] = useState<string>("task_title");
+    const [fullHeading, setFullHeading] = useState<string>("task_title");
     const [striked, setStriked] = useState<string>("task_content");
+    const [strikedHead, setStrikedHead] = useState<string>("task_heading");
+    const [taskStatus, setTaskStatus] = useState<string>("Mark as done");
 
     function drop(): void {
         setTaskLiskShow(!taskListShow);
         if (fullHeading === "task_title") {
-            showFullHeading("show_full_task_title");
+            setFullHeading("show_full_task_title");
         } else {
-            showFullHeading("task_title");
+            setFullHeading("task_title");
         }
     }
 
     function strike(): void {
         if (striked === "task_content") {
             setStriked("task_content striked");
+            setStrikedHead("task_heading striked");
+            setTaskStatus("Mark as not done");
         } else {
             setStriked("task_content");
+            setStrikedHead("task_heading");
+            setTaskStatus("Mark as done");
         }
+    }
+
+    function deleteTask(): void {
+        let tempTasks: Task[] = props.tasks.filter(t => t.id !== props.data.id);
+        props.setTasks(tempTasks);
     }
 
     return (
         <div className="task">
-            <div className="task_heading" onClick={drop}>
+            <div className={strikedHead} onClick={drop}>
                 <div className="task_deadline">Due on: {props.data.deadline}</div>
                 <span className="bar"></span>
                 <div className="task_proj_name"><b>{props.data.projName}</b></div>
@@ -57,13 +70,13 @@ export default function EachTask(props: TaskProps): ReactElement {
                         <div className={striked}>{props.data.details}</div>
                     </div>
                     <div className="functions">
-                        <IconButton color="secondary">
+                        <IconButton color="secondary" title="Delete Task" onClick={deleteTask}>
                             <DeleteOutlineOutlinedIcon />
                         </IconButton>
-                        <IconButton color="secondary" onClick={strike}>
+                        <IconButton color="primary" title={taskStatus} onClick={strike}>
                             <DoneIcon />
                         </IconButton>
-                        <IconButton color="secondary">
+                        <IconButton color="default" title="Set priority level">
                             <NotificationsNoneSharpIcon />
                         </IconButton>
                     </div>

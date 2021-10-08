@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./Tasklist.css";
 import EachTask from "./Task/Task"
 import { Task } from "./Task/TaskInterface"
 
 export default function Tasklist() {
-    const tasks: Task[] = [
+    const [tasks, setTasks] = useState<Task[]>([
         {
+            id: "1",
             projName: "Project Name",
             title: "Task Title 1",
             date: 'July-05-2021',
@@ -13,9 +14,10 @@ export default function Tasklist() {
             deadline: 'Feb-10-2021',
             assigned: "Adam - Eve",
             read: true,
-            important: true
+            priority: "High"
         },
         {
+            id: "2",
             projName: "Project Name",
             title: "Task Title 2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas aperiam repellendus unde.",
             date: 'July-05-2021',
@@ -23,9 +25,10 @@ export default function Tasklist() {
             deadline: 'Feb-10-2021',
             assigned: "Adam - Eve",
             read: true,
-            important: true
+            priority: "Medium"
         },
         {
+            id: "3",
             projName: "Project Name",
             title: "Task Title 3",
             date: 'July-05-2021',
@@ -33,9 +36,10 @@ export default function Tasklist() {
             deadline: 'Feb-10-2021',
             assigned: "Adam - Eve",
             read: true,
-            important: true
+            priority: "Low"
         },
         {
+            id: "4",
             projName: "Project Name",
             title: "Task Title 4",
             date: 'July-05-2021',
@@ -43,9 +47,9 @@ export default function Tasklist() {
             deadline: 'Feb-10-2021',
             assigned: "Adam - Eve",
             read: true,
-            important: true
+            priority: "Medium"
         }
-    ]
+    ]);
 
     return (
         <section id="Application_page">
@@ -55,11 +59,20 @@ export default function Tasklist() {
                 <section id="Application_content_area">
                     <div className="tasklist_outer_container">
                         <div className="tasklist_container">
-                            <div className="for_scroll">
-                                {tasks.map((task: Task) => (
-                                    <EachTask key={task.title} data={task} />
-                                ))}
-                            </div>
+                            {tasks.length !== 0 ? (
+                                <div className="for_scroll">
+                                    {tasks.map((task: Task) => (
+                                        <EachTask
+                                            key={task.id}
+                                            data={task}
+                                            tasks={tasks}
+                                            setTasks={setTasks}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                <p className="empty_text">You're all caught up!<br></br>🚀</p>
+                            )}
                         </div>
                     </div>
                 </section>

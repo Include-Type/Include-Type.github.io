@@ -55,3 +55,8 @@
     box-shadow: 3px 3px 5px rgb(133, 185, 194);    
 }
 
+.empty_text {
+    font-size: 230%;
+    text-align: center;
+    line-height: 190%;
+}
