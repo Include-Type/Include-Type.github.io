@@ -13,7 +13,8 @@ import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
 import { ProfessionalProfile } from "../../../../models/ProfessionalProfile";
 import { User } from "../../../../models/User";
-import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
+// import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
+import { CircularProgress } from "@material-ui/core";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -21,6 +22,8 @@ function Alert(props: AlertProps) {
 
 const useStyles = makeStyles((theme: Theme) => ({
   updateButton: {
+    width: "7vw",
+    height: "4.5vh",
     margin: theme.spacing(0),
     color: "white",
     backgroundColor: "green",
@@ -35,6 +38,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   saveButton: {
+    width: "7vw",
+    height: "4.5vh",
     margin: "0% 5%",
     fontSize: "1vw",
     fontWeight: "bold",
@@ -48,6 +53,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   privacyButton: {
+    width: "7vw",
+    height: "4.5vh",
     margin: theme.spacing(0),
     fontSize: "1vw",
     fontWeight: "bold",
@@ -84,14 +91,10 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
     setPasswordOpen(true);
   };
 
-  const handleClosePassword = (
-    event?: React.SyntheticEvent,
-    reason?: string
-  ) => {
+  const handleClosePassword = (event?: React.SyntheticEvent, reason?: string) => {
     if (reason === "clickaway") {
       return;
     }
-
     setPasswordOpen(false);
   };
 
@@ -109,7 +112,6 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
     if (reason === "clickaway") {
       return;
     }
-
     setProProfileOpen(false);
   };
 
@@ -326,33 +328,33 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
                 Back
               </Button>
             </Link>
-            {statusProUpdate === "started" ? (
-              <div style={{ height: 52, width: 154.8 }}>
-                <LoadingSpinnerMedium />
-              </div>
-            ) : (
-              <Button
-                onClick={(e) => updateProProfile(e)}
-                type="submit"
-                variant="contained"
-                color="primary"
-                size="medium"
-                className={classes.updateButton}
-                startIcon={<SaveIcon />}
-                style={{ marginLeft: 20, marginRight: 20 }}
-              >
-                Save
-              </Button>
-            )}
+            <Button
+              disabled={statusProUpdate === "started" ? true : false}
+              onClick={(e) => updateProProfile(e)}
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="medium"
+              className={classes.updateButton}
+              startIcon={statusProUpdate === "started" ? "" : <SaveIcon />}
+              style={{ marginLeft: 20, marginRight: 20 }}
+            >
+              {statusProUpdate === "started" ? (
+                <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+              ) : (
+                "Save"
+              )}
+            </Button>
             <Snackbar
               anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
               open={pro_profile_open}
-              autoHideDuration={5000}
+              autoHideDuration={3000}
               onClose={handleCloseProProfile}
             >
               <Alert
                 onClose={handleCloseProProfile}
                 severity={updateProProfileResult}
+                style={{ fontSize: 18 }}
               >
                 {updateProProfileInfo}
               </Alert>
@@ -404,30 +406,30 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
             />
           </div>
           <div className="col-2 d-flex justify-content-center align-items-end">
-            {statusPasswordUpdate === "started" ? (
-              <div style={{ height: 51 }}>
-                <LoadingSpinnerMedium />
-              </div>
-            ) : (
-              <Button
-                onClick={(e) => updatePassword(e)}
-                type="submit"
-                variant="contained"
-                className={classes.updateButton}
-                startIcon={<SaveIcon />}
-              >
-                Save
-              </Button>
-            )}
+            <Button
+              disabled={statusPasswordUpdate === "started" ? true : false}
+              onClick={(e) => updatePassword(e)}
+              type="submit"
+              variant="contained"
+              className={classes.updateButton}
+              startIcon={statusPasswordUpdate === "started" ? "" : <SaveIcon />}
+            >
+              {statusPasswordUpdate === "started" ? (
+                <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+              ) : (
+                "Save"
+              )}
+            </Button>
             <Snackbar
               anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
               open={password_open}
-              autoHideDuration={5000}
+              autoHideDuration={3000}
               onClose={handleClosePassword}
             >
               <Alert
                 onClose={handleClosePassword}
                 severity={updatePasswordResult}
+                style={{ fontSize: 18 }}
               >
                 {updatePasswordInfo}
               </Alert>

@@ -5,10 +5,11 @@ import LoginPage from "../login/LoginPage";
 import SignUp from "../signup/SignUp";
 import { User } from "../../models/User";
 import Dashboard from "../dashboard/Dashboard";
-import { LoadingSpinnerLarge } from "../spinners/Spinners";
 import { CompleteUserDto } from "../../dtos/CompleteUserDto";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
+import { CircularProgress } from "@material-ui/core";
+import "../spinners/Spinners.css";
 
 export default function LandingPage(): ReactElement {
   const [user, setUser] = useState<User>({
@@ -119,7 +120,9 @@ export default function LandingPage(): ReactElement {
         </Router>
       ) : (
         user.id === "" ? (
-          <LoadingSpinnerLarge />
+          <div className="login_page spinner-div-large">
+            <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
+          </div>
         ) : (
           <Dashboard
             personalProfile={user}

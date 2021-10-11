@@ -22,7 +22,8 @@ import DisplayPicture from "./display-picture/DisplayPicture";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
 import { User } from "../../../../models/User";
-import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
+// import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
+import { CircularProgress } from "@material-ui/core";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -30,6 +31,8 @@ function Alert(props: AlertProps) {
 
 const useStyles = makeStyles((theme: Theme) => ({
   saveButton: {
+    width: "7vw",
+    height: "4.5vh",
     margin: theme.spacing(0),
     marginRight: "5%",
     fontSize: "1vw",
@@ -44,6 +47,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   proPasswordButton: {
+    width: "7vw",
+    height: "4.5vh",
     margin: theme.spacing(0),
     fontSize: "1vw",
     fontWeight: "bold",
@@ -293,47 +298,51 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
           </div>
         </div>
         <div className="profile_buttons_container d-flex align-items-center justify-content-around">
-          {status === "started" ? (
-            <div style={{ width: 181, paddingRight: 58 }}>
-              <LoadingSpinnerMedium />
-            </div>
-          ) : (
+          <div className="button_area">
             <Button
+              disabled={status === "started" ? true : false}
               onClick={(e) => updateProfile(e)}
               type="submit"
               variant="contained"
               color="primary"
               size="medium"
               className={classes.saveButton}
-              startIcon={<SaveIcon />}
+              startIcon={status === "started" ? "" : <SaveIcon />}
             >
-              Save
+              {status === "started" ? (
+                <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+              ) : (
+                "Save"
+              )}
             </Button>
-          )}
-          <Snackbar
-            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-            open={open}
-            autoHideDuration={5000}
-            onClose={handleClose}
-          >
-            <Alert
+            <Snackbar
+              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+              open={open}
+              autoHideDuration={3000}
               onClose={handleClose}
-              severity={updateResult}
             >
-              {updateInfo}
-            </Alert>
-          </Snackbar>
-          <Link to="/ProProfilePassword" style={{ textDecoration: "none" }}>
-            <Button
-              variant="contained"
-              color="primary"
-              size="medium"
-              className={classes.proPasswordButton}
-              endIcon={<SendRoundedIcon />}
-            >
-              Next
-            </Button>
-          </Link>
+              <Alert
+                onClose={handleClose}
+                severity={updateResult}
+                style={{ fontSize: 18 }}
+              >
+                {updateInfo}
+              </Alert>
+            </Snackbar>
+          </div>
+          <div className="button_area">
+            <Link to="/ProProfilePassword" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="medium"
+                className={classes.proPasswordButton}
+                endIcon={<SendRoundedIcon />}
+              >
+                Next
+              </Button>
+            </Link>
+          </div>
         </div>
       </Form>
     </div>

@@ -73,3 +73,14 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.button_area {
+  width: 20%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.spinner_area {
+  margin-left: 29%;
+  margin-right: 29%;
+}

@@ -1,4 +1,4 @@
-type Priority = "High" | "Medium" | "Low";
+type TaskPriority = "High" | "Medium" | "Low";
 
 interface Task {
     id: string,
@@ -7,9 +7,9 @@ interface Task {
     date: string,
     details: any,
     deadline: string,
-    assigned:string,
-    read: Boolean,
-    priority: Priority
+    assigned: string,
+    completed: Boolean,
+    priority: TaskPriority
 };
 
-export type { Task }
+export type { Task, TaskPriority }

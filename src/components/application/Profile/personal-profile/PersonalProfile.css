@@ -169,3 +169,14 @@
   color: var(--deep_sea_green_theme_color);
   letter-spacing: 0px;
 }
+
+.button_area {
+  width: 20%;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.spinner_area {
+  margin-left: 29%;
+  margin-right: 29%;
+}

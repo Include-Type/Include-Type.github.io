@@ -3,9 +3,9 @@ import { Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { UserDto } from "../../dtos/UserDto";
 import { User } from "../../models/User";
-import { LoadingSpinnerMedium } from "../spinners/Spinners";
 import Banner from "./banner/Banner";
 import "./Login.css";
+import { CircularProgress } from "@material-ui/core";
 
 interface LoginPageProps {
   setUser: React.Dispatch<React.SetStateAction<User>>,
@@ -95,15 +95,18 @@ export default function LoginPage(props: LoginPageProps) {
             </Link>
           </div>
           <div className="d-flex align-items-center justify-content-center">
-            {loginState === "initiated" ? (
-              <div style={{ height: 47.9 }}>
-                <LoadingSpinnerMedium />
-              </div>
-            ) : (
-              <button type="submit" className="submit_button">
-                Login
-              </button>
-            )}
+            <button
+              disabled={loginState === "initiated" ? true : false}
+              type="submit"
+              className="submit_button"
+              style={{ height: "4.2vh", width: "6vw" }}
+            >
+              {loginState === "initiated" ? (
+                <CircularProgress size={21} style={{ color: "black", marginTop: "8px" }} />
+              ) : (
+                "Login"
+              )}
+            </button>
           </div>
           <div className="login_message">
             {loginState === "failed" ? (
