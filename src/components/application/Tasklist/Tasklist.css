@@ -36,12 +36,13 @@
     height: 100%;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     background-image: var(--bg_gradient_top_light);
 }
 .tasklist_container {
-    height: 93%;
+    height: 86%;
     width: 95%;
     max-width: 2100px;
     max-height: 814px;
@@ -50,6 +51,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 2.2%;
     /* background-color: var(--glass_light); */
     overflow: hidden;
     box-shadow: 3px 3px 5px rgb(133, 185, 194);    
@@ -59,4 +61,12 @@
     font-size: 230%;
     text-align: center;
     line-height: 190%;
+}
+
+.sync_container {
+    height: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }

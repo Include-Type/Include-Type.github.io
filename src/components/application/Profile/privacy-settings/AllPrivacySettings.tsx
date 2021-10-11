@@ -13,7 +13,8 @@ import SaveIcon from "@material-ui/icons/Save";
 import Snackbar from "@material-ui/core/Snackbar";
 import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
 import { PrivacyProfile } from "../../../../models/PrivacyProfile";
-import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
+// import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
+import { CircularProgress } from "@material-ui/core";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -28,6 +29,8 @@ export interface Privacies {
 
 const useStyles = makeStyles((theme: Theme) => ({
   updateButton: {
+    width: "7vw",
+    height: "4.5vh",
     margin: theme.spacing(0),
     color: "white",
     backgroundColor: "green",
@@ -42,6 +45,8 @@ const useStyles = makeStyles((theme: Theme) => ({
     },
   },
   privacyButton: {
+    width: "7vw",
+    height: "4.5vh",
     margin: theme.spacing(0),
     fontSize: "1vw",
     fontWeight: "bold",
@@ -219,48 +224,52 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
         </div>
       </div>
       <div className="update_button_container">
-        <Link to="/ProProfilePassword" style={{ textDecoration: "none" }}>
+        <div className="button_area">
+          <Link to="/ProProfilePassword" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="medium"
+              className={classes.privacyButton}
+              startIcon={
+                <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
+              }
+            >
+              Back
+            </Button>
+          </Link>
+        </div>
+        <div className="button_area">
           <Button
-            variant="contained"
-            color="primary"
-            size="medium"
-            className={classes.privacyButton}
-            startIcon={
-              <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
-            }
-          >
-            Back
-          </Button>
-        </Link>
-        {status === "started" ? (
-          <div style={{ height: 54, width: 104 }}>
-            <LoadingSpinnerMedium />
-          </div>
-        ) : (
-          <Button
+            disabled={status === "started" ? true : false}
             onClick={(e) => updatePrivacies(e)}
             form="PrivacyForm"
             type="submit"
             variant="contained"
             className={classes.updateButton}
-            startIcon={<SaveIcon />}
+            startIcon={status === "started" ? "" : <SaveIcon />}
           >
-            Save
+            {status === "started" ? (
+              <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+            ) : (
+              "Save"
+            )}
           </Button>
-        )}
-        <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-          open={open}
-          autoHideDuration={5000}
-          onClose={handleClose}
-        >
-          <Alert
+          <Snackbar
+            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            open={open}
+            autoHideDuration={3000}
             onClose={handleClose}
-            severity={updateResult}
           >
-            {updateInfo}
-          </Alert>
-        </Snackbar>
+            <Alert
+              onClose={handleClose}
+              severity={updateResult}
+              style={{ fontSize: 18 }}
+            >
+              {updateInfo}
+            </Alert>
+          </Snackbar>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-
 .task {
     width: 95%;
     margin: 1% auto;
@@ -18,17 +17,31 @@
 .task_heading {
     height: 20%;
     width: 100%;
-    background-color: rgba(255, 194, 255, 0.678);
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     padding: 1% 2%;
     align-items: center;
     margin-top: 2%;
-    box-shadow: inset 0 -10px 30px rgba(255, 136, 255, 0.678),
+}
+
+.high_priority_head {
+    background-color: rgba(255, 168, 146, 0.685);
+    box-shadow: inset 0 -10px 30px rgba(255, 151, 109, 0.699),
                 0 5px 10px rgba(44, 0, 44, 0.493);
 }
 
+.medium_priority_head {
+    background-color: rgba(243, 231, 125, 0.678);
+    box-shadow: inset 0 -10px 30px rgba(245, 213, 32, 0.678),
+                0 5px 10px rgba(44, 0, 44, 0.493);
+}
+
+.low_priority_head {
+    background-color: rgba(255, 194, 255, 0.678);
+    box-shadow: inset 0 -10px 30px rgba(255, 136, 255, 0.678),
+                0 5px 10px rgba(44, 0, 44, 0.493);
+}
 
 .task_deadline {
     margin-right: 0.8%;
@@ -79,11 +92,22 @@
 .task_content {
     width: 100%;
     border-radius: 0 0 10px 10px;
-    background-color: rgba(255, 245, 255, 0.3);
     justify-content: space-around;
     align-items: center;
     padding: 1% 2%;
     text-decoration: none;
+}
+
+.high_priority_content {
+    background-color: rgba(255, 148, 106, 0.3);
+}
+
+.medium_priority_content {
+    background-color: rgba(255, 253, 112, 0.3);
+}
+
+.low_priority_content {
+    background-color: rgba(255, 149, 255, 0.3);
 }
 
 .striked {

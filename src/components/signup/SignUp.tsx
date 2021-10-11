@@ -3,12 +3,16 @@ import { Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import "./SignUp.css";
 import Banner from "../login/banner/Banner";
-import {
-  LoadingSpinnerSmall,
-  LoadingSpinnerMedium,
-} from "../spinners/Spinners";
 import { User } from "../../models/User";
 import { UserDto } from "../../dtos/UserDto";
+import { CircularProgress, Tooltip } from "@material-ui/core";
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import CreateIcon from '@material-ui/icons/Create';
+import EmailIcon from '@material-ui/icons/Email';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import LockIcon from '@material-ui/icons/Lock';
+import CheckCircleIcon from '@material-ui/icons/CheckCircle';
+import CancelIcon from '@material-ui/icons/Cancel';
 
 interface SignUpProps {
   setUser: React.Dispatch<React.SetStateAction<User>>,
@@ -169,9 +173,11 @@ export default function SignUp(props: SignUpProps) {
           <div className="signUp_header">Create your account</div>
           <hr className="mb-4" />
           {/* <!-- name --> */}
-          <div className="row align-items-center mb-3">
-            <div className="col">
-              <label className="signUp_form_labels">People call me:</label>
+          <div className="row align-items-center mb-2">
+            <div className="col-4">
+              <label className="signUp_form_labels">
+                People call me:
+              </label>
             </div>
             <div className="col">
               <input
@@ -203,16 +209,25 @@ export default function SignUp(props: SignUpProps) {
                 Last Name
               </label> */}
             </div>
+            <div className="col-1">
+              <Tooltip
+                title={<text style={{ fontSize: "0.9vw" }}>Your Full Name</text>}
+                arrow
+                placement="right"
+              >
+                <AssignmentIndIcon style={{ color: "rgb(9, 77, 145)", fontSize: "150%" }} />
+              </Tooltip>
+            </div>
           </div>
 
           {/* <!-- username --> */}
-          <div className="row align-items-center mb-1">
+          <div className="row align-items-center mb-2">
             <div className="col-4">
               <label htmlFor="username" className="signUp_form_labels">
                 My username will be:
               </label>
             </div>
-            <div className="col-8">
+            <div className="col-7">
               <input
                 id="username"
                 className="form-control"
@@ -223,26 +238,36 @@ export default function SignUp(props: SignUpProps) {
                 value={newUser.username}
                 onInput={(e) => startUsernameCheck(e.currentTarget.value)}
               ></input>
+            </div>
+            <div className="col-1">
               {validUsername === -1 ? (
-                <p></p>
+                <Tooltip
+                  title={<text style={{ fontSize: "0.9vw" }}>Your Username</text>}
+                  arrow
+                  placement="right"
+                >
+                  <CreateIcon style={{ color: "rgb(9, 77, 145)", fontSize: "150%" }} />
+                </Tooltip>
               ) : (
                 validUsername === 100 ? (
-                  <div className="signUp_message">
-                    <LoadingSpinnerSmall />
-                  </div>
+                  <CircularProgress size={22} style={{ color: "rgb(9, 77, 145)", marginLeft: "5px" }} />
                 ) : (
                   validUsername === 1 ? (
-                    <div className="signUp_message">
-                      <p className="valid_message">
-                        {newUser.username} is available. ✅
-                      </p>
-                    </div>
+                    <Tooltip
+                      title={<text style={{ fontSize: "0.9vw" }}>Username is available</text>}
+                      arrow
+                      placement="right"
+                    >
+                      <CheckCircleIcon style={{ color: "green", fontSize: "150%" }} />
+                    </Tooltip>
                   ) : (
-                    <div className="signUp_message">
-                      <p className="invalid_message">
-                        {newUser.username} is not available. ❌
-                      </p>
-                    </div>
+                    <Tooltip
+                      title={<text style={{ fontSize: "0.9vw" }}>Username is not available</text>}
+                      arrow
+                      placement="right"
+                    >
+                      <CancelIcon style={{ color: "red", fontSize: "150%" }} />
+                    </Tooltip>
                   )
                 )
               )}
@@ -250,13 +275,13 @@ export default function SignUp(props: SignUpProps) {
           </div>
 
           {/* <!-- email --> */}
-          <div className="row align-items-center mb-1">
+          <div className="row align-items-center mb-2">
             <div className="col-4">
               <label htmlFor="email" className="signUp_form_labels">
                 Drop a mail at:
               </label>
             </div>
-            <div className="col-8">
+            <div className="col-7">
               <input
                 type="email"
                 name="EMAIL"
@@ -267,26 +292,36 @@ export default function SignUp(props: SignUpProps) {
                 value={newUser.email}
                 onInput={(e) => startEmailCheck(e.currentTarget.value)}
               ></input>
+            </div>
+            <div className="col-1">
               {validEmail === -1 ? (
-                <p></p>
+                <Tooltip
+                  title={<text style={{ fontSize: "0.9vw" }}>Your Email Id</text>}
+                  arrow
+                  placement="right"
+                >
+                  <EmailIcon style={{ color: "rgb(9, 77, 145)", fontSize: "150%" }} />
+                </Tooltip>
               ) : (
                 validEmail === 100 ? (
-                  <div className="signUp_message">
-                    <LoadingSpinnerSmall />
-                  </div>
+                  <CircularProgress size={22} style={{ color: "rgb(9, 77, 145)", marginLeft: "5px" }} />
                 ) : (
                   validEmail === 1 ? (
-                    <div className="signUp_message">
-                      <p className="valid_message">
-                        {newUser.email} is available. ✅
-                      </p>
-                    </div>
+                    <Tooltip
+                      title={<text style={{ fontSize: "0.9vw" }}>Email Id is available</text>}
+                      arrow
+                      placement="right"
+                    >
+                      <CheckCircleIcon style={{ color: "green", fontSize: "150%" }} />
+                    </Tooltip>
                   ) : (
-                    <div className="signUp_message">
-                      <p className="invalid_message">
-                        {newUser.email} is not available. ❌
-                      </p>
-                    </div>
+                    <Tooltip
+                      title={<text style={{ fontSize: "0.9vw" }}>Email Id is not available</text>}
+                      arrow
+                      placement="right"
+                    >
+                      <CancelIcon style={{ color: "red", fontSize: "150%" }} />
+                    </Tooltip>
                   )
                 )
               )}
@@ -294,13 +329,13 @@ export default function SignUp(props: SignUpProps) {
           </div>
 
           {/* <!-- password --> */}
-          <div className="row align-items-center mb-1">
+          <div className="row align-items-center mb-2">
             <div className="col-4">
               <label htmlFor="password" className="signUp_form_labels">
                 Password:
               </label>
             </div>
-            <div className="col-8">
+            <div className="col-7">
               <input
                 type="password"
                 id="password"
@@ -313,17 +348,25 @@ export default function SignUp(props: SignUpProps) {
                 value={newUser.password}
                 onInput={(e) => setNewUser({ ...newUser, password: e.currentTarget.value })}
               ></input>
-              <div className="signUp_message"></div>
+            </div>
+            <div className="col-1">
+              <Tooltip
+                title={<text style={{ fontSize: "0.9vw" }}>Your account password</text>}
+                arrow
+                placement="right"
+              >
+                <VpnKeyIcon style={{ color: "rgb(9, 77, 145)", fontSize: "150%" }} />
+              </Tooltip>
             </div>
           </div>
 
-          <div className="row align-items-center mb-1">
+          <div className="row align-items-center mb-2">
             <div className="col-4">
               <label htmlFor="confirm_password" className="signUp_form_labels">
                 Confirm Password:
               </label>
             </div>
-            <div className="col-8">
+            <div className="col-7">
               <input
                 type="password"
                 id="confirm_password"
@@ -336,15 +379,34 @@ export default function SignUp(props: SignUpProps) {
                 value={confirmedPassword}
                 onInput={(e) => setConfirmedPassword(e.currentTarget.value)}
               ></input>
-              {(confirmedPassword === newUser.password) ||
-                (confirmedPassword === "") ? (
-                <p></p>
+            </div>
+            <div className="col-1">
+              {confirmedPassword === "" ? (
+                <Tooltip
+                  title={<text style={{ fontSize: "0.9vw" }}>Verify your password</text>}
+                  arrow
+                  placement="right"
+                >
+                  <LockIcon style={{ color: "rgb(9, 77, 145)", fontSize: "150%" }} />
+                </Tooltip>
               ) : (
-                <div className="signUp_message">
-                  <p className="invalid_message">
-                    Passwords don't match! ❌
-                  </p>
-                </div>
+                confirmedPassword === newUser.password ? (
+                  <Tooltip
+                    title={<text style={{ fontSize: "0.9vw" }}>Password verified</text>}
+                    arrow
+                    placement="right"
+                  >
+                    <CheckCircleIcon style={{ color: "green", fontSize: "150%" }} />
+                  </Tooltip>
+                ) : (
+                  <Tooltip
+                    title={<text style={{ fontSize: "0.9vw" }}>Passwords don't match</text>}
+                    arrow
+                    placement="right"
+                  >
+                    <CancelIcon style={{ color: "red", fontSize: "150%" }} />
+                  </Tooltip>
+                )
               )}
             </div>
           </div>
@@ -370,19 +432,22 @@ export default function SignUp(props: SignUpProps) {
             </Link>
           </div>
           <div className="d-flex align-items-center justify-content-center">
-            {signupState === "initiated" ? (
-              <div style={{marginTop: 15, marginBottom: -1}}>
-                <LoadingSpinnerMedium />
-              </div>
-            ) : (
-              <button className="submit_button" type="submit">
-                Create Account
-              </button>
-            )}
+            <button
+              disabled={signupState === "initiated" ? true : false}
+              className="submit_button"
+              type="submit"
+              style={{ height: "5.5vh", width: "18.3vw" }}
+            >
+              {signupState === "initiated" ? (
+                <CircularProgress size={26} style={{ color: "black", marginTop: "8px" }} />
+              ) : (
+                "Create Account"
+              )}
+            </button>
           </div>
           <div className="signUp_message">
             {signupState === "failed" ? (
-              <p style={{ marginTop: 5, marginBottom: -15 }}>Invalid Credentials! ❌</p>
+              <p style={{ marginTop: 5, marginBottom: -13 }}>Invalid Credentials! ❌</p>
             ) : (
               <p></p>
             )}
