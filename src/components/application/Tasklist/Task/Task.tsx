@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useState } from 'react';
 import { ReactElement } from 'react';
 import "./Task.css";
-import { Task } from './TaskInterface';
+import { ProjectTask } from '../../../../models/ProjectTask';
 
 //Meterial UI
 // import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
@@ -18,7 +18,7 @@ import { FormControl, FormControlLabel, FormLabel, Popover, Radio, RadioGroup, T
 
 
 interface TaskProps {
-    data: Task,
+    data: ProjectTask,
     changeTaskPriority: (id: string, priority: string) => void,
     strikeTask: (id: string) => void,
     deleteTask: (id: string) => void

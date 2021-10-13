@@ -1,6 +1,6 @@
 type TaskPriority = "High" | "Medium" | "Low";
 
-interface Task {
+interface ProjectTask {
     id: string,
     projId: string,
     projName: string,
@@ -13,4 +13,4 @@ interface Task {
     priority: TaskPriority
 };
 
-export type { Task, TaskPriority }
+export type { ProjectTask, TaskPriority }

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import "./Tasklist.css";
 import EachTask from "./Task/Task"
-import { Task, TaskPriority } from "./Task/TaskInterface"
+import { ProjectTask, TaskPriority } from '../../../models/ProjectTask';
 import { Button, CircularProgress, makeStyles, Snackbar, Theme } from '@material-ui/core';
 import SyncIcon from '@material-ui/icons/Sync';
 import MuiAlert, { AlertProps, Color } from '@material-ui/lab/Alert';
@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 export default function Tasklist() {
     const classes = useStyles();
 
-    const [tasks, setTasks] = useState<Task[]>([
+    const [tasks, setTasks] = useState<ProjectTask[]>([
         {
             id: "1",
             projId: "Project-Id",
@@ -161,7 +161,7 @@ export default function Tasklist() {
                         <div className="tasklist_container">
                             {(taskCount > 0) && (execFuse >= 0) ? (
                                 <div className="for_scroll">
-                                    {tasks.map((task: Task) => (
+                                    {tasks.map((task: ProjectTask) => (
                                         <div key={task.id}>
                                             <EachTask
                                                 data={task}
