@@ -2,13 +2,14 @@ type TaskPriority = "High" | "Medium" | "Low";
 
 interface Task {
     id: string,
+    projId: string,
     projName: string,
     title: string,
     date: string,
-    details: any,
+    details: string,
     deadline: string,
     assigned: string,
-    completed: Boolean,
+    completed: boolean,
     priority: TaskPriority
 };
 

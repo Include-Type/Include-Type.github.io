@@ -46,6 +46,7 @@ export default function Tasklist() {
     const [tasks, setTasks] = useState<Task[]>([
         {
             id: "1",
+            projId: "Project-Id",
             projName: "Project Name",
             title: "Task Title 1",
             date: 'July-05-2021',
@@ -57,6 +58,7 @@ export default function Tasklist() {
         },
         {
             id: "2",
+            projId: "Project-Id",
             projName: "Project Name",
             title: "Task Title 2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas aperiam repellendus unde.",
             date: 'July-05-2021',
@@ -68,6 +70,7 @@ export default function Tasklist() {
         },
         {
             id: "3",
+            projId: "Project-Id",
             projName: "Project Name",
             title: "Task Title 3",
             date: 'July-05-2021',
@@ -79,6 +82,7 @@ export default function Tasklist() {
         },
         {
             id: "4",
+            projId: "Project-Id",
             projName: "Project Name",
             title: "Task Title 4",
             date: 'July-05-2021',
