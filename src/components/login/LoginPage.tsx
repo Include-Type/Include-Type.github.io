@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserDto } from "../../dtos/UserDto";
 import { User } from "../../models/User";
 import Banner from "./banner/Banner";
@@ -18,7 +17,7 @@ export default function LoginPage(props: LoginPageProps) {
     password: ""
   });
   const [loginState, setLoginState] = useState<string>("");
-  const history = useHistory();
+  const navigate = useNavigate();
 
   async function submitForm(e: React.FormEvent): Promise<void> {
     setLoginState("initiated");
@@ -41,7 +40,7 @@ export default function LoginPage(props: LoginPageProps) {
           id: ""
         }));
         props.setLoginComplete(true);
-        history.push("/");
+        navigate("/");
       } else {
         throw new Error();
       }
@@ -55,11 +54,11 @@ export default function LoginPage(props: LoginPageProps) {
     <div className="login_page">
       <Banner />
       <div className="login_container d-flex align-items-center justify-content-center">
-        <Form className="login_form" onSubmit={submitForm}>
+        <form className="login_form" onSubmit={submitForm}>
           <div className="mb-3 login_header">Welcome</div>
           <hr className="mb-4" />
           <div className="mb-4">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlFor="exampleInputEmail1" className="form-label pb-1">
               Email address / Username
             </label>
             <input
@@ -76,7 +75,7 @@ export default function LoginPage(props: LoginPageProps) {
             </div>
           </div>
           <div className="mb-4 pb-2">
-            <label htmlFor="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword1" className="form-label pb-1">
               Password
             </label>
             <input
@@ -88,7 +87,7 @@ export default function LoginPage(props: LoginPageProps) {
               onInput={(e) => setUserDto({ ...userDto, password: e.currentTarget.value })}
             />
           </div>
-          <div className="mb-2 pb-4 d-flex align-items-center justify-content-between font-weight-bold">
+          <div className="mb-2 pb-4 d-flex align-items-center justify-content-between fw-bold">
             <div>Not Registered yet? &nbsp;&nbsp;&nbsp;</div>
             <Link to="/SignUpPage" className="create_account">
               Create an Account
@@ -115,7 +114,7 @@ export default function LoginPage(props: LoginPageProps) {
               <p></p>
             )}
           </div>
-        </Form>
+        </form>
       </div>
     </div>
   );

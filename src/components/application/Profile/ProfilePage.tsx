@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./ProfilePage.css";
 import PersonalProfile from "./personal-profile/PersonalProfile";
 import ProProfilePassword from "./pro-profile-password/ProProfilePassword";
@@ -20,35 +20,37 @@ interface ProfileProps {
 export default function ProfilePage(props: ProfileProps) {
   return (
     <div id="Profile_Page">
-      <Router>
-        <Switch>
-          <Route
-            path="/ProProfilePassword"
-            exact
-            render={() => <ProProfilePassword
+      <Routes>
+        <Route
+          path="/ProProfilePassword"
+          element={
+            <ProProfilePassword
               personalProfile={props.personalProfile}
               setPersonalProfile={props.setPersonalProfile}
               professionalProfile={props.professionalProfile}
               setProfessionalProfile={props.setProfessionalProfile}
-            />}
-          />
-          <Route
-            path="/AllPrivacySettings"
-            exact
-            render={() => <AllPrivacySettings
+            />
+          }
+        />
+        <Route
+          path="/AllPrivacySettings"
+          element={
+            <AllPrivacySettings
               privacy={props.privacy}
               setPrivacy={props.setPrivacy}
-            />}
-          />
-          <Route
-            path="/"
-            render={() => <PersonalProfile
+            />
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <PersonalProfile
               personalProfile={props.personalProfile}
               setPersonalProfile={props.setPersonalProfile}
-            />}
-          />
-        </Switch>
-      </Router>
+            />
+          }
+        />
+      </Routes>
     </div>
   );
 }

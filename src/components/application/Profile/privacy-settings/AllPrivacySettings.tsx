@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./AllPrivacySettings.css";
 import Privacy from "./privacy/Privacy";
@@ -211,7 +210,7 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
             Privacy Settings
             <hr className="text-muted" />
           </div>
-          <Form id="PrivacyForm" className="privacy_form_container">
+          <form id="PrivacyForm" className="privacy_form_container">
             {privacies.map((privacy: Privacies) => (
               <Privacy
                 key={privacy.name}
@@ -220,7 +219,7 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
                 setPrivacies={setPrivacies}
               />
             ))}
-          </Form>
+          </form>
         </div>
       </div>
       <div className="update_button_container">

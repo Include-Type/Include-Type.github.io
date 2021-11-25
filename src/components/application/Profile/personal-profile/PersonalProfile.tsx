@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Form } from "react-bootstrap";
 import PhoneInput from "react-phone-input-2";
 import {
   CountryDropdown,
@@ -122,7 +121,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
       id="Personal_Profile"
       className="d-flex justify-content-center align-items-center"
     >
-      <Form className="profile_form d-flex flex-wrap justify-content-center align-items-center">
+      <form className="profile_form d-flex flex-wrap justify-content-center align-items-center">
         <div className="personal_profile_scroll_container">
           <div className="profile_title">
             Personal Profile
@@ -344,7 +343,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
             </Link>
           </div>
         </div>
-      </Form>
+      </form>
     </div>
   );
 }

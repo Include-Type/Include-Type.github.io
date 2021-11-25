@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles, Theme } from "@material-ui/core/styles";
@@ -208,7 +207,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
       id="Professional_Profile_Password"
       className="d-flex justify-content-center align-items-center"
     >
-      <Form className="pro_form_container">
+      <form className="pro_form_container">
         <div className="pro_form_title">
           Professional Profile
           <hr className="text-muted" />
@@ -372,8 +371,8 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
             </Link>
           </div>
         </div>
-      </Form>
-      <Form className="password_settings_container">
+      </form>
+      <form className="password_settings_container">
         <div className="pro_form_title">
           Password Settings
           <hr className="text-muted" />
@@ -436,7 +435,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
             </Snackbar>
           </div>
         </div>
-      </Form>
+      </form>
     </div>
   );
 }
