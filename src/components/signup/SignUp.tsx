@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Form } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./SignUp.css";
 import Banner from "../login/banner/Banner";
 import { User } from "../../models/User";
@@ -41,7 +40,7 @@ export default function SignUp(props: SignUpProps) {
   const [validUsername, setValidUsername] = useState<number>(-1);
   const [validEmail, setValidEmail] = useState<number>(-1);
   const [checkerTimer, setCheckerTimer] = useState<NodeJS.Timeout>();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   async function submitForm(e: React.FormEvent): Promise<void> {
     setSignupState("initiated");
@@ -89,7 +88,7 @@ export default function SignUp(props: SignUpProps) {
           id: ""
         }));
         props.setLoginComplete(true);
-        history.push("/");
+        navigate("/");
       } else {
         throw new Error();
       }
@@ -169,7 +168,7 @@ export default function SignUp(props: SignUpProps) {
     <div className="signUp_page">
       <Banner />
       <div className="signUp_container d-flex align-items-center justify-content-center">
-        <Form className="signUp_form" id="form_body" onSubmit={submitForm}>
+        <form className="signUp_form" id="form_body" onSubmit={submitForm}>
           <div className="signUp_header">Create your account</div>
           <hr className="mb-4" />
           {/* <!-- name --> */}
@@ -452,7 +451,7 @@ export default function SignUp(props: SignUpProps) {
               <p></p>
             )}
           </div>
-        </Form>
+        </form>
       </div>
     </div>
   );

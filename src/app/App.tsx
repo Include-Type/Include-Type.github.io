@@ -1,5 +1,5 @@
 import React, { ReactElement, useState } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import LandingPage from "../components/landing/LandingPage";
 import DevCheck from "../dev-check/DevCheck";
@@ -9,7 +9,7 @@ function App(): ReactElement {
   const [userInput, setUserInput] = useState<string>("");
 
   return (
-    <Router>
+    <BrowserRouter>
       <div className="App">
         {(userInput === "" || userInput !== password) ? (
           <DevCheck
@@ -21,7 +21,7 @@ function App(): ReactElement {
           <LandingPage />
         )}
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 

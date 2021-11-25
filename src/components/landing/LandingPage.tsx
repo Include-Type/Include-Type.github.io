@@ -1,5 +1,5 @@
 import React, { ReactElement, useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Introduction from "./introduction/Introduction";
 import LoginPage from "../login/LoginPage";
 import SignUp from "../signup/SignUp";
@@ -89,35 +89,30 @@ export default function LandingPage(): ReactElement {
   return (
     <div>
       {user.id === "-1" ? (
-        <Router>
-          <Switch>
-            <Route
-              path="/"
-              exact
-              component={Introduction}
-            />
-            <Route
-              path="/LoginPage"
-              exact
-              component={
-                () => <LoginPage
-                  setUser={setUser}
-                  setLoginComplete={setLoginComplete}
-                />
-              }
-            />
-            <Route
-              path="/SignUpPage"
-              exact
-              component={
-                () => <SignUp
-                  setUser={setUser}
-                  setLoginComplete={setLoginComplete}
-                />
-              }
-            />
-          </Switch>
-        </Router>
+        <Routes>
+          <Route
+            path="/"
+            element={<Introduction />}
+          />
+          <Route
+            path="/LoginPage"
+            element={
+              <LoginPage
+                setUser={setUser}
+                setLoginComplete={setLoginComplete}
+              />
+            }
+          />
+          <Route
+            path="/SignUpPage"
+            element={
+              <SignUp
+                setUser={setUser}
+                setLoginComplete={setLoginComplete}
+              />
+            }
+          />
+        </Routes>
       ) : (
         user.id === "" ? (
           <div className="login_page spinner-div-large">
