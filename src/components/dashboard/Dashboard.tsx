@@ -64,7 +64,9 @@ function Dashboard(props: DashboardProps): ReactElement {
                         setPrivacy={props.setPrivacy}
                     />
                 ) : (
-                    <Tasklist />
+                    <Tasklist
+                        user={props.personalProfile}
+                    />
                 )
             )}
         </div>

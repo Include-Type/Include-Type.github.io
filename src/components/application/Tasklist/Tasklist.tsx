@@ -1,11 +1,14 @@
-import React, { CSSProperties, useState } from 'react'
+import React, { CSSProperties, ReactElement, useEffect, useState } from 'react'
 import "./Tasklist.css";
 import EachTask from "./Task/Task"
 import { ProjectTask, TaskPriority } from '../../../models/ProjectTask';
+import { ProjectTaskDto } from '../../../dtos/ProjectTaskDto';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 // import { makeStyles, Theme } from '@mui/material/styles';
 import SyncIcon from '@mui/icons-material/Sync';
-import MuiAlert, { AlertProps, AlertColor } from '@mui/lab/Alert';
+import MuiAlert, { AlertProps, AlertColor } from '@mui/material/Alert';
+import { User } from '../../../models/User';
+import "../../spinners/Spinners.css";
 
 const saveButtonStyle: CSSProperties = {
     width: "7vw",
@@ -32,62 +35,18 @@ const saveButtonStyle: CSSProperties = {
 //     backgroundColor: "darkblue"
 // };
 
-export default function Tasklist() {
+interface TasklistProps {
+    user: User
+};
+
+export default function Tasklist(props: TasklistProps): ReactElement {
     // const classes = useStyles();
 
-    const [tasks, setTasks] = useState<ProjectTask[]>([
-        {
-            id: "1",
-            projId: "Project-Id",
-            projName: "Project Name",
-            title: "Task Title 1",
-            date: 'July-05-2021',
-            details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magnam illum voluptatum voluptatem unde amet deserunt recusandae dolorum totam veritatis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, magnam asperiores quo nobis placeat suscipit aperiam, distinctio adipisci aut saepe alias eum doloremque impedit! Ex atque cupiditate animi! Itaque eaque rem expedita vitae nisi numquam. Magni error omnis minima possimus, exercitationem ab ducimus, accusantium illo veritatis provident eum sed porro?",
-            deadline: 'Feb-10-2021',
-            assigned: "Adam - Eve",
-            completed: true,
-            priority: "High"
-        },
-        {
-            id: "2",
-            projId: "Project-Id",
-            projName: "Project Name",
-            title: "Task Title 2 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas aperiam repellendus unde.",
-            date: 'July-05-2021',
-            details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magnam illum voluptatum voluptatem unde amet deserunt recusandae dolorum totam veritatis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, magnam asperiores quo nobis placeat suscipit aperiam, distinctio adipisci aut saepe alias eum doloremque impedit! Ex atque cupiditate animi! Itaque eaque rem expedita vitae nisi numquam. Magni error omnis minima possimus, exercitationem ab ducimus, accusantium illo veritatis provident eum sed porro?",
-            deadline: 'Feb-10-2021',
-            assigned: "Adam - Eve",
-            completed: true,
-            priority: "Medium"
-        },
-        {
-            id: "3",
-            projId: "Project-Id",
-            projName: "Project Name",
-            title: "Task Title 3",
-            date: 'July-05-2021',
-            details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magnam illum voluptatum voluptatem unde amet deserunt recusandae dolorum totam veritatis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, magnam asperiores quo nobis placeat suscipit aperiam, distinctio adipisci aut saepe alias eum doloremque impedit! Ex atque cupiditate animi! Itaque eaque rem expedita vitae nisi numquam. Magni error omnis minima possimus, exercitationem ab ducimus, accusantium illo veritatis provident eum sed porro?",
-            deadline: 'Feb-10-2021',
-            assigned: "Adam - Eve",
-            completed: false,
-            priority: "Low"
-        },
-        {
-            id: "4",
-            projId: "Project-Id",
-            projName: "Project Name",
-            title: "Task Title 4",
-            date: 'July-05-2021',
-            details: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam magnam illum voluptatum voluptatem unde amet deserunt recusandae dolorum totam veritatis? Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, magnam asperiores quo nobis placeat suscipit aperiam, distinctio adipisci aut saepe alias eum doloremque impedit! Ex atque cupiditate animi! Itaque eaque rem expedita vitae nisi numquam. Magni error omnis minima possimus, exercitationem ab ducimus, accusantium illo veritatis provident eum sed porro?",
-            deadline: 'Feb-10-2021',
-            assigned: "Adam - Eve",
-            completed: false,
-            priority: "Medium"
-        }
-    ]);
+    const [tasks, setTasks] = useState<ProjectTask[]>([]);
     const [taskCount, setTaskCount] = useState<number>(tasks.length);
     const [execFuse, setExecFuse] = useState<number>(0);
     const [status, setStatus] = useState<string>("stopped");
+    const [loading, setLoading] = useState<number>(1);
 
     const [open, setOpen] = useState<boolean>(false);
     const [updateInfo, setUpdateInfo] = useState<string>("");
@@ -100,6 +59,65 @@ export default function Tasklist() {
         return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
     });
 
+    useEffect(() => {
+        async function getTasksByUsername(): Promise<void> {
+            try {
+                const response = await fetch(`https://include-type.herokuapp.com/api/project/gettasksbyusername/${props.user.username}`, {
+                    credentials: "include"
+                });
+                if (response.ok) {
+                    // console.log("Tasks received!");
+                    const jsonTasks: ProjectTask[] = await response.json();
+                    // console.log(jsonTasks);
+                    setTasks(jsonTasks);
+                    setTaskCount(jsonTasks.length);
+                    setLoading(0);
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                // console.log("Error!");
+                setTasks([]);
+                setTaskCount(0);
+                setLoading(0);
+            }
+        }
+
+        getTasksByUsername();
+    }, [props.user]);
+
+    async function updateTasksByUsername(e: React.FormEvent): Promise<void> {
+        setStatus("started");
+        e.preventDefault();
+        const updatedTasks: ProjectTaskDto = {
+            tasks: tasks
+        };
+
+        try {
+            const response = await fetch(`https://include-type.herokuapp.com/api/project/updatetasks/${props.user.username}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                credentials: "include",
+                body: JSON.stringify(updatedTasks)
+            });
+            if (response.ok) {
+                setStatus("stopped");
+                setUpdateInfo("Tasks Updated!");
+                setUpdateResult("success");
+                handleClick();
+            } else {
+                throw new Error();
+            }
+        } catch (error) {
+            setStatus("stopped");
+            setUpdateInfo("Update Failed!");
+            setUpdateResult("error");
+            handleClick();
+        }
+    }
+
     function handleClick() {
         setOpen(true);
     };
@@ -111,20 +129,6 @@ export default function Tasklist() {
 
         setOpen(false);
     };
-
-    function toggleStuff(): void {
-        if (status === "stopped") {
-            setStatus("started");
-            setUpdateInfo("You enabled the spinner");
-            setUpdateResult("success");
-            handleClick();
-        } else {
-            setStatus("stopped");
-            setUpdateInfo("You disabled the spinner");
-            setUpdateResult("error");
-            handleClick();
-        }
-    }
 
     function strikeTask(id: string): void {
         let index = tasks.findIndex(t => t.id === id);
@@ -153,58 +157,65 @@ export default function Tasklist() {
             <section id="Main_area">
                 <section id="Application_menu_area"></section>
                 <section id="Application_content_area">
-                    <div className="tasklist_outer_container">
-                        <div className="tasklist_container">
-                            {(taskCount > 0) && (execFuse >= 0) ? (
-                                <div className="for_scroll">
-                                    {tasks.map((task: ProjectTask) => (
-                                        <div key={task.id}>
-                                            <EachTask
-                                                data={task}
-                                                changeTaskPriority={changeTaskPriority}
-                                                strikeTask={strikeTask}
-                                                deleteTask={deleteTask}
-                                            />
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <p className="empty_text">You're all caught up!<br></br>🚀</p>
-                            )}
+                    {loading === 1 ? (
+                        <div className="tasklist_outer_container">
+                            <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
                         </div>
-                        <div className="sync_container" onClick={toggleStuff}>
-                            <Button
-                                disabled={status === "started" ? true : false}
-                                type="submit"
-                                variant="contained"
-                                color="primary"
-                                size="medium"
-                                style={saveButtonStyle}
-                                // className={classes.saveButton}
-                                startIcon={status === "started" ? "" : <SyncIcon />}
-                            >
-                                {status === "started" ? (
-                                    <CircularProgress size={26} style={{ color: "white" }} />
+                    ) : (
+                        <div className="tasklist_outer_container">
+                            <div className="tasklist_container">
+                                {(taskCount > 0) && (execFuse >= 0) ? (
+                                    <div className="for_scroll">
+                                        {tasks.map((task: ProjectTask) => (
+                                            <div key={task.id}>
+                                                <EachTask
+                                                    data={task}
+                                                    changeTaskPriority={changeTaskPriority}
+                                                    strikeTask={strikeTask}
+                                                    deleteTask={deleteTask}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
                                 ) : (
-                                    "Sync"
+                                    <p className="empty_text">You're all caught up!<br></br>🚀</p>
                                 )}
-                            </Button>
-                            <Snackbar
-                                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-                                open={open}
-                                autoHideDuration={3000}
-                                onClose={handleClose}
-                            >
-                                <Alert
-                                    onClose={handleClose}
-                                    severity={updateResult}
-                                    style={{ fontSize: 18 }}
+                            </div>
+                            <div className="sync_container">
+                                <Button
+                                    disabled={status === "started" ? true : false}
+                                    type="submit"
+                                    onClick={(e) => updateTasksByUsername(e)}
+                                    variant="contained"
+                                    color="primary"
+                                    size="medium"
+                                    style={saveButtonStyle}
+                                    // className={classes.saveButton}
+                                    startIcon={status === "started" ? "" : <SyncIcon />}
                                 >
-                                    {updateInfo}
-                                </Alert>
-                            </Snackbar>
+                                    {status === "started" ? (
+                                        <CircularProgress size={26} style={{ color: "white" }} />
+                                    ) : (
+                                        "Sync"
+                                    )}
+                                </Button>
+                                <Snackbar
+                                    anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                                    open={open}
+                                    autoHideDuration={3000}
+                                    onClose={handleClose}
+                                >
+                                    <Alert
+                                        onClose={handleClose}
+                                        severity={updateResult}
+                                        style={{ fontSize: 18 }}
+                                    >
+                                        {updateInfo}
+                                    </Alert>
+                                </Snackbar>
+                            </div>
                         </div>
-                    </div>
+                    )}
                 </section>
             </section>
         </section>
