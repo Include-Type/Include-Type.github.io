@@ -1,47 +1,39 @@
-import React, { useState } from 'react'
+import React, { CSSProperties, useState } from 'react'
 import "./Tasklist.css";
 import EachTask from "./Task/Task"
 import { ProjectTask, TaskPriority } from '../../../models/ProjectTask';
-import { Button, CircularProgress, makeStyles, Snackbar, Theme } from '@material-ui/core';
-import SyncIcon from '@material-ui/icons/Sync';
-import MuiAlert, { AlertProps, Color } from '@material-ui/lab/Alert';
+import { Button, CircularProgress, Snackbar } from '@mui/material';
+// import { makeStyles, Theme } from '@mui/material/styles';
+import SyncIcon from '@mui/icons-material/Sync';
+import MuiAlert, { AlertProps, AlertColor } from '@mui/lab/Alert';
 
-const useStyles = makeStyles((theme: Theme) => ({
-    saveButton: {
-        width: "7vw",
-        height: "4.5vh",
-        margin: theme.spacing(0),
-        marginRight: "5%",
-        fontSize: "1vw",
-        fontWeight: "bold",
-        letterSpacing: "1px",
-        fontFamily: "Nunito",
-        transitionDuration: ".5s",
-        backgroundColor: "green",
-        "&:hover": {
-            color: "green",
-            backgroundColor: "white",
-        },
-    },
-    proPasswordButton: {
-        width: "7vw",
-        height: "4.5vh",
-        margin: theme.spacing(0),
-        fontSize: "1vw",
-        fontWeight: "bold",
-        letterSpacing: "1px",
-        fontFamily: "Nunito",
-        transitionDuration: ".5s",
-        backgroundColor: "darkblue",
-        "&:hover": {
-            color: "darkblue",
-            backgroundColor: "white",
-        },
-    },
-}), { index: 1 });
+const saveButtonStyle: CSSProperties = {
+    width: "7vw",
+    height: "4.5vh",
+    margin: 0,
+    marginRight: "5%",
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "green"
+};
+
+// const proPasswordButtonStyle: CSSProperties = {
+//     width: "7vw",
+//     height: "4.5vh",
+//     margin: 0,
+//     fontSize: "1vw",
+//     fontWeight: "bold",
+//     letterSpacing: "1px",
+//     fontFamily: "Nunito",
+//     transitionDuration: ".5s",
+//     backgroundColor: "darkblue"
+// };
 
 export default function Tasklist() {
-    const classes = useStyles();
+    // const classes = useStyles();
 
     const [tasks, setTasks] = useState<ProjectTask[]>([
         {
@@ -99,7 +91,7 @@ export default function Tasklist() {
 
     const [open, setOpen] = useState<boolean>(false);
     const [updateInfo, setUpdateInfo] = useState<string>("");
-    const [updateResult, setUpdateResult] = useState<Color | undefined>(undefined);
+    const [updateResult, setUpdateResult] = useState<AlertColor | undefined>(undefined);
 
     function Alert(props: AlertProps) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -183,7 +175,8 @@ export default function Tasklist() {
                                 variant="contained"
                                 color="primary"
                                 size="medium"
-                                className={classes.saveButton}
+                                style={saveButtonStyle}
+                                // className={classes.saveButton}
                                 startIcon={status === "started" ? "" : <SyncIcon />}
                             >
                                 {status === "started" ? (

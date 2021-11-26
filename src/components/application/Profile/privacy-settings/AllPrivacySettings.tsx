@@ -1,23 +1,26 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import { Link } from "react-router-dom";
 import "./AllPrivacySettings.css";
 import Privacy from "./privacy/Privacy";
 
-import Button from "@material-ui/core/Button";
-import SendRoundedIcon from "@material-ui/icons/SendRounded";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import SaveIcon from "@material-ui/icons/Save";
+import Button from "@mui/material/Button";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
+// import { makeStyles, Theme } from "@mui/material/styles";
+// import CloudUploadIcon from "@material-ui/icons-material/CloudUpload";
+import SaveIcon from "@mui/icons-material/Save";
 
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { PrivacyProfile } from "../../../../models/PrivacyProfile";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 
-function Alert(props: AlertProps) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref,
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export interface Privacies {
   id: number,
@@ -26,39 +29,30 @@ export interface Privacies {
   value: string;
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  updateButton: {
-    width: "7vw",
-    height: "4.5vh",
-    margin: theme.spacing(0),
-    color: "white",
-    backgroundColor: "green",
-    fontSize: "1vw",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-    fontFamily: "Nunito",
-    transitionDuration: ".5s",
-    "&:hover": {
-      color: "green",
-      backgroundColor: "white",
-    },
-  },
-  privacyButton: {
-    width: "7vw",
-    height: "4.5vh",
-    margin: theme.spacing(0),
-    fontSize: "1vw",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-    fontFamily: "Nunito",
-    transitionDuration: ".5s",
-    backgroundColor: "blue",
-    "&:hover": {
-      color: "blue",
-      backgroundColor: "white",
-    },
-  },
-}), { index: 1 });
+const updateButtonStyle: CSSProperties = {
+  width: "7vw",
+  height: "4.5vh",
+  margin: 0,
+  color: "white",
+  backgroundColor: "green",
+  fontSize: "1vw",
+  fontWeight: "bold",
+  letterSpacing: "1px",
+  fontFamily: "Nunito",
+  transitionDuration: ".5s"
+};
+
+const privacyButtonStyle: CSSProperties = {
+  width: "7vw",
+  height: "4.5vh",
+  margin: 0,
+  fontSize: "1vw",
+  fontWeight: "bold",
+  letterSpacing: "1px",
+  fontFamily: "Nunito",
+  transitionDuration: ".5s",
+  backgroundColor: "blue"
+};
 
 interface AllPrivacySettingsProps {
   privacy: PrivacyProfile,
@@ -135,11 +129,11 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
     }
   ]);
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [open, setOpen] = useState<boolean>(false);
   const [updateInfo, setUpdateInfo] = useState<string>("");
-  const [updateResult, setUpdateResult] = useState<Color | undefined>(undefined);
+  const [updateResult, setUpdateResult] = useState<AlertColor | undefined>(undefined);
 
   const [status, setStatus] = useState<string>("stopped");
 
@@ -229,7 +223,8 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
               variant="contained"
               color="primary"
               size="medium"
-              className={classes.privacyButton}
+              style={privacyButtonStyle}
+              // className={classes.privacyButton}
               startIcon={
                 <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
               }
@@ -245,7 +240,8 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
             form="PrivacyForm"
             type="submit"
             variant="contained"
-            className={classes.updateButton}
+            style={updateButtonStyle}
+            // className={classes.updateButton}
             startIcon={status === "started" ? "" : <SaveIcon />}
           >
             {status === "started" ? (

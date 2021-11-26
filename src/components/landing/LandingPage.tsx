@@ -8,7 +8,7 @@ import Dashboard from "../dashboard/Dashboard";
 import { CompleteUserDto } from "../../dtos/CompleteUserDto";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 import "../spinners/Spinners.css";
 
 export default function LandingPage(): ReactElement {

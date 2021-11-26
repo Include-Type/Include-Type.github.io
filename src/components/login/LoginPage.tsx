@@ -4,7 +4,7 @@ import { UserDto } from "../../dtos/UserDto";
 import { User } from "../../models/User";
 import Banner from "./banner/Banner";
 import "./Login.css";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 
 interface LoginPageProps {
   setUser: React.Dispatch<React.SetStateAction<User>>,

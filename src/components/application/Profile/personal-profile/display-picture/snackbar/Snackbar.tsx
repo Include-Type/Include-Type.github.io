@@ -1,36 +1,32 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { useState } from "react";
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
-import { makeStyles, Theme } from "@material-ui/core/styles";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps, AlertColor } from "@mui/lab/Alert";
+// import { makeStyles, Theme } from "@mui/material/styles";
 
 function Alert(props: AlertProps) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    width: "100%",
-    "& > * + *": {
-      marginTop: theme.spacing(2),
-    },
-  },
-}), { index: 1 });
+const rootStyle: CSSProperties = {
+  width: "100%",
+  marginTop: "16px"
+};
 
 export interface SnackbarState {
   open: boolean;
-  severity: Color;
+  severity: AlertColor;
   message: String;
 };
 
-export type SnackbarStateContext = (open: boolean, severity: Color, message: string) => void;
+export type SnackbarStateContext = (open: boolean, severity: AlertColor, message: string) => void;
 
 export const SnackbarContext = React.createContext<SnackbarStateContext>(
-  (open: boolean, severity: Color, message: string): void => { }
+  (open: boolean, severity: AlertColor, message: string): void => { }
 );
 
 export default function ProfilePictureSnackbars({ children }: any) {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [stateSnackbar, setStateSnackbar] = useState<SnackbarState>({
     open: false,
@@ -40,7 +36,7 @@ export default function ProfilePictureSnackbars({ children }: any) {
 
   const { open, severity, message } = stateSnackbar;
 
-  function setStateSnackbarContext(open: boolean, severity: Color, message: string): void {
+  function setStateSnackbarContext(open: boolean, severity: AlertColor, message: string): void {
     setStateSnackbar((prevState) => ({ ...prevState, open, severity, message }));
   }
 
@@ -48,7 +44,7 @@ export default function ProfilePictureSnackbars({ children }: any) {
 
   return (
     <SnackbarContext.Provider value={setStateSnackbarContext}>
-      <div className={classes.root}>
+      <div style={rootStyle}>
         <Snackbar
           anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
           open={open}

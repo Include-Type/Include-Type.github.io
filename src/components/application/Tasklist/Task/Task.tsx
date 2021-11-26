@@ -4,17 +4,17 @@ import "./Task.css";
 import { ProjectTask } from '../../../../models/ProjectTask';
 
 //Meterial UI
-// import { createStyles, makeStyles, Theme } from "@material-ui/core/styles";
-import IconButton from '@material-ui/core/IconButton';
+// import { createStyles, makeStyles, Theme } from "@mui/material/styles";
+import IconButton from '@mui/material/IconButton';
 
 //Meterial UI icons
-import DeleteOutlineOutlinedIcon from '@material-ui/icons/DeleteOutlineOutlined';
-import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
-import DoneAllIcon from '@material-ui/icons/DoneAll';
-import DoneIcon from '@material-ui/icons/Done';
-import { FormControl, FormControlLabel, FormLabel, Popover, Radio, RadioGroup, Tooltip } from '@material-ui/core';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
+import DoneAllIcon from '@mui/icons-material/DoneAll';
+import DoneIcon from '@mui/icons-material/Done';
+import { FormControl, FormControlLabel, FormLabel, Popover, Radio, RadioGroup, Tooltip } from '@mui/material';
 
 
 interface TaskProps {
@@ -81,7 +81,7 @@ export default function EachTask(props: TaskProps): ReactElement {
                     </div>
                     <div className="functions">
                         <Tooltip
-                            title={<text style={{ fontSize: "0.9vw" }}>Delete task</text>}
+                            title={<div style={{ fontSize: "0.9vw" }}>Delete task</div>}
                             arrow
                             placement="top"
                         >
@@ -91,9 +91,9 @@ export default function EachTask(props: TaskProps): ReactElement {
                         </Tooltip>
                         <Tooltip
                             title={
-                                <text style={{ fontSize: "0.9vw" }}>
+                                <div style={{ fontSize: "0.9vw" }}>
                                     {props.data.completed ? "Mark as not done" : "Mark as done"}
-                                </text>
+                                </div>
                             }
                             arrow
                             placement="top"
@@ -108,9 +108,9 @@ export default function EachTask(props: TaskProps): ReactElement {
                         </Tooltip>
                         <Tooltip
                             title={
-                                <text style={{ fontSize: "0.9vw" }}>
+                                <div style={{ fontSize: "0.9vw" }}>
                                     Current priority: {props.data.priority}
-                                </text>
+                                </div>
                             }
                             arrow
                             placement="top"

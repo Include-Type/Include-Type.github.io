@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import {
@@ -8,59 +8,87 @@ import {
 } from "react-country-region-selector";
 import "react-phone-input-2/lib/style.css";
 
-import Button from "@material-ui/core/Button";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import SaveIcon from "@material-ui/icons/Save";
-import SendRoundedIcon from "@material-ui/icons/SendRounded";
+import Button from "@mui/material/Button";
+// import { makeStyles, Theme } from "@mui/material/styles";
+// import CloudUploadIcon from "@mui/icons/CloudUpload";
+import SaveIcon from "@mui/icons-material/Save";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import "./PersonalProfile.css";
 
 // import profile_dummy from "../../../../Resources/Images/our_team_images/dummy.png";
 import DisplayPicture from "./display-picture/DisplayPicture";
 
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { User } from "../../../../models/User";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 
-function Alert(props: AlertProps) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref,
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
-const useStyles = makeStyles((theme: Theme) => ({
-  saveButton: {
-    width: "7vw",
-    height: "4.5vh",
-    margin: theme.spacing(0),
-    marginRight: "5%",
-    fontSize: "1vw",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-    fontFamily: "Nunito",
-    transitionDuration: ".5s",
-    backgroundColor: "green",
-    "&:hover": {
-      color: "green",
-      backgroundColor: "white",
-    },
-  },
-  proPasswordButton: {
-    width: "7vw",
-    height: "4.5vh",
-    margin: theme.spacing(0),
-    fontSize: "1vw",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-    fontFamily: "Nunito",
-    transitionDuration: ".5s",
-    backgroundColor: "darkblue",
-    "&:hover": {
-      color: "darkblue",
-      backgroundColor: "white",
-    },
-  },
-}), { index: 1 });
+const saveButtonStyle: CSSProperties = {
+  width: "7vw",
+  height: "4.5vh",
+  margin: 0,
+  marginRight: "5%",
+  fontSize: "1vw",
+  fontWeight: "bold",
+  letterSpacing: "1px",
+  fontFamily: "Nunito",
+  transitionDuration: ".5s",
+  backgroundColor: "green"
+};
+
+const proPasswordButtonStyle: CSSProperties = {
+  width: "7vw",
+  height: "4.5vh",
+  margin: 0,
+  fontSize: "1vw",
+  fontWeight: "bold",
+  letterSpacing: "1px",
+  fontFamily: "Nunito",
+  transitionDuration: ".5s",
+  backgroundColor: "darkblue"
+};
+
+// const styles = (theme: Theme) => ({
+//   saveButton: {
+//     width: "7vw",
+//     height: "4.5vh",
+//     margin: theme.spacing(0),
+//     marginRight: "5%",
+//     fontSize: "1vw",
+//     fontWeight: "bold",
+//     letterSpacing: "1px",
+//     fontFamily: "Nunito",
+//     transitionDuration: ".5s",
+//     backgroundColor: "green",
+//     "&:hover": {
+//       color: "green",
+//       backgroundColor: "white",
+//     },
+//   },
+//   proPasswordButton: {
+//     width: "7vw",
+//     height: "4.5vh",
+//     margin: theme.spacing(0),
+//     fontSize: "1vw",
+//     fontWeight: "bold",
+//     letterSpacing: "1px",
+//     fontFamily: "Nunito",
+//     transitionDuration: ".5s",
+//     backgroundColor: "darkblue",
+//     "&:hover": {
+//       color: "darkblue",
+//       backgroundColor: "white",
+//     },
+//   },
+// });
 
 interface PersonalProfileProps {
   personalProfile: User,
@@ -68,11 +96,11 @@ interface PersonalProfileProps {
 };
 
 export default function PersonalProfile({ personalProfile, setPersonalProfile }: PersonalProfileProps) {
-  const classes = useStyles();
+  // const classes = useClasses();
 
   const [open, setOpen] = useState<boolean>(false);
   const [updateInfo, setUpdateInfo] = useState<string>("");
-  const [updateResult, setUpdateResult] = useState<Color | undefined>(undefined);
+  const [updateResult, setUpdateResult] = useState<AlertColor | undefined>(undefined);
 
   const [status, setStatus] = useState<string>("stopped");
 
@@ -130,7 +158,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
           <div className="row personal_profile_container g-0">
             <div className="col-8">
               <div className="row mb-2">
-                <div className="col-6">
+                <div className="col-6 ps-3 pe-3">
                   <label htmlFor="FirstName" className="form-label">
                     First Name
                   </label>
@@ -143,7 +171,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                     onInput={(e) => setPersonalProfile({ ...personalProfile, firstName: e.currentTarget.value })}
                   />
                 </div>
-                <div className="col-6">
+                <div className="col-6 ps-3 pe-3">
                   <label htmlFor="LastName" className="form-label">
                     Last Name
                   </label>
@@ -158,7 +186,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                 </div>
               </div>
               <div className="row">
-                <div className="col-12">
+                <div className="col-12 ps-3 pe-3">
                   <label htmlFor="Bio" className="form-label">
                     Bio
                   </label>
@@ -172,14 +200,14 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                 </div>
               </div>
             </div>
-            <div className="col-4 img_col g-4">
+            <div className="col-4 img_col g-4 ps-3 pe-3">
               <div className="profile_image_container ">
                 {/* <img src={profile_dummy} alt="profile" className="profile_image"/> */}
                 <DisplayPicture />
               </div>
             </div>
             <div className="row">
-              <div className="col-5">
+              <div className="col-5 ps-3 pe-3">
                 <label htmlFor="Username" className="form-label">
                   Username
                 </label>
@@ -193,7 +221,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                   disabled
                 />
               </div>
-              <div className="col-7">
+              <div className="col-7 ps-3 pe-3">
                 <label htmlFor="Email" className="form-label">
                   Email
                 </label>
@@ -209,7 +237,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
               </div>
             </div>
             <div className="row">
-              <div className="col-5">
+              <div className="col-5 ps-3 pe-3">
                 <label htmlFor="Address" className="form-label">
                   Address
                 </label>
@@ -223,7 +251,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                   onInput={(e) => setPersonalProfile({ ...personalProfile, address: e.currentTarget.value })}
                 />
               </div>
-              <div className="col-4">
+              <div className="col-4 ps-3 pe-3">
                 <label htmlFor="Country" className="form-label">
                   Country
                 </label>
@@ -234,7 +262,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                   classes="form-control"
                 />
               </div>
-              <div className="col-3">
+              <div className="col-3 ps-3 pe-3">
                 <label htmlFor="Contact" className="form-label">
                   Contact
                 </label>
@@ -255,7 +283,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
               </div>
             </div>
             <div className="row">
-              <div className="col-5">
+              <div className="col-5 ps-3 pe-3">
                 <label htmlFor="State" className="form-label">
                   State
                 </label>
@@ -267,7 +295,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                   classes="form-control"
                 />
               </div>
-              <div className="col-4">
+              <div className="col-4 ps-3 pe-3">
                 <label htmlFor="City" className="form-label">
                   City
                 </label>
@@ -280,7 +308,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                   onInput={(e) => setPersonalProfile({ ...personalProfile, city: e.currentTarget.value })}
                 />
               </div>
-              <div className="col-3">
+              <div className="col-3 ps-3 pe-3">
                 <label htmlFor="Pincode" className="form-label">
                   Zip / Pincode
                 </label>
@@ -305,7 +333,8 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
               variant="contained"
               color="primary"
               size="medium"
-              className={classes.saveButton}
+              // className={classes.saveButton}
+              style={saveButtonStyle}
               startIcon={status === "started" ? "" : <SaveIcon />}
             >
               {status === "started" ? (
@@ -335,7 +364,8 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                 variant="contained"
                 color="primary"
                 size="medium"
-                className={classes.proPasswordButton}
+                style={proPasswordButtonStyle}
+                // className={classes.proPasswordButton}
                 endIcon={<SendRoundedIcon />}
               >
                 Next
