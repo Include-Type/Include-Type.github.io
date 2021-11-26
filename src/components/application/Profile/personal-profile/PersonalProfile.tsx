@@ -338,7 +338,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
               startIcon={status === "started" ? "" : <SaveIcon />}
             >
               {status === "started" ? (
-                <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+                <CircularProgress size={26} style={{ color: "white" }} />
               ) : (
                 "Save"
               )}

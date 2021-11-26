@@ -335,7 +335,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
             style={{ ...updateButtonStyle, marginLeft: 80, marginRight: 80 }}
           >
             {statusProUpdate === "started" ? (
-              <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+              <CircularProgress size={26} style={{ color: "white" }} />
             ) : (
               "Save"
             )}
@@ -415,7 +415,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
             startIcon={statusPasswordUpdate === "started" ? "" : <SaveIcon />}
           >
             {statusPasswordUpdate === "started" ? (
-              <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+              <CircularProgress size={26} style={{ color: "white" }} />
             ) : (
               "Save"
             )}

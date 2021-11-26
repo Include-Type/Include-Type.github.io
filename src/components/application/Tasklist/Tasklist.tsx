@@ -93,9 +93,12 @@ export default function Tasklist() {
     const [updateInfo, setUpdateInfo] = useState<string>("");
     const [updateResult, setUpdateResult] = useState<AlertColor | undefined>(undefined);
 
-    function Alert(props: AlertProps) {
-        return <MuiAlert elevation={6} variant="filled" {...props} />;
-    }
+    const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+        props,
+        ref,
+    ) {
+        return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+    });
 
     function handleClick() {
         setOpen(true);
@@ -105,6 +108,7 @@ export default function Tasklist() {
         if (reason === "clickaway") {
             return;
         }
+
         setOpen(false);
     };
 
@@ -180,7 +184,7 @@ export default function Tasklist() {
                                 startIcon={status === "started" ? "" : <SyncIcon />}
                             >
                                 {status === "started" ? (
-                                    <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+                                    <CircularProgress size={26} style={{ color: "white" }} />
                                 ) : (
                                     "Sync"
                                 )}
