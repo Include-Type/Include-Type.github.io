@@ -1,10 +1,11 @@
-import React, { ChangeEvent, MouseEventHandler } from "react";
+import React, { ChangeEvent, CSSProperties, MouseEventHandler } from "react";
 
 import Cropper from "react-easy-crop";
-import Slider from "@material-ui/core/Slider";
-import Button from "@material-ui/core/Button";
-import { IconButton, makeStyles } from "@material-ui/core";
-import CancelIcon from "@material-ui/icons/Cancel";
+import Slider from "@mui/material/Slider";
+import Button from "@mui/material/Button";
+import { IconButton } from "@mui/material";
+// import { makeStyles } from '@mui/material/styles'
+import CancelIcon from "@mui/icons-material/Cancel";
 
 import getCroppedImg, { generateDownload } from "../utils/cropImage";
 
@@ -12,16 +13,15 @@ import "./CropperRenderer.css";
 import { SnackbarContext, SnackbarStateContext } from "../snackbar/Snackbar";
 import { dataURLtoFile } from "../utils/dataURLtoFile";
 
-const useStyles = makeStyles({
-  IconButton: {
-    float: "right",
-  },
-  CancelIcon: {
-    backgroundColor: "white",
-    color: "red",
-    borderRadius: "50%",
-  },
-});
+const IconButtonStyle: CSSProperties = {
+  float: "right"
+};
+
+const CancelIconStyle: CSSProperties = {
+  backgroundColor: "white",
+  color: "red",
+  borderRadius: "50%"
+};
 
 interface CropperRendererProps {
   handleCropper: MouseEventHandler<HTMLButtonElement>
@@ -33,7 +33,7 @@ interface Crop {
 };
 
 export default function CropperRenderer({ handleCropper }: CropperRendererProps) {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const inputRef = React.useRef<any>();
 
@@ -102,8 +102,8 @@ export default function CropperRenderer({ handleCropper }: CropperRendererProps)
   return (
     <div className="cropper_container">
       <div className="cropper_elements_container">
-        <IconButton className={classes.IconButton} onClick={handleCropper}>
-          <CancelIcon className={classes.CancelIcon} />
+        <IconButton style={IconButtonStyle} onClick={handleCropper}>
+          <CancelIcon style={CancelIconStyle} />
         </IconButton>
         <div className="container-crop-area">
           {image ? (

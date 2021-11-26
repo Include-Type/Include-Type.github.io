@@ -18,12 +18,12 @@ export default function Privacy(props: PrivacyProps) {
 
   return (
     <div className="row my-1 d-flex align-items-center">
-      <div className="col d-flex align-items-center">
+      <div className="col d-flex align-items-center ps-3 pe-3 pb-2">
         <label htmlFor={props.privacy.label} className="form-label">
           {props.privacy.label}:
         </label>
       </div>
-      <div className="col">
+      <div className="col ps-3 pe-3 pb-2">
         <select
           defaultValue={props.privacy.value}
           onChange={(e) => changePrivacy(e.target.value, props.privacy.id)}

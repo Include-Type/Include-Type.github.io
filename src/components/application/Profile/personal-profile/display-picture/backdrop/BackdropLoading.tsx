@@ -1,22 +1,18 @@
-import React from "react";
-import Backdrop from "@material-ui/core/Backdrop";
-import CircularProgress from "@material-ui/core/CircularProgress";
-// import Button from "@material-ui/core/Button";
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+import React, { CSSProperties } from "react";
+import Backdrop from "@mui/material/Backdrop";
+import CircularProgress from "@mui/material/CircularProgress";
+// import Button from "@mui/material/Button";
+// import { makeStyles, createStyles, Theme } from "@mui/material/styles";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    backdrop: {
-      zIndex: theme.zIndex.drawer + 1,
-      color: "#fff",
-    },
-  })
-);
+const backdropStyle: CSSProperties = {
+  zIndex: 1,
+  color: "#fff"
+};
 
 export const BackdropContext = React.createContext({});
 
 export default function SimpleBackdrop({ children }: any) {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
   const backdropClose = () => {
@@ -30,7 +26,8 @@ export default function SimpleBackdrop({ children }: any) {
   return (
     <BackdropContext.Provider value={{ backdropClose, backdropShow }}>
       <Backdrop
-        className={classes.backdrop}
+        style={backdropStyle}
+        // className={classes.backdrop}
         open={open}
         onClick={backdropClose}
       >

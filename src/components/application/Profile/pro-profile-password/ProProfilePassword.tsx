@@ -1,72 +1,63 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import { makeStyles, Theme } from "@material-ui/core/styles";
-// import CloudUploadIcon from "@material-ui/icons/CloudUpload";
-import SaveIcon from "@material-ui/icons/Save";
-import SendRoundedIcon from "@material-ui/icons/SendRounded";
+import Button from "@mui/material/Button";
+// import { makeStyles, Theme } from "@mui/material/styles";
+// import CloudUploadIcon from "@mui/icons-material/CloudUpload";
+import SaveIcon from "@mui/icons-material/Save";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 import "./ProProfilePassword.css";
 
-import Snackbar from "@material-ui/core/Snackbar";
-import MuiAlert, { AlertProps, Color } from "@material-ui/lab/Alert";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { ProfessionalProfile } from "../../../../models/ProfessionalProfile";
 import { User } from "../../../../models/User";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
-import { CircularProgress } from "@material-ui/core";
+import { CircularProgress } from "@mui/material";
 
-function Alert(props: AlertProps) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref,
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
-const useStyles = makeStyles((theme: Theme) => ({
-  updateButton: {
-    width: "7vw",
-    height: "4.5vh",
-    margin: theme.spacing(0),
-    color: "white",
-    backgroundColor: "green",
-    fontSize: "1vw",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-    fontFamily: "Nunito",
-    transitionDuration: ".5s",
-    "&:hover": {
-      color: "green",
-      backgroundColor: "white",
-    },
-  },
-  saveButton: {
-    width: "7vw",
-    height: "4.5vh",
-    margin: "0% 5%",
-    fontSize: "1vw",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-    fontFamily: "Nunito",
-    transitionDuration: ".5s",
-    backgroundColor: "darkblue",
-    "&:hover": {
-      color: "darkblue",
-      backgroundColor: "white",
-    },
-  },
-  privacyButton: {
-    width: "7vw",
-    height: "4.5vh",
-    margin: theme.spacing(0),
-    fontSize: "1vw",
-    fontWeight: "bold",
-    letterSpacing: "1px",
-    fontFamily: "Nunito",
-    transitionDuration: ".5s",
-    backgroundColor: "blue",
-    "&:hover": {
-      color: "blue",
-      backgroundColor: "white",
-    },
-  },
-}), { index: 1 });
+const updateButtonStyle: CSSProperties = {
+  width: "7vw",
+  height: "4.5vh",
+  margin: 0,
+  color: "white",
+  backgroundColor: "green",
+  fontSize: "1vw",
+  fontWeight: "bold",
+  letterSpacing: "1px",
+  fontFamily: "Nunito",
+  transitionDuration: ".5s"
+};
+
+// const saveButtonStyle: CSSProperties = {
+//   width: "7vw",
+//   height: "4.5vh",
+//   margin: "0% 5%",
+//   fontSize: "1vw",
+//   fontWeight: "bold",
+//   letterSpacing: "1px",
+//   fontFamily: "Nunito",
+//   transitionDuration: ".5s",
+//   backgroundColor: "darkblue"
+// };
+
+const privacyButtonStyle: CSSProperties = {
+  width: "7vw",
+  height: "4.5vh",
+  margin: 0,
+  fontSize: "1vw",
+  fontWeight: "bold",
+  letterSpacing: "1px",
+  fontFamily: "Nunito",
+  transitionDuration: ".5s",
+  backgroundColor: "blue"
+};
 
 interface ProProfilePasswordProps {
   personalProfile: User,
@@ -76,13 +67,13 @@ interface ProProfilePasswordProps {
 };
 
 export default function ProProfilePassword({ personalProfile, setPersonalProfile, professionalProfile, setProfessionalProfile }: ProProfilePasswordProps) {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [oldPassword, setOldPassword] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
   const [password_open, setPasswordOpen] = useState<boolean>(false);
   const [updatePasswordInfo, setUpdatePasswordInfo] = useState<string>("");
-  const [updatePasswordResult, setUpdatePasswordResult] = useState<Color | undefined>(undefined);
+  const [updatePasswordResult, setUpdatePasswordResult] = useState<AlertColor | undefined>(undefined);
 
   const [statusPasswordUpdate, setStatusPasswordUpdate] = useState<string>("stopped");
 
@@ -99,7 +90,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
 
   const [pro_profile_open, setProProfileOpen] = useState<boolean>(false);
   const [updateProProfileInfo, setUpdateProProfileInfo] = useState<string>("");
-  const [updateProProfileResult, setUpdateProProfileResult] = useState<Color | undefined>(undefined);
+  const [updateProProfileResult, setUpdateProProfileResult] = useState<AlertColor | undefined>(undefined);
 
   const [statusProUpdate, setStatusProUpdate] = useState<string>("stopped");
 
@@ -213,7 +204,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
           <hr className="text-muted" />
         </div>
         <div className="row">
-          <div className="col-6">
+          <div className="col-6 ps-3 pe-3">
             <label htmlFor="Education" className="form-label">
               Educational Qualifications & Certifications:
             </label>
@@ -224,7 +215,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
               onInput={(e) => setProfessionalProfile({ ...professionalProfile, education: e.currentTarget.value })}
             />
           </div>
-          <div className="col-6">
+          <div className="col-6 ps-3 pe-3">
             <label
               htmlFor="Professional_Roles_Companies"
               className="form-label"
@@ -240,7 +231,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
           </div>
         </div>
         <div className="row">
-          <div className="col-6">
+          <div className="col-6 ps-3 pe-3">
             <label htmlFor="Skills" className="form-label">
               Skills:
             </label>
@@ -251,7 +242,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
               onInput={(e) => setProfessionalProfile({ ...professionalProfile, skills: e.currentTarget.value })}
             />
           </div>
-          <div className="col-6">
+          <div className="col-6 ps-3 pe-3">
             <label htmlFor="Experience" className="form-label">
               Experience:
             </label>
@@ -304,7 +295,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
           </div>
         </div>
         <div className="row">
-          <div className="col-6">
+          <div className="col-6 ps-3 pe-3">
             <label htmlFor="Projects" className="form-label">
               Projects & Other Works:
             </label>
@@ -315,61 +306,66 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
               onInput={(e) => setProfessionalProfile({ ...professionalProfile, projects: e.currentTarget.value })}
             />
           </div>
-          <div className="col-6 d-flex justify-content-end align-items-end">
-            <Link to="/" style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="medium"
-                className={classes.privacyButton}
-                startIcon={<SendRoundedIcon style={{ transform: 'rotate(180deg)' }} />}
-              >
-                Back
-              </Button>
-            </Link>
+        </div>
+        <div
+          className="col-16 d-flex justify-content-center align-items-center"
+          style={{ marginTop: "60px" }}
+        >
+          <Link to="/" style={{ textDecoration: "none" }}>
             <Button
-              disabled={statusProUpdate === "started" ? true : false}
-              onClick={(e) => updateProProfile(e)}
-              type="submit"
               variant="contained"
               color="primary"
               size="medium"
-              className={classes.updateButton}
-              startIcon={statusProUpdate === "started" ? "" : <SaveIcon />}
-              style={{ marginLeft: 20, marginRight: 20 }}
+              style={privacyButtonStyle}
+              // className={classes.privacyButton}
+              startIcon={<SendRoundedIcon style={{ transform: 'rotate(180deg)' }} />}
             >
-              {statusProUpdate === "started" ? (
-                <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
-              ) : (
-                "Save"
-              )}
+              Back
             </Button>
-            <Snackbar
-              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-              open={pro_profile_open}
-              autoHideDuration={3000}
+          </Link>
+          <Button
+            disabled={statusProUpdate === "started" ? true : false}
+            onClick={(e) => updateProProfile(e)}
+            type="submit"
+            variant="contained"
+            color="primary"
+            size="medium"
+            // className={classes.updateButton}
+            startIcon={statusProUpdate === "started" ? "" : <SaveIcon />}
+            style={{ ...updateButtonStyle, marginLeft: 80, marginRight: 80 }}
+          >
+            {statusProUpdate === "started" ? (
+              <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+            ) : (
+              "Save"
+            )}
+          </Button>
+          <Snackbar
+            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            open={pro_profile_open}
+            autoHideDuration={3000}
+            onClose={handleCloseProProfile}
+          >
+            <Alert
               onClose={handleCloseProProfile}
+              severity={updateProProfileResult}
+              style={{ fontSize: 18 }}
             >
-              <Alert
-                onClose={handleCloseProProfile}
-                severity={updateProProfileResult}
-                style={{ fontSize: 18 }}
-              >
-                {updateProProfileInfo}
-              </Alert>
-            </Snackbar>
-            <Link to="/AllPrivacySettings" style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="medium"
-                className={classes.privacyButton}
-                endIcon={<SendRoundedIcon />}
-              >
-                Next
-              </Button>
-            </Link>
-          </div>
+              {updateProProfileInfo}
+            </Alert>
+          </Snackbar>
+          <Link to="/AllPrivacySettings" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              color="primary"
+              size="medium"
+              style={privacyButtonStyle}
+              // className={classes.privacyButton}
+              endIcon={<SendRoundedIcon />}
+            >
+              Next
+            </Button>
+          </Link>
         </div>
       </form>
       <form className="password_settings_container">
@@ -378,7 +374,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
           <hr className="text-muted" />
         </div>
         <div className="row">
-          <div className="col-5">
+          <div className="col-6 ps-3 pe-3">
             <label htmlFor="oldPassword" className="form-label">
               Old Password
             </label>
@@ -391,7 +387,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
               onInput={(e) => setOldPassword(e.currentTarget.value)}
             />
           </div>
-          <div className="col-5">
+          <div className="col-6 ps-3 pe-3">
             <label htmlFor="newPassword" className="form-label">
               New Password
             </label>
@@ -404,36 +400,40 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
               onInput={(e) => setNewPassword(e.currentTarget.value)}
             />
           </div>
-          <div className="col-2 d-flex justify-content-center align-items-end">
-            <Button
-              disabled={statusPasswordUpdate === "started" ? true : false}
-              onClick={(e) => updatePassword(e)}
-              type="submit"
-              variant="contained"
-              className={classes.updateButton}
-              startIcon={statusPasswordUpdate === "started" ? "" : <SaveIcon />}
-            >
-              {statusPasswordUpdate === "started" ? (
-                <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
-              ) : (
-                "Save"
-              )}
-            </Button>
-            <Snackbar
-              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-              open={password_open}
-              autoHideDuration={3000}
+        </div>
+        <div
+          className="col-16 d-flex justify-content-center align-items-center"
+          style={{ marginTop: "15px" }}
+        >
+          <Button
+            disabled={statusPasswordUpdate === "started" ? true : false}
+            onClick={(e) => updatePassword(e)}
+            type="submit"
+            variant="contained"
+            style={updateButtonStyle}
+            // className={classes.updateButton}
+            startIcon={statusPasswordUpdate === "started" ? "" : <SaveIcon />}
+          >
+            {statusPasswordUpdate === "started" ? (
+              <CircularProgress size={26} style={{ color: "rgb(9, 77, 145)" }} />
+            ) : (
+              "Save"
+            )}
+          </Button>
+          <Snackbar
+            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+            open={password_open}
+            autoHideDuration={3000}
+            onClose={handleClosePassword}
+          >
+            <Alert
               onClose={handleClosePassword}
+              severity={updatePasswordResult}
+              style={{ fontSize: 18 }}
             >
-              <Alert
-                onClose={handleClosePassword}
-                severity={updatePasswordResult}
-                style={{ fontSize: 18 }}
-              >
-                {updatePasswordInfo}
-              </Alert>
-            </Snackbar>
-          </div>
+              {updatePasswordInfo}
+            </Alert>
+          </Snackbar>
         </div>
       </form>
     </div>

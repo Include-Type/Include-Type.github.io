@@ -1,51 +1,47 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { useState } from "react";
-import { IconButton } from "@material-ui/core";
-import ClickAwayListener from "@material-ui/core/ClickAwayListener";
-import Grow from "@material-ui/core/Grow";
-import Paper from "@material-ui/core/Paper";
-import Popper from "@material-ui/core/Popper";
-import MenuItem from "@material-ui/core/MenuItem";
-import MenuList from "@material-ui/core/MenuList";
-import CameraAltIcon from "@material-ui/icons/CameraAlt";
+import { IconButton } from "@mui/material";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import Popper from "@mui/material/Popper";
+import MenuItem from "@mui/material/MenuItem";
+import MenuList from "@mui/material/MenuList";
+import CameraAltIcon from "@mui/icons-material/CameraAlt";
 
 import CropperRenderer from "../cropper/CropperRenderer";
 
-import { makeStyles, createStyles, Theme } from "@material-ui/core/styles";
+// import { makeStyles, createStyles, Theme } from "@mui/material/styles";
 
 import "./AvatarRenderer.css";
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      display: "flex",
-    },
-    paper: {
-      marginRight: theme.spacing(2),
-    },
-    cameraIconButton: {
-      height: "2.5vw",
-      width: "2.5vw",
-      position: "absolute",
-      backgroundColor: "white",
-      bottom: "0",
-      right: "5%",
+// const rootStyle = {
+//   display: "flex"
+// };
 
-      "&:hover": {
-        backgroundColor: "white",
-      },
-    },
-    cameraIcon: {
-      fontSize: "1.7vw",
-    },
-    menuList: {
-      marginTop: "5%",
-    },
-  })
-);
+// const paperStyle = {
+//   marginRight: "16px"
+// };
+
+const cameraIconButtonStyle: CSSProperties = {
+  height: "2.5vw",
+  width: "2.5vw",
+  position: "absolute",
+  backgroundColor: "white",
+  bottom: "0",
+  right: "5%"
+};
+
+const cameraIconStyle: CSSProperties = {
+  fontSize: "1.7vw"
+};
+
+const menuListStyle: CSSProperties = {
+  marginTop: "5%"
+};
 
 export default function AvatarRenderer() {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef<HTMLButtonElement>(null);
 
@@ -53,7 +49,7 @@ export default function AvatarRenderer() {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event: React.MouseEvent<EventTarget>) => {
+  const handleClose = (event: MouseEvent | TouchEvent | React.MouseEvent<EventTarget>) => {
     if (
       anchorRef.current &&
       anchorRef.current.contains(event.target as HTMLElement)
@@ -92,13 +88,14 @@ export default function AvatarRenderer() {
           <img src="" alt="" className="avatar_image" />
         </div>
         <IconButton
-          className={classes.cameraIconButton}
+          style={cameraIconButtonStyle}
+          // className={classes.cameraIconButton}
           ref={anchorRef}
           aria-controls={open ? "menu-list-grow" : undefined}
           aria-haspopup="true"
           onClick={handleToggle}
         >
-          <CameraAltIcon className={classes.cameraIcon} />
+          <CameraAltIcon style={cameraIconStyle} />
         </IconButton>
         <Popper
           open={open}
@@ -118,7 +115,8 @@ export default function AvatarRenderer() {
               <Paper>
                 <ClickAwayListener onClickAway={handleClose}>
                   <MenuList
-                    className={classes.menuList}
+                    style={menuListStyle}
+                    // className={classes.menuList}
                     autoFocusItem={open}
                     id="menu-list-grow"
                     onKeyDown={handleListKeyDown}

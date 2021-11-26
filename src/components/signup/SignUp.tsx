@@ -4,14 +4,14 @@ import "./SignUp.css";
 import Banner from "../login/banner/Banner";
 import { User } from "../../models/User";
 import { UserDto } from "../../dtos/UserDto";
-import { CircularProgress, Tooltip } from "@material-ui/core";
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
-import CreateIcon from '@material-ui/icons/Create';
-import EmailIcon from '@material-ui/icons/Email';
-import VpnKeyIcon from '@material-ui/icons/VpnKey';
-import LockIcon from '@material-ui/icons/Lock';
-import CheckCircleIcon from '@material-ui/icons/CheckCircle';
-import CancelIcon from '@material-ui/icons/Cancel';
+import { CircularProgress, Tooltip } from "@mui/material";
+import AssignmentIndIcon from '@mui/icons-material/AssignmentInd';
+import CreateIcon from '@mui/icons-material/Create';
+import EmailIcon from '@mui/icons-material/Email';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import LockIcon from '@mui/icons-material/Lock';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import CancelIcon from '@mui/icons-material/Cancel';
 
 interface SignUpProps {
   setUser: React.Dispatch<React.SetStateAction<User>>,
@@ -173,12 +173,12 @@ export default function SignUp(props: SignUpProps) {
           <hr className="mb-4" />
           {/* <!-- name --> */}
           <div className="row align-items-center mb-2">
-            <div className="col-4">
+            <div className="col-4 ps-2 pe-2 pb-3">
               <label className="signUp_form_labels">
                 People call me:
               </label>
             </div>
-            <div className="col">
+            <div className="col ps-2 pe-2 pb-3">
               <input
                 id="first_name"
                 className="form-control"
@@ -193,7 +193,7 @@ export default function SignUp(props: SignUpProps) {
                 First Name
               </label> */}
             </div>
-            <div className="col">
+            <div className="col ps-2 pe-2 pb-3">
               <input
                 id="last_name"
                 className="form-control"
@@ -208,9 +208,9 @@ export default function SignUp(props: SignUpProps) {
                 Last Name
               </label> */}
             </div>
-            <div className="col-1">
+            <div className="col-1 ps-2 pe-2 pb-3">
               <Tooltip
-                title={<text style={{ fontSize: "0.9vw" }}>Your Full Name</text>}
+                title={<div style={{ fontSize: "0.9vw" }}>Your Full Name</div>}
                 arrow
                 placement="right"
               >
@@ -221,12 +221,12 @@ export default function SignUp(props: SignUpProps) {
 
           {/* <!-- username --> */}
           <div className="row align-items-center mb-2">
-            <div className="col-4">
+            <div className="col-4 ps-2 pe-2 pb-3">
               <label htmlFor="username" className="signUp_form_labels">
                 My username will be:
               </label>
             </div>
-            <div className="col-7">
+            <div className="col-7 ps-2 pe-2 pb-3">
               <input
                 id="username"
                 className="form-control"
@@ -238,10 +238,10 @@ export default function SignUp(props: SignUpProps) {
                 onInput={(e) => startUsernameCheck(e.currentTarget.value)}
               ></input>
             </div>
-            <div className="col-1">
+            <div className="col-1 ps-2 pe-2 pb-3">
               {validUsername === -1 ? (
                 <Tooltip
-                  title={<text style={{ fontSize: "0.9vw" }}>Your Username</text>}
+                  title={<div style={{ fontSize: "0.9vw" }}>Your Username</div>}
                   arrow
                   placement="right"
                 >
@@ -253,7 +253,7 @@ export default function SignUp(props: SignUpProps) {
                 ) : (
                   validUsername === 1 ? (
                     <Tooltip
-                      title={<text style={{ fontSize: "0.9vw" }}>Username is available</text>}
+                      title={<div style={{ fontSize: "0.9vw" }}>Username is available</div>}
                       arrow
                       placement="right"
                     >
@@ -261,7 +261,7 @@ export default function SignUp(props: SignUpProps) {
                     </Tooltip>
                   ) : (
                     <Tooltip
-                      title={<text style={{ fontSize: "0.9vw" }}>Username is not available</text>}
+                      title={<div style={{ fontSize: "0.9vw" }}>Username is not available</div>}
                       arrow
                       placement="right"
                     >
@@ -275,12 +275,12 @@ export default function SignUp(props: SignUpProps) {
 
           {/* <!-- email --> */}
           <div className="row align-items-center mb-2">
-            <div className="col-4">
+            <div className="col-4 ps-2 pe-2 pb-3">
               <label htmlFor="email" className="signUp_form_labels">
                 Drop a mail at:
               </label>
             </div>
-            <div className="col-7">
+            <div className="col-7 ps-2 pe-2 pb-3">
               <input
                 type="email"
                 name="EMAIL"
@@ -292,10 +292,10 @@ export default function SignUp(props: SignUpProps) {
                 onInput={(e) => startEmailCheck(e.currentTarget.value)}
               ></input>
             </div>
-            <div className="col-1">
+            <div className="col-1 ps-2 pe-2 pb-3">
               {validEmail === -1 ? (
                 <Tooltip
-                  title={<text style={{ fontSize: "0.9vw" }}>Your Email Id</text>}
+                  title={<div style={{ fontSize: "0.9vw" }}>Your Email Id</div>}
                   arrow
                   placement="right"
                 >
@@ -307,7 +307,7 @@ export default function SignUp(props: SignUpProps) {
                 ) : (
                   validEmail === 1 ? (
                     <Tooltip
-                      title={<text style={{ fontSize: "0.9vw" }}>Email Id is available</text>}
+                      title={<div style={{ fontSize: "0.9vw" }}>Email Id is available</div>}
                       arrow
                       placement="right"
                     >
@@ -315,7 +315,7 @@ export default function SignUp(props: SignUpProps) {
                     </Tooltip>
                   ) : (
                     <Tooltip
-                      title={<text style={{ fontSize: "0.9vw" }}>Email Id is not available</text>}
+                      title={<div style={{ fontSize: "0.9vw" }}>Email Id is not available</div>}
                       arrow
                       placement="right"
                     >
@@ -329,12 +329,12 @@ export default function SignUp(props: SignUpProps) {
 
           {/* <!-- password --> */}
           <div className="row align-items-center mb-2">
-            <div className="col-4">
+            <div className="col-4 ps-2 pe-2 pb-3">
               <label htmlFor="password" className="signUp_form_labels">
                 Password:
               </label>
             </div>
-            <div className="col-7">
+            <div className="col-7 ps-2 pe-2 pb-3">
               <input
                 type="password"
                 id="password"
@@ -348,9 +348,9 @@ export default function SignUp(props: SignUpProps) {
                 onInput={(e) => setNewUser({ ...newUser, password: e.currentTarget.value })}
               ></input>
             </div>
-            <div className="col-1">
+            <div className="col-1 ps-2 pe-2 pb-3">
               <Tooltip
-                title={<text style={{ fontSize: "0.9vw" }}>Your account password</text>}
+                title={<div style={{ fontSize: "0.9vw" }}>Your account password</div>}
                 arrow
                 placement="right"
               >
@@ -360,12 +360,12 @@ export default function SignUp(props: SignUpProps) {
           </div>
 
           <div className="row align-items-center mb-2">
-            <div className="col-4">
+            <div className="col-4 ps-2 pe-2 pb-3">
               <label htmlFor="confirm_password" className="signUp_form_labels">
                 Confirm Password:
               </label>
             </div>
-            <div className="col-7">
+            <div className="col-7 ps-2 pe-2 pb-3">
               <input
                 type="password"
                 id="confirm_password"
@@ -379,10 +379,10 @@ export default function SignUp(props: SignUpProps) {
                 onInput={(e) => setConfirmedPassword(e.currentTarget.value)}
               ></input>
             </div>
-            <div className="col-1">
+            <div className="col-1 ps-2 pe-2 pb-3">
               {confirmedPassword === "" ? (
                 <Tooltip
-                  title={<text style={{ fontSize: "0.9vw" }}>Verify your password</text>}
+                  title={<div style={{ fontSize: "0.9vw" }}>Verify your password</div>}
                   arrow
                   placement="right"
                 >
@@ -391,7 +391,7 @@ export default function SignUp(props: SignUpProps) {
               ) : (
                 confirmedPassword === newUser.password ? (
                   <Tooltip
-                    title={<text style={{ fontSize: "0.9vw" }}>Password verified</text>}
+                    title={<div style={{ fontSize: "0.9vw" }}>Password verified</div>}
                     arrow
                     placement="right"
                   >
@@ -399,7 +399,7 @@ export default function SignUp(props: SignUpProps) {
                   </Tooltip>
                 ) : (
                   <Tooltip
-                    title={<text style={{ fontSize: "0.9vw" }}>Passwords don't match</text>}
+                    title={<div style={{ fontSize: "0.9vw" }}>Passwords don't match</div>}
                     arrow
                     placement="right"
                   >
@@ -412,16 +412,16 @@ export default function SignUp(props: SignUpProps) {
 
           <hr className="my-4" />
 
-          <div className="mb-3">
+          <div className="mb-3 ps-2 pe-2">
             <input type="checkbox" name="" id="agree_checkbox" required></input>
             <label htmlFor="agree_checkbox" className="signUp_form_labels ms-2">
               I agree to the terms and conditions
             </label>
-            <div id="terms" className="signUp_form_labels">
+            <div id="terms" className="signUp_form_labels ps-2 pe-2">
               T&C
             </div>
           </div>
-          <div className="logged_in">
+          <div className="logged_in ps-2 pe-2 pb-2">
             <span className="signUp_form_labels">Already have an account?</span>
             <Link
               to="/LoginPage"
