@@ -43,33 +43,34 @@ function Dashboard(props: DashboardProps): ReactElement {
     }
 
     return (
-        <div>
-            {flag === 0 ? (
-                <div className="login_page dashboard">
-                    <h1>Welcome {props.personalProfile!.firstName} {props.personalProfile!.lastName}! 😃</h1>
-                    <p>Username : {props.personalProfile!.username}</p>
-                    <p>Email    : {props.personalProfile!.email}</p>
-                    <button className="registration_buttons" onClick={logout}>Log Out</button>
-                    <button className="registration_buttons" onClick={() => setFlag(1)}>Profile</button>
-                    <button className="registration_buttons" onClick={() => setFlag(2)}>Task List</button>
-                </div>
-            ) : (
-                flag === 1 ? (
-                    <Application
-                        personalProfile={props.personalProfile}
-                        setPersonalProfile={props.setPersonalProfile}
-                        professionalProfile={props.professionalProfile}
-                        setProfessionalProfile={props.setProfessionalProfile}
-                        privacy={props.privacy}
-                        setPrivacy={props.setPrivacy}
-                    />
-                ) : (
-                    <Tasklist
-                        user={props.personalProfile}
-                    />
-                )
-            )}
-        </div>
+        // <div>
+        //     {flag === 0 ? (
+        //         <div className="login_page dashboard">
+        //             <h1>Welcome {props.personalProfile!.firstName} {props.personalProfile!.lastName}! 😃</h1>
+        //             <p>Username : {props.personalProfile!.username}</p>
+        //             <p>Email    : {props.personalProfile!.email}</p>
+        //             <button className="registration_buttons" onClick={logout}>Log Out</button>
+        //             <button className="registration_buttons" onClick={() => setFlag(1)}>Profile</button>
+        //             <button className="registration_buttons" onClick={() => setFlag(2)}>Task List</button>
+        //         </div>
+        //     ) : (
+        //         flag === 1 ? (
+        //             <Application
+        //                 personalProfile={props.personalProfile}
+        //                 setPersonalProfile={props.setPersonalProfile}
+        //                 professionalProfile={props.professionalProfile}
+        //                 setProfessionalProfile={props.setProfessionalProfile}
+        //                 privacy={props.privacy}
+        //                 setPrivacy={props.setPrivacy}
+        //             />
+        //         ) : (
+        //             <Tasklist
+        //                 user={props.personalProfile}
+        //             />
+        //         )
+        //     )}
+        // </div>
+        <div></div>
     );
 }
 
