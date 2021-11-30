@@ -20,6 +20,7 @@
     "react-country-region-selector": "^3.4.0",
     "react-dom": "^17.0.2",
     "react-easy-crop": "^3.5.3",
+    "react-icons": "^4.3.1",
     "react-phone-input-2": "^2.14.0",
     "react-router-dom": "^6.0.2",
     "react-scripts": "^4.0.3",

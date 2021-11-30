@@ -2,6 +2,7 @@ import React from "react";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
+import Sidebar from "../sidebar/sidebar";
 import "./Application.css";
 import ProfilePage from "./Profile/ProfilePage";
 
@@ -41,7 +42,9 @@ export default function Application() {
     <section id="Application_page">
       <section id="Status"></section>
       <section id="Main_area">
-        <section id="Application_menu_area"></section>
+        <section id="Application_menu_area">
+          <Sidebar/>
+        </section>
         <section id="Application_content_area">
 
 
