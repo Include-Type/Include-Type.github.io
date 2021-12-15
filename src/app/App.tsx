@@ -6,7 +6,7 @@ import DevCheck from "../dev-check/DevCheck";
 
 function App(): ReactElement {
   const password: string = "rmssd";
-  const [userInput, setUserInput] = useState<string>("");
+  const [userInput, setUserInput] = useState<string>("rmssd");
 
   return (
     <BrowserRouter>
