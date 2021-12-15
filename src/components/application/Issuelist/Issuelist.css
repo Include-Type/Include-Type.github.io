@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ::-webkit-scrollbar {
+    width: 0;  
+    background: transparent;
+} */
+
+
+.for_scroll {
+    height: 98%;
+    width: 99%;
+    /* display: flex;
+    justify-content: space-around;
+    align-items: center; */
+    overflow: auto;
+}
+
+.for_scroll::-webkit-scrollbar {
+    width: 8px;
+    /* overflow: hidden; */
+}
+
+.for_scroll::-webkit-scrollbar-track {
+    border-radius: 30px;
+}
+
+.for_scroll::-webkit-scrollbar-thumb {
+    background: rgb(114, 114, 255);
+    border-radius: 30px;
+}
+
+.issuelist_outer_container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-image: var(--bg_gradient_top_light);
+}
+.issuelist_container {
+    height: 86%;
+    width: 95%;
+    max-width: 2100px;
+    max-height: 814px;
+    border-radius: 15px;
+    background-color: rgba(199, 247, 255, 0.651);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2.2%;
+    /* background-color: var(--glass_light); */
+    overflow: hidden;
+    box-shadow: 3px 3px 5px rgb(133, 185, 194);    
+}
+
+.empty_text {
+    font-size: 230%;
+    text-align: center;
+    line-height: 190%;
+}
+
+.sync_container {
+    height: 14%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

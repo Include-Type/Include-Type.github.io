@@ -4,7 +4,7 @@ import Introduction from "./introduction/Introduction";
 import LoginPage from "../login/LoginPage";
 import SignUp from "../signup/SignUp";
 import { User } from "../../models/User";
-//import Dashboard from "../dashboard/Dashboard";
+import Dashboard from "../dashboard/Dashboard";
 import { CompleteUserDto } from "../../dtos/CompleteUserDto";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
@@ -119,16 +119,15 @@ export default function LandingPage(): ReactElement {
             <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
           </div>
         ) : (
-          // <Dashboard
-          //   personalProfile={user}
-          //   setPersonalProfile={setUser}
-          //   professionalProfile={professionalProfile}
-          //   setProfessionalProfile={setProfessionalProfile}
-          //   privacy={privacy}
-          //   setPrivacy={setPrivacy}
-          //   setLoginComplete={setLoginComplete}
-          // />
-          <div></div>
+          <Dashboard
+            personalProfile={user}
+            setPersonalProfile={setUser}
+            professionalProfile={professionalProfile}
+            setProfessionalProfile={setProfessionalProfile}
+            privacy={privacy}
+            setPrivacy={setPrivacy}
+            setLoginComplete={setLoginComplete}
+          />
         )
       )}
     </div>
