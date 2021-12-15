@@ -3,7 +3,6 @@ import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import LandingPage from "../components/landing/LandingPage";
 import DevCheck from "../dev-check/DevCheck";
-import Application from "../components/application/Application";
 
 function App(): ReactElement {
   const password: string = "rmssd";

@@ -101,7 +101,7 @@ export default function LoginPage(props: LoginPageProps) {
               //style={{ height: "4.2vh", width: "6vw" }}
             >
               {loginState === "initiated" ? (
-                <CircularProgress size={21} style={{ color: "black", marginTop: "8px" }} />
+                <CircularProgress size={19} style={{ color: "black", marginTop: "8px" }} />
               ) : (
                 "Login"
               )}

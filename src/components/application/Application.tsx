@@ -5,7 +5,6 @@ import { User } from "../../models/User";
 import "./Application.css";
 import ProfilePage from "./Profile/ProfilePage";
 
-
 interface ApplicationProps {
   personalProfile: User,
   setPersonalProfile: React.Dispatch<React.SetStateAction<User>>,
@@ -30,7 +29,6 @@ export default function Application(props: ApplicationProps) {
             privacy={props.privacy}
             setPrivacy={props.setPrivacy}
           />
-
         </section>
       </section>
     </section>

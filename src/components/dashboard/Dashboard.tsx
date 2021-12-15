@@ -66,18 +66,17 @@ function Dashboard(props: DashboardProps): ReactElement {
                         setPrivacy={props.setPrivacy}
                     />
                 ) : (
-                    flag === 2?(
+                    flag === 2 ? (
                         <Tasklist
                             user={props.personalProfile}
-                            />
-                            ):(
-                        <Issuelist 
+                        />
+                    ) : (
+                        <Issuelist
                             user={props.personalProfile}
-                        
                         />
                     )
                 )
-            ) }
+            )}
         </div>
     );
 }
