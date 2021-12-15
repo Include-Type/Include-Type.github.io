@@ -413,11 +413,11 @@ export default function SignUp(props: SignUpProps) {
           <hr className="my-4" />
 
           <div className="mb-3 ps-2 pe-2">
-            <input type="checkbox" name="" id="agree_checkbox" required></input>
+            <input type="checkbox" className="signup_checkbox" id="agree_checkbox" required></input>
             <label htmlFor="agree_checkbox" className="signUp_form_labels ms-2">
               I agree to the terms and conditions
             </label>
-            <div id="terms" className="signUp_form_labels ps-2 pe-2">
+            <div id="terms" className="login_option signUp_form_labels ps-2 pe-2">
               T&C
             </div>
           </div>

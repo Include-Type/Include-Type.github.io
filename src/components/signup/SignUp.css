@@ -89,24 +89,17 @@ h2 {
   margin: 0% 0%;
 }
 
+.signup_checkbox {
+  transform: translateY(1px);
+}
+
 #agree_checkbox {
   width: 1.1vw;
   height: 1.1vw;
 }
 
-#terms {
-  float: right;
-  margin-top: 10px;
-  color: darkblue;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-#terms:hover {
-  cursor: pointer;
-}
-
 .login_option {
+  float: right;
   cursor: pointer;
   color: darkblue;
   text-decoration: underline;

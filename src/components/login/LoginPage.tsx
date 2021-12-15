@@ -98,10 +98,10 @@ export default function LoginPage(props: LoginPageProps) {
               disabled={loginState === "initiated" ? true : false}
               type="submit"
               className="submit_button"
-              style={{ height: "4.2vh", width: "6vw" }}
+              //style={{ height: "4.2vh", width: "6vw" }}
             >
               {loginState === "initiated" ? (
-                <CircularProgress size={21} style={{ color: "black", marginTop: "8px" }} />
+                <CircularProgress size={19} style={{ color: "black", marginTop: "8px" }} />
               ) : (
                 "Login"
               )}

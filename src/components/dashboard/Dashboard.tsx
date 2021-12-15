@@ -3,6 +3,7 @@ import { PrivacyProfile } from "../../models/PrivacyProfile";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
 import Application from "../application/Application";
+import Issuelist from "../application/Issuelist/Issuelist";
 import Tasklist from "../application/Tasklist/Tasklist";
 import "./Dashboard.css";
 interface DashboardProps {
@@ -52,6 +53,7 @@ function Dashboard(props: DashboardProps): ReactElement {
                     <button className="registration_buttons" onClick={logout}>Log Out</button>
                     <button className="registration_buttons" onClick={() => setFlag(1)}>Profile</button>
                     <button className="registration_buttons" onClick={() => setFlag(2)}>Task List</button>
+                    <button className="registration_buttons" onClick={() => setFlag(3)}>Issue List</button>
                 </div>
             ) : (
                 flag === 1 ? (
@@ -64,9 +66,15 @@ function Dashboard(props: DashboardProps): ReactElement {
                         setPrivacy={props.setPrivacy}
                     />
                 ) : (
-                    <Tasklist
-                        user={props.personalProfile}
-                    />
+                    flag === 2 ? (
+                        <Tasklist
+                            user={props.personalProfile}
+                        />
+                    ) : (
+                        <Issuelist
+                            user={props.personalProfile}
+                        />
+                    )
                 )
             )}
         </div>
