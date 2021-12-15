@@ -11,15 +11,14 @@
 }
 
 #Main_area {
-  width: 100%;
+  /* width: 100%; */
   height: 90%;
   display: flex;
   background-color: tomato;
-  display: flex;
 }
 
 #Application_menu_area {
-  width: 20%;
+  /* width: 20%; */
   height: 100%;
   display: inline;
   background-color: greenyellow;
