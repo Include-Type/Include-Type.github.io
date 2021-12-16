@@ -33,7 +33,8 @@ export default function SignUp(props: SignUpProps) {
     state: "",
     pincode: "",
     contact: "",
-    picture: ""
+    picture: "",
+    isAdmin: false
   });
   const [signupState, setSignupState] = useState<string>("");
   const [confirmedPassword, setConfirmedPassword] = useState<string>("");

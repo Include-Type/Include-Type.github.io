@@ -38,7 +38,8 @@ function Dashboard(props: DashboardProps): ReactElement {
             state: "",
             pincode: "",
             contact: "",
-            picture: ""
+            picture: "",
+            isAdmin: false
         });
         props.setLoginComplete(false);
     }

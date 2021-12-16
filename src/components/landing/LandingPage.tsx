@@ -26,7 +26,8 @@ export default function LandingPage(): ReactElement {
     state: "",
     pincode: "",
     contact: "",
-    picture: ""
+    picture: "",
+    isAdmin: false
   });
 
   const [professionalProfile, setProfessionalProfile] = useState<ProfessionalProfile>({

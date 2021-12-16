@@ -10,7 +10,8 @@ interface ProjectTask {
     deadline: string,
     assigned: string,
     completed: boolean,
-    priority: TaskPriority
+    priority: TaskPriority,
+    author: string
 };
 
 export type { ProjectTask, TaskPriority }

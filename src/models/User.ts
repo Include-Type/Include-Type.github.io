@@ -12,7 +12,8 @@ interface User {
     state: string,
     pincode: string,
     contact: string,
-    picture: string
+    picture: string,
+    isAdmin: boolean
 };
 
 export type { User }
