@@ -49,82 +49,82 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
             title:"dummy 1",
             date:"Jan-22-2022",
             details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },{
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },{
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        },
-        {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
         }
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },{
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },{
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // },
+        // {
+        //     id:"001",
+        //     projId:"1",
+        //     title:"dummy 1",
+        //     date:"Jan-22-2022",
+        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        // }
     ]);
     const [projectCount, setProjectCount] = useState<number>(projects.length);
     const [execFuse, setExecFuse] = useState<number>(0);
