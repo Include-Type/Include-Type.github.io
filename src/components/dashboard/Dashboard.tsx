@@ -4,6 +4,7 @@ import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
 import Application from "../application/Application";
 import Issuelist from "../application/Issuelist/Issuelist";
+import Projectlist from "../application/Projectlist/Projectlist";
 import Tasklist from "../application/Tasklist/Tasklist";
 import "./Dashboard.css";
 interface DashboardProps {
@@ -55,6 +56,7 @@ function Dashboard(props: DashboardProps): ReactElement {
                     <button className="registration_buttons" onClick={() => setFlag(1)}>Profile</button>
                     <button className="registration_buttons" onClick={() => setFlag(2)}>Task List</button>
                     <button className="registration_buttons" onClick={() => setFlag(3)}>Issue List</button>
+                    <button className="registration_buttons" onClick={() => setFlag(4)}>Project List</button>
                 </div>
             ) : (
                 flag === 1 ? (
@@ -72,9 +74,15 @@ function Dashboard(props: DashboardProps): ReactElement {
                             user={props.personalProfile}
                         />
                     ) : (
-                        <Issuelist
-                            user={props.personalProfile}
-                        />
+                        flag === 3 ? (
+                            <Issuelist
+                                user={props.personalProfile}
+                            />
+                        ) : (
+                            <Projectlist
+                                user={props.personalProfile}
+                            />
+                        )
                     )
                 )
             )}
