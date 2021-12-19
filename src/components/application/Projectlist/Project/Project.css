@@ -1,9 +1,9 @@
 .project {
-    width: 15rem;
+    width: 28rem;
     height: 14rem;
-    margin: 4% 0;
+    margin: 1rem;
     background-color: rgb(255, 245, 255);
-    border-radius: 10px;
+    border-radius: 60px;
     cursor: pointer;
 }
 
@@ -12,14 +12,14 @@
 } */
 .project:hover {
     box-shadow: 2px 2px 4px rgb(122, 90, 122);
-    border-radius: 10px;
+    border-radius: 60px;
 }
 
 .project_heading {
     height: 100%;
     width: 100%;
     /* width: 35%; */
-    border-radius: 10px;
+    border-radius: 60px;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
@@ -101,13 +101,13 @@
     /* flex : 1vw; */
     /* margin-left: 100px; */
     margin-right: 0.9%;
-    margin-bottom: 13%;
+    margin-bottom: 10%;
     color: blueviolet;
 }
 
 .project_content {
     width: 100%;
-    border-radius: 0 0 10px 10px;
+    border-radius: 0 0 60px 60px;
     justify-content: space-around;
     align-items: center;
     padding: 1% 2%;
