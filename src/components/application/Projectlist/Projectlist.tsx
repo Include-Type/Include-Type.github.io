@@ -6,6 +6,7 @@ import { ProjectDto } from '../../../dtos/ProjectDto';
 import { Button, CircularProgress, Snackbar } from '@mui/material';
 // import { makeStyles, Theme } from '@mui/material/styles';
 import SyncIcon from '@mui/icons-material/Sync';
+import SearchIcon from '@mui/icons-material/Search';
 import MuiAlert, { AlertProps, AlertColor } from '@mui/material/Alert';
 import { User } from '../../../models/User';
 import "../../spinners/Spinners.css";
@@ -21,6 +22,19 @@ const saveButtonStyle: CSSProperties = {
     fontFamily: "Nunito",
     transitionDuration: ".5s",
     backgroundColor: "green"
+};
+
+const searchButtonStyle: CSSProperties = {
+    width: "8.7vw",
+    height: "4.5vh",
+    margin: 0,
+    marginRight: "5%",
+    fontSize: "1vw",
+    fontWeight: "bold",
+    letterSpacing: "1px",
+    fontFamily: "Nunito",
+    transitionDuration: ".5s",
+    backgroundColor: "blueviolet"
 };
 
 // const proPasswordButtonStyle: CSSProperties = {
@@ -44,90 +58,113 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
 
     const [projects, setProjects] = useState<ProjectModel[]>([
         {
-            id:"001",
-            projId:"1",
-            title:"dummy 1",
-            date:"Jan-22-2022",
-            details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
+            id: "001",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfhekas asdf sgddfg dsggd safsdf asffsd safsdg wjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "002",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfheas asdf sgddfg dsggd safsdf asffsd safsdg kwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "003",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfhekwas asdf sgddfg dsggd safsdf asffsd safsdg jf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "004",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfhekas asdf sgddfg dsggd safsdf asffsd safsdg wjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "005",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfhas asdf sgddfg dsggd safsdf asffsd safsdg ekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "006",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfheas asdf sgddfg dsggd safsdf asffsd safsdg kwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "007",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfhas asdf sgddfg dsggd safsdf asffsd safsdg ekwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "008",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfheas asdf sgddfg dsggd safsdf asffsd safsdg kwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "009",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfheas asdf sgddfg dsggd safsdf asffsd safsdg kwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "010",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfheas asdf sgddfg dsggd safsdf asffsd safsdg kwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "011",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfheas asdf sgddfg dsggd safsdf asffsd safsdg kwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "012",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfheas asdf sgddfg dsggd safsdf asffsd safsdg kwjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "013",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfhekwas asdf sgddfg dsggd safsdf asffsd safsdg jf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "014",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfhekas asdf sgddfg dsggd safsdf asffsd safsdg wjf alcidsjn ksdcnksjdjnvsjdnn"
+        },
+        {
+            id: "015",
+            projId: "1",
+            title: "dummy 1",
+            date: "Jan-22-2022",
+            details: "kuhfkdc sldjfhekas asdf sgddfg dsggd safsdf asffsd safsdg wjf alcidsjn ksdcnksjdjnvsjdnn"
         }
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },{
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },{
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // },
-        // {
-        //     id:"001",
-        //     projId:"1",
-        //     title:"dummy 1",
-        //     date:"Jan-22-2022",
-        //     details:"kuhfkdc sldjfhekwjf alcidsjn ksdcnksjdjnvsjdnn"
-        // }
     ]);
     const [projectCount, setProjectCount] = useState<number>(projects.length);
-    const [execFuse, setExecFuse] = useState<number>(0);
+    const [execFuse] = useState<number>(0);
     const [status, setStatus] = useState<string>("stopped");
     const [loading, setLoading] = useState<number>(1);
 
@@ -220,12 +257,12 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
     //     setExecFuse((prevState) => (prevState + 1));
     // }
 
-    function deleteProject(id: string): void {
-        let index = projects.findIndex(t => t.id === id);
-        projects.splice(index, 1);
-        setProjects(projects);
-        setProjectCount((prevState) => (prevState - 1));
-    }
+    // function deleteProject(id: string): void {
+    //     let index = projects.findIndex(t => t.id === id);
+    //     projects.splice(index, 1);
+    //     setProjects(projects);
+    //     setProjectCount((prevState) => (prevState - 1));
+    // }
 
     // function changeProjectPriority(id: string, priority: string): void {
     //     let index = projects.findIndex(t => t.id === id);
@@ -246,16 +283,41 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
                         </div>
                     ) : (
                         <div className="projectlist_outer_container">
+                            <div className="sync_container">
+                                <input
+                                    type="text"
+                                    className="form-control search-text"
+                                    id="search-project"
+                                    placeholder="Search project"
+                                />
+                                <Button
+                                    // disabled={status === "started" ? true : false}
+                                    type="submit"
+                                    // onClick={(e) => updateProjectsByUsername(e)}
+                                    variant="contained"
+                                    color="secondary"
+                                    size="medium"
+                                    style={searchButtonStyle}
+                                    // className={classes.saveButton}
+                                    startIcon={status === "started" ? "" : <SearchIcon />}
+                                >
+                                    {status === "started" ? (
+                                        <CircularProgress size={26} style={{ color: "white" }} />
+                                    ) : (
+                                        "Search"
+                                    )}
+                                </Button>
+                            </div>
                             <div className="projectlist_container">
                                 {(projectCount > 0) && (execFuse >= 0) ? (
-                                    <div className="for_scroll">
+                                    <div className="for_scroll_projects">
                                         {projects.map((project: ProjectModel) => (
                                             <span key={project.id}>
                                                 <EachProject
                                                     data={project}
-                                                    // changeProjectPriority={changeProjectPriority}
-                                                    // strikeProject={strikeProject}
-                                                    deleteProject={deleteProject}
+                                                // changeProjectPriority={changeProjectPriority}
+                                                // strikeProject={strikeProject}
+                                                // deleteProject={deleteProject}
                                                 />
                                             </span>
                                         ))}

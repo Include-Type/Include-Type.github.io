@@ -1,28 +1,28 @@
-import React, { ChangeEvent, useState } from 'react';
+import React, { useState } from 'react';
 import { ReactElement } from 'react';
 import "./Project.css";
 import { ProjectModel } from '../../../../models/ProjectModel';
 
 //Meterial UI
 // import { createStyles, makeStyles, Theme } from "@mui/material/styles";
-import IconButton from '@mui/material/IconButton';
+// import IconButton from '@mui/material/IconButton';
 
 //Meterial UI icons
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+// import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 // import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 // import NotificationsIcon from '@mui/icons-material/Notifications';
 // import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 // import DoneAllIcon from '@mui/icons-material/DoneAll';
 // import DoneIcon from '@mui/icons-material/Done';
 // import { FormControl, FormControlLabel, FormLabel, Popover, Radio, RadioGroup, Tooltip } from '@mui/material';
-import { Tooltip } from '@mui/material';
+// import { Tooltip } from '@mui/material';
 
 
 interface ProjectProps {
     data: ProjectModel,
     // changeProjectPriority: (id: string, priority: string) => void,
     // strikeProject: (id: string) => void,
-    deleteProject: (id: string) => void
+    // deleteProject: (id: string) => void
 };
 
 export default function EachProject(props: ProjectProps): ReactElement {
@@ -42,9 +42,9 @@ export default function EachProject(props: ProjectProps): ReactElement {
     //     props.strikeProject(props.data.id);
     // }
 
-    function deleteProjectHandler(): void {
-        props.deleteProject(props.data.id);
-    }
+    // function deleteProjectHandler(): void {
+    //     props.deleteProject(props.data.id);
+    // }
 
     // const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
     // const openPriority = Boolean(anchorEl);
