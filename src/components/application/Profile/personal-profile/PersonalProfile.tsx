@@ -14,6 +14,7 @@ import Button from "@mui/material/Button";
 import SaveIcon from "@mui/icons-material/Save";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import "./PersonalProfile.css";
+import "../ProfilePage.css";
 
 // import profile_dummy from "../../../../Resources/Images/our_team_images/dummy.png";
 import DisplayPicture from "./display-picture/DisplayPicture";
@@ -145,235 +146,237 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
   }
 
   return (
-    <div
-      id="Personal_Profile"
-      className="d-flex justify-content-center align-items-center"
-    >
-      <form className="profile_form d-flex flex-wrap justify-content-center align-items-center">
-        <div className="personal_profile_scroll_container">
-          <div className="profile_title">
-            Personal Profile
-            <hr className="text-muted" />
-          </div>
-          <div className="row personal_profile_container g-0">
-            <div className="col-8">
-              <div className="row mb-2">
-                <div className="col-6 ps-3 pe-3">
-                  <label htmlFor="FirstName" className="form-label">
-                    First Name
+    <div id="Profile_Page">
+      <div
+        id="Personal_Profile"
+        className="d-flex justify-content-center align-items-center"
+      >
+        <form className="profile_form d-flex flex-wrap justify-content-center align-items-center">
+          <div className="personal_profile_scroll_container">
+            <div className="profile_title">
+              Personal Profile
+              <hr className="text-muted" />
+            </div>
+            <div className="row personal_profile_container g-0">
+              <div className="col-8">
+                <div className="row mb-2">
+                  <div className="col-6 ps-3 pe-3">
+                    <label htmlFor="FirstName" className="form-label">
+                      First Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="FirstName"
+                      required
+                      value={personalProfile.firstName}
+                      onInput={(e) => setPersonalProfile({ ...personalProfile, firstName: e.currentTarget.value })}
+                    />
+                  </div>
+                  <div className="col-6 ps-3 pe-3">
+                    <label htmlFor="LastName" className="form-label">
+                      Last Name
+                    </label>
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="LastName"
+                      required
+                      value={personalProfile.lastName}
+                      onInput={(e) => setPersonalProfile({ ...personalProfile, lastName: e.currentTarget.value })}
+                    />
+                  </div>
+                </div>
+                <div className="row">
+                  <div className="col-12 ps-3 pe-3">
+                    <label htmlFor="Bio" className="form-label">
+                      Bio
+                    </label>
+                    <textarea
+                      className="form-control"
+                      id="Bio"
+                      rows={3}
+                      value={personalProfile.bio}
+                      onInput={(e) => setPersonalProfile({ ...personalProfile, bio: e.currentTarget.value })}
+                    />
+                  </div>
+                </div>
+              </div>
+              <div className="col-4 img_col g-4 ps-3 pe-3">
+                <div className="profile_image_container ">
+                  {/* <img src={profile_dummy} alt="profile" className="profile_image"/> */}
+                  <DisplayPicture />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-5 ps-3 pe-3">
+                  <label htmlFor="Username" className="form-label">
+                    Username
                   </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="FirstName"
+                    id="Username"
                     required
-                    value={personalProfile.firstName}
-                    onInput={(e) => setPersonalProfile({ ...personalProfile, firstName: e.currentTarget.value })}
+                    value={personalProfile.username}
+                    onInput={(e) => setPersonalProfile({ ...personalProfile, username: e.currentTarget.value })}
+                    disabled
                   />
                 </div>
-                <div className="col-6 ps-3 pe-3">
-                  <label htmlFor="LastName" className="form-label">
-                    Last Name
+                <div className="col-7 ps-3 pe-3">
+                  <label htmlFor="Email" className="form-label">
+                    Email
                   </label>
                   <input
-                    type="text"
+                    type="email"
                     className="form-control"
-                    id="LastName"
+                    id="Email"
                     required
-                    value={personalProfile.lastName}
-                    onInput={(e) => setPersonalProfile({ ...personalProfile, lastName: e.currentTarget.value })}
+                    value={personalProfile.email}
+                    onInput={(e) => setPersonalProfile({ ...personalProfile, email: e.currentTarget.value })}
+                    disabled
                   />
                 </div>
               </div>
               <div className="row">
-                <div className="col-12 ps-3 pe-3">
-                  <label htmlFor="Bio" className="form-label">
-                    Bio
+                <div className="col-5 ps-3 pe-3">
+                  <label htmlFor="Address" className="form-label">
+                    Address
                   </label>
-                  <textarea
+                  <input
+                    type="text"
                     className="form-control"
-                    id="Bio"
-                    rows={3}
-                    value={personalProfile.bio}
-                    onInput={(e) => setPersonalProfile({ ...personalProfile, bio: e.currentTarget.value })}
+                    id="Address"
+                    // placeholder="1234 Main St"
+                    required
+                    value={personalProfile.address}
+                    onInput={(e) => setPersonalProfile({ ...personalProfile, address: e.currentTarget.value })}
+                  />
+                </div>
+                <div className="col-4 ps-3 pe-3">
+                  <label htmlFor="Country" className="form-label">
+                    Country
+                  </label>
+                  <CountryDropdown
+                    id="Country"
+                    value={personalProfile.country}
+                    onChange={(val) => setPersonalProfile({ ...personalProfile, country: val })}
+                    classes="form-control"
+                  />
+                </div>
+                <div className="col-3 ps-3 pe-3">
+                  <label htmlFor="Contact" className="form-label">
+                    Contact
+                  </label>
+                  <PhoneInput
+                    inputClass="form-control"
+                    buttonClass="phone_dropdown_button"
+                    dropdownClass="phone_dropdown_container"
+                    country={personalProfile.country}
+                    value={personalProfile.contact}
+                    onChange={(val) => setPersonalProfile({ ...personalProfile, contact: val })}
+                    inputProps={{
+                      id: "Contact",
+                      name: "phone",
+                      required: true,
+                      // autoFocus: true,
+                    }}
+                  />
+                </div>
+              </div>
+              <div className="row">
+                <div className="col-5 ps-3 pe-3">
+                  <label htmlFor="State" className="form-label">
+                    State
+                  </label>
+                  <RegionDropdown
+                    id="State"
+                    country={personalProfile.country}
+                    value={personalProfile.state}
+                    onChange={(val) => setPersonalProfile({ ...personalProfile, state: val })}
+                    classes="form-control"
+                  />
+                </div>
+                <div className="col-4 ps-3 pe-3">
+                  <label htmlFor="City" className="form-label">
+                    City
+                  </label>
+                  <input
+                    id="City"
+                    type="text"
+                    className="form-control"
+                    required
+                    value={personalProfile.city}
+                    onInput={(e) => setPersonalProfile({ ...personalProfile, city: e.currentTarget.value })}
+                  />
+                </div>
+                <div className="col-3 ps-3 pe-3">
+                  <label htmlFor="Pincode" className="form-label">
+                    Zip / Pincode
+                  </label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="Pincode"
+                    required
+                    value={personalProfile.pincode}
+                    onInput={(e) => setPersonalProfile({ ...personalProfile, pincode: e.currentTarget.value })}
                   />
                 </div>
               </div>
             </div>
-            <div className="col-4 img_col g-4 ps-3 pe-3">
-              <div className="profile_image_container ">
-                {/* <img src={profile_dummy} alt="profile" className="profile_image"/> */}
-                <DisplayPicture />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-5 ps-3 pe-3">
-                <label htmlFor="Username" className="form-label">
-                  Username
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Username"
-                  required
-                  value={personalProfile.username}
-                  onInput={(e) => setPersonalProfile({ ...personalProfile, username: e.currentTarget.value })}
-                  disabled
-                />
-              </div>
-              <div className="col-7 ps-3 pe-3">
-                <label htmlFor="Email" className="form-label">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  className="form-control"
-                  id="Email"
-                  required
-                  value={personalProfile.email}
-                  onInput={(e) => setPersonalProfile({ ...personalProfile, email: e.currentTarget.value })}
-                  disabled
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-5 ps-3 pe-3">
-                <label htmlFor="Address" className="form-label">
-                  Address
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Address"
-                  // placeholder="1234 Main St"
-                  required
-                  value={personalProfile.address}
-                  onInput={(e) => setPersonalProfile({ ...personalProfile, address: e.currentTarget.value })}
-                />
-              </div>
-              <div className="col-4 ps-3 pe-3">
-                <label htmlFor="Country" className="form-label">
-                  Country
-                </label>
-                <CountryDropdown
-                  id="Country"
-                  value={personalProfile.country}
-                  onChange={(val) => setPersonalProfile({ ...personalProfile, country: val })}
-                  classes="form-control"
-                />
-              </div>
-              <div className="col-3 ps-3 pe-3">
-                <label htmlFor="Contact" className="form-label">
-                  Contact
-                </label>
-                <PhoneInput
-                  inputClass="form-control"
-                  buttonClass="phone_dropdown_button"
-                  dropdownClass="phone_dropdown_container"
-                  country={personalProfile.country}
-                  value={personalProfile.contact}
-                  onChange={(val) => setPersonalProfile({ ...personalProfile, contact: val })}
-                  inputProps={{
-                    id: "Contact",
-                    name: "phone",
-                    required: true,
-                    // autoFocus: true,
-                  }}
-                />
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-5 ps-3 pe-3">
-                <label htmlFor="State" className="form-label">
-                  State
-                </label>
-                <RegionDropdown
-                  id="State"
-                  country={personalProfile.country}
-                  value={personalProfile.state}
-                  onChange={(val) => setPersonalProfile({ ...personalProfile, state: val })}
-                  classes="form-control"
-                />
-              </div>
-              <div className="col-4 ps-3 pe-3">
-                <label htmlFor="City" className="form-label">
-                  City
-                </label>
-                <input
-                  id="City"
-                  type="text"
-                  className="form-control"
-                  required
-                  value={personalProfile.city}
-                  onInput={(e) => setPersonalProfile({ ...personalProfile, city: e.currentTarget.value })}
-                />
-              </div>
-              <div className="col-3 ps-3 pe-3">
-                <label htmlFor="Pincode" className="form-label">
-                  Zip / Pincode
-                </label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="Pincode"
-                  required
-                  value={personalProfile.pincode}
-                  onInput={(e) => setPersonalProfile({ ...personalProfile, pincode: e.currentTarget.value })}
-                />
-              </div>
-            </div>
           </div>
-        </div>
-        <div className="profile_buttons_container d-flex align-items-center justify-content-around">
-          <div className="button_area">
-            <Button
-              disabled={status === "started" ? true : false}
-              onClick={(e) => updateProfile(e)}
-              type="submit"
-              variant="contained"
-              color="primary"
-              size="medium"
-              // className={classes.saveButton}
-              style={saveButtonStyle}
-              startIcon={status === "started" ? "" : <SaveIcon />}
-            >
-              {status === "started" ? (
-                <CircularProgress size={26} style={{ color: "white" }} />
-              ) : (
-                "Save"
-              )}
-            </Button>
-            <Snackbar
-              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-              open={open}
-              autoHideDuration={3000}
-              onClose={handleClose}
-            >
-              <Alert
-                onClose={handleClose}
-                severity={updateResult}
-                style={{ fontSize: 18 }}
-              >
-                {updateInfo}
-              </Alert>
-            </Snackbar>
-          </div>
-          <div className="button_area">
-            <Link to="/ProProfilePassword" style={{ textDecoration: "none" }}>
+          <div className="profile_buttons_container d-flex align-items-center justify-content-around">
+            <div className="button_area">
               <Button
+                disabled={status === "started" ? true : false}
+                onClick={(e) => updateProfile(e)}
+                type="submit"
                 variant="contained"
                 color="primary"
                 size="medium"
-                style={proPasswordButtonStyle}
-                // className={classes.proPasswordButton}
-                endIcon={<SendRoundedIcon />}
+                // className={classes.saveButton}
+                style={saveButtonStyle}
+                startIcon={status === "started" ? "" : <SaveIcon />}
               >
-                Next
+                {status === "started" ? (
+                  <CircularProgress size={26} style={{ color: "white" }} />
+                ) : (
+                  "Save"
+                )}
               </Button>
-            </Link>
+              <Snackbar
+                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                open={open}
+                autoHideDuration={3000}
+                onClose={handleClose}
+              >
+                <Alert
+                  onClose={handleClose}
+                  severity={updateResult}
+                  style={{ fontSize: 18 }}
+                >
+                  {updateInfo}
+                </Alert>
+              </Snackbar>
+            </div>
+            <div className="button_area">
+              <Link to="/profile/pro-pass" style={{ textDecoration: "none" }}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  size="medium"
+                  style={proPasswordButtonStyle}
+                  // className={classes.proPasswordButton}
+                  endIcon={<SendRoundedIcon />}
+                >
+                  Next
+                </Button>
+              </Link>
+            </div>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

@@ -152,72 +152,74 @@ export default function Tasklist(props: TasklistProps): ReactElement {
     }
 
     return (
-        <section id="Application_page">
-            <section id="Status"></section>
-            <section id="Main_area">
-                <section id="Application_menu_area"></section>
-                <section id="Application_content_area">
-                    {loading === 1 ? (
-                        <div className="tasklist_outer_container">
-                            <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
-                        </div>
-                    ) : (
-                        <div className="tasklist_outer_container">
-                            <div className="tasklist_container">
-                                {(taskCount > 0) && (execFuse >= 0) ? (
-                                    <div className="for_scroll">
-                                        {tasks.map((task: ProjectTask) => (
-                                            <div key={task.id}>
-                                                <EachTask
-                                                    data={task}
-                                                    changeTaskPriority={changeTaskPriority}
-                                                    strikeTask={strikeTask}
-                                                    deleteTask={deleteTask}
-                                                />
-                                            </div>
-                                        ))}
+        // <section id="Application_page">
+        //     <section id="Status"></section>
+        //     <section id="Main_area">
+        //         <section id="Application_menu_area"></section>
+        //         <section id="Application_content_area">
+        <>
+            {loading === 1 ? (
+                <div className="tasklist_outer_container">
+                    <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
+                </div>
+            ) : (
+                <div className="tasklist_outer_container">
+                    <div className="tasklist_container">
+                        {(taskCount > 0) && (execFuse >= 0) ? (
+                            <div className="for_scroll">
+                                {tasks.map((task: ProjectTask) => (
+                                    <div key={task.id}>
+                                        <EachTask
+                                            data={task}
+                                            changeTaskPriority={changeTaskPriority}
+                                            strikeTask={strikeTask}
+                                            deleteTask={deleteTask}
+                                        />
                                     </div>
-                                ) : (
-                                    <p className="empty_text">You're all caught up!<br></br>🚀</p>
-                                )}
+                                ))}
                             </div>
-                            <div className="sync_container">
-                                <Button
-                                    disabled={status === "started" ? true : false}
-                                    type="submit"
-                                    onClick={(e) => updateTasksByUsername(e)}
-                                    variant="contained"
-                                    color="primary"
-                                    size="medium"
-                                    style={saveButtonStyle}
-                                    // className={classes.saveButton}
-                                    startIcon={status === "started" ? "" : <SyncIcon />}
-                                >
-                                    {status === "started" ? (
-                                        <CircularProgress size={26} style={{ color: "white" }} />
-                                    ) : (
-                                        "Sync"
-                                    )}
-                                </Button>
-                                <Snackbar
-                                    anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-                                    open={open}
-                                    autoHideDuration={3000}
-                                    onClose={handleClose}
-                                >
-                                    <Alert
-                                        onClose={handleClose}
-                                        severity={updateResult}
-                                        style={{ fontSize: 18 }}
-                                    >
-                                        {updateInfo}
-                                    </Alert>
-                                </Snackbar>
-                            </div>
-                        </div>
-                    )}
-                </section>
-            </section>
-        </section>
+                        ) : (
+                            <p className="empty_text">You're all caught up!<br></br>🚀</p>
+                        )}
+                    </div>
+                    <div className="sync_container">
+                        <Button
+                            disabled={status === "started" ? true : false}
+                            type="submit"
+                            onClick={(e) => updateTasksByUsername(e)}
+                            variant="contained"
+                            color="primary"
+                            size="medium"
+                            style={saveButtonStyle}
+                            // className={classes.saveButton}
+                            startIcon={status === "started" ? "" : <SyncIcon />}
+                        >
+                            {status === "started" ? (
+                                <CircularProgress size={26} style={{ color: "white" }} />
+                            ) : (
+                                "Sync"
+                            )}
+                        </Button>
+                        <Snackbar
+                            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                            open={open}
+                            autoHideDuration={3000}
+                            onClose={handleClose}
+                        >
+                            <Alert
+                                onClose={handleClose}
+                                severity={updateResult}
+                                style={{ fontSize: 18 }}
+                            >
+                                {updateInfo}
+                            </Alert>
+                        </Snackbar>
+                    </div>
+                </div>
+            )}
+        </>
+        //         </section>
+        //     </section>
+        // </section>
     )
 }

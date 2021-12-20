@@ -272,97 +272,99 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
     // }
 
     return (
-        <section id="Application_page">
-            <section id="Status"></section>
-            <section id="Main_area">
-                <section id="Application_menu_area"></section>
-                <section id="Application_content_area">
-                    {loading === 1 ? (
-                        <div className="projectlist_outer_container">
-                            <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
-                        </div>
-                    ) : (
-                        <div className="projectlist_outer_container">
-                            <div className="sync_container">
-                                <input
-                                    type="text"
-                                    className="form-control search-text"
-                                    id="search-project"
-                                    placeholder="Search project"
-                                />
-                                <Button
-                                    // disabled={status === "started" ? true : false}
-                                    type="submit"
-                                    // onClick={(e) => updateProjectsByUsername(e)}
-                                    variant="contained"
-                                    color="secondary"
-                                    size="medium"
-                                    style={searchButtonStyle}
-                                    // className={classes.saveButton}
-                                    startIcon={status === "started" ? "" : <SearchIcon />}
-                                >
-                                    {status === "started" ? (
-                                        <CircularProgress size={26} style={{ color: "white" }} />
-                                    ) : (
-                                        "Search"
-                                    )}
-                                </Button>
+        // <section id="Application_page">
+        //     <section id="Status"></section>
+        //     <section id="Main_area">
+        //         <section id="Application_menu_area"></section>
+        //         <section id="Application_content_area">
+        <>
+            {loading === 1 ? (
+                <div className="projectlist_outer_container">
+                    <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
+                </div>
+            ) : (
+                <div className="projectlist_outer_container">
+                    <div className="sync_container">
+                        <input
+                            type="text"
+                            className="form-control search-text"
+                            id="search-project"
+                            placeholder="Search project"
+                        />
+                        <Button
+                            // disabled={status === "started" ? true : false}
+                            type="submit"
+                            // onClick={(e) => updateProjectsByUsername(e)}
+                            variant="contained"
+                            color="secondary"
+                            size="medium"
+                            style={searchButtonStyle}
+                            // className={classes.saveButton}
+                            startIcon={status === "started" ? "" : <SearchIcon />}
+                        >
+                            {status === "started" ? (
+                                <CircularProgress size={26} style={{ color: "white" }} />
+                            ) : (
+                                "Search"
+                            )}
+                        </Button>
+                    </div>
+                    <div className="projectlist_container">
+                        {(projectCount > 0) && (execFuse >= 0) ? (
+                            <div className="for_scroll_projects">
+                                {projects.map((project: ProjectModel) => (
+                                    <span key={project.id}>
+                                        <EachProject
+                                            data={project}
+                                        // changeProjectPriority={changeProjectPriority}
+                                        // strikeProject={strikeProject}
+                                        // deleteProject={deleteProject}
+                                        />
+                                    </span>
+                                ))}
                             </div>
-                            <div className="projectlist_container">
-                                {(projectCount > 0) && (execFuse >= 0) ? (
-                                    <div className="for_scroll_projects">
-                                        {projects.map((project: ProjectModel) => (
-                                            <span key={project.id}>
-                                                <EachProject
-                                                    data={project}
-                                                // changeProjectPriority={changeProjectPriority}
-                                                // strikeProject={strikeProject}
-                                                // deleteProject={deleteProject}
-                                                />
-                                            </span>
-                                        ))}
-                                    </div>
-                                ) : (
-                                    <p className="empty_text">You're all caught up!<br></br>🚀</p>
-                                )}
-                            </div>
-                            <div className="sync_container">
-                                <Button
-                                    disabled={status === "started" ? true : false}
-                                    type="submit"
-                                    onClick={(e) => updateProjectsByUsername(e)}
-                                    variant="contained"
-                                    color="primary"
-                                    size="medium"
-                                    style={saveButtonStyle}
-                                    // className={classes.saveButton}
-                                    startIcon={status === "started" ? "" : <SyncIcon />}
-                                >
-                                    {status === "started" ? (
-                                        <CircularProgress size={26} style={{ color: "white" }} />
-                                    ) : (
-                                        "Sync"
-                                    )}
-                                </Button>
-                                <Snackbar
-                                    anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-                                    open={open}
-                                    autoHideDuration={3000}
-                                    onClose={handleClose}
-                                >
-                                    <Alert
-                                        onClose={handleClose}
-                                        severity={updateResult}
-                                        style={{ fontSize: 18 }}
-                                    >
-                                        {updateInfo}
-                                    </Alert>
-                                </Snackbar>
-                            </div>
-                        </div>
-                    )}
-                </section>
-            </section>
-        </section>
+                        ) : (
+                            <p className="empty_text">You're all caught up!<br></br>🚀</p>
+                        )}
+                    </div>
+                    <div className="sync_container">
+                        <Button
+                            disabled={status === "started" ? true : false}
+                            type="submit"
+                            onClick={(e) => updateProjectsByUsername(e)}
+                            variant="contained"
+                            color="primary"
+                            size="medium"
+                            style={saveButtonStyle}
+                            // className={classes.saveButton}
+                            startIcon={status === "started" ? "" : <SyncIcon />}
+                        >
+                            {status === "started" ? (
+                                <CircularProgress size={26} style={{ color: "white" }} />
+                            ) : (
+                                "Sync"
+                            )}
+                        </Button>
+                        <Snackbar
+                            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                            open={open}
+                            autoHideDuration={3000}
+                            onClose={handleClose}
+                        >
+                            <Alert
+                                onClose={handleClose}
+                                severity={updateResult}
+                                style={{ fontSize: 18 }}
+                            >
+                                {updateInfo}
+                            </Alert>
+                        </Snackbar>
+                    </div>
+                </div>
+            )}
+        </>
+        //         </section>
+        //     </section>
+        // </section>
     )
 }

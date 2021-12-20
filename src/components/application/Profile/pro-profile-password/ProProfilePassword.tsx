@@ -7,6 +7,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 import "./ProProfilePassword.css";
+import "../ProfilePage.css";
 
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
@@ -194,248 +195,250 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
   }
 
   return (
-    <div
-      id="Professional_Profile_Password"
-      className="d-flex justify-content-center align-items-center"
-    >
-      <form className="pro_form_container">
-        <div className="pro_form_title">
-          Professional Profile
-          <hr className="text-muted" />
-        </div>
-        <div className="row">
-          <div className="col-6 ps-3 pe-3">
-            <label htmlFor="Education" className="form-label">
-              Educational Qualifications & Certifications:
-            </label>
-            <textarea
-              className="form-control"
-              id="Education"
-              value={professionalProfile.education}
-              onInput={(e) => setProfessionalProfile({ ...professionalProfile, education: e.currentTarget.value })}
-            />
+    <div id="Profile_Page">
+      <div
+        id="Professional_Profile_Password"
+        className="d-flex justify-content-center align-items-center"
+      >
+        <form className="pro_form_container">
+          <div className="pro_form_title">
+            Professional Profile
+            <hr className="text-muted" />
           </div>
-          <div className="col-6 ps-3 pe-3">
-            <label
-              htmlFor="Professional_Roles_Companies"
-              className="form-label"
-            >
-              Professional Roles & Companies (if any):
-            </label>
-            <textarea
-              className="form-control"
-              id="Professional_Roles_Companies"
-              value={professionalProfile.companies}
-              onInput={(e) => setProfessionalProfile({ ...professionalProfile, companies: e.currentTarget.value })}
-            />
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-6 ps-3 pe-3">
-            <label htmlFor="Skills" className="form-label">
-              Skills:
-            </label>
-            <textarea
-              className="form-control"
-              id="Skills"
-              value={professionalProfile.skills}
-              onInput={(e) => setProfessionalProfile({ ...professionalProfile, skills: e.currentTarget.value })}
-            />
-          </div>
-          <div className="col-6 ps-3 pe-3">
-            <label htmlFor="Experience" className="form-label">
-              Experience:
-            </label>
-            <div className="row g-0">
-              <div className="col">
-                <select
-                  defaultValue={professionalProfile.experienceYears}
-                  onChange={(e) => setProfessionalProfile({ ...professionalProfile, experienceYears: parseInt(e.target.value) })}
-                  className="form-select"
-                  aria-label="Years"
-                >
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value=">10">&gt;10</option>
-                </select>
-              </div>
-              <div className="col years_months">&ensp;Years</div>
-              <div className="col">
-                <select
-                  defaultValue={professionalProfile.experienceMonths}
-                  onChange={(e) => setProfessionalProfile({ ...professionalProfile, experienceMonths: parseInt(e.target.value) })}
-                  className="form-select"
-                  aria-label="Months"
-                >
-                  <option value="0">0</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                </select>
-              </div>
-              <div className="col years_months">&ensp;Months</div>
+          <div className="row">
+            <div className="col-6 ps-3 pe-3">
+              <label htmlFor="Education" className="form-label">
+                Educational Qualifications & Certifications:
+              </label>
+              <textarea
+                className="form-control"
+                id="Education"
+                value={professionalProfile.education}
+                onInput={(e) => setProfessionalProfile({ ...professionalProfile, education: e.currentTarget.value })}
+              />
+            </div>
+            <div className="col-6 ps-3 pe-3">
+              <label
+                htmlFor="Professional_Roles_Companies"
+                className="form-label"
+              >
+                Professional Roles & Companies (if any):
+              </label>
+              <textarea
+                className="form-control"
+                id="Professional_Roles_Companies"
+                value={professionalProfile.companies}
+                onInput={(e) => setProfessionalProfile({ ...professionalProfile, companies: e.currentTarget.value })}
+              />
             </div>
           </div>
-        </div>
-        <div className="row">
-          <div className="col-6 ps-3 pe-3">
-            <label htmlFor="Projects" className="form-label">
-              Projects & Other Works:
-            </label>
-            <textarea
-              className="form-control"
-              id="Projects"
-              value={professionalProfile.projects}
-              onInput={(e) => setProfessionalProfile({ ...professionalProfile, projects: e.currentTarget.value })}
-            />
+          <div className="row">
+            <div className="col-6 ps-3 pe-3">
+              <label htmlFor="Skills" className="form-label">
+                Skills:
+              </label>
+              <textarea
+                className="form-control"
+                id="Skills"
+                value={professionalProfile.skills}
+                onInput={(e) => setProfessionalProfile({ ...professionalProfile, skills: e.currentTarget.value })}
+              />
+            </div>
+            <div className="col-6 ps-3 pe-3">
+              <label htmlFor="Experience" className="form-label">
+                Experience:
+              </label>
+              <div className="row g-0">
+                <div className="col">
+                  <select
+                    defaultValue={professionalProfile.experienceYears}
+                    onChange={(e) => setProfessionalProfile({ ...professionalProfile, experienceYears: parseInt(e.target.value) })}
+                    className="form-select"
+                    aria-label="Years"
+                  >
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value=">10">&gt;10</option>
+                  </select>
+                </div>
+                <div className="col years_months">&ensp;Years</div>
+                <div className="col">
+                  <select
+                    defaultValue={professionalProfile.experienceMonths}
+                    onChange={(e) => setProfessionalProfile({ ...professionalProfile, experienceMonths: parseInt(e.target.value) })}
+                    className="form-select"
+                    aria-label="Months"
+                  >
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                  </select>
+                </div>
+                <div className="col years_months">&ensp;Months</div>
+              </div>
+            </div>
           </div>
-        </div>
-        <div
-          className="col-16 d-flex justify-content-center align-items-center"
-          style={{ marginTop: "60px" }}
-        >
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <div className="row">
+            <div className="col-6 ps-3 pe-3">
+              <label htmlFor="Projects" className="form-label">
+                Projects & Other Works:
+              </label>
+              <textarea
+                className="form-control"
+                id="Projects"
+                value={professionalProfile.projects}
+                onInput={(e) => setProfessionalProfile({ ...professionalProfile, projects: e.currentTarget.value })}
+              />
+            </div>
+          </div>
+          <div
+            className="col-16 d-flex justify-content-center align-items-center"
+            style={{ marginTop: "60px" }}
+          >
+            <Link to="/profile/personal" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="medium"
+                style={privacyButtonStyle}
+                // className={classes.privacyButton}
+                startIcon={<SendRoundedIcon style={{ transform: 'rotate(180deg)' }} />}
+              >
+                Back
+              </Button>
+            </Link>
             <Button
+              disabled={statusProUpdate === "started" ? true : false}
+              onClick={(e) => updateProProfile(e)}
+              type="submit"
               variant="contained"
               color="primary"
               size="medium"
-              style={privacyButtonStyle}
-              // className={classes.privacyButton}
-              startIcon={<SendRoundedIcon style={{ transform: 'rotate(180deg)' }} />}
+              // className={classes.updateButton}
+              startIcon={statusProUpdate === "started" ? "" : <SaveIcon />}
+              style={{ ...updateButtonStyle, marginLeft: 80, marginRight: 80 }}
             >
-              Back
+              {statusProUpdate === "started" ? (
+                <CircularProgress size={26} style={{ color: "white" }} />
+              ) : (
+                "Save"
+              )}
             </Button>
-          </Link>
-          <Button
-            disabled={statusProUpdate === "started" ? true : false}
-            onClick={(e) => updateProProfile(e)}
-            type="submit"
-            variant="contained"
-            color="primary"
-            size="medium"
-            // className={classes.updateButton}
-            startIcon={statusProUpdate === "started" ? "" : <SaveIcon />}
-            style={{ ...updateButtonStyle, marginLeft: 80, marginRight: 80 }}
-          >
-            {statusProUpdate === "started" ? (
-              <CircularProgress size={26} style={{ color: "white" }} />
-            ) : (
-              "Save"
-            )}
-          </Button>
-          <Snackbar
-            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-            open={pro_profile_open}
-            autoHideDuration={3000}
-            onClose={handleCloseProProfile}
-          >
-            <Alert
+            <Snackbar
+              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+              open={pro_profile_open}
+              autoHideDuration={3000}
               onClose={handleCloseProProfile}
-              severity={updateProProfileResult}
-              style={{ fontSize: 18 }}
             >
-              {updateProProfileInfo}
-            </Alert>
-          </Snackbar>
-          <Link to="/AllPrivacySettings" style={{ textDecoration: "none" }}>
+              <Alert
+                onClose={handleCloseProProfile}
+                severity={updateProProfileResult}
+                style={{ fontSize: 18 }}
+              >
+                {updateProProfileInfo}
+              </Alert>
+            </Snackbar>
+            <Link to="/profile/privacy" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="medium"
+                style={privacyButtonStyle}
+                // className={classes.privacyButton}
+                endIcon={<SendRoundedIcon />}
+              >
+                Next
+              </Button>
+            </Link>
+          </div>
+        </form>
+        <form className="password_settings_container">
+          <div className="pro_form_title">
+            Password Settings
+            <hr className="text-muted" />
+          </div>
+          <div className="row">
+            <div className="col-6 ps-3 pe-3">
+              <label htmlFor="oldPassword" className="form-label">
+                Old Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="oldPassword"
+                required
+                value={oldPassword}
+                onInput={(e) => setOldPassword(e.currentTarget.value)}
+              />
+            </div>
+            <div className="col-6 ps-3 pe-3">
+              <label htmlFor="newPassword" className="form-label">
+                New Password
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="newPassword"
+                required
+                value={newPassword}
+                onInput={(e) => setNewPassword(e.currentTarget.value)}
+              />
+            </div>
+          </div>
+          <div
+            className="col-16 d-flex justify-content-center align-items-center"
+            style={{ marginTop: "15px" }}
+          >
             <Button
+              disabled={statusPasswordUpdate === "started" ? true : false}
+              onClick={(e) => updatePassword(e)}
+              type="submit"
               variant="contained"
-              color="primary"
-              size="medium"
-              style={privacyButtonStyle}
-              // className={classes.privacyButton}
-              endIcon={<SendRoundedIcon />}
+              style={updateButtonStyle}
+              // className={classes.updateButton}
+              startIcon={statusPasswordUpdate === "started" ? "" : <SaveIcon />}
             >
-              Next
+              {statusPasswordUpdate === "started" ? (
+                <CircularProgress size={26} style={{ color: "white" }} />
+              ) : (
+                "Save"
+              )}
             </Button>
-          </Link>
-        </div>
-      </form>
-      <form className="password_settings_container">
-        <div className="pro_form_title">
-          Password Settings
-          <hr className="text-muted" />
-        </div>
-        <div className="row">
-          <div className="col-6 ps-3 pe-3">
-            <label htmlFor="oldPassword" className="form-label">
-              Old Password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="oldPassword"
-              required
-              value={oldPassword}
-              onInput={(e) => setOldPassword(e.currentTarget.value)}
-            />
-          </div>
-          <div className="col-6 ps-3 pe-3">
-            <label htmlFor="newPassword" className="form-label">
-              New Password
-            </label>
-            <input
-              type="password"
-              className="form-control"
-              id="newPassword"
-              required
-              value={newPassword}
-              onInput={(e) => setNewPassword(e.currentTarget.value)}
-            />
-          </div>
-        </div>
-        <div
-          className="col-16 d-flex justify-content-center align-items-center"
-          style={{ marginTop: "15px" }}
-        >
-          <Button
-            disabled={statusPasswordUpdate === "started" ? true : false}
-            onClick={(e) => updatePassword(e)}
-            type="submit"
-            variant="contained"
-            style={updateButtonStyle}
-            // className={classes.updateButton}
-            startIcon={statusPasswordUpdate === "started" ? "" : <SaveIcon />}
-          >
-            {statusPasswordUpdate === "started" ? (
-              <CircularProgress size={26} style={{ color: "white" }} />
-            ) : (
-              "Save"
-            )}
-          </Button>
-          <Snackbar
-            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-            open={password_open}
-            autoHideDuration={3000}
-            onClose={handleClosePassword}
-          >
-            <Alert
+            <Snackbar
+              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+              open={password_open}
+              autoHideDuration={3000}
               onClose={handleClosePassword}
-              severity={updatePasswordResult}
-              style={{ fontSize: 18 }}
             >
-              {updatePasswordInfo}
-            </Alert>
-          </Snackbar>
-        </div>
-      </form>
+              <Alert
+                onClose={handleClosePassword}
+                severity={updatePasswordResult}
+                style={{ fontSize: 18 }}
+              >
+                {updatePasswordInfo}
+              </Alert>
+            </Snackbar>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

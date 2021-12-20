@@ -1,6 +1,7 @@
 import React, { CSSProperties, useState } from "react";
 import { Link } from "react-router-dom";
 import "./AllPrivacySettings.css";
+import "../ProfilePage.css";
 import Privacy from "./privacy/Privacy";
 
 import Button from "@mui/material/Button";
@@ -194,76 +195,78 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
   }
 
   return (
-    <div id="Privacy_Settings_Container" className="">
-      <div
-        id="All_Privacy_Settings"
-        className="d-flex justify-content-center align-items-center"
-      >
-        <div className="privacy_scroll_container">
-          <div className="privacy_title">
-            Privacy Settings
-            <hr className="text-muted" />
+    <div id="Profile_Page">
+      <div id="Privacy_Settings_Container" className="">
+        <div
+          id="All_Privacy_Settings"
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div className="privacy_scroll_container">
+            <div className="privacy_title">
+              Privacy Settings
+              <hr className="text-muted" />
+            </div>
+            <form id="PrivacyForm" className="privacy_form_container">
+              {privacies.map((privacy: Privacies) => (
+                <Privacy
+                  key={privacy.name}
+                  privacy={privacy}
+                  privacies={privacies}
+                  setPrivacies={setPrivacies}
+                />
+              ))}
+            </form>
           </div>
-          <form id="PrivacyForm" className="privacy_form_container">
-            {privacies.map((privacy: Privacies) => (
-              <Privacy
-                key={privacy.name}
-                privacy={privacy}
-                privacies={privacies}
-                setPrivacies={setPrivacies}
-              />
-            ))}
-          </form>
         </div>
-      </div>
-      <div className="update_button_container">
-        <div className="button_area">
-          <Link to="/ProProfilePassword" style={{ textDecoration: "none" }}>
+        <div className="update_button_container">
+          <div className="button_area">
+            <Link to="/profile/pro-pass" style={{ textDecoration: "none" }}>
+              <Button
+                variant="contained"
+                color="primary"
+                size="medium"
+                style={privacyButtonStyle}
+                // className={classes.privacyButton}
+                startIcon={
+                  <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
+                }
+              >
+                Back
+              </Button>
+            </Link>
+          </div>
+          <div className="button_area">
             <Button
+              disabled={status === "started" ? true : false}
+              onClick={(e) => updatePrivacies(e)}
+              form="PrivacyForm"
+              type="submit"
               variant="contained"
-              color="primary"
-              size="medium"
-              style={privacyButtonStyle}
-              // className={classes.privacyButton}
-              startIcon={
-                <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
-              }
+              style={updateButtonStyle}
+              // className={classes.updateButton}
+              startIcon={status === "started" ? "" : <SaveIcon />}
             >
-              Back
+              {status === "started" ? (
+                <CircularProgress size={26} style={{ color: "white" }} />
+              ) : (
+                "Save"
+              )}
             </Button>
-          </Link>
-        </div>
-        <div className="button_area">
-          <Button
-            disabled={status === "started" ? true : false}
-            onClick={(e) => updatePrivacies(e)}
-            form="PrivacyForm"
-            type="submit"
-            variant="contained"
-            style={updateButtonStyle}
-            // className={classes.updateButton}
-            startIcon={status === "started" ? "" : <SaveIcon />}
-          >
-            {status === "started" ? (
-              <CircularProgress size={26} style={{ color: "white" }} />
-            ) : (
-              "Save"
-            )}
-          </Button>
-          <Snackbar
-            anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-            open={open}
-            autoHideDuration={3000}
-            onClose={handleClose}
-          >
-            <Alert
+            <Snackbar
+              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+              open={open}
+              autoHideDuration={3000}
               onClose={handleClose}
-              severity={updateResult}
-              style={{ fontSize: 18 }}
             >
-              {updateInfo}
-            </Alert>
-          </Snackbar>
+              <Alert
+                onClose={handleClose}
+                severity={updateResult}
+                style={{ fontSize: 18 }}
+              >
+                {updateInfo}
+              </Alert>
+            </Snackbar>
+          </div>
         </div>
       </div>
     </div>

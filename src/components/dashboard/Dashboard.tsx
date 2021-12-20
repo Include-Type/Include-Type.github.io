@@ -1,11 +1,8 @@
-import React, { ReactElement, useState } from "react";
+import React, { ReactElement } from "react";
+import { useNavigate } from "react-router-dom";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
-import Application from "../application/Application";
-import Issuelist from "../application/Issuelist/Issuelist";
-import Projectlist from "../application/Projectlist/Projectlist";
-import Tasklist from "../application/Tasklist/Tasklist";
 import "./Dashboard.css";
 interface DashboardProps {
     personalProfile: User,
@@ -18,7 +15,8 @@ interface DashboardProps {
 };
 
 function Dashboard(props: DashboardProps): ReactElement {
-    const [flag, setFlag] = useState<number>(0);
+    var navigate = useNavigate();
+
     async function logout(): Promise<void> {
         await fetch("https://include-type.herokuapp.com/api/user/logout", {
             method: "POST",
@@ -46,46 +44,15 @@ function Dashboard(props: DashboardProps): ReactElement {
     }
 
     return (
-        <div>
-            {flag === 0 ? (
-                <div className="login_page dashboard">
-                    <h1>Welcome {props.personalProfile!.firstName} {props.personalProfile!.lastName}! 😃</h1>
-                    <p>Username : {props.personalProfile!.username}</p>
-                    <p>Email    : {props.personalProfile!.email}</p>
-                    <button className="registration_buttons" onClick={logout}>Log Out</button>
-                    <button className="registration_buttons" onClick={() => setFlag(1)}>Profile</button>
-                    <button className="registration_buttons" onClick={() => setFlag(2)}>Task List</button>
-                    <button className="registration_buttons" onClick={() => setFlag(3)}>Issue List</button>
-                    <button className="registration_buttons" onClick={() => setFlag(4)}>Project List</button>
-                </div>
-            ) : (
-                flag === 1 ? (
-                    <Application
-                        personalProfile={props.personalProfile}
-                        setPersonalProfile={props.setPersonalProfile}
-                        professionalProfile={props.professionalProfile}
-                        setProfessionalProfile={props.setProfessionalProfile}
-                        privacy={props.privacy}
-                        setPrivacy={props.setPrivacy}
-                    />
-                ) : (
-                    flag === 2 ? (
-                        <Tasklist
-                            user={props.personalProfile}
-                        />
-                    ) : (
-                        flag === 3 ? (
-                            <Issuelist
-                                user={props.personalProfile}
-                            />
-                        ) : (
-                            <Projectlist
-                                user={props.personalProfile}
-                            />
-                        )
-                    )
-                )
-            )}
+        <div className="dashboard">
+            <h1>Welcome {props.personalProfile!.firstName} {props.personalProfile!.lastName}! 😃</h1>
+            <p>Username : {props.personalProfile!.username}</p>
+            <p>Email    : {props.personalProfile!.email}</p>
+            <button className="registration_buttons" onClick={() => logout()}>Log Out</button>
+            <button className="registration_buttons" onClick={() => navigate("/profile/personal")}>Profile</button>
+            <button className="registration_buttons" onClick={() => navigate("/project-tasks")}>Task List</button>
+            <button className="registration_buttons" onClick={() => navigate("/project-issues")}>Issue List</button>
+            <button className="registration_buttons" onClick={() => navigate("/projects")}>Project List</button>
         </div>
     );
 }
