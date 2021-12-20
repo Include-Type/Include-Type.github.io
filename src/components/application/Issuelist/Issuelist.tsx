@@ -42,6 +42,8 @@ interface IssuelistProps {
 export default function Issuelist(props: IssuelistProps): ReactElement {
     // const classes = useStyles();
 
+    const [searchKey, setSearchKey] = useState<string>("");
+
     const [issues, setIssues] = useState<ProjectIssue[]>([]);
     const [issueCount, setIssueCount] = useState<number>(issues.length);
     const [execFuse, setExecFuse] = useState<number>(0);
@@ -164,18 +166,49 @@ export default function Issuelist(props: IssuelistProps): ReactElement {
                 </div>
             ) : (
                 <div className="issuelist_outer_container">
+                    <div className="sync_container">
+                        <input
+                            type="text"
+                            className="form-control search-text"
+                            id="search-issues"
+                            placeholder="Search issues"
+                            value={searchKey}
+                            onInput={(e) => setSearchKey(e.currentTarget.value)}
+                        />
+                        {/* <Button
+                            // disabled={status === "started" ? true : false}
+                            type="submit"
+                            // onClick={(e) => updateProjectsByUsername(e)}
+                            variant="contained"
+                            color="secondary"
+                            size="medium"
+                            style={searchButtonStyle}
+                            // className={classes.saveButton}
+                            startIcon={status === "started" ? "" : <SearchIcon />}
+                        >
+                            {status === "started" ? (
+                                <CircularProgress size={26} style={{ color: "white" }} />
+                            ) : (
+                                "Search"
+                            )}
+                        </Button> */}
+                    </div>
                     <div className="issuelist_container">
                         {(issueCount > 0) && (execFuse >= 0) ? (
                             <div className="for_scroll">
                                 {issues.map((issue: ProjectIssue) => (
-                                    <div key={issue.id}>
+                                    (searchKey === "" ||
+                                        issue.projName.toLowerCase().includes(searchKey.toLowerCase()) ||
+                                        issue.title.toLowerCase().includes(searchKey.toLowerCase()) ||
+                                        issue.details.toLowerCase().includes(searchKey.toLowerCase())) &&
+                                    (<div key={issue.id}>
                                         <EachIssue
                                             data={issue}
                                             changeIssuePriority={changeIssuePriority}
                                             strikeIssue={strikeIssue}
                                             deleteIssue={deleteIssue}
                                         />
-                                    </div>
+                                    </div>)
                                 ))}
                             </div>
                         ) : (

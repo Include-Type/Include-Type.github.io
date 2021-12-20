@@ -25,8 +25,8 @@
     /* justify-content: space-between; */
     padding: 1% 2%;
     align-items: center;
-    background-color: rgba(255, 168, 146, 0.685);
-    box-shadow: inset 0 -10px 30px rgba(255, 151, 109, 0.699),
+    background-color: rgb(223, 199, 255);
+    box-shadow: inset 0 -10px 30px rgb(214, 189, 255),
                 0 5px 10px rgba(44, 0, 44, 0.493);
 }
 

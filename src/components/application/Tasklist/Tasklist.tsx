@@ -42,6 +42,8 @@ interface TasklistProps {
 export default function Tasklist(props: TasklistProps): ReactElement {
     // const classes = useStyles();
 
+    const [searchKey, setSearchKey] = useState<string>("");
+
     const [tasks, setTasks] = useState<ProjectTask[]>([]);
     const [taskCount, setTaskCount] = useState<number>(tasks.length);
     const [execFuse, setExecFuse] = useState<number>(0);
@@ -164,18 +166,49 @@ export default function Tasklist(props: TasklistProps): ReactElement {
                 </div>
             ) : (
                 <div className="tasklist_outer_container">
+                    <div className="sync_container">
+                        <input
+                            type="text"
+                            className="form-control search-text"
+                            id="search-tasks"
+                            placeholder="Search tasks"
+                            value={searchKey}
+                            onInput={(e) => setSearchKey(e.currentTarget.value)}
+                        />
+                        {/* <Button
+                            // disabled={status === "started" ? true : false}
+                            type="submit"
+                            // onClick={(e) => updateProjectsByUsername(e)}
+                            variant="contained"
+                            color="secondary"
+                            size="medium"
+                            style={searchButtonStyle}
+                            // className={classes.saveButton}
+                            startIcon={status === "started" ? "" : <SearchIcon />}
+                        >
+                            {status === "started" ? (
+                                <CircularProgress size={26} style={{ color: "white" }} />
+                            ) : (
+                                "Search"
+                            )}
+                        </Button> */}
+                    </div>
                     <div className="tasklist_container">
                         {(taskCount > 0) && (execFuse >= 0) ? (
                             <div className="for_scroll">
                                 {tasks.map((task: ProjectTask) => (
-                                    <div key={task.id}>
+                                    (searchKey === "" ||
+                                        task.projName.toLowerCase().includes(searchKey.toLowerCase()) ||
+                                        task.title.toLowerCase().includes(searchKey.toLowerCase()) ||
+                                        task.details.toLowerCase().includes(searchKey.toLowerCase())) &&
+                                    (<div key={task.id}>
                                         <EachTask
                                             data={task}
                                             changeTaskPriority={changeTaskPriority}
                                             strikeTask={strikeTask}
                                             deleteTask={deleteTask}
                                         />
-                                    </div>
+                                    </div>)
                                 ))}
                             </div>
                         ) : (
