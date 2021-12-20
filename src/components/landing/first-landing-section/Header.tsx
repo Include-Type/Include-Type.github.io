@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <>
-      <Link to="/LoginPage" className="registration_buttons" role="button">
+      <Link to="/login" className="registration_buttons" role="button">
         Login
       </Link>
-      <Link to="/SignUpPage" className="registration_buttons" role="button">
+      <Link to="/signup" className="registration_buttons" role="button">
         Sign Up
       </Link>
     </>

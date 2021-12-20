@@ -1,15 +1,15 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Introduction from "./introduction/Introduction";
 import LoginPage from "../login/LoginPage";
 import SignUp from "../signup/SignUp";
 import { User } from "../../models/User";
-import Dashboard from "../dashboard/Dashboard";
 import { CompleteUserDto } from "../../dtos/CompleteUserDto";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
 import { CircularProgress } from "@mui/material";
 import "../spinners/Spinners.css";
+import Application from "../application/Application";
 
 export default function LandingPage(): ReactElement {
   const [user, setUser] = useState<User>({
@@ -96,7 +96,7 @@ export default function LandingPage(): ReactElement {
             element={<Introduction />}
           />
           <Route
-            path="/LoginPage"
+            path="/login"
             element={
               <LoginPage
                 setUser={setUser}
@@ -105,7 +105,7 @@ export default function LandingPage(): ReactElement {
             }
           />
           <Route
-            path="/SignUpPage"
+            path="/signup"
             element={
               <SignUp
                 setUser={setUser}
@@ -120,7 +120,7 @@ export default function LandingPage(): ReactElement {
             <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
           </div>
         ) : (
-          <Dashboard
+          <Application
             personalProfile={user}
             setPersonalProfile={setUser}
             professionalProfile={professionalProfile}

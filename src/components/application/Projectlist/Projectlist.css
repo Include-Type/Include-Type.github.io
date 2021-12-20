@@ -9,30 +9,31 @@
 } */
 
 
-.for_scroll {
+.for_scroll_projects {
     height: 98%;
     width: 99%;
-    /* display: flex;
-    justify-content: space-around;
-    align-items: center; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; 
+    flex-wrap: wrap;
     overflow: auto;
 }
 
-.for_scroll::-webkit-scrollbar {
+.for_scroll_projects::-webkit-scrollbar {
     width: 8px;
     /* overflow: hidden; */
 }
 
-.for_scroll::-webkit-scrollbar-track {
+.for_scroll_projects::-webkit-scrollbar-track {
     border-radius: 30px;
 }
 
-.for_scroll::-webkit-scrollbar-thumb {
+.for_scroll_projects::-webkit-scrollbar-thumb {
     background: rgb(114, 114, 255);
     border-radius: 30px;
 }
 
-.tasklist_outer_container {
+.projectlist_outer_container {
     height: 100%;
     width: 100%;
     display: flex;
@@ -41,7 +42,7 @@
     align-items: center;
     background-image: var(--bg_gradient_top_light);
 }
-.tasklist_container {
+.projectlist_container {
     height: 86%;
     width: 95%;
     max-width: 2100px;
