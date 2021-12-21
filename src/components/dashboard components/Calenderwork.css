@@ -1,0 +1,12 @@
+.calender-work{
+    width: 40%;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5%;
+    content: '';
+    background: inherit;
+    margin-left: 80px;
+    background-color: var(--glass_light);
+    bottom: 80%;
+}

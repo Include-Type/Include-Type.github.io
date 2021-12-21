@@ -2,6 +2,9 @@ import React from "react";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
+import Calenderwork from "../dashboard components/calenderwork";
+import Issueslist from "../dashboard components/issueslist";
+import Workinglist from "../dashboard components/workinglist";
 import Sidebar from "../sidebar/sidebar";
 import "./Application.css";
 import ProfilePage from "./Profile/ProfilePage";
@@ -46,6 +49,9 @@ export default function Application() {
           <Sidebar/>
         </section>
         <section id="Application_content_area">
+          <Workinglist/>
+          <Issueslist/>
+          <Calenderwork/>
 
 
         </section>
