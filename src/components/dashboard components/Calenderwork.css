@@ -10,3 +10,8 @@
     background-color: var(--glass_light);
     bottom: 80%;
 }
+.popupform_main{
+    margin-left: 40%;
+    margin-top: 2%;
+    font-family: 'Courier New', Courier, monospace;
+}

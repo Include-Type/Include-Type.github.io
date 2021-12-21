@@ -1,8 +1,9 @@
 import React, {useState} from "react";
+import "./formforsave.css"
 
 let formElements = [{
     label:"Agenda",
-    key:"agenda"
+    key:"agenda",
 }]
 
 function Form () {
@@ -40,7 +41,10 @@ function Form () {
     return(
         <div>
             <form>
+                <div className="event">
                 Enter Your Event
+
+                </div>
                 {formElements.map(formElement => {
                 return <div>
                     {formElement.label}

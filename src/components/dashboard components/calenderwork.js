@@ -10,12 +10,11 @@ import Mainpopup from "./mainpopup"
 function Calenderwork() {
     return (
         <div className="calender-work">
-            <div className="">
+            <div className="popupform_main">
                 <Mainpopup/>
-                <Picker/>
             </div>
-            <div className="todo">
-
+            <div>
+                <Picker/>
             </div>
         </div>
     );
