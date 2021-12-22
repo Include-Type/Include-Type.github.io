@@ -10,7 +10,7 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 // import CloudUploadIcon from "@material-ui/icons-material/CloudUpload";
 import SaveIcon from "@mui/icons-material/Save";
 
-import Snackbar from "@mui/material/Snackbar";
+import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { PrivacyProfile } from "../../../../models/PrivacyProfile";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
@@ -142,7 +142,7 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
     setOpen(true);
   };
 
-  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+  const handleClose = (event: Event | React.SyntheticEvent<Element, Event>, reason?: string | SnackbarCloseReason) => {
     if (reason === "clickaway") {
       return;
     }

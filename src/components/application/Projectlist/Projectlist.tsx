@@ -3,7 +3,7 @@ import "./Projectlist.css";
 import EachProject from "./Project/Project"
 import { ProjectModel } from '../../../models/ProjectModel';
 import { ProjectDto } from '../../../dtos/ProjectDto';
-import { Button, CircularProgress, Snackbar } from '@mui/material';
+import { Button, CircularProgress, Snackbar, SnackbarCloseReason } from '@mui/material';
 // import { makeStyles, Theme } from '@mui/material/styles';
 import SyncIcon from '@mui/icons-material/Sync';
 import MuiAlert, { AlertProps, AlertColor } from '@mui/material/Alert';
@@ -243,7 +243,7 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
         setOpen(true);
     };
 
-    function handleClose(event?: React.SyntheticEvent, reason?: string) {
+    function handleClose(event: Event | React.SyntheticEvent<Element, Event>, reason?: string | SnackbarCloseReason) {
         if (reason === "clickaway") {
             return;
         }
