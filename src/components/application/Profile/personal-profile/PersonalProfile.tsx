@@ -19,7 +19,7 @@ import "../ProfilePage.css";
 // import profile_dummy from "../../../../Resources/Images/our_team_images/dummy.png";
 import DisplayPicture from "./display-picture/DisplayPicture";
 
-import Snackbar from "@mui/material/Snackbar";
+import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { User } from "../../../../models/User";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
@@ -109,7 +109,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
     setOpen(true);
   };
 
-  const handleClose = (event?: React.SyntheticEvent, reason?: string) => {
+  const handleClose = (event: Event | React.SyntheticEvent<Element, Event>, reason?: string | SnackbarCloseReason) => {
     if (reason === "clickaway") {
       return;
     }

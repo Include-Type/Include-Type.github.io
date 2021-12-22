@@ -89,7 +89,7 @@ export default function LoginPage(props: LoginPageProps) {
           </div>
           <div className="mb-2 pb-4 d-flex align-items-center justify-content-between fw-bold">
             <div>Not Registered yet? &nbsp;&nbsp;&nbsp;</div>
-            <Link to="/SignUpPage" className="create_account">
+            <Link to="/signup" className="create_account">
               Create an Account
             </Link>
           </div>

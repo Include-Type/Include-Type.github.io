@@ -9,7 +9,7 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import "./ProProfilePassword.css";
 import "../ProfilePage.css";
 
-import Snackbar from "@mui/material/Snackbar";
+import Snackbar, { SnackbarCloseReason } from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { ProfessionalProfile } from "../../../../models/ProfessionalProfile";
 import { User } from "../../../../models/User";
@@ -82,7 +82,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
     setPasswordOpen(true);
   };
 
-  const handleClosePassword = (event?: React.SyntheticEvent, reason?: string) => {
+  const handleClosePassword = (event: Event | React.SyntheticEvent<Element, Event>, reason?: string | SnackbarCloseReason) => {
     if (reason === "clickaway") {
       return;
     }
@@ -99,7 +99,7 @@ export default function ProProfilePassword({ personalProfile, setPersonalProfile
     setProProfileOpen(true);
   };
 
-  const handleCloseProProfile = (event?: React.SyntheticEvent, reason?: string) => {
+  const handleCloseProProfile = (event: Event | React.SyntheticEvent<Element, Event>, reason?: string | SnackbarCloseReason) => {
     if (reason === "clickaway") {
       return;
     }
