@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap");
+
+#new_update_project {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.new_update_project_container {
+  position: relative;
+  margin-top: 1%;
+  padding: 2%;
+  width: 95%;
+  height: 96%;
+  background-color: var(--glass_light);
+  border-radius: 30px;
+}
+
+.new_update_project_title {
+  font-family: "Nunito";
+  font-size: 2.2vw;
+  font-weight: 800;
+  color: var(--deep_sea_green_theme_color);
+  letter-spacing: 1px;
+  margin: 0% 0% 0% 1%;
+}
+
+.title_page_container,
+.contributors_page_container,
+.create_assign_tasks_page_container {
+  position: relative;
+  width: 100%;
+  height: 88%;
+  /* background-color: aqua; */
+}
+
+.title_page,
+.contributors,
+.create_assign_tasks {
+  position: relative;
+  height: 88%;
+  padding: 1%;
+  /* background-color: lime; */
+}
+
+.title_page .row {
+  display: flex;
+  align-items: center;
+  /* background-color: brown; */
+  margin-bottom: 1vh;
+}
+
+.title_page .row .col-2 {
+  display: flex;
+  align-items: center;
+  /* background-color: blue; */
+}
+
+.title_page .row .col-2 .form-label {
+  margin: 0px;
+  align-items: center;
+  /* background-color: orange; */
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+.contributors .row .col {
+  background-color: tomato;
+}
+
+.contributors .form-label {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+.create_assign_tasks .row {
+  display: flex;
+  align-items: center;
+  /* background-color: brown; */
+  margin-bottom: 2vh;
+}
+
+.create_assign_tasks .row .col-2 {
+  display: flex;
+  align-items: center;
+  /* background-color: blue; */
+}
+
+.create_assign_tasks .form-label {
+  margin: 0px;
+  align-items: center;
+  /* background-color: orange; */
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+.prev_button,
+.next_button {
+  font-weight: bold;
+  font-size: xx-large;
+}
