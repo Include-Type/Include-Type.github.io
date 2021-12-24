@@ -10,6 +10,7 @@ import PersonalProfile from "./Profile/personal-profile/PersonalProfile";
 import AllPrivacySettings from "./Profile/privacy-settings/AllPrivacySettings";
 import ProProfilePassword from "./Profile/pro-profile-password/ProProfilePassword";
 import Projectlist from "./Projectlist/Projectlist";
+import ProjectDetails from "./Projectlist/ProjectDetails/ProjectDetails";
 import Tasklist from "./Tasklist/Tasklist";
 
 interface ApplicationProps {
@@ -44,37 +45,35 @@ export default function Application(props: ApplicationProps) {
                 />
               }
             />
-            <Route path="/profile">
-              <Route
-                path="personal"
-                element={
-                  <PersonalProfile
-                    personalProfile={props.personalProfile}
-                    setPersonalProfile={props.setPersonalProfile}
-                  />
-                }
-              />
-              <Route
-                path="pro-pass"
-                element={
-                  <ProProfilePassword
-                    personalProfile={props.personalProfile}
-                    setPersonalProfile={props.setPersonalProfile}
-                    professionalProfile={props.professionalProfile}
-                    setProfessionalProfile={props.setProfessionalProfile}
-                  />
-                }
-              />
-              <Route
-                path="privacy"
-                element={
-                  <AllPrivacySettings
-                    privacy={props.privacy}
-                    setPrivacy={props.setPrivacy}
-                  />
-                }
-              />
-            </Route>
+            <Route
+              path="/profile/personal"
+              element={
+                <PersonalProfile
+                  personalProfile={props.personalProfile}
+                  setPersonalProfile={props.setPersonalProfile}
+                />
+              }
+            />
+            <Route
+              path="/profile/pro-pass"
+              element={
+                <ProProfilePassword
+                  personalProfile={props.personalProfile}
+                  setPersonalProfile={props.setPersonalProfile}
+                  professionalProfile={props.professionalProfile}
+                  setProfessionalProfile={props.setProfessionalProfile}
+                />
+              }
+            />
+            <Route
+              path="/profile/privacy"
+              element={
+                <AllPrivacySettings
+                  privacy={props.privacy}
+                  setPrivacy={props.setPrivacy}
+                />
+              }
+            />
             <Route
               path="/project-tasks"
               element={
@@ -95,6 +94,14 @@ export default function Application(props: ApplicationProps) {
               path="/projects"
               element={
                 <Projectlist
+                  user={props.personalProfile}
+                />
+              }
+            />
+            <Route
+              path="/projects/:projName"
+              element={
+                <ProjectDetails
                   user={props.personalProfile}
                 />
               }

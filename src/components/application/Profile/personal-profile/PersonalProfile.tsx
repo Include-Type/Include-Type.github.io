@@ -1,5 +1,5 @@
 import React, { CSSProperties, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import {
   CountryDropdown,
@@ -54,7 +54,7 @@ const proPasswordButtonStyle: CSSProperties = {
   letterSpacing: "1px",
   fontFamily: "Nunito",
   transitionDuration: ".5s",
-  backgroundColor: "darkblue"
+  backgroundColor: "blue"
 };
 
 // const styles = (theme: Theme) => ({
@@ -98,6 +98,7 @@ interface PersonalProfileProps {
 
 export default function PersonalProfile({ personalProfile, setPersonalProfile }: PersonalProfileProps) {
   // const classes = useClasses();
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState<boolean>(false);
   const [updateInfo, setUpdateInfo] = useState<string>("");
@@ -361,18 +362,17 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
               </Snackbar>
             </div>
             <div className="button_area">
-              <Link to="/profile/pro-pass" style={{ textDecoration: "none" }}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="medium"
-                  style={proPasswordButtonStyle}
-                  // className={classes.proPasswordButton}
-                  endIcon={<SendRoundedIcon />}
-                >
-                  Next
-                </Button>
-              </Link>
+              <Button
+                onClick={() => navigate("/profile/pro-pass")}
+                variant="contained"
+                color="primary"
+                size="medium"
+                style={proPasswordButtonStyle}
+                // className={classes.proPasswordButton}
+                endIcon={<SendRoundedIcon />}
+              >
+                Next
+              </Button>
             </div>
           </div>
         </form>

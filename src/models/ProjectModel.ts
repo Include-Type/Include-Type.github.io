@@ -1,17 +1,12 @@
-// type ProjectPriority = "High" | "Medium" | "Low";
+type ProjectStatus = "Open" | "Closed" | "Terminated";
 
 interface ProjectModel {
     id: string,
-    projId: string,
-    // projName: string,
-    title: string,
     date: string,
-    details: string,
-    // deadline: string,
-    // assigned: string,
-    // completed: boolean,
-    // priority: ProjectPriority,
-    // author: string
+    name: string,
+    status: ProjectStatus,
+    about: string,
+    documentation: string
 };
 
-export type { ProjectModel}
+export type { ProjectModel, ProjectStatus }
