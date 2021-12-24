@@ -1,0 +1,40 @@
+.loading_spinner {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.project_form {
+    width: 100%;
+    height: 100%;
+    /* background-color: blue; */
+}
+
+.personal_project_details_scroll_container {
+    margin: 1%;
+    padding: 2%;
+    width: 38%;
+    height: 85%;
+    background-color: var(--glass_light);
+    border-radius: 30px;
+}
+
+.personal_project_docs_scroll_container {
+    margin: 1%;
+    padding: 2%;
+    width: 57%;
+    height: 85%;
+    background-color: var(--glass_light);
+    border-radius: 30px;
+}
+
+.data {
+    margin-bottom: 5%;
+}
+
+.sub-data {
+    margin-bottom: 1%;
+}

@@ -1,5 +1,5 @@
 import React, { CSSProperties, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./AllPrivacySettings.css";
 import "../ProfilePage.css";
 import Privacy from "./privacy/Privacy";
@@ -131,6 +131,7 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
   ]);
 
   // const classes = useStyles();
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState<boolean>(false);
   const [updateInfo, setUpdateInfo] = useState<string>("");
@@ -220,20 +221,19 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
         </div>
         <div className="update_button_container">
           <div className="button_area">
-            <Link to="/profile/pro-pass" style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="medium"
-                style={privacyButtonStyle}
-                // className={classes.privacyButton}
-                startIcon={
-                  <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
-                }
-              >
-                Back
-              </Button>
-            </Link>
+            <Button
+              onClick={() => navigate(-1)}
+              variant="contained"
+              color="primary"
+              size="medium"
+              style={privacyButtonStyle}
+              // className={classes.privacyButton}
+              startIcon={
+                <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
+              }
+            >
+              Back
+            </Button>
           </div>
           <div className="button_area">
             <Button
