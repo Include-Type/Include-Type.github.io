@@ -87,18 +87,24 @@ export default function LoginPage(props: LoginPageProps) {
               onInput={(e) => setUserDto({ ...userDto, password: e.currentTarget.value })}
             />
           </div>
-          <div className="mb-2 pb-4 d-flex align-items-center justify-content-between fw-bold">
+          <div className="d-flex align-items-center justify-content-between fw-bold">
             <div>Not Registered yet? &nbsp;&nbsp;&nbsp;</div>
             <Link to="/signup" className="create_account">
               Create an Account
+            </Link>
+          </div>
+          <div className="mb-2 pb-4 d-flex align-items-center justify-content-between fw-bold">
+            <div>Forgot Password? &nbsp;&nbsp;&nbsp;</div>
+            <Link to="/forgot-password" className="create_account">
+              Reset Password
             </Link>
           </div>
           <div className="d-flex align-items-center justify-content-center">
             <button
               disabled={loginState === "initiated" ? true : false}
               type="submit"
-              className="submit_button"
-              //style={{ height: "4.2vh", width: "6vw" }}
+              className="submit_button_login"
+            //style={{ height: "4.2vh", width: "6vw" }}
             >
               {loginState === "initiated" ? (
                 <CircularProgress size={19} style={{ color: "black", marginTop: "8px" }} />

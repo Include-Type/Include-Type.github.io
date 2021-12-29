@@ -2,6 +2,8 @@ import { ReactElement, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import Introduction from "./introduction/Introduction";
 import LoginPage from "../login/LoginPage";
+import ForgotPassword from "../login/forgot-password/ForgotPassword";
+import ResetPassword from "../login/reset-password/ResetPassword";
 import SignUp from "../signup/SignUp";
 import { User } from "../../models/User";
 import { CompleteUserDto } from "../../dtos/CompleteUserDto";
@@ -112,6 +114,14 @@ export default function LandingPage(): ReactElement {
                 setLoginComplete={setLoginComplete}
               />
             }
+          />
+          <Route
+            path="/forgot-password"
+            element={<ForgotPassword />}
+          />
+          <Route
+            path="/reset-password/:userId/:uniqueString"
+            element={<ResetPassword />}
           />
         </Routes>
       ) : (

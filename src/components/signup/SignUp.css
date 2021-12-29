@@ -114,7 +114,7 @@ h2 {
   font-family: "Signika", sans-serif;
 }
 
-.submit_button {
+.submit_button_signup {
   background-image: linear-gradient(
     -145deg,
     rgba(183, 33, 255, 0.7),
@@ -140,7 +140,7 @@ h2 {
   font-family: "Signika", sans-serif;
 }
 
-.submit_button:hover {
+.submit_button_signup:hover {
   background-image: linear-gradient(
     -145deg,
     rgba(183, 33, 255, 0.7),
@@ -149,7 +149,7 @@ h2 {
   );
   background-size: 200% 200%;
   animation: slidebg 3s ease infinite !important;
-  width: 80%;
+  width: 70%;
 }
 
 @keyframes slidebg {
@@ -172,6 +172,7 @@ h2 {
 .signUp_message p {
   font-size: medium;
   font-weight: bold;
+  color: darkred;
 }
 
 .valid_message {
