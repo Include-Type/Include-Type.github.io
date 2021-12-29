@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap");
+
+.container {
+  /* text-align: center; */
+  transition: all 1s ease;
+}
+.toggle-switch {
+  position: relative;
+  width: fit-content;
+  display: inline-block;
+  text-align: left;
+  transition: all 1s ease;
+  margin-left: -5%;
+  background-color: white;
+  padding: 0.5%;
+  border-radius: 30px;
+}
+.checkbox {
+  display: none;
+}
+.label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0 solid #bbb;
+  border-radius: 20px;
+  transition: all 1s ease;
+}
+.inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  transition: all 1s ease;
+}
+.inner:before,
+.inner:after {
+  float: left;
+  width: 50%;
+  height: 38px;
+  padding: 0;
+  line-height: 36px;
+  color: #fff;
+  font-weight: bold;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: large;
+  font-family: "Nunito";
+  transition: all 1s ease;
+}
+.inner:before {
+  content: "open";
+  padding-left: 10px;
+  background-color: limegreen;
+  color: darkgreen;
+  transition: all 1s ease;
+}
+.inner:after {
+  content: "closed";
+  padding-right: 10px;
+  background-color: gray;
+  color: #fff;
+  text-align: right;
+  transition: all 1s ease;
+}
+.switch {
+  display: block;
+  width: 32px;
+  height: 20px;
+  margin: 10px;
+  background-color: white;
+  position: absolute;
+  border: 0 solid #bbb;
+  border-radius: 15px;
+  transition: all 1s ease;
+}
+
+.checkbox:checked + .label .inner {
+  transition: all 1s ease;
+  margin-left: 0;
+}
+.checkbox:checked + .label .switch {
+  transition: all 1s ease;
+  right: 0px;
+  background-color: darkgreen;
+}

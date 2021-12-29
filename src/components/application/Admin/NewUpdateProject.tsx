@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
 import "./NewUpdateProject.css";
 import TitlePage from "./Admin Pages/TitlePage";
 import Contributors from "./Admin Pages/Contributors";
@@ -6,6 +6,31 @@ import CreateAssignTasks from "./Admin Pages/CreateAssignTasks";
 import Button from "@mui/material/Button";
 import NavigateNextRoundedIcon from "@mui/icons-material/NavigateNextRounded";
 import NavigateBeforeRoundedIcon from "@mui/icons-material/NavigateBeforeRounded";
+import SaveIcon from "@mui/icons-material/Save";
+
+const adminNavigationButtonStyle: CSSProperties = {
+  width: "7vw",
+  height: "4.5vh",
+  margin: 0,
+  fontSize: "1vw",
+  fontWeight: "bold",
+  letterSpacing: "1px",
+  fontFamily: "Nunito",
+  transitionDuration: ".5s",
+  backgroundColor: "darkblue",
+};
+
+const saveButtonStyle: CSSProperties = {
+  width: "7vw",
+  height: "4.5vh",
+  margin: 0,
+  fontSize: "1vw",
+  fontWeight: "bold",
+  letterSpacing: "1px",
+  fontFamily: "Nunito",
+  transitionDuration: ".5s",
+  backgroundColor: "green"
+};
 
 export default function NewUpdateProject() {
   const [Page, setPage] = useState<number>(1);
@@ -32,9 +57,9 @@ export default function NewUpdateProject() {
         {Page === 1 ? (
           <div className="title_page_container">
             <TitlePage />
-            <div className="d-flex justify-content-end px-2">
+            <div className="d-flex justify-content-end px-2 mt-3">
               <Button
-                className="next_button"
+                style={adminNavigationButtonStyle}
                 variant="contained"
                 endIcon={<NavigateNextRoundedIcon />}
                 onClick={NextPageToggler}
@@ -46,9 +71,9 @@ export default function NewUpdateProject() {
         ) : Page === 2 ? (
           <div className="contributors_page_container">
             <Contributors />
-            <div className="d-flex justify-content-between px-2">
+            <div className="d-flex justify-content-between px-2 mt-3">
               <Button
-                className="prev_button"
+                style={adminNavigationButtonStyle}
                 variant="contained"
                 startIcon={<NavigateBeforeRoundedIcon />}
                 onClick={PrevPageToggler}
@@ -56,7 +81,7 @@ export default function NewUpdateProject() {
                 Prev
               </Button>
               <Button
-                className="next_button"
+                style={adminNavigationButtonStyle}
                 variant="contained"
                 endIcon={<NavigateNextRoundedIcon />}
                 onClick={NextPageToggler}
@@ -68,14 +93,24 @@ export default function NewUpdateProject() {
         ) : (
           <div className="create_assign_tasks_page_container">
             <CreateAssignTasks />
-            <div className="d-flex px-2">
+            <div className="d-flex justify-content-between px-2 mt-3">
               <Button
-                className="prev_button"
+                style={adminNavigationButtonStyle}
                 variant="contained"
                 startIcon={<NavigateBeforeRoundedIcon />}
                 onClick={PrevPageToggler}
               >
                 Prev
+              </Button>
+              <Button
+                type="submit"
+                variant="contained"
+                color="primary"
+                size="medium"
+                // className={classes.saveButton}
+                style={saveButtonStyle}
+                startIcon={<SaveIcon />}
+              >Save
               </Button>
             </div>
           </div>

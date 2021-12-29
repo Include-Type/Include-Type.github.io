@@ -1,21 +1,80 @@
-import React, { useState } from "react";
+import React, { CSSProperties, useState } from "react";
+import { ContributorType } from "./ContributorType";
+import Contributor from "./Contributor";
+import FormControl from "@mui/material/FormControl";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
 
 export default function Contributors() {
-  const [customRole, setCustomRole] = useState(false);
-  const CustomOption = () => {
-    // if (value === 4) {
-    //   setCustomRole(true);
-    // }
-    setCustomRole(true);
+  const [role, setRole] = useState("");
+  const handleSelect = (event: SelectChangeEvent) => {
+    setRole(event.target.value);
   };
+
+  const contributors = [
+    {
+      name: "Monosij Nayek",
+      role: "Admin",
+    },
+    {
+      name: "Subham Karmakar",
+      role: "Admin",
+    },
+    {
+      name: "Monosij Nayek",
+      role: "Admin",
+    },
+    {
+      name: "Subham Karmakar",
+      role: "Admin",
+    },
+    {
+      name: "Monosij Nayek",
+      role: "Admin",
+    },
+    {
+      name: "Subham Karmakar",
+      role: "Admin",
+    },
+    {
+      name: "Monosij Nayek",
+      role: "Admin",
+    },
+    {
+      name: "Subham Karmakar",
+      role: "Admin",
+    },
+    {
+      name: "Monosij Nayek",
+      role: "Admin",
+    },
+    {
+      name: "Subham Karmakar",
+      role: "Admin",
+    },
+    {
+      name: "Monosij Nayek",
+      role: "Admin",
+    },
+    {
+      name: "Subham Karmakar",
+      role: "Admin",
+    },
+  ];
+
   return (
     <div className="contributors container">
       <div className="row">
-        <div className="col-7">
-          <div className="">Project Contributors</div>
+        <div className="col-7 contributors_list">
+          <div className="contributor_heading ps-3">Project Contributors</div>
+          <div className="container contributors_container py-1">
+            {contributors.map((contributor: ContributorType) => (
+              <Contributor key={contributor.name} contributor={contributor} />
+            ))}
+          </div>
         </div>
-        <div className="col">
-          <div className="">Add Contributor</div>
+        <div className="col ms-4 px-3 add_contributor">
+          <div className="contributor_heading my-2">Add Contributor</div>
           <div className="row m-0 p-0 mb-3">
             <label htmlFor="Contributor_Email_Username" className="form-label">
               Email / Username:
@@ -31,7 +90,7 @@ export default function Contributors() {
             <label htmlFor="Contributor_Role" className="form-label">
               Contributor Role:
             </label>
-            <select
+            {/* <select
               className="form-select"
               aria-label="Default select example"
               onChange={CustomOption}
@@ -44,9 +103,25 @@ export default function Contributors() {
               <option value="2">Two</option>
               <option value="3">Three</option>
               <option value="4">Other</option>
-            </select>
+            </select> */}
+            <FormControl sx={{ minWidth: 100 }}>
+              <Select
+                value={role}
+                onChange={handleSelect}
+                displayEmpty
+                inputProps={{ "aria-label": "Without label" }}
+              >
+                <MenuItem value="" disabled>
+                  <em>Select Role</em>
+                </MenuItem>
+                <MenuItem value="10">Ten</MenuItem>
+                <MenuItem value="20">Twenty</MenuItem>
+                <MenuItem value="30">Thirty</MenuItem>
+                <MenuItem value="custom">Custom</MenuItem>
+              </Select>
+            </FormControl>
           </div>
-          {customRole === true ? (
+          {role === "custom" ? (
             <div className="row m-0 p-0 mb-3">
               <label htmlFor="Contributor_Custom_Role" className="form-label">
                 Custom Role:

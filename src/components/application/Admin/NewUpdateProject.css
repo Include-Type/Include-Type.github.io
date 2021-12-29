@@ -65,12 +65,74 @@
 }
 
 .contributors .row .col {
-  background-color: tomato;
+  /* background-color: tomato; */
 }
 
 .contributors .form-label {
   margin-left: 0 !important;
   padding-left: 0 !important;
+  font-size: 2.2vh;
+  font-weight: bold;
+}
+
+.contributors input,
+.contributors select {
+  font-size: 2.1vh;
+}
+
+.contributors_list {
+  /* background-color: aqua; */
+  padding: 0;
+  background-image: var(--bg_gradient_top_light_2);
+  border-radius: 20px;
+}
+
+.contributors .contributors_container .col {
+  /* background-color: lime; */
+}
+
+.contributor_heading {
+  font-size: 3.5vh;
+  font-weight: bold;
+  padding: 2% 0%;
+  font-family: "Nunito";
+}
+
+.contributors_container {
+  height: 51vh;
+  /* background-color: blue; */
+  overflow-y: auto;
+}
+
+.contributors_container::-webkit-scrollbar {
+  width: 10px;
+  overflow: hidden;
+}
+
+.contributors_container::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 2px grey; */
+  border-radius: 10px;
+}
+
+.contributors_container::-webkit-scrollbar-thumb {
+  background: rgb(114, 114, 255);
+  border-radius: 30px;
+}
+
+.contributor {
+  font-size: 2.2vh;
+  background-color: var(--glass_light);
+  margin-bottom: 1vh;
+  align-items: center;
+  border-radius: 20px;
+  padding-left: 1%;
+  font-weight: bold;
+}
+
+.add_contributor {
+  background-image: var(--bg_gradient_top_light_2);
+  /* background-color: var(--glass_light); */
+  border-radius: 20px;
 }
 
 .create_assign_tasks .row {

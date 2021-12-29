@@ -6,11 +6,23 @@
     rgba(8, 174, 234, 0.5),
     rgba(42, 245, 152, 0.3)
   );
+  --bg_gradient_top_light_2: linear-gradient(
+    to top right,
+    rgba(183, 33, 255, 0.3),
+    rgba(8, 174, 234, 0.3),
+    rgba(42, 245, 152, 0.1)
+  );
   --bg_gradient_bottom_light: linear-gradient(
     to bottom right,
     rgba(183, 33, 255, 0.5),
     rgba(8, 174, 234, 0.5),
     rgba(42, 245, 152, 0.3)
+  );
+  --bg_gradient_bottom_light_2: linear-gradient(
+    to bottom right,
+    rgba(183, 33, 255, 0.3),
+    rgba(8, 174, 234, 0.3),
+    rgba(42, 245, 152, 0.1)
   );
   --header_gradient_purple_light: linear-gradient(
     to right,

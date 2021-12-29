@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -13,8 +13,8 @@ import ListItemText from "@mui/material/ListItemText";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
 
-const ITEM_HEIGHT = 50;
-const ITEM_PADDING_TOP = 1;
+const ITEM_HEIGHT = 40;
+const ITEM_PADDING_TOP = 0;
 const MenuProps = {
   PaperProps: {
     style: {
@@ -49,6 +49,11 @@ export default function CreateAssignTasks() {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+  };
+
+  const [task_priority, setTaskPriority] = useState("");
+  const handleSelect = (event: SelectChangeEvent) => {
+    setTaskPriority(event.target.value);
   };
 
   return (
@@ -114,7 +119,7 @@ export default function CreateAssignTasks() {
               </label>
             </div>
             <div className="col-4">
-              <select
+              {/* <select
                 className="form-select"
                 aria-label="Default select example"
                 required
@@ -125,7 +130,22 @@ export default function CreateAssignTasks() {
                 <option value="1">One</option>
                 <option value="2">Two</option>
                 <option value="3">Three</option>
-              </select>
+              </select> */}
+              <FormControl sx={{ minWidth: 100 }}>
+                <Select
+                  value={task_priority}
+                  onChange={handleSelect}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                >
+                  <MenuItem value="" disabled>
+                    <em>Select Priority</em>
+                  </MenuItem>
+                  <MenuItem value="10">Ten</MenuItem>
+                  <MenuItem value="20">Twenty</MenuItem>
+                  <MenuItem value="30">Thirty</MenuItem>
+                </Select>
+              </FormControl>
             </div>
           </div>
         </div>
@@ -145,7 +165,7 @@ export default function CreateAssignTasks() {
                     setDeadline(newValue);
                   }}
                   renderInput={({ inputRef, inputProps, InputProps }) => (
-                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                    <Box sx={{ display: "flex", alignItems: "center"}}>
                       <input
                         ref={inputRef}
                         {...inputProps}
