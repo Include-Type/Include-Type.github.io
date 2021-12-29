@@ -58,14 +58,14 @@
   color: darkblue;
 }
 
-.submit_button {
+.submit_button_login {
   background-image: linear-gradient(
     -145deg,
     rgba(183, 33, 255, 0.7),
     rgba(8, 174, 234, 0.7),
     rgba(42, 245, 152, 0.2)
   );
-  width: 40%;
+  width: 70%;
   padding: 2% 5%;
   text-align: center;
   color: black;
@@ -83,7 +83,7 @@
   font-family: "Signika", sans-serif;
 }
 
-.submit_button:hover {
+.submit_button_login:hover {
   background-image: linear-gradient(
     -145deg,
     rgba(183, 33, 255, 0.7),
@@ -92,7 +92,7 @@
   );
   background-size: 200% 200%;
   animation: slidebg 3s ease infinite !important;
-  width: 80%;
+  width: 95%;
 }
 
 @keyframes slidebg {
