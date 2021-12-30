@@ -26,7 +26,7 @@
     padding: 1% 2%;
     align-items: center;
     background-color: rgb(223, 199, 255);
-    box-shadow: inset 0 -10px 30px rgb(214, 189, 255),
+    box-shadow: inset 0 -10px 30px rgb(204, 172, 255),
                 0 5px 10px rgba(44, 0, 44, 0.493);
 }
 
@@ -69,7 +69,7 @@
     margin-right: 2.3%;
     margin-left: 0.7%;
     margin-top: 3%;
-    margin-bottom: 3%;
+    margin-bottom: 2%;
     font-size: 1.5rem;
     font-weight: 700;
     /* width: 7%; */
@@ -88,6 +88,11 @@
 
 .details{
     text-align: center;
+    margin-bottom: 11.5%;
+}
+
+.status {
+    text-align: center;
 }
 
 .show_full_project_title {
@@ -101,7 +106,7 @@
     /* flex : 1vw; */
     /* margin-left: 100px; */
     margin-right: 0.9%;
-    margin-bottom: 10%;
+    margin-bottom: 6%;
     color: blueviolet;
 }
 

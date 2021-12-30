@@ -63,7 +63,7 @@ export default function EachTask(props: TaskProps): ReactElement {
     return (
         <div className={`task${props.data.completed ? " striked" : ""}`}>
             <div className={`task_heading ${props.data.priority.toLowerCase()}_priority_head`} onClick={toggleTaskDetails}>
-                <div className="task_deadline">Due on: {props.data.deadline}</div>
+                <div className="task_deadline">Due on:&emsp;{props.data.deadline}</div>
                 <span className="bar"></span>
                 <div className="task_proj_name"><b>{props.data.projName}</b></div>
                 <div className={fullHeading}>{props.data.title}</div>

@@ -57,7 +57,7 @@ export default function CreateAssignTasks() {
   };
 
   return (
-    <div className="create_assign_tasks container">
+    <div className="create_assign_tasks">
       <div className="row">
         <div className="col-2">
           <label htmlFor="TaskTitle" className="form-label">
@@ -76,8 +76,8 @@ export default function CreateAssignTasks() {
         </div>
         <div className="col">
           <textarea
-            rows={8}
-            className="form-control"
+            rows={6}
+            className="form-control textarea"
             id="TaskDescription"
             required
           />
@@ -90,7 +90,7 @@ export default function CreateAssignTasks() {
           </label>
         </div>
         <div className="col-10">
-          <FormControl className="form-control">
+          <FormControl sx={{ width: "100%", backgroundColor: "white", borderRadius: "5px" }}>
             <Select
               id="demo-multiple-checkbox"
               multiple
@@ -131,7 +131,7 @@ export default function CreateAssignTasks() {
                 <option value="2">Two</option>
                 <option value="3">Three</option>
               </select> */}
-              <FormControl sx={{ minWidth: 100 }}>
+              <FormControl sx={{ minWidth: 100, backgroundColor: "white", borderRadius: "5px" }}>
                 <Select
                   value={task_priority}
                   onChange={handleSelect}
@@ -141,9 +141,9 @@ export default function CreateAssignTasks() {
                   <MenuItem value="" disabled>
                     <em>Select Priority</em>
                   </MenuItem>
-                  <MenuItem value="10">Ten</MenuItem>
-                  <MenuItem value="20">Twenty</MenuItem>
-                  <MenuItem value="30">Thirty</MenuItem>
+                  <MenuItem value="low">Low</MenuItem>
+                  <MenuItem value="medium">Medium</MenuItem>
+                  <MenuItem value="high">High</MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -165,7 +165,7 @@ export default function CreateAssignTasks() {
                     setDeadline(newValue);
                   }}
                   renderInput={({ inputRef, inputProps, InputProps }) => (
-                    <Box sx={{ display: "flex", alignItems: "center"}}>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
                       <input
                         ref={inputRef}
                         {...inputProps}

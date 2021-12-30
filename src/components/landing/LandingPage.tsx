@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import Introduction from "./introduction/Introduction";
 import LoginPage from "../login/LoginPage";
 import SignUp from "../signup/SignUp";
+import ForgotPassword from "../login/forgot-password/ForgotPassword";
+import ResetPassword from "../login/reset-password/ResetPassword";
 import { User } from "../../models/User";
 import { CompleteUserDto } from "../../dtos/CompleteUserDto";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
@@ -111,22 +113,29 @@ export default function LandingPage(): ReactElement {
               <SignUp setUser={setUser} setLoginComplete={setLoginComplete} />
             }
           />
+          <Route
+            path="/forgot-password"
+            element={<ForgotPassword />}
+          />
+          <Route
+            path="/reset-password/:userId/:uniqueString"
+            element={<ResetPassword />}
+          />
         </Routes>
       ) : user.id === "" ? (
         <div className="login_page spinner-div-large">
           <CircularProgress size={60} style={{ color: "rgb(9, 77, 145)" }} />
         </div>
       ) : (
-        // <Application
-        //   personalProfile={user}
-        //   setPersonalProfile={setUser}
-        //   professionalProfile={professionalProfile}
-        //   setProfessionalProfile={setProfessionalProfile}
-        //   privacy={privacy}
-        //   setPrivacy={setPrivacy}
-        //   setLoginComplete={setLoginComplete}
-        // />
-        <div></div>
+        <Application
+          personalProfile={user}
+          setPersonalProfile={setUser}
+          professionalProfile={professionalProfile}
+          setProfessionalProfile={setProfessionalProfile}
+          privacy={privacy}
+          setPrivacy={setPrivacy}
+          setLoginComplete={setLoginComplete}
+        />
       )}
     </div>
   );

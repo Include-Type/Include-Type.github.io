@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
 import Dashboard from "../dashboard/Dashboard";
-import "./Application.css";
+import UserDashboard from "../Userdashboard/UserDashboard";
+// import "./Application.css";
+import "./Application_2.css";
 import Issuelist from "./Issuelist/Issuelist";
 import PersonalProfile from "./Profile/personal-profile/PersonalProfile";
 import AllPrivacySettings from "./Profile/privacy-settings/AllPrivacySettings";
@@ -14,6 +16,8 @@ import Tasklist from "./Tasklist/Tasklist";
 import Sidebar from "../sidebar/Sidebar";
 import AdminPage from "./Admin/AdminPage";
 import NewUpdateProject from "./Admin/NewUpdateProject";
+import BrandName2 from "../landing/first-landing-section/BrandName2";
+import ProfilePage from "./Profile/ProfilePage";
 
 interface ApplicationProps {
   personalProfile: User;
@@ -111,17 +115,89 @@ interface ApplicationProps {
 //   );
 // }
 
-export default function Application() {
+export default function Application(props: ApplicationProps) {
+  const [isExpanded, setIsExpanded] = useState(true);
   return (
     <section id="Application_page">
-      <section id="Status"></section>
+      <section id="Status">
+        <div className="status_container">
+          <div
+            className={
+              isExpanded === true
+                ? "brand_container_3 py-4 px-4"
+                : "brand_container_2 py-4 px-4"
+            }
+          >
+            <BrandName2 />
+          </div>
+          {/* {isExpanded === true ? <BrandName3 /> : <BrandName2 />} */}
+        </div>
+      </section>
       <section id="Main_area">
         <section id="Application_menu_area">
-          <Sidebar />
+          <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
         </section>
         <section id="Application_content_area">
-          {/* <AdminPage /> */}
-          <NewUpdateProject />
+          <Routes>
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/new_update_project" element={<NewUpdateProject />} />
+            <Route
+              path="/dashboard"
+              element={
+                <Dashboard
+                  personalProfile={props.personalProfile}
+                  setPersonalProfile={props.setPersonalProfile}
+                  professionalProfile={props.professionalProfile}
+                  setProfessionalProfile={props.setProfessionalProfile}
+                  privacy={props.privacy}
+                  setPrivacy={props.setPrivacy}
+                  setLoginComplete={props.setLoginComplete}
+                />
+              }
+            />
+            <Route path="/user_dashboard" element={<UserDashboard />} />
+            <Route
+              path="/project_list"
+              element={<Projectlist user={props.personalProfile} />}
+            />
+            <Route
+              path="/task_list"
+              element={<Tasklist user={props.personalProfile} />}
+            />
+            <Route
+              path="/issue_list"
+              element={<Issuelist user={props.personalProfile} />}
+            />
+            <Route
+              path="/profile/personal"
+              element={
+                <PersonalProfile
+                  personalProfile={props.personalProfile}
+                  setPersonalProfile={props.setPersonalProfile}
+                />
+              }
+            />
+            <Route
+              path="/profile/pro-pass"
+              element={
+                <ProProfilePassword
+                  personalProfile={props.personalProfile}
+                  setPersonalProfile={props.setPersonalProfile}
+                  professionalProfile={props.professionalProfile}
+                  setProfessionalProfile={props.setProfessionalProfile}
+                />
+              }
+            />
+            <Route
+              path="/profile/privacy"
+              element={
+                <AllPrivacySettings
+                  privacy={props.privacy}
+                  setPrivacy={props.setPrivacy}
+                />
+              }
+            />
+          </Routes>
         </section>
       </section>
     </section>

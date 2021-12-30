@@ -10,7 +10,7 @@
   position: relative;
   margin-top: 1%;
   padding: 2%;
-  width: 95%;
+  width: 100%;
   height: 96%;
   background-color: var(--glass_light);
   border-radius: 30px;
@@ -32,6 +32,10 @@
   width: 100%;
   height: 88%;
   /* background-color: aqua; */
+}
+
+.container {
+  margin: 0%;
 }
 
 .title_page,
@@ -60,7 +64,7 @@
   margin: 0px;
   align-items: center;
   /* background-color: orange; */
-  font-size: 1.2vw;
+  font-size: 1.3vw;
   font-weight: bold;
 }
 
@@ -112,6 +116,7 @@
 .contributors_container::-webkit-scrollbar-track {
   /* box-shadow: inset 0 0 2px grey; */
   border-radius: 10px;
+  box-shadow: none;
 }
 
 .contributors_container::-webkit-scrollbar-thumb {
@@ -155,6 +160,7 @@
   font-size: 1.2vw;
   font-weight: bold;
 }
+
 
 .prev_button,
 .next_button {

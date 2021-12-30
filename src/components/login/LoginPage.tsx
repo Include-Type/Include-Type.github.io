@@ -7,14 +7,14 @@ import "./Login.css";
 import { CircularProgress } from "@mui/material";
 
 interface LoginPageProps {
-  setUser: React.Dispatch<React.SetStateAction<User>>,
-  setLoginComplete: React.Dispatch<React.SetStateAction<boolean>>
-};
+  setUser: React.Dispatch<React.SetStateAction<User>>;
+  setLoginComplete: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 export default function LoginPage(props: LoginPageProps) {
   const [userDto, setUserDto] = useState<UserDto>({
     key: "",
-    password: ""
+    password: "",
   });
   const [loginState, setLoginState] = useState<string>("");
   const navigate = useNavigate();
@@ -25,19 +25,22 @@ export default function LoginPage(props: LoginPageProps) {
     e.preventDefault();
     // console.log(userDto);
     try {
-      const response = await fetch("https://include-type.herokuapp.com/api/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        credentials: "include",
-        body: JSON.stringify(userDto)
-      });
+      const response = await fetch(
+        "https://include-type.herokuapp.com/api/user/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify(userDto),
+        }
+      );
       if (response.ok) {
         // console.log("User Login Successfull");
         props.setUser((prevUser) => ({
           ...prevUser,
-          id: ""
+          id: "",
         }));
         props.setLoginComplete(true);
         navigate("/");
@@ -68,7 +71,9 @@ export default function LoginPage(props: LoginPageProps) {
               id="exampleInputEmail1"
               aria-describedby="emailHelp"
               value={userDto.key}
-              onInput={(e) => setUserDto({ ...userDto, key: e.currentTarget.value })}
+              onInput={(e) =>
+                setUserDto({ ...userDto, key: e.currentTarget.value })
+              }
             />
             <div id="emailHelp" className="form-text text-muted">
               {/* We'll never share your email with anyone else. */}
@@ -84,24 +89,35 @@ export default function LoginPage(props: LoginPageProps) {
               className="form-control"
               id="exampleInputPassword1"
               value={userDto.password}
-              onInput={(e) => setUserDto({ ...userDto, password: e.currentTarget.value })}
+              onInput={(e) =>
+                setUserDto({ ...userDto, password: e.currentTarget.value })
+              }
             />
           </div>
-          <div className="mb-2 pb-4 d-flex align-items-center justify-content-between fw-bold">
+          <div className="mb-2 d-flex align-items-center justify-content-between fw-bold">
             <div>Not Registered yet? &nbsp;&nbsp;&nbsp;</div>
             <Link to="/signup" className="create_account">
               Create an Account
+            </Link>
+          </div>
+          <div className="mb-2 pb-4 d-flex align-items-center justify-content-between fw-bold">
+            <div>Forgot Password? &nbsp;&nbsp;&nbsp;</div>
+            <Link to="/forgot-password" className="create_account">
+              Reset Password
             </Link>
           </div>
           <div className="d-flex align-items-center justify-content-center">
             <button
               disabled={loginState === "initiated" ? true : false}
               type="submit"
-              className="submit_button"
+              className="submit_button_login"
               //style={{ height: "4.2vh", width: "6vw" }}
             >
               {loginState === "initiated" ? (
-                <CircularProgress size={19} style={{ color: "black", marginTop: "8px" }} />
+                <CircularProgress
+                  size={19}
+                  style={{ color: "black", marginTop: "8px" }}
+                />
               ) : (
                 "Login"
               )}
@@ -109,7 +125,9 @@ export default function LoginPage(props: LoginPageProps) {
           </div>
           <div className="login_message">
             {loginState === "failed" ? (
-              <p style={{ marginTop: 18, marginBottom: -26 }}>Invalid Credentials! ❌</p>
+              <p style={{ marginTop: 18, marginBottom: -26 }}>
+                Invalid Credentials! ❌
+              </p>
             ) : (
               <p></p>
             )}

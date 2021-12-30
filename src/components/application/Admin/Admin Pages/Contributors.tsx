@@ -63,7 +63,7 @@ export default function Contributors() {
   ];
 
   return (
-    <div className="contributors container">
+    <div className="contributors">
       <div className="row">
         <div className="col-7 contributors_list">
           <div className="contributor_heading ps-3">Project Contributors</div>
@@ -104,7 +104,7 @@ export default function Contributors() {
               <option value="3">Three</option>
               <option value="4">Other</option>
             </select> */}
-            <FormControl sx={{ minWidth: 100 }}>
+            <FormControl sx={{ minWidth: 100, backgroundColor: "white", borderRadius: "5px" }}>
               <Select
                 value={role}
                 onChange={handleSelect}

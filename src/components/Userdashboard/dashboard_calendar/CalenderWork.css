@@ -1,0 +1,20 @@
+.calender-work {
+  width: 33.5%;
+  height: 60%;
+  position: relative;
+  /* overflow: hidden; */
+  border-radius: 20px;
+  background: inherit;
+  /* margin-left: 80px; */
+  background-color: var(--glass_light);
+  bottom: 91%;
+}
+.popupform_main {
+  margin-top: 3%;
+  text-align: center;
+  font-family: "Nunito";
+  font-size: 2.2vw;
+  font-weight: 800;
+  color: var(--deep_sea_green_theme_color);
+  letter-spacing: 1px;
+}

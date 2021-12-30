@@ -10,14 +10,14 @@
   /* background-color: red; */
 }
 
-.name_1 {
+.brand_container .name_1 {
   font-family: "TektonPro-Bold";
   color: #0b4870;
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
   font-size: 4vw;
 }
 
-.name_2 {
+.brand_container .name_2 {
   font-family: "Stardos Stencil", cursive;
   margin-right: 0.5%;
   color: #0b4870;

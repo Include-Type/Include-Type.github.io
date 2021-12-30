@@ -1,0 +1,41 @@
+.calendar_form .event {
+  margin: 2%;
+}
+
+.calendar_form button {
+  display: flex;
+  background-color: rgb(118, 208, 224);
+  border-radius: 10px;
+  border: 4px 1px solid;
+  color: #000000;
+  font-size: 15px;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  font-family: "Nunito";
+}
+.calendar_form button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.calendar_form button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.calendar_form button:hover {
+  background-color: rgb(255, 255, 255);
+}
+.calendar_form button:hover span {
+  padding-right: 25px;
+}
+.calendar_form button:hover span:after {
+  opacity: 1;
+  right: 0;
+}

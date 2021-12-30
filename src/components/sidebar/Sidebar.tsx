@@ -6,46 +6,72 @@ import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
 import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
 import InsightsRoundedIcon from "@mui/icons-material/InsightsRounded";
-import "./sidebar.css";
+import PlaylistAddCheckRoundedIcon from "@mui/icons-material/PlaylistAddCheckRounded";
+import PlaylistRemoveRoundedIcon from "@mui/icons-material/PlaylistRemoveRounded";
+import AccountBoxRoundedIcon from "@mui/icons-material/AccountBoxRounded";
+import AdminPanelSettingsRoundedIcon from "@mui/icons-material/AdminPanelSettingsRounded";
+// import "./sidebar.css";
+import "./sidebar_2.css";
 import SidebarTabs from "./SidebarTabs";
 import { Tab } from "./Tab";
 
-function Sidebar() {
+interface SidebarProps {
+  isExpanded: boolean;
+  setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Sidebar(props: SidebarProps) {
   const tabs: Tab[] = [
     {
       icon_component: DashboardRoundedIcon,
       name: "Dashboard",
+      path: "/dashboard",
     },
     {
-      icon_component: ChatBubbleRoundedIcon,
-      name: "Chat",
-    },
-    {
-      icon_component: GroupsRoundedIcon,
-      name: "Teams",
+      icon_component: DashboardRoundedIcon,
+      name: "Analytics",
+      path: "/user_dashboard",
     },
     {
       icon_component: AssignmentRoundedIcon,
-      name: "Tasks",
+      name: "Project List",
+      path: "/project_list",
     },
     {
-      icon_component: InsightsRoundedIcon,
-      name: "Analytics",
+      icon_component: PlaylistAddCheckRoundedIcon,
+      name: "Task List",
+      path: "/task_list",
+    },
+    {
+      icon_component: PlaylistRemoveRoundedIcon,
+      name: "Issue List",
+      path: "/issue_list",
+    },
+    {
+      icon_component: AccountBoxRoundedIcon,
+      name: "Profile",
+      path: "/profile/personal",
+    },
+    {
+      icon_component: AdminPanelSettingsRoundedIcon,
+      name: "Admin",
+      path: "/admin",
     },
   ];
 
-  const [isExpanded, setIsExpanded] = useState(true);
   const handleToggler = () => {
-    if (isExpanded) {
-      setIsExpanded(false);
+    if (props.isExpanded) {
+      props.setIsExpanded(false);
       return;
     }
-    setIsExpanded(true);
+    props.setIsExpanded(true);
   };
   return (
-    <div className={isExpanded === true ? "sidebar" : "collapsed_sidebar"}>
+    <div
+      className={props.isExpanded === true ? "sidebar" : "collapsed_sidebar"}
+    >
       <div className="sidebar-header">
-        {isExpanded === true ? (
+        {props.isExpanded === true ? (
           <ArrowBackIcon
             sx={{ fontSize: 35 }}
             onClick={handleToggler}
@@ -59,7 +85,7 @@ function Sidebar() {
           />
         )}
 
-        {isExpanded === true ? (
+        {props.isExpanded === true ? (
           <div className="sidebar-brand">Include-Type</div>
         ) : (
           <div></div>
@@ -67,7 +93,11 @@ function Sidebar() {
       </div>
       <div className="sidebar-items">
         {tabs.map((tab: Tab) => (
-          <SidebarTabs key={tab.name} sidetab={tab} isExpanded={isExpanded} />
+          <SidebarTabs
+            key={tab.name}
+            sidetab={tab}
+            isExpanded={props.isExpanded}
+          />
         ))}
       </div>
     </div>

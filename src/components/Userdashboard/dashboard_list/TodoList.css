@@ -1,0 +1,22 @@
+.todolist{
+    width: 27%;
+    height: 80%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5%;
+    content: '';
+    background: inherit;
+    margin-left: 39%;
+    background-color: var(--glass_light);
+    bottom: 151%;
+}
+.todolist h1{
+    text-align: center;
+    display:flex;
+    margin: 0% 5% 0% 5%;
+    font-family: "Nunito";
+    font-size: 2.2vw;
+   font-weight: 800;
+   color: var(--deep_sea_green_theme_color);
+   letter-spacing: 1px;
+}

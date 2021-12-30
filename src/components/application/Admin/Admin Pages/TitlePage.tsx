@@ -21,7 +21,7 @@ export default function TitlePage() {
   };
 
   return (
-    <div className="title_page container">
+    <div className="title_page">
       <div className="row">
         <div className="col-2">
           <label htmlFor="ProjectTitle" className="form-label">
@@ -45,8 +45,8 @@ export default function TitlePage() {
         </div>
         <div className="col">
           <textarea
-            rows={13}
-            className="form-control"
+            rows={12}
+            className="form-control textarea"
             id="ProjectDescription"
             required
           />

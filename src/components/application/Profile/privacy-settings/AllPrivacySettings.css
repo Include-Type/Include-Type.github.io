@@ -16,12 +16,13 @@
 
 .privacy_scroll_container {
   position: relative;
-  width: 98%;
+  width: 100%;
   height: 98%;
   background-color: var(--glass_light);
   border-radius: 30px;
   overflow: hidden;
   padding: 1%;
+  margin-top: 1%;
 }
 
 .privacy_title {
@@ -67,7 +68,7 @@
 .update_button_container {
   /* background-color: blueviolet; */
   position: relative;
-  height: 12%;
+  height: 10%;
   margin: 0% 2%;
   display: flex;
   align-items: center;

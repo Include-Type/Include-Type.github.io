@@ -1,7 +1,9 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import "./AdminPage.css";
+import NewUpdateProject from "./NewUpdateProject";
+import { Link } from "react-router-dom";
 
 export default function AdminPage() {
   return (
@@ -11,9 +13,11 @@ export default function AdminPage() {
           Admin Panel
           <hr className="text-muted" />
         </div>
-        <Button variant="contained" startIcon={<AddRoundedIcon />}>
-          New Project
-        </Button>
+        <Link to="/new_update_project">
+          <Button variant="contained" startIcon={<AddRoundedIcon />}>
+            New Project
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -48,7 +48,7 @@ export default function NewUpdateProject() {
   };
 
   return (
-    <div id="new_update_project" className="d-flex justify-content-center">
+    <div id="new_update_project" className="d-flex">
       <div className="new_update_project_container">
         <div className="new_update_project_title">
           Create / Modify Project
