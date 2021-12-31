@@ -17,7 +17,7 @@ import Sidebar from "../sidebar/Sidebar";
 import AdminPage from "./Admin/AdminPage";
 import NewUpdateProject from "./Admin/NewUpdateProject";
 import BrandName2 from "../landing/first-landing-section/BrandName2";
-import ProfilePage from "./Profile/ProfilePage";
+import ProjectDetails from "./Projectlist/ProjectDetails/ProjectDetails";
 
 interface ApplicationProps {
   personalProfile: User;
@@ -142,7 +142,7 @@ export default function Application(props: ApplicationProps) {
             <Route path="/admin" element={<AdminPage />} />
             <Route path="/new_update_project" element={<NewUpdateProject />} />
             <Route
-              path="/dashboard"
+              path="/"
               element={
                 <Dashboard
                   personalProfile={props.personalProfile}
@@ -159,6 +159,10 @@ export default function Application(props: ApplicationProps) {
             <Route
               path="/project_list"
               element={<Projectlist user={props.personalProfile} />}
+            />
+            <Route
+              path="/projects/:projName"
+              element={<ProjectDetails user={props.personalProfile} />}
             />
             <Route
               path="/task_list"

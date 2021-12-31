@@ -1,5 +1,5 @@
 import React, { CSSProperties, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import {
   CountryDropdown,
@@ -24,7 +24,7 @@ import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { User } from "../../../../models/User";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
 import { CircularProgress } from "@mui/material";
-import { height } from "@mui/system";
+import { useNavigate } from "react-router-dom";
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -55,7 +55,7 @@ const proPasswordButtonStyle: CSSProperties = {
   letterSpacing: "1px",
   fontFamily: "Nunito",
   transitionDuration: ".5s",
-  backgroundColor: "darkblue",
+  backgroundColor: "blue",
 };
 
 // const styles = (theme: Theme) => ({
@@ -102,6 +102,7 @@ export default function PersonalProfile({
   setPersonalProfile,
 }: PersonalProfileProps) {
   // const classes = useClasses();
+  const navigate = useNavigate();
 
   const [open, setOpen] = useState<boolean>(false);
   const [updateInfo, setUpdateInfo] = useState<string>("");
@@ -419,18 +420,19 @@ export default function PersonalProfile({
               </Snackbar>
             </div>
             <div className="button_area">
-              <Link to="/profile/pro-pass" style={{ textDecoration: "none" }}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  size="medium"
-                  style={proPasswordButtonStyle}
-                  // className={classes.proPasswordButton}
-                  endIcon={<SendRoundedIcon />}
-                >
-                  Next
-                </Button>
-              </Link>
+              {/* <Link to="/profile/pro-pass" replace style={{ textDecoration: "none" }}> */}
+              <Button
+                onClick={() => navigate("/profile/pro-pass")}
+                variant="contained"
+                color="primary"
+                size="medium"
+                style={proPasswordButtonStyle}
+                // className={classes.proPasswordButton}
+                endIcon={<SendRoundedIcon />}
+              >
+                Next
+              </Button>
+              {/* </Link> */}
             </div>
           </div>
         </form>

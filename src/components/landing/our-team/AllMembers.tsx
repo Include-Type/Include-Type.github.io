@@ -1,5 +1,3 @@
-import React from "react";
-import my_image from "../../../Resources/Images/our_team_images/dummy.png";
 import debayan from "../../../Resources/Images/our_team_images/Debayan.png";
 import monosij from "../../../Resources/Images/our_team_images/Monosij.png";
 import rishab from "../../../Resources/Images/our_team_images/Rishab.png";

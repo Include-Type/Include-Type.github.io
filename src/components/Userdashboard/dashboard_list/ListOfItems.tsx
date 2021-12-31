@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./ListOfItems.css";
 
 export default function ListOfItems() {
-  const [users, setUsers] = useState([
+  const [users] = useState([
     { id: 1, Date: "2/1/2022", Tasks: "complete task A" },
     { id: 2, Date: "8/1/2022", Tasks: "complete task B" },
     { id: 3, Date: "15/1/2022", Tasks: "complete task C" },

@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import DashboardRoundedIcon from "@mui/icons-material/DashboardRounded";
-import ChatBubbleRoundedIcon from "@mui/icons-material/ChatBubbleRounded";
-import GroupsRoundedIcon from "@mui/icons-material/GroupsRounded";
 import AssignmentRoundedIcon from "@mui/icons-material/AssignmentRounded";
-import InsightsRoundedIcon from "@mui/icons-material/InsightsRounded";
 import PlaylistAddCheckRoundedIcon from "@mui/icons-material/PlaylistAddCheckRounded";
 import PlaylistRemoveRoundedIcon from "@mui/icons-material/PlaylistRemoveRounded";
 import AccountBoxRoundedIcon from "@mui/icons-material/AccountBoxRounded";
 import AdminPanelSettingsRoundedIcon from "@mui/icons-material/AdminPanelSettingsRounded";
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 // import "./sidebar.css";
 import "./sidebar_2.css";
 import SidebarTabs from "./SidebarTabs";
@@ -29,9 +26,9 @@ function Sidebar(props: SidebarProps) {
       path: "/user_dashboard",
     },
     {
-      icon_component: SportsEsportsIcon,
+      icon_component: ExitToAppIcon,
       name: "Controls",
-      path: "/dashboard",
+      path: "/",
     },
     {
       icon_component: AssignmentRoundedIcon,

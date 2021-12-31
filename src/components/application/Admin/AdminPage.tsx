@@ -1,8 +1,6 @@
-import React from "react";
 import Button from "@mui/material/Button";
 import AddRoundedIcon from "@mui/icons-material/AddRounded";
 import "./AdminPage.css";
-import NewUpdateProject from "./NewUpdateProject";
 import { Link } from "react-router-dom";
 
 export default function AdminPage() {

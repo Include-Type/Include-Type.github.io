@@ -47,16 +47,16 @@ const saveButtonStyle: CSSProperties = {
 
 export default function NewUpdateProject() {
   const [Page, setPage] = useState<number>(1);
-  const [status, setStatus] = useState<string>("stopped");
+  const [status] = useState<string>("stopped");
   const [open, setOpen] = useState<boolean>(false);
-  const [updateInfo, setUpdateInfo] = useState<string>("");
-  const [updateResult, setUpdateResult] = useState<AlertColor | undefined>(
+  const [updateInfo] = useState<string>("");
+  const [updateResult] = useState<AlertColor | undefined>(
     undefined
   );
   
-  const handleClick = () => {
-    setOpen(true);
-  };
+  // const handleClick = () => {
+  //   setOpen(true);
+  // };
 
   const handleClose = (
     event: Event | React.SyntheticEvent<Element, Event>,

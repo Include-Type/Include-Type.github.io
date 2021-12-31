@@ -1,9 +1,7 @@
-import React, { CSSProperties, useState } from "react";
+import { CSSProperties, useState } from "react";
 import TerminateProjectDialog from "./TerminateProjectDialog";
 import Button from "@mui/material/Button";
-import { red } from "@mui/material/colors";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import { fontWeight } from "@mui/system";
 import ToggleSwitch from "./ToggleSwitch";
 
 const terminateButtonStyle: CSSProperties = {

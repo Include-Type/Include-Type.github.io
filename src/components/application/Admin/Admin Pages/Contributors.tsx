@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from "react";
+import React, { useState } from "react";
 import { ContributorType } from "./ContributorType";
 import Contributor from "./Contributor";
 import FormControl from "@mui/material/FormControl";

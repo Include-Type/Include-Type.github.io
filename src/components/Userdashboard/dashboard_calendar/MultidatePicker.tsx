@@ -1,20 +1,17 @@
-import React, { useEffect, useState } from "react";
-import { Calendar, DateObject } from "react-multi-date-picker";
-import DatePickerHeader from "react-multi-date-picker/plugins/date_picker_header";
+import { useEffect, useState } from "react";
+import { Calendar } from "react-multi-date-picker";
 import DatePanel from "react-multi-date-picker/plugins/date_panel";
 import colors from "react-multi-date-picker/plugins/colors";
-import Settings from "react-multi-date-picker/plugins/settings";
-import Toolbar from "react-multi-date-picker/plugins/toolbar";
 import "./CalenderStyles.css";
 import { PopupSetting2 } from "./PopupSetting";
 import CalendarForm from "./CalendarForm";
 
-const dateObject = new DateObject();
+// const dateObject = new DateObject();
 
 // const toDateObject = (day) => new DateObject(dateObject).setDay(day);
 
 export default function MultidatePicker() {
-  const today = new Date();
+  // const today = new Date();
   // const yesterday = new DateObject().subtract(1, "day");
   // const today = new DateObject();
   // const tomorrow = new DateObject().add(1, "day");
@@ -25,7 +22,7 @@ export default function MultidatePicker() {
   // tomorrow.color = "red";
   // dayafter.color = "green";
 
-  const [buttonPopup, setButtonPopup] = useState(false);
+  // const [buttonPopup, setButtonPopup] = useState(false);
 
   const [datePick, setDatePick] = useState(false);
 
@@ -52,7 +49,7 @@ export default function MultidatePicker() {
     if (props.value.length < prevDateCount) {
       setPrevDateCount(props.value.length);
     }
-  }, [props.value]);
+  }, [prevDateCount, props.value]);
 
   return (
     <div className="dashboard_calendar">

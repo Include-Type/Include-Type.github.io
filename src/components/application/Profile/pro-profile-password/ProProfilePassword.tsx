@@ -1,5 +1,5 @@
 import React, { CSSProperties, useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 // import { makeStyles, Theme } from "@mui/material/styles";
 // import CloudUploadIcon from "@mui/icons-material/CloudUpload";
@@ -15,6 +15,7 @@ import { ProfessionalProfile } from "../../../../models/ProfessionalProfile";
 import { User } from "../../../../models/User";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
 import { CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -77,6 +78,7 @@ export default function ProProfilePassword({
   setProfessionalProfile,
 }: ProProfilePasswordProps) {
   // const classes = useStyles();
+  const navigate = useNavigate();
 
   const [oldPassword, setOldPassword] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
@@ -367,20 +369,21 @@ export default function ProProfilePassword({
             </div>
           </div>
           <div className="col-12 d-flex justify-content-center align-items-end mt-4">
-            <Link to="/profile/personal" style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="medium"
-                style={privacyButtonStyle}
-                // className={classes.privacyButton}
-                startIcon={
-                  <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
-                }
-              >
-                Back
-              </Button>
-            </Link>
+            {/* <Link to="/profile/personal" style={{ textDecoration: "none" }}> */}
+            <Button
+              onClick={() => navigate(-1)}
+              variant="contained"
+              color="primary"
+              size="medium"
+              style={privacyButtonStyle}
+              // className={classes.privacyButton}
+              startIcon={
+                <SendRoundedIcon style={{ transform: "rotate(180deg)" }} />
+              }
+            >
+              Back
+            </Button>
+            {/* </Link> */}
             <Button
               disabled={statusProUpdate === "started" ? true : false}
               onClick={(e) => updateProProfile(e)}
@@ -412,18 +415,19 @@ export default function ProProfilePassword({
                 {updateProProfileInfo}
               </Alert>
             </Snackbar>
-            <Link to="/profile/privacy" style={{ textDecoration: "none" }}>
-              <Button
-                variant="contained"
-                color="primary"
-                size="medium"
-                style={privacyButtonStyle}
-                // className={classes.privacyButton}
-                endIcon={<SendRoundedIcon />}
-              >
-                Next
-              </Button>
-            </Link>
+            {/* <Link to="/profile/privacy" style={{ textDecoration: "none" }}> */}
+            <Button
+              onClick={() => navigate("/profile/privacy")}
+              variant="contained"
+              color="primary"
+              size="medium"
+              style={privacyButtonStyle}
+              // className={classes.privacyButton}
+              endIcon={<SendRoundedIcon />}
+            >
+              Next
+            </Button>
+            {/* </Link> */}
           </div>
         </form>
         <form className="password_settings_container">
