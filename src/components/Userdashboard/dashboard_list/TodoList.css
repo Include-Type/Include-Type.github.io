@@ -10,9 +10,9 @@
     background-color: var(--glass_light);
     bottom: 151%;
 }
-.todolist h1{
-    text-align: center;
-    display:flex;
+.todolist .text-center{
+    /* text-align: center; */
+    /* display:flex; */
     margin: 0% 5% 0% 5%;
     font-family: "Nunito";
     font-size: 2.2vw;

@@ -10,6 +10,7 @@ import PlaylistAddCheckRoundedIcon from "@mui/icons-material/PlaylistAddCheckRou
 import PlaylistRemoveRoundedIcon from "@mui/icons-material/PlaylistRemoveRounded";
 import AccountBoxRoundedIcon from "@mui/icons-material/AccountBoxRounded";
 import AdminPanelSettingsRoundedIcon from "@mui/icons-material/AdminPanelSettingsRounded";
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 // import "./sidebar.css";
 import "./sidebar_2.css";
 import SidebarTabs from "./SidebarTabs";
@@ -25,12 +26,12 @@ function Sidebar(props: SidebarProps) {
     {
       icon_component: DashboardRoundedIcon,
       name: "Dashboard",
-      path: "/dashboard",
+      path: "/user_dashboard",
     },
     {
-      icon_component: DashboardRoundedIcon,
-      name: "Analytics",
-      path: "/user_dashboard",
+      icon_component: SportsEsportsIcon,
+      name: "Controls",
+      path: "/dashboard",
     },
     {
       icon_component: AssignmentRoundedIcon,

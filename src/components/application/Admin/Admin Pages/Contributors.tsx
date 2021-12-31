@@ -21,28 +21,20 @@ export default function Contributors() {
       role: "Admin",
     },
     {
-      name: "Monosij Nayek",
-      role: "Admin",
+      name: "Rohan Halder",
+      role: "Designer",
     },
     {
-      name: "Subham Karmakar",
-      role: "Admin",
+      name: "Rishab Sengupta",
+      role: "Developer",
     },
     {
-      name: "Monosij Nayek",
-      role: "Admin",
+      name: "Srijita Chakrabarty",
+      role: "Developer",
     },
     {
-      name: "Subham Karmakar",
-      role: "Admin",
-    },
-    {
-      name: "Monosij Nayek",
-      role: "Admin",
-    },
-    {
-      name: "Subham Karmakar",
-      role: "Admin",
+      name: "Debayan De",
+      role: "Developer",
     },
     {
       name: "Monosij Nayek",
@@ -53,12 +45,20 @@ export default function Contributors() {
       role: "Admin",
     },
     {
-      name: "Monosij Nayek",
-      role: "Admin",
+      name: "Rohan Halder",
+      role: "Designer",
     },
     {
-      name: "Subham Karmakar",
-      role: "Admin",
+      name: "Rishab Sengupta",
+      role: "Developer",
+    },
+    {
+      name: "Srijita Chakrabarty",
+      role: "Developer",
+    },
+    {
+      name: "Debayan De",
+      role: "Developer",
     },
   ];
 
@@ -114,9 +114,9 @@ export default function Contributors() {
                 <MenuItem value="" disabled>
                   <em>Select Role</em>
                 </MenuItem>
-                <MenuItem value="10">Ten</MenuItem>
-                <MenuItem value="20">Twenty</MenuItem>
-                <MenuItem value="30">Thirty</MenuItem>
+                <MenuItem value="admin">Admin</MenuItem>
+                <MenuItem value="developer">Developer</MenuItem>
+                <MenuItem value="designer">Designer</MenuItem>
                 <MenuItem value="custom">Custom</MenuItem>
               </Select>
             </FormControl>

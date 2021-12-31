@@ -5,7 +5,7 @@ import List from "./ListOfItems";
 export default function TodoList() {
   return (
     <div className="todolist">
-      <h1>Important Dates</h1>
+      <div className="text-center">Important Dates</div>
       <div className="lists">
         <List />
       </div>
