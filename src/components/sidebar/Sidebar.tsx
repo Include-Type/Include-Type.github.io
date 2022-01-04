@@ -12,8 +12,10 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import "./sidebar_2.css";
 import SidebarTabs from "./SidebarTabs";
 import { Tab } from "./Tab";
+import { User } from "../../models/User";
 
 interface SidebarProps {
+  user: User;
   isExpanded: boolean;
   setIsExpanded: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -90,13 +92,25 @@ function Sidebar(props: SidebarProps) {
         )}
       </div>
       <div className="sidebar-items">
-        {tabs.map((tab: Tab) => (
-          <SidebarTabs
-            key={tab.name}
-            sidetab={tab}
-            isExpanded={props.isExpanded}
-          />
-        ))}
+        {props.user.isAdmin ? (
+          tabs.map((tab: Tab) => (
+            <SidebarTabs
+              key={tab.name}
+              sidetab={tab}
+              isExpanded={props.isExpanded}
+            />
+          ))
+        ) : (
+          tabs.map((tab: Tab) => (
+            tab.name !== "Admin" && (
+              <SidebarTabs
+                key={tab.name}
+                sidetab={tab}
+                isExpanded={props.isExpanded}
+              />
+            )
+          ))
+        )}
       </div>
     </div>
   );

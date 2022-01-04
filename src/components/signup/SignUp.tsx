@@ -434,9 +434,9 @@ export default function SignUp(props: SignUpProps) {
           <div className="d-flex align-items-center justify-content-center">
             <button
               disabled={signupState === "initiated" ? true : false}
-              className="submit_button"
+              className="submit_button_signup"
               type="submit"
-              style={{ height: "5.5vh", width: "18.3vw" }}
+              // style={{ height: "5.5vh", width: "18.3vw" }}
             >
               {signupState === "initiated" ? (
                 <CircularProgress size={26} style={{ color: "black", marginTop: "8px" }} />

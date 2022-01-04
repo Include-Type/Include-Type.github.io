@@ -10,7 +10,7 @@ interface ProjectTask {
     deadline: string,
     assigned: string,
     completed: boolean,
-    priority: TaskPriority,
+    priority: TaskPriority | string,
     author: string
 };
 

@@ -1,66 +1,61 @@
-import React, { useState } from "react";
-import { ContributorType } from "./ContributorType";
+import React, { CSSProperties, useState } from "react";
 import Contributor from "./Contributor";
 import FormControl from "@mui/material/FormControl";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { ProjectMember } from "../../../../models/ProjectMember";
+import Button from "@mui/material/Button";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { CircularProgress } from "@mui/material";
+import { User } from "../../../../models/User";
 
-export default function Contributors() {
-  const [role, setRole] = useState("");
+const addButtonStyle: CSSProperties = {
+  backgroundColor: "purple",
+  fontWeight: "bold",
+  letterSpacing: 1,
+  marginTop: "5px"
+};
+
+interface ContributorsProps {
+  user: User,
+  projMembers: ProjectMember[],
+  setProjMembers: React.Dispatch<React.SetStateAction<ProjectMember[]>>,
+  addProjMember: (userKey: string, userRole: string) => Promise<void>
+};
+
+export default function Contributors(props: ContributorsProps) {
+  const [userKey, setUserKey] = useState<string>("");
+  const [role, setRole] = useState<string>("");
+  const [customRole, setCustomRole] = useState<string>("");
+  const [fuse, setFuse] = useState<number>(1);
+  const [addLoad, setAddLoad] = useState<boolean>(false);
+
   const handleSelect = (event: SelectChangeEvent) => {
     setRole(event.target.value);
   };
 
-  const contributors = [
-    {
-      name: "Monosij Nayek",
-      role: "Admin",
-    },
-    {
-      name: "Subham Karmakar",
-      role: "Admin",
-    },
-    {
-      name: "Rohan Halder",
-      role: "Designer",
-    },
-    {
-      name: "Rishab Sengupta",
-      role: "Developer",
-    },
-    {
-      name: "Srijita Chakrabarty",
-      role: "Developer",
-    },
-    {
-      name: "Debayan De",
-      role: "Developer",
-    },
-    {
-      name: "Monosij Nayek",
-      role: "Admin",
-    },
-    {
-      name: "Subham Karmakar",
-      role: "Admin",
-    },
-    {
-      name: "Rohan Halder",
-      role: "Designer",
-    },
-    {
-      name: "Rishab Sengupta",
-      role: "Developer",
-    },
-    {
-      name: "Srijita Chakrabarty",
-      role: "Developer",
-    },
-    {
-      name: "Debayan De",
-      role: "Developer",
-    },
-  ];
+  function deleteMember(username: string): void {
+    if (username !== props.user.username) {
+      let index = props.projMembers.findIndex(m => m.username === username);
+      props.projMembers.splice(index, 1);
+      props.setProjMembers(props.projMembers);
+      setFuse((prev) => prev + 1);
+    }
+  }
+
+  async function addMember(e: React.FormEvent): Promise<void> {
+    setAddLoad(true);
+    e.preventDefault();
+    let userRole: string = role;
+    if (customRole !== "" && role !== customRole) {
+      userRole = customRole;
+    }
+    await props.addProjMember(userKey, userRole);
+    setUserKey("");
+    setRole("");
+    setCustomRole("");
+    setAddLoad(false);
+  }
 
   return (
     <div className="contributors">
@@ -68,8 +63,13 @@ export default function Contributors() {
         <div className="col-7 contributors_list">
           <div className="contributor_heading ps-3">Project Contributors</div>
           <div className="container contributors_container py-1">
-            {contributors.map((contributor: ContributorType) => (
-              <Contributor key={contributor.name} contributor={contributor} />
+            {fuse > 0 && props.projMembers.map((member: ProjectMember) => (
+              <Contributor
+                user={props.user}
+                key={member.username}
+                contributor={member}
+                deleteMember={deleteMember}
+              />
             ))}
           </div>
         </div>
@@ -84,6 +84,8 @@ export default function Contributors() {
               className="form-control"
               id="Contributor_Email_Username"
               required
+              value={userKey}
+              onInput={(e) => setUserKey(e.currentTarget.value)}
             />
           </div>
           <div className="row m-0 p-0 mb-3">
@@ -114,14 +116,14 @@ export default function Contributors() {
                 <MenuItem value="" disabled>
                   <em>Select Role</em>
                 </MenuItem>
-                <MenuItem value="admin">Admin</MenuItem>
-                <MenuItem value="developer">Developer</MenuItem>
-                <MenuItem value="designer">Designer</MenuItem>
-                <MenuItem value="custom">Custom</MenuItem>
+                <MenuItem value="Admin">Admin</MenuItem>
+                <MenuItem value="Developer">Developer</MenuItem>
+                <MenuItem value="Designer">Designer</MenuItem>
+                <MenuItem value="Custom">Custom</MenuItem>
               </Select>
             </FormControl>
           </div>
-          {role === "custom" ? (
+          {role === "Custom" ? (
             <div className="row m-0 p-0 mb-3">
               <label htmlFor="Contributor_Custom_Role" className="form-label">
                 Custom Role:
@@ -131,11 +133,26 @@ export default function Contributors() {
                 className="form-control"
                 id="Contributor_Custom_Role"
                 required
+                value={customRole}
+                onInput={(e) => setCustomRole(e.currentTarget.value)}
               />
             </div>
           ) : (
             <div></div>
           )}
+          <Button
+            disabled={addLoad || userKey === "" || role === "" ? true : false}
+            variant="contained"
+            style={addButtonStyle}
+            onClick={async (e) => await addMember(e)}
+            startIcon={addLoad ? <></> : <PersonAddIcon />}
+          >
+            {addLoad ? (
+              <CircularProgress size={26} style={{ color: "white", marginLeft: "50px", marginRight: "50px" }} />
+            ) : (
+              "Add Member"
+            )}
+          </Button>
         </div>
       </div>
     </div>

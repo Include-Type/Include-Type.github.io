@@ -1,14 +1,14 @@
-import React, { SetStateAction, Dispatch } from "react";
+import React from "react";
 import "./ToggleSwitch.css";
 
 interface LabelProps {
-    label: string;
-    checkbox_state: boolean; 
-    set_checkbox_state: Dispatch<SetStateAction<boolean>>;
+  label: string;
+  checkbox_state: boolean;
+  set_checkbox_state: (check: boolean) => void;
 };
 
 export default function ToggleSwitch(props: LabelProps) {
-  
+
   return (
     <div className="container">
       {props.label}{" "}
@@ -18,6 +18,7 @@ export default function ToggleSwitch(props: LabelProps) {
           className="checkbox"
           name={props.label}
           id={props.label}
+          checked={props.checkbox_state}
           onChange={(e) => props.set_checkbox_state(e.target.checked)}
         />
         <label className="label" htmlFor={props.label}>

@@ -10,6 +10,9 @@ import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import Checkbox from "@mui/material/Checkbox";
+import { User } from "../../../../models/User";
+import { ProjectMember } from "../../../../models/ProjectMember";
+import { ProjectTask } from "../../../../models/ProjectTask";
 
 const ITEM_HEIGHT = 40;
 const ITEM_PADDING_TOP = 0;
@@ -22,32 +25,28 @@ const MenuProps = {
   },
 };
 
-const names = [
-  "Monosij Nayek",
-  "Subham Karmakar",
-  "Rohan Halder",
-  "Rishab Sengupta",
-  "Srijita Chakrabarty",
-  "Debayan De",
-];
+interface CreateAssignTasksProps {
+  user: User,
+  projMembers: ProjectMember[],
+  task: ProjectTask,
+  setTask: React.Dispatch<React.SetStateAction<ProjectTask>>
+};
 
-export default function CreateAssignTasks() {
-  const [deadline, setDeadline] = React.useState<Date | null>(null);
-  const [personName, setPersonName] = React.useState<string[]>([]);
+export default function CreateAssignTasks(props: CreateAssignTasksProps) {
+  const [assignedNames, setAssignedNames] = useState<string[]>([]);
 
-  const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-    const {
-      target: { value },
-    } = event;
-    setPersonName(
-      // On autofill we get a stringified value.
-      typeof value === "string" ? value.split(",") : value
-    );
-  };
+  const updateAssignedNames = (e: SelectChangeEvent<string[]>) => {
+    let names: string[] = assignedNames;
 
-  const [task_priority, setTaskPriority] = useState("");
-  const handleSelect = (event: SelectChangeEvent) => {
-    setTaskPriority(event.target.value);
+    if (typeof e.target.value === "string") {
+      setAssignedNames(e.target.value.split(", "));
+      names = e.target.value.split(", ");
+    } else {
+      setAssignedNames(e.target.value);
+      names = e.target.value;
+    }
+
+    props.setTask({ ...props.task, assigned: names.join(", ") });
   };
 
   return (
@@ -59,7 +58,14 @@ export default function CreateAssignTasks() {
           </label>
         </div>
         <div className="col">
-          <input type="text" className="form-control" id="TaskTitle" required />
+          <input
+            type="text"
+            className="form-control"
+            id="TaskTitle"
+            required
+            value={props.task.title}
+            onInput={(e) => props.setTask({ ...props.task, title: e.currentTarget.value })}
+          />
         </div>
       </div>
       <div className="row">
@@ -74,6 +80,8 @@ export default function CreateAssignTasks() {
             className="form-control textarea"
             id="TaskDescription"
             required
+            value={props.task.details}
+            onInput={(e) => props.setTask({ ...props.task, details: e.currentTarget.value })}
           />
         </div>
       </div>
@@ -88,16 +96,16 @@ export default function CreateAssignTasks() {
             <Select
               id="demo-multiple-checkbox"
               multiple
-              value={personName}
-              onChange={handleChange}
+              value={assignedNames}
+              onChange={(e) => updateAssignedNames(e)}
               input={<OutlinedInput label="Tag" />}
               renderValue={(selected) => selected.join(", ")}
               MenuProps={MenuProps}
             >
-              {names.map((name) => (
-                <MenuItem key={name} value={name} className="list_item_text">
-                  <Checkbox checked={personName.indexOf(name) > -1} />
-                  <ListItemText primary={name} />
+              {props.projMembers.map((member: ProjectMember) => (
+                <MenuItem key={member.username} value={member.username} className="list_item_text">
+                  <Checkbox checked={assignedNames.indexOf(member.username) > -1} />
+                  <ListItemText primary={`${member.name} (@${member.username})`} />
                 </MenuItem>
               ))}
             </Select>
@@ -127,17 +135,17 @@ export default function CreateAssignTasks() {
               </select> */}
               <FormControl sx={{ minWidth: 100, backgroundColor: "white", borderRadius: "5px" }}>
                 <Select
-                  value={task_priority}
-                  onChange={handleSelect}
+                  value={props.task.priority}
+                  onChange={(e) => props.setTask({ ...props.task, priority: e.target.value })}
                   displayEmpty
                   inputProps={{ "aria-label": "Without label" }}
                 >
                   <MenuItem value="" disabled>
                     <em>Select Priority</em>
                   </MenuItem>
-                  <MenuItem value="low">Low</MenuItem>
-                  <MenuItem value="medium">Medium</MenuItem>
-                  <MenuItem value="high">High</MenuItem>
+                  <MenuItem value="High">High</MenuItem>
+                  <MenuItem value="Medium">Medium</MenuItem>
+                  <MenuItem value="Low">Low</MenuItem>
                 </Select>
               </FormControl>
             </div>
@@ -154,10 +162,8 @@ export default function CreateAssignTasks() {
               <LocalizationProvider dateAdapter={AdapterDateFns}>
                 <DateTimePicker
                   label="DateTimePicker"
-                  value={deadline}
-                  onChange={(newValue) => {
-                    setDeadline(newValue);
-                  }}
+                  value={props.task.deadline}
+                  onChange={(newValue) => props.setTask({ ...props.task, deadline: newValue as string })}
                   renderInput={({ inputRef, inputProps, InputProps }) => (
                     <Box sx={{ display: "flex", alignItems: "center" }}>
                       <input

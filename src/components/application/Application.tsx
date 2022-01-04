@@ -135,12 +135,30 @@ export default function Application(props: ApplicationProps) {
       </section>
       <section id="Main_area">
         <section id="Application_menu_area">
-          <Sidebar isExpanded={isExpanded} setIsExpanded={setIsExpanded} />
+          <Sidebar
+            user={props.personalProfile}
+            isExpanded={isExpanded}
+            setIsExpanded={setIsExpanded}
+          />
         </section>
         <section id="Application_content_area">
           <Routes>
-            <Route path="/admin" element={<AdminPage />} />
-            <Route path="/new_update_project" element={<NewUpdateProject />} />
+            <Route
+              path="/admin"
+              element={
+                <AdminPage
+                  user={props.personalProfile}
+                />
+              }
+            />
+            <Route
+              path="/admin/projects/:projName"
+              element={
+                <NewUpdateProject
+                  user={props.personalProfile}
+                />
+              }
+            />
             <Route
               path="/"
               element={

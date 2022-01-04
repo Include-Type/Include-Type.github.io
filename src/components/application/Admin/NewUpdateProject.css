@@ -167,3 +167,10 @@
   font-weight: bold;
   font-size: xx-large;
 }
+
+.update_project_spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
