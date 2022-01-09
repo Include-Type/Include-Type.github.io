@@ -1,0 +1,43 @@
+.working-list{
+    width: 25%;
+    height: 47%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5%;
+    content: '';
+    background: inherit;
+    top: 50%;
+    margin-left: 70%;
+    background-color: var(--glass_light);
+}
+.working-list h1{
+    text-align: center;
+    display:flex;
+    margin-left:  28%;
+    font-family: "Nunito";
+    font-size: 2.2vw;
+   font-weight: 800;
+   color: var(--deep_sea_green_theme_color);
+   letter-spacing: 1px;
+}
+/* .piecharts{
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    gap: 10px;
+    justify-content: center;
+}
+.piechart{
+    padding: 10px;
+    position: relative;
+    margin-left: 20px;
+    width: 400px;
+}
+.piechart p{
+    text-align: center;
+} */
+.chartpie{
+    margin-top: 30px;
+    position: relative;
+    background-color: transparent;
+}

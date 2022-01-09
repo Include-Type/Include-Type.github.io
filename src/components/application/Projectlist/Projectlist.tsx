@@ -91,6 +91,7 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
                         {projectCount > 0 ? (
                             <div className="for_scroll_projects">
                                 {projects.map((project: ProjectModel) => (
+                                    project.status !== "Terminated" &&
                                     (searchKey === "" ||
                                         project.name.toLowerCase().includes(searchKey.toLowerCase()) ||
                                         project.about.toLowerCase().includes(searchKey.toLowerCase()) ||
@@ -103,7 +104,10 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
                                 ))}
                             </div>
                         ) : (
-                            <p className="empty_text">You don't have any projects yet!<br></br>🚀</p>
+                            <div style={{ textAlign: "center" }}>
+                                <p className="empty_text">You don't have any projects yet!</p>
+                                <p style={{ fontSize: "5em" }}>😴</p>
+                            </div>
                         )}
                     </div>
                 </div>

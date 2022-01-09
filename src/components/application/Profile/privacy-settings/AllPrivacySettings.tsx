@@ -1,5 +1,5 @@
 import React, { CSSProperties, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./AllPrivacySettings.css";
 import "../ProfilePage.css";
 import Privacy from "./privacy/Privacy";
@@ -15,6 +15,7 @@ import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { PrivacyProfile } from "../../../../models/PrivacyProfile";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
 import { CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
@@ -221,6 +222,7 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
         </div>
         <div className="update_button_container">
           <div className="button_area">
+            {/* <Link to="/profile/pro-pass" style={{ textDecoration: "none" }}> */}
             <Button
               onClick={() => navigate(-1)}
               variant="contained"
@@ -234,6 +236,7 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
             >
               Back
             </Button>
+            {/* </Link> */}
           </div>
           <div className="button_area">
             <Button

@@ -6,14 +6,22 @@
 }
 
 .profile_form {
-  width: 95%;
+  width: 100%;
   height: 100%;
   /* background-color: blue; */
 }
 
-.row > * {
+#Personal_Profile .row > * {
   padding-right: 0px;
   padding-left: 0px;
+}
+
+#Personal_Profile .form-control {
+  font-size: 1vw;
+}
+
+#Personal_Profile .form-label {
+  margin-bottom: 0%;
 }
 
 .personal_profile_scroll_container {
@@ -69,14 +77,14 @@
 }
 
 .img_col {
-  background-color: red;
+  /* background-color: red; */
   height: fit-content;
 }
 
 .profile_image_container {
   width: 100%;
   height: fit-content;
-  background-color: pink;
+  /* background-color: pink; */
   display: flex;
   /* padding: 0% 4%; */
 }

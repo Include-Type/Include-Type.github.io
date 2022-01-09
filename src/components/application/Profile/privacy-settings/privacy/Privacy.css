@@ -1,18 +1,18 @@
-.row {
+#Privacy .row {
   margin: 0% !important;
   padding: 0% !important;
 }
 
-.row * {
+#Privacy .row * {
   font-weight: bold;
   font-size: 1.1vw;
 }
 
-.form-select {
+#Privacy .form-select {
   font-weight: bold !important;
   font-size: 1.1vw !important;
 }
 
-.form-label {
+#Privacy .form-label {
   margin: 0% !important;
 }

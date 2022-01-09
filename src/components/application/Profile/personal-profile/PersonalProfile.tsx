@@ -1,5 +1,5 @@
 import React, { CSSProperties, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import PhoneInput from "react-phone-input-2";
 import {
   CountryDropdown,
@@ -24,10 +24,11 @@ import MuiAlert, { AlertProps, AlertColor } from "@mui/material/Alert";
 import { User } from "../../../../models/User";
 // import { LoadingSpinnerMedium } from "../../../spinners/Spinners";
 import { CircularProgress } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   props,
-  ref,
+  ref
 ) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -42,7 +43,7 @@ const saveButtonStyle: CSSProperties = {
   letterSpacing: "1px",
   fontFamily: "Nunito",
   transitionDuration: ".5s",
-  backgroundColor: "green"
+  backgroundColor: "green",
 };
 
 const proPasswordButtonStyle: CSSProperties = {
@@ -54,7 +55,7 @@ const proPasswordButtonStyle: CSSProperties = {
   letterSpacing: "1px",
   fontFamily: "Nunito",
   transitionDuration: ".5s",
-  backgroundColor: "blue"
+  backgroundColor: "blue",
 };
 
 // const styles = (theme: Theme) => ({
@@ -92,17 +93,22 @@ const proPasswordButtonStyle: CSSProperties = {
 // });
 
 interface PersonalProfileProps {
-  personalProfile: User,
-  setPersonalProfile: React.Dispatch<React.SetStateAction<User>>
-};
+  personalProfile: User;
+  setPersonalProfile: React.Dispatch<React.SetStateAction<User>>;
+}
 
-export default function PersonalProfile({ personalProfile, setPersonalProfile }: PersonalProfileProps) {
+export default function PersonalProfile({
+  personalProfile,
+  setPersonalProfile,
+}: PersonalProfileProps) {
   // const classes = useClasses();
   const navigate = useNavigate();
 
   const [open, setOpen] = useState<boolean>(false);
   const [updateInfo, setUpdateInfo] = useState<string>("");
-  const [updateResult, setUpdateResult] = useState<AlertColor | undefined>(undefined);
+  const [updateResult, setUpdateResult] = useState<AlertColor | undefined>(
+    undefined
+  );
 
   const [status, setStatus] = useState<string>("stopped");
 
@@ -110,7 +116,10 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
     setOpen(true);
   };
 
-  const handleClose = (event: Event | React.SyntheticEvent<Element, Event>, reason?: string | SnackbarCloseReason) => {
+  const handleClose = (
+    event: Event | React.SyntheticEvent<Element, Event>,
+    reason?: string | SnackbarCloseReason
+  ) => {
     if (reason === "clickaway") {
       return;
     }
@@ -122,14 +131,17 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
     setStatus("started");
     e.preventDefault();
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/user/updateuser/${personalProfile.username}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify(personalProfile),
-      });
+      const response = await fetch(
+        `https://include-type.herokuapp.com/api/user/updateuser/${personalProfile.username}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify(personalProfile),
+        }
+      );
       if (response.ok) {
         setStatus("stopped");
         setUpdateInfo("Profile Updated!");
@@ -171,7 +183,12 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                       id="FirstName"
                       required
                       value={personalProfile.firstName}
-                      onInput={(e) => setPersonalProfile({ ...personalProfile, firstName: e.currentTarget.value })}
+                      onInput={(e) =>
+                        setPersonalProfile({
+                          ...personalProfile,
+                          firstName: e.currentTarget.value,
+                        })
+                      }
                     />
                   </div>
                   <div className="col-6 ps-3 pe-3">
@@ -184,7 +201,12 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                       id="LastName"
                       required
                       value={personalProfile.lastName}
-                      onInput={(e) => setPersonalProfile({ ...personalProfile, lastName: e.currentTarget.value })}
+                      onInput={(e) =>
+                        setPersonalProfile({
+                          ...personalProfile,
+                          lastName: e.currentTarget.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -194,11 +216,16 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                       Bio
                     </label>
                     <textarea
-                      className="form-control"
+                      className="form-control textarea"
                       id="Bio"
-                      rows={3}
+                      rows={4}
                       value={personalProfile.bio}
-                      onInput={(e) => setPersonalProfile({ ...personalProfile, bio: e.currentTarget.value })}
+                      onInput={(e) =>
+                        setPersonalProfile({
+                          ...personalProfile,
+                          bio: e.currentTarget.value,
+                        })
+                      }
                     />
                   </div>
                 </div>
@@ -220,7 +247,12 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                     id="Username"
                     required
                     value={personalProfile.username}
-                    onInput={(e) => setPersonalProfile({ ...personalProfile, username: e.currentTarget.value })}
+                    onInput={(e) =>
+                      setPersonalProfile({
+                        ...personalProfile,
+                        username: e.currentTarget.value,
+                      })
+                    }
                     disabled
                   />
                 </div>
@@ -234,7 +266,12 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                     id="Email"
                     required
                     value={personalProfile.email}
-                    onInput={(e) => setPersonalProfile({ ...personalProfile, email: e.currentTarget.value })}
+                    onInput={(e) =>
+                      setPersonalProfile({
+                        ...personalProfile,
+                        email: e.currentTarget.value,
+                      })
+                    }
                     disabled
                   />
                 </div>
@@ -251,7 +288,12 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                     // placeholder="1234 Main St"
                     required
                     value={personalProfile.address}
-                    onInput={(e) => setPersonalProfile({ ...personalProfile, address: e.currentTarget.value })}
+                    onInput={(e) =>
+                      setPersonalProfile({
+                        ...personalProfile,
+                        address: e.currentTarget.value,
+                      })
+                    }
                   />
                 </div>
                 <div className="col-4 ps-3 pe-3">
@@ -261,7 +303,9 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                   <CountryDropdown
                     id="Country"
                     value={personalProfile.country}
-                    onChange={(val) => setPersonalProfile({ ...personalProfile, country: val })}
+                    onChange={(val) =>
+                      setPersonalProfile({ ...personalProfile, country: val })
+                    }
                     classes="form-control"
                   />
                 </div>
@@ -275,7 +319,9 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                     dropdownClass="phone_dropdown_container"
                     country={personalProfile.country}
                     value={personalProfile.contact}
-                    onChange={(val) => setPersonalProfile({ ...personalProfile, contact: val })}
+                    onChange={(val) =>
+                      setPersonalProfile({ ...personalProfile, contact: val })
+                    }
                     inputProps={{
                       id: "Contact",
                       name: "phone",
@@ -294,7 +340,9 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                     id="State"
                     country={personalProfile.country}
                     value={personalProfile.state}
-                    onChange={(val) => setPersonalProfile({ ...personalProfile, state: val })}
+                    onChange={(val) =>
+                      setPersonalProfile({ ...personalProfile, state: val })
+                    }
                     classes="form-control"
                   />
                 </div>
@@ -308,7 +356,12 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                     className="form-control"
                     required
                     value={personalProfile.city}
-                    onInput={(e) => setPersonalProfile({ ...personalProfile, city: e.currentTarget.value })}
+                    onInput={(e) =>
+                      setPersonalProfile({
+                        ...personalProfile,
+                        city: e.currentTarget.value,
+                      })
+                    }
                   />
                 </div>
                 <div className="col-3 ps-3 pe-3">
@@ -321,7 +374,12 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
                     id="Pincode"
                     required
                     value={personalProfile.pincode}
-                    onInput={(e) => setPersonalProfile({ ...personalProfile, pincode: e.currentTarget.value })}
+                    onInput={(e) =>
+                      setPersonalProfile({
+                        ...personalProfile,
+                        pincode: e.currentTarget.value,
+                      })
+                    }
                   />
                 </div>
               </div>
@@ -362,6 +420,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
               </Snackbar>
             </div>
             <div className="button_area">
+              {/* <Link to="/profile/pro-pass" replace style={{ textDecoration: "none" }}> */}
               <Button
                 onClick={() => navigate("/profile/pro-pass")}
                 variant="contained"
@@ -373,6 +432,7 @@ export default function PersonalProfile({ personalProfile, setPersonalProfile }:
               >
                 Next
               </Button>
+              {/* </Link> */}
             </div>
           </div>
         </form>

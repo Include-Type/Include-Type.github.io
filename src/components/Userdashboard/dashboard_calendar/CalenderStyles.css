@@ -1,0 +1,6 @@
+.dashboard_calendar {
+  /* margin-top: 100px; */
+  display: "flex";
+  justify-content: "center";
+  padding: 5%;
+}

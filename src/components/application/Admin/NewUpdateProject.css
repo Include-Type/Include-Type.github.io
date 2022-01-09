@@ -1,0 +1,176 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap");
+
+#new_update_project {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.new_update_project_container {
+  position: relative;
+  margin-top: 1%;
+  padding: 2%;
+  width: 100%;
+  height: 96%;
+  background-color: var(--glass_light);
+  border-radius: 30px;
+}
+
+.new_update_project_title {
+  font-family: "Nunito";
+  font-size: 2.2vw;
+  font-weight: 800;
+  color: var(--deep_sea_green_theme_color);
+  letter-spacing: 1px;
+  margin: 0% 0% 0% 1%;
+}
+
+.title_page_container,
+.contributors_page_container,
+.create_assign_tasks_page_container {
+  position: relative;
+  width: 100%;
+  height: 88%;
+  /* background-color: aqua; */
+}
+
+.container {
+  margin: 0%;
+}
+
+.title_page,
+.contributors,
+.create_assign_tasks {
+  position: relative;
+  height: 88%;
+  padding: 1%;
+  /* background-color: lime; */
+}
+
+.title_page .row {
+  display: flex;
+  align-items: center;
+  /* background-color: brown; */
+  margin-bottom: 1vh;
+}
+
+.title_page .row .col-2 {
+  display: flex;
+  align-items: center;
+  /* background-color: blue; */
+}
+
+.title_page .row .col-2 .form-label {
+  margin: 0px;
+  align-items: center;
+  /* background-color: orange; */
+  font-size: 1.3vw;
+  font-weight: bold;
+}
+
+.contributors .row .col {
+  /* background-color: tomato; */
+}
+
+.contributors .form-label {
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+  font-size: 2.2vh;
+  font-weight: bold;
+}
+
+.contributors input,
+.contributors select {
+  font-size: 2.1vh;
+}
+
+.contributors_list {
+  /* background-color: aqua; */
+  padding: 0;
+  background-image: var(--bg_gradient_top_light_2);
+  border-radius: 20px;
+}
+
+.contributors .contributors_container .col {
+  /* background-color: lime; */
+}
+
+.contributor_heading {
+  font-size: 3.5vh;
+  font-weight: bold;
+  padding: 2% 0%;
+  font-family: "Nunito";
+}
+
+.contributors_container {
+  height: 51vh;
+  /* background-color: blue; */
+  overflow-y: auto;
+}
+
+.contributors_container::-webkit-scrollbar {
+  width: 10px;
+  overflow: hidden;
+}
+
+.contributors_container::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 2px grey; */
+  border-radius: 10px;
+  box-shadow: none;
+}
+
+.contributors_container::-webkit-scrollbar-thumb {
+  background: rgb(114, 114, 255);
+  border-radius: 30px;
+}
+
+.contributor {
+  font-size: 2.2vh;
+  background-color: var(--glass_light);
+  margin-bottom: 1vh;
+  align-items: center;
+  border-radius: 20px;
+  padding-left: 1%;
+  font-weight: bold;
+}
+
+.add_contributor {
+  background-image: var(--bg_gradient_top_light_2);
+  /* background-color: var(--glass_light); */
+  border-radius: 20px;
+}
+
+.create_assign_tasks .row {
+  display: flex;
+  align-items: center;
+  /* background-color: brown; */
+  margin-bottom: 2vh;
+}
+
+.create_assign_tasks .row .col-2 {
+  display: flex;
+  align-items: center;
+  /* background-color: blue; */
+}
+
+.create_assign_tasks .form-label {
+  margin: 0px;
+  align-items: center;
+  /* background-color: orange; */
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+
+.prev_button,
+.next_button {
+  font-weight: bold;
+  font-size: xx-large;
+}
+
+.update_project_spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

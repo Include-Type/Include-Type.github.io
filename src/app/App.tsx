@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react";
+import { ReactElement, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import "./App.css";
 import LandingPage from "../components/landing/LandingPage";
@@ -25,4 +25,25 @@ function App(): ReactElement {
   );
 }
 
-export default App;
+// function App(): ReactElement {
+//   const password: string = "rmssd";
+//   const [userInput, setUserInput] = useState<string>("rmssd");
+
+//   return (
+//     <BrowserRouter>
+//       <div className="App">
+//         {(userInput === "" || userInput !== password) ? (
+//           <DevCheck
+//             password={password}
+//             userInput={userInput}
+//             setUserInput={setUserInput}
+//           />
+//         ) : (
+//           <Application />
+//         )}
+//       </div>
+//     </BrowserRouter>
+//   );
+// }
+
+ export default App;

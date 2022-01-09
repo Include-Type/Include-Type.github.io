@@ -33,13 +33,17 @@
 }
 
 .tasklist_outer_container {
-    height: 100%;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    background-image: var(--bg_gradient_top_light);
+    /* background-image: var(--bg_gradient_top_light); */
+    margin-top: 1%;
+    padding: 2%;
+    width: 100%;
+    height: 96%;
+    background-color: var(--glass_light);
+    border-radius: 20px;
 }
 .tasklist_container {
     height: 86%;
@@ -47,14 +51,14 @@
     max-width: 2100px;
     max-height: 814px;
     border-radius: 15px;
-    background-color: rgba(199, 247, 255, 0.651);
+    /* background-color: rgba(199, 247, 255, 0.651); */
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 0.1%;
     /* background-color: var(--glass_light); */
     overflow: hidden;
-    box-shadow: 3px 3px 5px rgb(133, 185, 194);    
+    /* box-shadow: 3px 3px 5px rgb(133, 185, 194);     */
 }
 
 .empty_text {

@@ -1,5 +1,5 @@
 import React, { ReactElement } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { PrivacyProfile } from "../../models/PrivacyProfile";
 import { ProfessionalProfile } from "../../models/ProfessionalProfile";
 import { User } from "../../models/User";
@@ -15,7 +15,7 @@ interface DashboardProps {
 };
 
 function Dashboard(props: DashboardProps): ReactElement {
-    var navigate = useNavigate();
+    // var navigate = useNavigate();
 
     async function logout(): Promise<void> {
         await fetch("https://include-type.herokuapp.com/api/user/logout", {
@@ -45,14 +45,15 @@ function Dashboard(props: DashboardProps): ReactElement {
 
     return (
         <div className="dashboard">
-            <h1>Welcome {props.personalProfile!.firstName} {props.personalProfile!.lastName}! 😃</h1>
+            <h1 style={{ fontSize: "5em" }}>😃</h1>
+            <h1>Welcome {props.personalProfile!.firstName} {props.personalProfile!.lastName}!</h1>
             <p>Username : {props.personalProfile!.username}</p>
             <p>Email    : {props.personalProfile!.email}</p>
             <button className="registration_buttons" onClick={() => logout()}>Log Out</button>
-            <button className="registration_buttons" onClick={() => navigate("/profile/personal")}>Profile</button>
-            <button className="registration_buttons" onClick={() => navigate("/project-tasks")}>Task List</button>
-            <button className="registration_buttons" onClick={() => navigate("/project-issues")}>Issue List</button>
-            <button className="registration_buttons" onClick={() => navigate("/projects")}>Project List</button>
+            {/* <button className="registration_buttons" onClick={() => navigate("/profile/personal")}>Profile</button> */}
+            {/* <button className="registration_buttons" onClick={() => navigate("/project-tasks")}>Task List</button> */}
+            {/* <button className="registration_buttons" onClick={() => navigate("/project-issues")}>Issue List</button> */}
+            {/* <button className="registration_buttons" onClick={() => navigate("/projects")}>Project List</button> */}
         </div>
     );
 }

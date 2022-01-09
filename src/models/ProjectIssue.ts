@@ -10,7 +10,7 @@ interface ProjectIssue {
     deadline: string,
     assigned: string,
     completed: boolean,
-    priority: IssuePriority,
+    priority: IssuePriority | string,
     author: string
 };
 

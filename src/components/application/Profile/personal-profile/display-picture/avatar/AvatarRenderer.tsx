@@ -29,15 +29,15 @@ const cameraIconButtonStyle: CSSProperties = {
   position: "absolute",
   backgroundColor: "white",
   bottom: "0",
-  right: "5%"
+  right: "5%",
 };
 
 const cameraIconStyle: CSSProperties = {
-  fontSize: "1.7vw"
+  fontSize: "1.7vw",
 };
 
 const menuListStyle: CSSProperties = {
-  marginTop: "5%"
+  marginTop: "5%",
 };
 
 export default function AvatarRenderer() {
@@ -49,7 +49,9 @@ export default function AvatarRenderer() {
     setOpen((prevOpen) => !prevOpen);
   };
 
-  const handleClose = (event: MouseEvent | TouchEvent | React.MouseEvent<EventTarget>) => {
+  const handleClose = (
+    event: MouseEvent | TouchEvent | React.MouseEvent<EventTarget>
+  ) => {
     if (
       anchorRef.current &&
       anchorRef.current.contains(event.target as HTMLElement)
@@ -85,7 +87,7 @@ export default function AvatarRenderer() {
     <div className="avatar_editor">
       <div className="avatar_container">
         <div className="avatar">
-          <img src="" alt="" className="avatar_image" />
+          <img src=""alt="" className="avatar_image" />
         </div>
         <IconButton
           style={cameraIconButtonStyle}

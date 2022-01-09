@@ -212,7 +212,10 @@ export default function Tasklist(props: TasklistProps): ReactElement {
                                 ))}
                             </div>
                         ) : (
-                            <p className="empty_text">You're all caught up!<br></br>🚀</p>
+                            <div style={{ textAlign: "center" }}>
+                                <p className="empty_text">You're all caught up!</p>
+                                <p style={{ fontSize: "5em" }}>🚀</p>
+                            </div>
                         )}
                     </div>
                     <div className="sync_container">

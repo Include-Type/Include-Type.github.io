@@ -115,7 +115,7 @@ export default function ResetPassword() {
                         </label>
                         <input
                             required
-                            type="text"
+                            type="password"
                             className="form-control"
                             id="exampleInputEmail1"
                             aria-describedby="emailHelp"

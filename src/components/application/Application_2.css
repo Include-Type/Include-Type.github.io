@@ -1,0 +1,93 @@
+#Application_page {
+  height: 100vh;
+  width: 100vw;
+  background-image: var(--bg_gradient_top_light);
+}
+
+#Status {
+  width: 100%;
+  height: 10%;
+  /* background-color: dodgerblue; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.status_container {
+  height: 95%;
+  width: 99%;
+  border-radius: 20px;
+  /* background-color: red; */
+}
+
+#Main_area {
+  /* width: 100%; */
+  height: 90%;
+  display: flex;
+  /* background-color: tomato; */
+}
+
+#Application_menu_area {
+  /* width: 20%; */
+  height: 96%;
+  display: inline;
+  /* background-color: greenyellow; */
+  margin: 1% 0% 1% 0.5%;
+}
+
+#Application_content_area {
+  width: 100%; /* --------> needs to be a 100% */
+  height: 100%;
+  /* background-color: darkorange; */
+  padding: 0% 0.5% 0% 1%;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@700&display=swap");
+
+@font-face {
+  font-family: "TektonPro-Bold";
+  src: local("TektonPro-Bold"),
+    url(../../Resources/Fonts/TektonPro-Bold.otf) format("opentype");
+}
+
+.brand_container_2 {
+  border-radius: 20px;
+  /* background-color: red; */
+  /* background-color: #5c5cc4; */
+  background-color: #511281;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: background-color 1s ease;
+}
+
+.brand_container_3 {
+  border-radius: 20px;
+  /* background-color: red; */
+  /* background-color: #2e3485; */
+  background-color: #6639a6;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  transition: background-color 1s ease;
+}
+
+.brand_container_2 .name_1,
+.brand_container_3 .name_1 {
+  font-family: "TektonPro-Bold";
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
+  font-size: 2.5vw;
+}
+
+.brand_container_2 .name_2,
+.brand_container_3 .name_2 {
+  font-family: "Stardos Stencil", cursive;
+  margin-right: 0.5%;
+  color: #ffffff;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.35);
+  font-size: 2.5vw;
+}
+
+.textarea{
+  height: auto;
+}
