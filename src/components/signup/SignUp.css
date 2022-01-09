@@ -172,6 +172,7 @@ h2 {
 .signUp_message p {
   font-size: medium;
   font-weight: bold;
+  color: darkred;
 }
 
 .valid_message {

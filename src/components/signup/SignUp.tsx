@@ -439,7 +439,7 @@ export default function SignUp(props: SignUpProps) {
               // style={{ height: "5.5vh", width: "18.3vw" }}
             >
               {signupState === "initiated" ? (
-                <CircularProgress size={26} style={{ color: "black", marginTop: "8px" }} />
+                <CircularProgress size={20} style={{ color: "black", marginTop: "8px" }} />
               ) : (
                 "Create Account"
               )}

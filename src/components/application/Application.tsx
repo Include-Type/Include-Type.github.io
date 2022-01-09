@@ -12,12 +12,12 @@ import PersonalProfile from "./Profile/personal-profile/PersonalProfile";
 import AllPrivacySettings from "./Profile/privacy-settings/AllPrivacySettings";
 import ProProfilePassword from "./Profile/pro-profile-password/ProProfilePassword";
 import Projectlist from "./Projectlist/Projectlist";
+import ProjectDetails from "./Projectlist/ProjectDetails/ProjectDetails";
 import Tasklist from "./Tasklist/Tasklist";
 import Sidebar from "../sidebar/Sidebar";
 import AdminPage from "./Admin/AdminPage";
 import NewUpdateProject from "./Admin/NewUpdateProject";
 import BrandName2 from "../landing/first-landing-section/BrandName2";
-import ProjectDetails from "./Projectlist/ProjectDetails/ProjectDetails";
 
 interface ApplicationProps {
   personalProfile: User;
@@ -216,6 +216,14 @@ export default function Application(props: ApplicationProps) {
                 <AllPrivacySettings
                   privacy={props.privacy}
                   setPrivacy={props.setPrivacy}
+                />
+              }
+            />
+            <Route
+              path="/projects/:projName"
+              element={
+                <ProjectDetails
+                  user={props.personalProfile}
                 />
               }
             />
