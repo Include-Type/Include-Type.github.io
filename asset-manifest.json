@@ -1,8 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.f4aea7eb.css",
-    "main.js": "/static/js/main.7af122ae.js",
+    "main.css": "/static/css/main.a755072e.css",
+    "main.js": "/static/js/main.8adb57ce.js",
     "static/js/787.328b0ba8.chunk.js": "/static/js/787.328b0ba8.chunk.js",
+    "static/media/Monosij.png": "/static/media/Monosij.696cf6ea43cec2ea651d.png",
+    "static/media/Rohan.png": "/static/media/Rohan.0d1ded76c1ca0a935476.png",
+    "static/media/Subham.png": "/static/media/Subham.627a4e6c6cb0e3d1b82e.png",
+    "static/media/Srijita.png": "/static/media/Srijita.50deb2b7f812ecb3f64e.png",
+    "static/media/Debayan.png": "/static/media/Debayan.2353c1cee7da930d9bc2.png",
+    "static/media/Rishab.png": "/static/media/Rishab.2561def12cd5e466a04d.png",
     "static/media/enterprises.svg": "/static/media/enterprises.c00c15c720cbb35f922ccbb7afc971a5.svg",
     "static/media/Group_174.svg": "/static/media/Group_174.ad6607e121e61b927ae12adb2f59ed9f.svg",
     "static/media/small_business.svg": "/static/media/small_business.40ddc1525bc5c869ff623c0640689e1d.svg",
@@ -10,8 +16,8 @@
     "static/media/freelance.svg": "/static/media/freelance.6bb43f297649ead795b1674b09185183.svg",
     "static/media/large_teams.svg": "/static/media/large_teams.58fd13c4ee7ea65b82e4a1766a76c40a.svg",
     "static/media/support-team.svg": "/static/media/support-team.7032e0c56fc68a991408fcf37a2d8de0.svg",
-    "static/media/book-antiqua.ttf": "/static/media/book-antiqua.bb6f02f23d85833cc001.ttf",
     "service-worker.js": "/service-worker.js",
+    "static/media/book-antiqua.ttf": "/static/media/book-antiqua.bb6f02f23d85833cc001.ttf",
     "static/media/Salsa-Regular.ttf": "/static/media/Salsa-Regular.df3181c697c1595c4515.ttf",
     "static/media/Red_clipped_note.svg": "/static/media/Red_clipped_note.e339acf35d77aad6a4049a0d99fb107b.svg",
     "static/media/Green_pinned_note.svg": "/static/media/Green_pinned_note.8b78000d83dc07696a6f84b9fe2fe61d.svg",
@@ -30,12 +36,12 @@
     "static/media/featurebox1.svg": "/static/media/featurebox1.61b6c40d699a1aca243e.svg",
     "static/media/featurebox2.svg": "/static/media/featurebox2.7c91eb53f2a9f8ada3df.svg",
     "static/media/Bullet_Point.svg": "/static/media/Bullet_Point.40d0857d6d2b0e6e3131b92be0c8ef57.svg",
-    "main.f4aea7eb.css.map": "/static/css/main.f4aea7eb.css.map",
-    "main.7af122ae.js.map": "/static/js/main.7af122ae.js.map",
+    "main.a755072e.css.map": "/static/css/main.a755072e.css.map",
+    "main.8adb57ce.js.map": "/static/js/main.8adb57ce.js.map",
     "787.328b0ba8.chunk.js.map": "/static/js/787.328b0ba8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f4aea7eb.css",
-    "static/js/main.7af122ae.js"
+    "static/css/main.a755072e.css",
+    "static/js/main.8adb57ce.js"
   ]
 }
