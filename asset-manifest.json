@@ -1,12 +1,12 @@
 {
   "files": {
     "main.css": "/static/css/main.a755072e.css",
-    "main.js": "/static/js/main.8adb57ce.js",
+    "main.js": "/static/js/main.88d803ba.js",
     "static/js/787.328b0ba8.chunk.js": "/static/js/787.328b0ba8.chunk.js",
-    "static/media/Monosij.png": "/static/media/Monosij.696cf6ea43cec2ea651d.png",
     "static/media/Rohan.png": "/static/media/Rohan.0d1ded76c1ca0a935476.png",
-    "static/media/Subham.png": "/static/media/Subham.627a4e6c6cb0e3d1b82e.png",
     "static/media/Srijita.png": "/static/media/Srijita.50deb2b7f812ecb3f64e.png",
+    "static/media/Monosij.png": "/static/media/Monosij.2189424fc3a94e63680b.png",
+    "static/media/Subham.png": "/static/media/Subham.9a37cff5addb73fc7ae7.png",
     "static/media/Debayan.png": "/static/media/Debayan.2353c1cee7da930d9bc2.png",
     "static/media/Rishab.png": "/static/media/Rishab.2561def12cd5e466a04d.png",
     "static/media/enterprises.svg": "/static/media/enterprises.c00c15c720cbb35f922ccbb7afc971a5.svg",
@@ -37,11 +37,11 @@
     "static/media/featurebox2.svg": "/static/media/featurebox2.7c91eb53f2a9f8ada3df.svg",
     "static/media/Bullet_Point.svg": "/static/media/Bullet_Point.40d0857d6d2b0e6e3131b92be0c8ef57.svg",
     "main.a755072e.css.map": "/static/css/main.a755072e.css.map",
-    "main.8adb57ce.js.map": "/static/js/main.8adb57ce.js.map",
+    "main.88d803ba.js.map": "/static/js/main.88d803ba.js.map",
     "787.328b0ba8.chunk.js.map": "/static/js/787.328b0ba8.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a755072e.css",
-    "static/js/main.8adb57ce.js"
+    "static/js/main.88d803ba.js"
   ]
 }
