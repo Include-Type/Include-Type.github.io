@@ -1,34 +1,54 @@
 import React, { useState } from "react";
+import { ToDo } from "../UserDashboard";
 import "./ListOfItems.css";
 
-export default function ListOfItems() {
-  const [users] = useState([
-    { id: 1, Date: "2/1/2022", Tasks: "complete task A" },
-    { id: 2, Date: "8/1/2022", Tasks: "complete task B" },
-    { id: 3, Date: "15/1/2022", Tasks: "complete task C" },
-    { id: 4, Date: "6/1/2022", Tasks: "complete task D" },
-    { id: 5, Date: "9/1/2022", Tasks: "complete task E" },
-  ]);
+interface ListProps {
+  toDos: ToDo[];
+  setToDos: React.Dispatch<React.SetStateAction<ToDo[]>>;
+  saveToDos: (data: ToDo[]) => void;
+}
+
+export default function ListOfItems(props: ListProps) {
+  const [fuse, setFuse] = useState<number>(1);
+
+  function removeToDo(toDo: ToDo): void {
+    let toDos: ToDo[] = props.toDos;
+    const index: number = toDos.indexOf(toDo);
+    toDos.splice(index, 1);
+    props.setToDos(toDos);
+    props.saveToDos(toDos);
+    setFuse((prev) => prev + 1);
+  }
 
   return (
     <div className="dashboard_list_container">
-      <table className="table table-striped table-bordered">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Tasks</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users &&
-            users.map((user) => (
-              <tr key={user.id}>
-                <td>{user.Date}</td>
-                <td>{user.Tasks}</td>
+      {props.toDos.length > 0 && fuse > 0 ? (
+        <table className="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Tasks</th>
+            </tr>
+          </thead>
+          <tbody>
+            {props.toDos.map((toDo) => (
+              <tr key={toDo.agenda}>
+                <td style={{ color: `${toDo.color}` }}>{toDo.date}</td>
+                <td style={{ color: `${toDo.color}` }}>{toDo.agenda}</td>
+                <td
+                  style={{ color: "red", cursor: "pointer" }}
+                  title="Remove"
+                  onClick={() => removeToDo(toDo)}
+                >
+                  X
+                </td>
               </tr>
             ))}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      ) : (
+        <p style={{ textAlign: "center", fontSize: "1.5em" }}>Empty</p>
+      )}
     </div>
   );
 }

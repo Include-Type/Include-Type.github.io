@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "./CalendarForm.css";
 
+interface CalendarFormProps {
+  setDateAndAgenda: (agenda: string) => void;
+}
+
 let formElements = [
   {
     label: "Agenda",
@@ -8,7 +12,7 @@ let formElements = [
   },
 ];
 
-export default function CalendarForm() {
+export default function CalendarForm(props: CalendarFormProps) {
   const [formData, setFormData] = useState({} as any);
 
   const handleChange = (value: string, key: string) => {
@@ -19,7 +23,8 @@ export default function CalendarForm() {
     if (isFormInValid()) {
       return;
     }
-    alert(JSON.stringify(formData));
+
+    props.setDateAndAgenda(formData.agenda);
   };
 
   const isFormInValid = () => {
@@ -40,7 +45,7 @@ export default function CalendarForm() {
         <div className="event">Enter Your Event</div>
         {formElements.map((formElement) => {
           return (
-            <div>
+            <div key={formElement.key}>
               {formElement.label}
               <input
                 value={formData[formElement.key]}

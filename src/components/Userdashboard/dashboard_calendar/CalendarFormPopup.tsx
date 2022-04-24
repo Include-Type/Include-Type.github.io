@@ -1,6 +1,6 @@
 import { PopupSetting } from "./PopupSetting";
 import { useState } from "react";
-import CalendarForm from "./CalendarForm";
+// import CalendarForm from "./CalendarForm";
 
 function Mainpopup() {
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -12,7 +12,7 @@ function Mainpopup() {
       </main>
 
       <PopupSetting trigger={buttonPopup} setTrigger={setButtonPopup}>
-        <CalendarForm />
+        {/* <CalendarForm /> */}
       </PopupSetting>
     </div>
   );
