@@ -10,7 +10,7 @@ import AdminPageProject from "./admin-page-project/AdminPageProject";
 import "../Projectlist/Projectlist.css";
 
 const addButtonStyle: CSSProperties = {
-  width: "11vw",
+  width: "13vw",
   height: "4.5vh",
   margin: 10,
   fontSize: "1vw",
