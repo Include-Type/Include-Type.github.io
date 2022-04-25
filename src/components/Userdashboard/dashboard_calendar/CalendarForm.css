@@ -1,14 +1,31 @@
 .calendar_form .event {
-  margin: 2%;
+  /* margin: 2%; */
+  margin-bottom: 3%;
+  font-weight: bold;
 }
 
-.calendar_form button {
-  display: flex;
-  background-color: rgb(118, 208, 224);
-  border-radius: 10px;
-  border: 4px 1px solid;
-  color: #000000;
-  font-size: 15px;
+.calendar_form .event_input {
+  /* background-color: blue; */
+  margin-bottom: 5%;
+}
+
+.calendar_form .event_input input {
+  width: 90%;
+  padding: 1%;
+  /* border-radius: 10px; */
+  /* border: 2px solid black; */
+}
+
+.calendar_form .submit_button {
+  /* display: flex; */
+  text-align: center;
+  padding: 0.5% 1%;
+  background-color: limegreen;
+  border-radius: 20px;
+  border: 2px solid black;
+  color: black;
+  font-weight: bold;
+  font-size: 100%;
   width: 100px;
   transition: all 0.5s;
   cursor: pointer;
