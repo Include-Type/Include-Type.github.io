@@ -42,11 +42,11 @@ export default function CalendarForm(props: CalendarFormProps) {
   return (
     <div className="calendar_form">
       <form>
-        <div className="event">Enter Your Event</div>
+        <div className="event">Enter Your Event:</div>
         {formElements.map((formElement) => {
           return (
-            <div key={formElement.key}>
-              {formElement.label}
+            <div key={formElement.key} className="event_input">
+              {/* {formElement.label} */}
               <input
                 value={formData[formElement.key]}
                 onChange={(e) => {
@@ -56,7 +56,7 @@ export default function CalendarForm(props: CalendarFormProps) {
             </div>
           );
         })}
-        <button onClick={submit}>Submit</button>
+        <button onClick={submit} className="submit_button">Submit</button>
       </form>
     </div>
   );

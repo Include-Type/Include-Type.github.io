@@ -1,5 +1,6 @@
 import React, { Dispatch } from "react";
 import "./PopupSetting.css";
+import CancelRoundedIcon from "@mui/icons-material/CancelRounded";
 
 interface PopupSetting2Props {
   setDatePick: Dispatch<React.SetStateAction<boolean>>;
@@ -17,7 +18,7 @@ function PopupSetting2(props: PopupSetting2Props) {
     <div className="popup">
       <div className="popup-inner">
         <button className="close-btn" onClick={() => props.setDatePick(false)}>
-          close
+          <CancelRoundedIcon />
         </button>
         {props.children}
       </div>

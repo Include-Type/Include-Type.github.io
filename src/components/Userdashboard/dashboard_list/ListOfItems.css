@@ -1,5 +1,13 @@
 .dashboard_list_container {
+  position: relative;
+  width: 100%;
   margin-top: 10%;
   font-family: "Nunito";
   border-radius: 10px;
+}
+
+.dashboard_list_container .table {
+  word-wrap: break-word;
+  text-align: justify;
+  
 }

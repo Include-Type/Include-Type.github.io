@@ -1,14 +1,14 @@
 .todolist{
-    width: 27%;
-    height: 80%;
+    width: 32%;
+    height: 95%;
     position: relative;
-    overflow: hidden;
-    border-radius: 5%;
+    overflow: auto;
+    border-radius: 20px;
     content: '';
     background: inherit;
-    margin-left: 39%;
+    margin-left: 36%;
     background-color: var(--glass_light);
-    bottom: 151%;
+    bottom: 154%;
 }
 .todolist .text-center{
     /* text-align: center; */
