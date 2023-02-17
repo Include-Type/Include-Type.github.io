@@ -47,7 +47,7 @@ export default function SignUp(props: SignUpProps) {
     setSignupState("initiated");
     e.preventDefault();
     try {
-      const response = await fetch("https://include-type.herokuapp.com/api/user/register", {
+      const response = await fetch("https://backend-api-pms.onrender.com/api/user/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -74,7 +74,7 @@ export default function SignUp(props: SignUpProps) {
     };
     // console.log(userDto);
     try {
-      const response = await fetch("https://include-type.herokuapp.com/api/user/login", {
+      const response = await fetch("https://backend-api-pms.onrender.com/api/user/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -101,7 +101,7 @@ export default function SignUp(props: SignUpProps) {
 
   async function checkUsername(key: string): Promise<void> {
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/user/checkforuser/${key}`);
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/user/checkforuser/${key}`);
       if (response.ok) {
         const result: string = await response.text();
         if (result.toLowerCase() === "false") {
@@ -134,7 +134,7 @@ export default function SignUp(props: SignUpProps) {
 
   async function checkEmail(key: string): Promise<void> {
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/user/checkforuser/${key}`);
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/user/checkforuser/${key}`);
       if (response.ok) {
         const result: string = await response.text();
         if (result.toLowerCase() === "false") {

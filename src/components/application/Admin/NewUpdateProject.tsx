@@ -111,7 +111,7 @@ export default function NewUpdateProject(props: NewUpdateProjectProps) {
   useEffect(() => {
     async function getProjectDetails(): Promise<void> {
       try {
-        const response = await fetch(`https://include-type.herokuapp.com/api/project/getprojectdetails/${params.projName}&${props.user.username}`, {
+        const response = await fetch(`https://backend-api-pms.onrender.com/api/project/getprojectdetails/${params.projName}&${props.user.username}`, {
           credentials: "include"
         });
         if (response.ok) {
@@ -143,7 +143,7 @@ export default function NewUpdateProject(props: NewUpdateProjectProps) {
   async function createProject(): Promise<void> {
     setStatus("started");
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/project/addproject/${props.user.username}`, {
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/project/addproject/${props.user.username}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -186,7 +186,7 @@ export default function NewUpdateProject(props: NewUpdateProjectProps) {
     }
 
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/project/updateproject/${params.projName}`, {
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/project/updateproject/${params.projName}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -235,7 +235,7 @@ export default function NewUpdateProject(props: NewUpdateProjectProps) {
 
   async function addProjMember(userKey: string, userRole: string): Promise<void> {
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/user/getuser/${userKey}`, {
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/user/getuser/${userKey}`, {
         credentials: "include",
       }
       );
@@ -278,7 +278,7 @@ export default function NewUpdateProject(props: NewUpdateProjectProps) {
     setStatus("started");
     e.preventDefault();
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/project/updateprojectmembers/${params.projName}`, {
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/project/updateprojectmembers/${params.projName}`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -328,7 +328,7 @@ export default function NewUpdateProject(props: NewUpdateProjectProps) {
     projectTask.author = props.user.username;
 
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/projecttask/addtask`, {
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/projecttask/addtask`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

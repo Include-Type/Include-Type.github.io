@@ -51,7 +51,7 @@ export default function ProjectDetails(props: ProjectDetailsProps) {
     useEffect(() => {
         async function getProjectDetails(): Promise<void> {
             try {
-                const response = await fetch(`https://include-type.herokuapp.com/api/project/getprojectdetails/${params.projName}&${props.user.username}`, {
+                const response = await fetch(`https://backend-api-pms.onrender.com/api/project/getprojectdetails/${params.projName}&${props.user.username}`, {
                     credentials: "include"
                 });
                 if (response.ok) {

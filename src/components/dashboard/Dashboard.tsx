@@ -18,7 +18,7 @@ function Dashboard(props: DashboardProps): ReactElement {
     // var navigate = useNavigate();
 
     async function logout(): Promise<void> {
-        await fetch("https://include-type.herokuapp.com/api/user/logout", {
+        await fetch("https://backend-api-pms.onrender.com/api/user/logout", {
             method: "POST",
             credentials: "include"
         });

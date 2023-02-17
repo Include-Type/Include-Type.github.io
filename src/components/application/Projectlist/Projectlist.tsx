@@ -23,7 +23,7 @@ export default function Projectlist(props: ProjectlistProps): ReactElement {
     useEffect(() => {
         async function getProjectsByUsername(): Promise<void> {
             try {
-                const response = await fetch(`https://include-type.herokuapp.com/api/project/getallprojectsbyusername/${props.user.username}`, {
+                const response = await fetch(`https://backend-api-pms.onrender.com/api/project/getallprojectsbyusername/${props.user.username}`, {
                     credentials: "include"
                 });
                 if (response.ok) {

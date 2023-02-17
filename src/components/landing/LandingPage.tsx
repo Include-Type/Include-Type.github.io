@@ -64,7 +64,7 @@ export default function LandingPage(): ReactElement {
     async function getAuthenticatedUser(): Promise<void> {
       try {
         const response = await fetch(
-          "https://include-type.herokuapp.com/api/user/authenticateduser/",
+          "https://backend-api-pms.onrender.com/api/user/authenticateduser/",
           {
             credentials: "include",
           }

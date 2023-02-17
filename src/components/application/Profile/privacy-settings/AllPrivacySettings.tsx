@@ -172,7 +172,7 @@ export default function AllPrivacySettings({ privacy, setPrivacy }: AllPrivacySe
 
     setPrivacy(updatedPrivacies);
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/user/updateuserprivacyprofile/${privacy.userId}`, {
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/user/updateuserprivacyprofile/${privacy.userId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",

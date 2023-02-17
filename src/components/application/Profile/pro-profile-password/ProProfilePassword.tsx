@@ -132,7 +132,7 @@ export default function ProProfilePassword({
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://include-type.herokuapp.com/api/user/updateuserprofessionalprofile/${professionalProfile.userId}`,
+        `https://backend-api-pms.onrender.com/api/user/updateuserprofessionalprofile/${professionalProfile.userId}`,
         {
           method: "PUT",
           headers: {
@@ -163,7 +163,7 @@ export default function ProProfilePassword({
     e.preventDefault();
     try {
       const verifier = await fetch(
-        `https://include-type.herokuapp.com/api/user/checkpassword/${personalProfile.username}-${oldPassword}`
+        `https://backend-api-pms.onrender.com/api/user/checkpassword/${personalProfile.username}-${oldPassword}`
       );
       if (verifier.ok) {
         const isValid: string = await verifier.text();
@@ -193,7 +193,7 @@ export default function ProProfilePassword({
     setPersonalProfile(personalProfile);
     try {
       const response = await fetch(
-        `https://include-type.herokuapp.com/api/user/updateuser/${personalProfile.username}`,
+        `https://backend-api-pms.onrender.com/api/user/updateuser/${personalProfile.username}`,
         {
           method: "PUT",
           headers: {

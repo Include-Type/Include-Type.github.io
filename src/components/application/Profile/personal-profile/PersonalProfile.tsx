@@ -132,7 +132,7 @@ export default function PersonalProfile({
     e.preventDefault();
     try {
       const response = await fetch(
-        `https://include-type.herokuapp.com/api/user/updateuser/${personalProfile.username}`,
+        `https://backend-api-pms.onrender.com/api/user/updateuser/${personalProfile.username}`,
         {
           method: "PUT",
           headers: {

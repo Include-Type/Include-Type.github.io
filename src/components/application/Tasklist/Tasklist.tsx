@@ -64,7 +64,7 @@ export default function Tasklist(props: TasklistProps): ReactElement {
     useEffect(() => {
         async function getTasksByUsername(): Promise<void> {
             try {
-                const response = await fetch(`https://include-type.herokuapp.com/api/projecttask/gettasksbyusername/${props.user.username}`, {
+                const response = await fetch(`https://backend-api-pms.onrender.com/api/projecttask/gettasksbyusername/${props.user.username}`, {
                     credentials: "include"
                 });
                 if (response.ok) {
@@ -96,7 +96,7 @@ export default function Tasklist(props: TasklistProps): ReactElement {
         };
 
         try {
-            const response = await fetch(`https://include-type.herokuapp.com/api/projecttask/updatetasksbyusername/${props.user.username}`, {
+            const response = await fetch(`https://backend-api-pms.onrender.com/api/projecttask/updatetasksbyusername/${props.user.username}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
