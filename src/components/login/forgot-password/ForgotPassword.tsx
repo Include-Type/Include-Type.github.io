@@ -22,8 +22,11 @@ export default function ForgotPassword() {
         credentials: "include",
         body: JSON.stringify(requestDto)
       });
-      const jsonText: string = await response.text();
-      setRequestState(jsonText.toLowerCase());
+      if (response.ok) {
+        setRequestState("success");
+      } else {
+        throw new Error();
+      }
     } catch (error) {
       setRequestState("failed");
     }

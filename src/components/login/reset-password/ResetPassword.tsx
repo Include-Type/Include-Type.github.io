@@ -32,8 +32,11 @@ export default function ResetPassword() {
                 credentials: "include",
                 body: JSON.stringify(verificationDto)
             });
-            const jsonText: string = await response.text();
-            setRequestState(jsonText.toLowerCase());
+            if (response.ok) {
+                setRequestState("success");
+            } else {
+                throw new Error();
+            }
         } catch (error) {
             setRequestState("failed");
         }
