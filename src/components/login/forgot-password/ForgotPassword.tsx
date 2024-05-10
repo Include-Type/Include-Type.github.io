@@ -14,7 +14,7 @@ export default function ForgotPassword() {
     setRequestState("initiated");
     e.preventDefault();
     try {
-      const response = await fetch(`https://include-type.herokuapp.com/api/user/requestpasswordreset`, {
+      const response = await fetch(`https://backend-api-pms.onrender.com/api/user/requestpasswordreset`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
